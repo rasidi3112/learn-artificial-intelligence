@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar AI - Platform Pembelajaran Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --success: #4caf50;
+            --danger: #f44336;
+            --warning: #ffc107;
+            --light: #f5f7fa;
+            --dark: #1a1a1a;
+            --text-light: #666;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .user-profile {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-profile:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .level-badge {
+            background: #ffd700;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .theme-toggle, .notifications-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover, .notifications-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .notification-badge {
+            position: absolute;
+            background: #f44336;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            top: -5px;
+            right: -5px;
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .tab-btn.active {
+            background: var(--warning);
+            color: #333;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        body.dark-mode .content {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .dashboard-card h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .dashboard-card.alt1 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .dashboard-card.alt2 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .dashboard-card.alt3 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        body.dark-mode .search-input {
+            background: #3a3a3a;
+            border-color: #555;
+            color: white;
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* ===== LESSON CARDS ===== */
+        .lessons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border-left: 5px solid var(--primary);
+        }
+
+        .lesson-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .lesson-card.completed {
+            border-left-color: var(--success);
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .lesson-title {
+            font-size: 1.4em;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .lesson-status {
+            background: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .lesson-status.pending {
+            background: var(--warning);
+            color: #333;
+        }
+
+        .lesson-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .lesson-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .favorite-btn.active {
+            color: #f44336;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-header h3 {
+            color: var(--primary);
+        }
+
+        .progress-percent {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transition: width 0.5s ease-out;
+            border-radius: 10px;
+        }
+
+        /* ===== QUIZ ===== */
+        .quiz-container {
+            display: none;
+        }
+
+        .quiz-container.active {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .quiz-counter {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        body.dark-mode .question {
+            color: white;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: #f5f5f5;
+            padding: 18px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            font-size: 1.05em;
+        }
+
+        body.dark-mode .option {
+            background: #3a3a3a;
+            color: white;
+            border-color: #555;
+        }
+
+        .option:hover {
+            background: #e8e8e8;
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        body.dark-mode .option:hover {
+            background: #4a4a4a;
+        }
+
+        .option.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.5s;
+        }
+
+        .option.wrong {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+            animation: shake 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* ===== RESULTS ===== */
+        .result-container {
+            display: none;
+            text-align: center;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .result-container.active {
+            display: block;
+        }
+
+        .result-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .result-message {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .result-message {
+            color: white;
+        }
+
+        .result-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--text-dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ===== NOTES ===== */
+        .notes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .note-card {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .note-card.pink {
+            background: linear-gradient(135deg, #ffa6c1 0%, #ff6b9d 100%);
+        }
+
+        .note-card.blue {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .note-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .note-text {
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .note-delete {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .note-delete:hover {
+            background: rgba(255,0,0,0.5);
+            color: white;
+        }
+
+        /* ===== FORUM/DISCUSSION ===== */
+        .forum-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        body.dark-mode .post {
+            background: #3a3a3a;
+            border-left-color: var(--secondary);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .post-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .post-time {
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .post-content {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        body.dark-mode .post-content {
+            color: #ccc;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+        }
+
+        .post-action {
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .post-action:hover {
+            color: var(--secondary);
+        }
+
+        /* ===== LEADERBOARD ===== */
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard-table thead {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        body.dark-mode .leaderboard-table td {
+            border-bottom-color: #555;
+        }
+
+        .leaderboard-table tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        body.dark-mode .leaderboard-table tbody tr:hover {
+            background: #3a3a3a;
+        }
+
+        .rank {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .rank-1 {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        .rank-2 {
+            color: #c0c0c0;
+        }
+
+        .rank-3 {
+            color: #cd7f32;
+        }
+
+        /* ===== CERTIFICATE ===== */
+        .certificate {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            border: 5px solid #daa520;
+            color: #333;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .certificate-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .certificate-text {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .certificate-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin: 30px 0;
+        }
+
+        .certificate-date {
+            font-size: 0.9em;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.3s;
+            position: relative;
+        }
+
+        body.dark-mode .modal-content {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        body.dark-mode .close-modal:hover {
+            color: white;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== NOTIFICATIONS ===== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-width: 400px;
+            z-index: 2000;
+            animation: slideUp 0.3s;
+        }
+
+        .notification.success {
+            border-left: 5px solid var(--success);
+        }
+
+        .notification.warning {
+            border-left: 5px solid var(--warning);
+        }
+
+        .notification.error {
+            border-left: 5px solid var(--danger);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .header-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .lessons-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate {
+                padding: 30px;
+            }
+
+            .certificate-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header>
+            <div class="header-left">
+                <h1>🤖 Belajar AI</h1>
+                <p class="subtitle">Platform Pembelajaran AI Premium untuk Pemula</p>
+            </div>
+            <div class="header-controls">
+                <div class="user-profile" onclick="showUserProfile()">
+                    <span>👤</span>
+                    <span id="userName">Pengguna</span>
+                    <span class="level-badge" id="levelBadge">Level 1</span>
+                </div>
+                <button class="notifications-btn" onclick="showNotifications()" style="position: relative;">
+                    🔔
+                    <span class="notification-badge" id="notificationCount">0</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            </div>
+        </header>
+
+        <!-- ===== TABS ===== -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab(this, 'materi')">📚 Materi</button>
+            <button class="tab-btn" onclick="showTab(this, 'quiz')">❓ Kuis</button>
+            <button class="tab-btn" onclick="showTab(this, 'catatan')">📝 Catatan</button>
+            <button class="tab-btn" onclick="showTab(this, 'forum')">💬 Forum</button>
+            <button class="tab-btn" onclick="showTab(this, 'leaderboard')">🏆 Leaderboard</button>
+            <button class="tab-btn" onclick="showTab(this, 'sertifikat')">🎖️ Sertifikat</button>
+        </div>
+
+        <div class="content">
+
+            <!-- ===== TAB: DASHBOARD/MATERI ===== -->
+            <div id="materi" class="tab-content active">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">📊 Dashboard Pembelajaran</h2>
+
+                <!-- Dashboard Cards -->
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Materi Selesai</h3>
+                        <div class="value" id="materiSelesai">0</div>
+                    </div>
+                    <div class="dashboard-card alt1">
+                        <h3>Skor Rata-Rata</h3>
+                        <div class="value" id="skorRatata">0%</div>
+                    </div>
+                    <div class="dashboard-card alt2">
+                        <h3>Streak Belajar</h3>
+                        <div class="value" id="streakBelajar">0</div>
+                    </div>
+                    <div class="dashboard-card alt3">
+                        <h3>Poin Total</h3>
+                        <div class="value" id="poinTotal">0</div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-box">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cari materi pembelajaran...">
+                    <button class="search-btn" onclick="searchMateri()">🔍 Cari</button>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <h3>Progress Pembelajaran Anda</h3>
+                        <span class="progress-percent" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Materi Cards -->
+                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">📚 Materi Pembelajaran</h2>
+                <div class="lessons-container" id="lessonsContainer">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+
+                <!-- Favorit Section -->
+                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">❤️ Materi Favorit Anda</h2>
+                <div class="lessons-container" id="favoritesContainer">
+                    <p style="grid-column: 1/-1; text-align: center; color: #999;">Belum ada materi favorit</p>
+                </div>
+            </div>
+
+            <!-- ===== TAB: QUIZ ===== -->
+            <div id="quiz" class="tab-content">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">❓ Uji Pemahaman Anda</h2>
+
+                <!-- Quiz Progress -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <h3>Progress Kuis</h3>
+                        <span class="progress-percent" id="quizProgressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="quizProgressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Questions -->
+                <div id="quizContent"></div>
+
+                <!-- Results -->
+                <div id="quizResult" class="result-container">
+                    <div class="result-icon" id="resultIcon">🎉</div>
+                    <div class="score" id="scoreDisplay">0/5</div>
+                    <div class="result-message" id="resultMessage">Selamat! Anda telah menyelesaikan kuis!</div>
+                    <button class="btn btn-primary" onclick="downloadResult()">📥 Download Hasil</button>
+                    <div class="result-buttons">
+                        <button class="btn btn-primary" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
+                        <button class="btn btn-secondary" onclick="showTab(event.target, 'materi')">📚 Kembali ke Materi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== TAB: CATATAN ===== -->
+            <div id="catatan" class="tab-content">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">📝 Catatan Pembelajaran Anda</h2>
+
+                <div style="margin-bottom: 25px;">
+                    <button class="btn btn-primary" onclick="openNoteModal()">➕ Tambah Catatan Baru</button>
+                </div>
+
+                <div class="notes-container" id="notesContainer">
+                    <p style="grid-column: 1/-1; text-align: center; color: #999;">Belum ada catatan. Mulai buat catatan Anda!</p>
+                </div>
+            </div>
+
+            <!-- ===== TAB: FORUM ===== -->
+            <div id="forum" class="tab-content">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">💬 Forum Diskusi</h2>
+
+                <div style="margin-bottom: 25px;">
+                    <button class="btn btn-primary" onclick="openPostModal()">✍️ Buat Postingan Baru</button>
+                </div>
+
+                <div class="forum-container" id="forumContainer">
+                    <p style="text-align: center; color: #999;">Belum ada postingan. Jadilah yang pertama!</p>
+                </div>
+            </div>
+
+            <!-- ===== TAB: LEADERBOARD ===== -->
+            <div id="leaderboard" class="tab-content">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">🏆 Leaderboard Pengguna</h2>
+
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Peringkat</th>
+                            <th>Nama Pengguna</th>
+                            <th>Level</th>
+                            <th>Poin</th>
+                            <th>Materi Selesai</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        <!-- Akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== TAB: SERTIFIKAT ===== -->
+            <div id="sertifikat" class="tab-content">
+                <h2 style="margin-bottom: 25px; color: var(--primary);">🎖️ Sertifikat Anda</h2>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" id="certificateBtn" onclick="downloadCertificate()" style="display: none;">📥 Download Sertifikat</button>
+                    <p style="color: #999; margin-top: 20px;" id="certificateMessage">Selesaikan semua kuis untuk mendapatkan sertifikat!</p>
+                </div>
+
+                <div id="certificateContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Add Note ===== -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('noteModal')">✕</button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">📝 Tambah Catatan</h2>
+            <input type="text" id="noteTitleInput" placeholder="Judul catatan..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; font-size: 1em;">
+            <textarea id="noteTextInput" placeholder="Isi catatan..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; min-height: 150px; font-size: 1em; font-family: inherit;"></textarea>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="addNote()" style="flex: 1;">Simpan Catatan</button>
+                <button class="btn btn-secondary" onclick="closeModal('noteModal')" style="flex: 1;">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Add Forum Post ===== -->
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('postModal')">✕</button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">✍️ Buat Postingan</h2>
+            <input type="text" id="postTitleInput" placeholder="Judul diskusi..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; font-size: 1em;">
+            <textarea id="postTextInput" placeholder="Pertanyaan atau diskusi Anda..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; min-height: 150px; font-size: 1em; font-family: inherit;"></textarea>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="addPost()" style="flex: 1;">Posting</button>
+                <button class="btn btn-secondary" onclick="closeModal('postModal')" style="flex: 1;">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: User Profile ===== -->
+    <div id="userProfileModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('userProfileModal')">✕</button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">👤 Profil Pengguna</h2>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nama Pengguna:</label>
+                <input type="text" id="userNameInput" placeholder="Masukkan nama..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em;">
+            </div>
+            <div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p><strong>Level:</strong> <span id="profileLevel">1</span></p>
+                <p><strong>Poin:</strong> <span id="profilePoints">0</span></p>
+                <p><strong>Materi Selesai:</strong> <span id="profileCompleted">0</span></p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="saveProfile()" style="flex: 1;">Simpan Profil</button>
+                <button class="btn btn-secondary" onclick="closeModal('userProfileModal')" style="flex: 1;">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== DATA STORAGE ===== 
+        const STORAGE_KEY = 'belajarAI_data';
+        const LESSONS_DATA = [
+            {
+                id: 1,
+                icon: '🎯',
+                title: '1. Apa itu Artificial Intelligence?',
+                desc: 'Pelajari konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari.',
+                content: 'Artificial Intelligence (AI) adalah simulasi kecerdasan manusia yang diprogram ke dalam mesin. AI memungkinkan komputer untuk belajar dari pengalaman, menyesuaikan dengan input baru, dan melakukan tugas-tugas yang biasanya memerlukan kecerdasan manusia. AI digunakan dalam berbagai aplikasi seperti chatbot, recommendation systems, autonomous vehicles, dan masih banyak lagi.',
+                difficulty: 'Pemula',
+                duration: '15 menit'
+            },
+            {
+                id: 2,
+                icon: '🧠',
+                title: '2. Machine Learning Dasar',
+                desc: 'Memahami konsep Machine Learning, supervised vs unsupervised learning.',
+                content: 'Machine Learning adalah cabang AI yang memungkinkan sistem untuk belajar dan berkembang dari pengalaman tanpa diprogram secara eksplisit. Ada dua jenis utama: Supervised Learning (belajar dari data berlabel) dan Unsupervised Learning (menemukan pola dalam data tanpa label). Contoh aplikasi ML termasuk classification, regression, clustering, dan recommendation systems.',
+                difficulty: 'Menengah',
+                duration: '20 menit'
+            },
+            {
+                id: 3,
+                icon: '🔮',
+                title: '3. Deep Learning dan Neural Networks',
+                desc: 'Pengenalan deep learning dan bagaimana neural networks bekerja.',
+                content: 'Deep Learning menggunakan Neural Networks dengan banyak layer untuk memproses data kompleks. Terinspirasi dari cara kerja otak manusia, neural networks terdiri dari node-node yang saling terhubung dan dapat belajar pola yang sangat kompleks. Deep Learning telah merevolusi bidang seperti computer vision, natural language processing, dan speech recognition.',
+                difficulty: 'Lanjut',
+                duration: '25 menit'
+            },
+            {
+                id: 4,
+                icon: '💬',
+                title: '4. Natural Language Processing (NLP)',
+                desc: 'Bagaimana AI memahami dan memproses bahasa manusia.',
+                content: 'Natural Language Processing (NLP) memungkinkan komputer untuk memahami, menginterpretasi, dan menghasilkan bahasa manusia. NLP mencakup tokenization, stemming, named entity recognition, sentiment analysis, dan machine translation. Contoh penerapannya: chatbot, penerjemah otomatis, voice assistants, dan text summarization.',
+                difficulty: 'Menengah',
+                duration: '18 menit'
+            },
+            {
+                id: 5,
+                icon: '👁️',
+                title: '5. Computer Vision',
+                desc: 'Teknologi AI untuk mengenali dan memproses gambar dan video.',
+                content: 'Computer Vision memungkinkan komputer untuk mengidentifikasi dan memproses gambar dengan cara yang sama seperti penglihatan manusia. Teknologi ini digunakan dalam pengenalan wajah, autonomous vehicles, medical imaging, dan quality control industri. Teknik utama mencakup image classification, object detection, face recognition, dan image segmentation.',
+                difficulty: 'Lanjut',
+                duration: '22 menit'
+            }
+        ];
+
+        const QUIZ_DATA = [
+            { question: '1. Apa kepanjangan dari AI?', options: ['Advanced Integration', 'Artificial Intelligence', 'Automated Information', 'Applied Intelligence'], correct: 1 },
+            { question: '2. Machine Learning adalah bagian dari?', options: ['Database Management', 'Artificial Intelligence', 'Web Development', 'Network Security'], correct: 1 },
+            { question: '3. Apa yang dimaksud dengan Neural Network?', options: ['Jaringan komputer', 'Model yang terinspirasi dari otak manusia', 'Sistem operasi', 'Bahasa pemrograman'], correct: 1 },
+            { question: '4. NLP digunakan untuk?', options: ['Mengedit gambar', 'Bermain game', 'Memproses bahasa manusia', 'Membuat musik'], correct: 2 },
+            { question: '5. Computer Vision memungkinkan AI untuk?', options: ['Mendengar suara', 'Mengenali gambar dan objek', 'Menulis kode', 'Mengirim email'], correct: 1 }
+        ];
+
+        // ===== STATE MANAGEMENT ===== 
+        let appData = {
+            userName: 'Pengguna Baru',
+            level: 1,
+            points: 0,
+            completedLessons: [],
+            favorites: [],
+            notes: [],
+            forum: [],
+            scores: [],
+            leaderboard: [
+                { rank: 1, name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 },
+                { rank: 2, name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 },
+                { rank: 3, name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }
+            ],
+            darkMode: false
+        };
+
+        let quizState = {
+            currentQuestion: 0,
+            score: 0,
+            answered: new Set()
+        };
+
+        // ===== INITIALIZATION ===== 
+        function init() {
+            loadData();
+            renderLessons();
+            initializeQuiz();
+            renderLeaderboard();
+            updateDashboard();
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                appData = JSON.parse(saved);
+            }
+            document.getElementById('userName').textContent = appData.userName;
+            updateLevelBadge();
+        }
+
+        function saveData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+        }
+
+        // ===== TAB SWITCHING ===== 
+        function showTab(btn, tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // ===== THEME TOGGLE ===== 
+        function toggleTheme() {
+            appData.darkMode = !appData.darkMode;
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.theme-toggle').textContent = appData.darkMode ? '☀️' : '🌙';
+            saveData();
+        }
+
+        // ===== LESSONS ===== 
+        function renderLessons() {
+            const container = document.getElementById('lessonsContainer');
+            container.innerHTML = LESSONS_DATA.map(lesson => {
+                const isCompleted = appData.completedLessons.includes(lesson.id);
+                const isFavorite = appData.favorites.includes(lesson.id);
+                return `
+                    <div class="lesson-card ${isCompleted ? 'completed' : ''}" onclick="viewLesson(${lesson.id})">
+                        <div class="lesson-header">
+                            <div class="lesson-title">
+                                <span>${lesson.icon}</span>
+                                <span>${lesson.title}</span>
+                            </div>
+                            <div>
+                                ${isCompleted ? '<span class="lesson-status">✓ Selesai</span>' : '<span class="lesson-status pending">📌 Baru</span>'}
+                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                            </div>
+                        </div>
+                        <div class="lesson-desc">${lesson.desc}</div>
+                        <div class="lesson-footer">
+                            <span>${lesson.difficulty}</span>
+                            <span>⏱️ ${lesson.duration}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            renderFavorites();
+        }
+
+        function viewLesson(id) {
+            const lesson = LESSONS_DATA.find(l => l.id === id);
+            if (lesson) {
+                showNotification('success', `📚 Membuka: ${lesson.title}`);
+                if (!appData.completedLessons.includes(id)) {
+                    appData.completedLessons.push(id);
+                    appData.points += 50;
+                    saveData();
+                    updateDashboard();
+                    renderLessons();
+                }
+                alert(`📖 ${lesson.title}\n\n${lesson.content}`);
+            }
+        }
+
+        function toggleFavorite(e, id) {
+            e.stopPropagation();
+            const index = appData.favorites.indexOf(id);
+            if (index > -1) {
+                appData.favorites.splice(index, 1);
+            } else {
+                appData.favorites.push(id);
+            }
+            saveData();
+            renderLessons();
+        }
+
+        function renderFavorites() {
+            const container = document.getElementById('favoritesContainer');
+            const favorites = LESSONS_DATA.filter(l => appData.favorites.includes(l.id));
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Belum ada materi favorit</p>';
+                return;
+            }
+
+            container.innerHTML = favorites.map(lesson => `
+                <div class="lesson-card" onclick="viewLesson(${lesson.id})">
+                    <div class="lesson-header">
+                        <div class="lesson-title">
+                            <span>${lesson.icon}</span>
+                            <span>${lesson.title}</span>
+                        </div>
+                        <button class="favorite-btn active" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                    </div>
+                    <div class="lesson-desc">${lesson.desc}</div>
+                </div>
+            `).join('');
+        }
+
+        function searchMateri() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query.trim() === '') {
+                renderLessons();
+                return;
+            }
+
+            const results = LESSONS_DATA.filter(l => 
+                l.title.toLowerCase().includes(query) || 
+                l.desc.toLowerCase().includes(query)
+            );
+
+            const container = document.getElementById('lessonsContainer');
+            if (results.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Tidak ada materi yang sesuai dengan pencarian Anda</p>';
+                return;
+            }
+
+            container.innerHTML = results.map(lesson => {
+                const isCompleted = appData.completedLessons.includes(lesson.id);
+                const isFavorite = appData.favorites.includes(lesson.id);
+                return `
+                    <div class="lesson-card ${isCompleted ? 'completed' : ''}" onclick="viewLesson(${lesson.id})">
+                        <div class="lesson-header">
+                            <div class="lesson-title">
+                                <span>${lesson.icon}</span>
+                                <span>${lesson.title}</span>
+                            </div>
+                            <div>
+                                ${isCompleted ? '<span class="lesson-status">✓ Selesai</span>' : ''}
+                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                            </div>
+                        </div>
+                        <div class="lesson-desc">${lesson.desc}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ===== QUIZ ===== 
+        function initializeQuiz() {
+            const quizContainer = document.getElementById('quizContent');
+            quizContainer.innerHTML = QUIZ_DATA.map((q, idx) => `
+                <div class="quiz-container ${idx === 0 ? 'active' : ''}" id="q${idx}">
+                    <div class="quiz-header">
+                        <div class="question">${q.question}</div>
+                        <div class="quiz-counter">Soal ${idx + 1} / ${QUIZ_DATA.length}</div>
+                    </div>
+                    <div class="options">
+                        ${q.options.map((opt, optIdx) => `
+                            <div class="option" onclick="checkAnswer(${idx}, ${optIdx}, this)">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function checkAnswer(qIdx, optIdx, element) {
+            if (quizState.answered.has(qIdx)) return;
+
+            const question = QUIZ_DATA[qIdx];
+            const isCorrect = optIdx === question.correct;
+            const container = element.parentElement;
+            const options = container.querySelectorAll('.option');
+
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                quizState.score++;
+                showNotification('success', '✅ Jawaban Benar!');
+            } else {
+                element.classList.add('wrong');
+                options[question.correct].classList.add('correct');
+                showNotification('error', '❌ Jawaban Salah!');
+            }
+
+            quizState.answered.add(qIdx);
+            updateQuizProgress();
+
+            setTimeout(() => {
+                if (qIdx < QUIZ_DATA.length - 1) {
+                    document.getElementById('q' + qIdx).classList.remove('active');
+                    document.getElementById('q' + (qIdx + 1)).classList.add('active');
+                } else {
+                    showQuizResult();
+                }
+            }, 1500);
+        }
+
+        function updateQuizProgress() {
+            const progress = (quizState.answered.size / QUIZ_DATA.length) * 100;
+            document.getElementById('quizProgressBar').style.width = progress + '%';
+            document.getElementById('quizProgressPercent').textContent = Math.round(progress) + '%';
+        }
+
+        function showQuizResult() {
+            document.querySelectorAll('.quiz-container').forEach(q => q.classList.remove('active'));
+            const result = document.getElementById('quizResult');
+            result.classList.add('active');
+
+            const percentage = (quizState.score / QUIZ_DATA.length) * 100;
+            document.getElementById('scoreDisplay').textContent = `${quizState.score}/${QUIZ_DATA.length}`;
+            
+            let message = '';
+            let icon = '';
+            if (percentage === 100) {
+                message = '🎉 Sempurna! Anda menguasai semua materi!';
+                icon = '🏆';
+                appData.points += 500;
+            } else if (percentage >= 80) {
+                message = '👏 Luar biasa! Nilai Anda sangat bagus!';
+                icon = '⭐';
+                appData.points += 400;
+            } else if (percentage >= 60) {
+                message = '😊 Cukup baik! Terus belajar untuk hasil lebih baik!';
+                icon = '📚';
+                appData.points += 300;
+            } else {
+                message = '💪 Jangan menyerah! Coba lagi untuk hasil lebih baik!';
+                icon = '🎯';
+                appData.points += 100;
+            }
+
+            document.getElementById('resultIcon').textContent = icon;
+            document.getElementById('resultMessage').textContent = message;
+            
+            appData.scores.push({ date: new Date().toLocaleDateString('id-ID'), score: percentage });
+            updateLevelAndAchievements();
+            saveData();
+            updateDashboard();
+        }
+
+        function resetQuiz() {
+            quizState = {
+                currentQuestion: 0,
+                score: 0,
+                answered: new Set()
+            };
+            document.getElementById('quizResult').classList.remove('active');
+            document.getElementById('q0').classList.add('active');
+            initializeQuiz();
+            updateQuizProgress();
+        }
+
+        function downloadResult() {
+            const content = `LAPORAN HASIL KUIS\n\nNama: ${appData.userName}\nTanggal: ${new Date().toLocaleDateString('id-ID')}\nSkor: ${quizState.score}/${QUIZ_DATA.length}\nPersentase: ${Math.round((quizState.score/QUIZ_DATA.length)*100)}%\n\nSelamat!`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `hasil-kuis-${Date.now()}.txt`;
+            a.click();
+        }
+
+        // ===== NOTES ===== 
+        function openNoteModal() {
+            document.getElementById('noteModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function addNote() {
+            const title = document.getElementById('noteTitleInput').value;
+            const text = document.getElementById('noteTextInput').value;
+
+            if (!title || !text) {
+                showNotification('warning', '⚠️ Judul dan isi catatan harus diisi!');
+                return;
+            }
+
+            const note = {
+                id: Date.now(),
+                title,
+                text,
+                date: new Date().toLocaleDateString('id-ID')
+            };
+
+            appData.notes.push(note);
+            saveData();
+            renderNotes();
+            closeModal('noteModal');
+            document.getElementById('noteTitleInput').value = '';
+            document.getElementById('noteTextInput').value = '';
+            showNotification('success', '✅ Catatan berhasil ditambahkan!');
+        }
+
+        function renderNotes() {
+            const container = document.getElementById('notesContainer');
+            if (appData.notes.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Belum ada catatan</p>';
+                return;
+            }
+
+            const colors = ['', 'pink', 'blue'];
+            container.innerHTML = appData.notes.map((note, idx) => `
+                <div class="note-card ${colors[idx % 3]}">
+                    <div class="note-title">${note.title}</div>
+                    <div class="note-text">${note.text}</div>
+                    <small>${note.date}</small>
+                    <button class="note-delete" onclick="deleteNote(${note.id})">🗑️ Hapus</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteNote(id) {
+            appData.notes = appData.notes.filter(n => n.id !== id);
+            saveData();
+            renderNotes();
+            showNotification('success', '✅ Catatan berhasil dihapus!');
+        }
+
+        // ===== FORUM ===== 
+        function openPostModal() {
+            document.getElementById('postModal').classList.add('active');
+        }
+
+        function addPost() {
+            const title = document.getElementById('postTitleInput').value;
+            const text = document.getElementById('postTextInput').value;
+
+            if (!title || !text) {
+                showNotification('warning', '⚠️ Judul dan isi postingan harus diisi!');
+                return;
+            }
+
+            const post = {
+                id: Date.now(),
+                author: appData.userName,
+                title,
+                text,
+                date: new Date().toLocaleDateString('id-ID'),
+                replies: 0
+            };
+
+            appData.forum.push(post);
+            saveData();
+            renderForum();
+            closeModal('postModal');
+            document.getElementById('postTitleInput').value = '';
+            document.getElementById('postTextInput').value = '';
+            showNotification('success', '✅ Postingan berhasil dibuat!');
+        }
+
+        function renderForum() {
+            const container = document.getElementById('forumContainer');
+            if (appData.forum.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999;">Belum ada postingan</p>';
+                return;
+            }
+
+            container.innerHTML = appData.forum.reverse().map(post => `
+                <div class="post">
+                    <div class="post-header">
+                        <span class="post-author">${post.author}</span>
+                        <span class="post-time">${post.date}</span>
+                    </div>
+                    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">${post.title}</div>
+                    <div class="post-content">${post.text}</div>
+                    <div class="post-actions">
+                        <span class="post-action">👍 Suka</span>
+                        <span class="post-action">💬 Balasan (${post.replies})</span>
+                        <span class="post-action" onclick="deletePost(${post.id})">🗑️ Hapus</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deletePost(id) {
+            appData.forum = appData.forum.filter(p => p.id !== id);
+            saveData();
+            renderForum();
+            showNotification('success', '✅ Postingan berhasil dihapus!');
+        }
+
+        // ===== LEADERBOARD ===== 
+        function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboardBody');
+            tbody.innerHTML = appData.leaderboard.map((user, idx) => `
+                <tr>
+                    <td class="rank rank-${idx + 1}">${idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx + 1}</td>
+                    <td>${user.name}</td>
+                    <td>⭐ Level ${user.level}</td>
+                    <td><strong>${user.points}</strong></td>
+                    <td>${user.completed} Materi</td>
+                </tr>
+            `).join('');
+        }
+
+        // ===== DASHBOARD ===== 
+        function updateDashboard() {
+            document.getElementById('materiSelesai').textContent = appData.completedLessons.length;
+            document.getElementById('skorRatata').textContent = appData.scores.length > 0 ? 
+                Math.round(appData.scores.reduce((a, b) => a + b.score, 0) / appData.scores.length) + '%' : '0%';
+            document.getElementById('streakBelajar').textContent = appData.completedLessons.length;
+            document.getElementById('poinTotal').textContent = appData.points;
+
+            const progress = (appData.completedLessons.length / LESSONS_DATA.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+        }
+
+        // ===== LEVEL & ACHIEVEMENTS ===== 
+        function updateLevelAndAchievements() {
+            const newLevel = Math.floor(appData.points / 500) + 1;
+            if (newLevel > appData.level) {
+                appData.level = newLevel;
+                showNotification('success', `🎉 Naik ke Level ${newLevel}!`);
+                updateLevelBadge();
+            }
+        }
+
+        function updateLevelBadge() {
+            document.getElementById('levelBadge').textContent = `Level ${appData.level}`;
+        }
+
+        // ===== USER PROFILE ===== 
+        function showUserProfile() {
+            document.getElementById('userNameInput').value = appData.userName;
+            document.getElementById('profileLevel').textContent = appData.level;
+            document.getElementById('profilePoints').textContent = appData.points;
+            document.getElementById('profileCompleted').textContent = appData.completedLessons.length;
+            document.getElementById('userProfileModal').classList.add('active');
+        }
+
+        function saveProfile() {
+            const newName = document.getElementById('userNameInput').value;
+            if (newName.trim()) {
+                appData.userName = newName;
+                saveData();
+                document.getElementById('userName').textContent = newName;
+                closeModal('userProfileModal');
+                showNotification('success', '✅ Profil berhasil diperbarui!');
+            }
+        }
+
+        // ===== CERTIFICATE ===== 
+        function downloadCertificate() {
+            if (appData.completedLessons.length === LESSONS_DATA.length) {
+                const content = `
+╔════════════════════════════════════════════════════════════════════╗
+║                        SERTIFIKAT PENGHARGAAN                       ║
+║                                                                    ║
+║  Dengan hormat kami umumkan bahwa:                                ║
+║                                                                    ║
+║                      ${appData.userName.padEnd(50)}     ║
+║                                                                    ║
+║  Telah berhasil menyelesaikan Program Pembelajaran:              ║
+║               "BELAJAR AI - PLATFORM PEMBELAJARAN"                ║
+║                                                                    ║
+║  Tanggal Penyelesaian: ${new Date().toLocaleDateString('id-ID').padEnd(38)} ║
+║  Skor Akhir: ${appData.scores.length > 0 ? 
+                (Math.round(appData.scores.reduce((a, b) => a + b.score, 0) / appData.scores.length)).toString().padEnd(44) :
+                'Belum ada skor'.padEnd(44)} ║
+║  Total Poin: ${appData.points.toString().padEnd(48)} ║
+║  Level Akhir: ${appData.level.toString().padEnd(47)} ║
+║                                                                    ║
+║             Semoga pengetahuan yang diperoleh bermanfaat!         ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+                `;
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `sertifikat-belajar-ai-${appData.userName}.txt`;
+                a.click();
+                showNotification('success', '📥 Sertifikat berhasil diunduh!');
+            }
+        }
+
+        function showCertificate() {
+            const container = document.getElementById('certificateContainer');
+            if (appData.completedLessons.length === LESSONS_DATA.length) {
+                container.innerHTML = `
+                    <div class="certificate">
+                        <div class="certificate-title">SERTIFIKAT</div>
+                        <div class="certificate-text">Dengan bangga kami persembahkan sertifikat ini kepada:</div>
+                        <div class="certificate-name">${appData.userName}</div>
+                        <div class="certificate-text">Telah berhasil menyelesaikan Program Pembelajaran Artificial Intelligence dengan Skor Luar Biasa</div>
+                        <div class="certificate-date">Tanggal: ${new Date().toLocaleDateString('id-ID')}</div>
+                    </div>
+                `;
+                document.getElementById('certificateBtn').style.display = 'inline-block';
+                document.getElementById('certificateMessage').style.display = 'none';
+            }
+        }
+
+        // ===== NOTIFICATIONS ===== 
+        function showNotification(type, message) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function showNotifications() {
+            showNotification('success', '🔔 Anda memiliki 3 notifikasi baru!');
+        }
+
+        // ===== EVENT LISTENERS ===== 
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        // Tab content switching event listeners
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('tab-btn')) {
+                const tabs = document.querySelectorAll('.tab-content');
+                tabs.forEach(tab => tab.classList.remove('active'));
+                const tabName = e.target.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (tabName) {
+                    const tab = document.getElementById(tabName);
+                    if (tab) tab.classList.add('active');
+                    if (tabName === 'catatan') renderNotes();
+                    if (tabName === 'forum') renderForum();
+                    if (tabName === 'sertifikat') showCertificate();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
