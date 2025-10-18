@@ -5,8 +5,6 @@ Platform ini dirancang dengan struktur sederhana, namun akan terus dikembangkan 
 
 ---
 
-## 🚀 Versi Pengembangan Baru
-
 ### 📋 Fitur Baru yang Ditambahkan
 ✅ **Dashboard Analitik** – Tracking progress & statistik belajar  
 ✅ **Sertifikat Digital** – Raih setelah menyelesaikan kuis  
