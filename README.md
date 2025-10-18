@@ -1,11 +1,11 @@
-# 🤖 Platform Pembelajaran AI Dasar
+# Platform Pembelajaran AI Dasar
 
 Selamat datang di **Platform Pembelajaran AI Dasar** — proyek edukatif interaktif untuk memahami dasar-dasar *Artificial Intelligence (AI)* secara menyenangkan dan modern.  
 Platform ini dirancang dengan struktur sederhana, namun akan terus dikembangkan menjadi sistem pembelajaran pintar berbasis web.  
 
 ---
 
-### 📋 Fitur Baru yang Ditambahkan
+### Fitur Baru yang Ditambahkan
 ✅ **Dashboard Analitik** – Tracking progress & statistik belajar  
 ✅ **Sertifikat Digital** – Raih setelah menyelesaikan kuis  
 ✅ **Level & Achievement System** – Gamifikasi pembelajaran  
@@ -22,7 +22,7 @@ Platform ini dirancang dengan struktur sederhana, namun akan terus dikembangkan 
 
 ---
 
-## 🎯 Fitur Utama yang Sudah Ada
+## Fitur Utama yang Sudah Ada
 
 | Fitur | Deskripsi |
 |-------|------------|
@@ -41,15 +41,15 @@ Platform ini dirancang dengan struktur sederhana, namun akan terus dikembangkan 
 
 ---
 
-## 💻 Cara Menggunakan
+## Cara Menggunakan
 
 1. **Copy seluruh kode** dari repositori ini  
 2. **Buat file `index.html`** di folder proyek kamu  
 3. **Paste** seluruh kode ke dalam file tersebut  
 4. **Buka di browser** (Chrome, Edge, Safari, dll)  
-5. 🎉 **Mulai belajar AI!**
+5. **Mulai belajar AI!**
 
-### 🌐 Opsi 2 — Buka Langsung di GitHub Pages
+### Opsi 2 — Buka Langsung di GitHub Pages
 1. Buka halaman GitHub repositori proyek ini:  
    🔗 [https://github.com/rasidi3112/learn-artificial-intelligence](https://github.com/rasidi3112/learn-artificial-intelligence)
 2. Klik tombol **“Code” → “Download ZIP”** untuk menyimpan proyek,  
@@ -59,7 +59,7 @@ Platform ini dirancang dengan struktur sederhana, namun akan terus dikembangkan 
 
 ---
 
-## 💾 Data Disimpan Otomatis
+## Data Disimpan Otomatis
 
 Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storage**, termasuk:
 
@@ -70,11 +70,11 @@ Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storag
 - Postingan forum  
 - Preferensi tema (dark/light mode)  
 
-🔐 *Privasi tetap terjaga, tanpa koneksi server eksternal.*
+*Privasi tetap terjaga, tanpa koneksi server eksternal.*
 
 ---
 
-## 🧠 Teknologi yang Digunakan
+## Teknologi yang Digunakan
 - **HTML5** – Struktur halaman  
 - **CSS3 / Tailwind (optional)** – Tampilan responsif  
 - **JavaScript (ES6+)** – Logika dan fitur interaktif  
@@ -83,7 +83,7 @@ Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storag
 
 ---
 
-## 🏗️ Rencana Pengembangan Selanjutnya
+##  Rencana Pengembangan Selanjutnya
 - Integrasi **AI Chat Tutor**  
 - Fitur **Progress Sync** antar perangkat  
 - Dashboard Admin & API server  
@@ -92,14 +92,14 @@ Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storag
 
 ---
 
-## 🌟 Kontribusi
+##  Kontribusi
 Ingin bantu kembangkan proyek ini?  
 Silakan **fork**, buat **branch baru**, dan ajukan **pull request**.  
 Kontribusi Anda sangat berarti bagi ekosistem pembelajaran AI Indonesia 🇮🇩  
 
 ---
 
-## 🪪 Lisensi
+##  Lisensi
 Proyek ini dilisensikan di bawah [MIT License](LICENSE).  
 Silakan gunakan, ubah, dan kembangkan untuk kepentingan edukasi.
 
