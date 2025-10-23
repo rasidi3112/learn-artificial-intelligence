@@ -70,7 +70,7 @@ Platform ini dirancang khusus untuk **pemula yang ingin memulai perjalanan di du
 
 ---
 
-##  Teknologi yang Digunakan *(opsional)*
+##  Teknologi yang Digunakan 
 
 | Kategori | Teknologi |
 |-----------|------------|
