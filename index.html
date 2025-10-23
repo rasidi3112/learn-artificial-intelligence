@@ -909,38 +909,38 @@
         <!-- ===== HEADER ===== -->
         <header>
             <div class="header-left">
-                <h1>🤖 Belajar AI</h1>
+                <h1>Belajar AI</h1>
                 <p class="subtitle">Platform Pembelajaran AI Premium untuk Pemula</p>
             </div>
             <div class="header-controls">
                 <div class="user-profile" onclick="showUserProfile()">
-                    <span>👤</span>
+                    <span></span>
                     <span id="userName">Pengguna</span>
                     <span class="level-badge" id="levelBadge">Level 1</span>
                 </div>
                 <button class="notifications-btn" onclick="showNotifications()" style="position: relative;">
-                    🔔
+                    
                     <span class="notification-badge" id="notificationCount">0</span>
                 </button>
-                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+                <button class="theme-toggle" onclick="toggleTheme()"></button>
             </div>
         </header>
 
         <!-- ===== TABS ===== -->
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab(this, 'materi')">📚 Materi</button>
-            <button class="tab-btn" onclick="showTab(this, 'quiz')">❓ Kuis</button>
-            <button class="tab-btn" onclick="showTab(this, 'catatan')">📝 Catatan</button>
-            <button class="tab-btn" onclick="showTab(this, 'forum')">💬 Forum</button>
-            <button class="tab-btn" onclick="showTab(this, 'leaderboard')">🏆 Leaderboard</button>
-            <button class="tab-btn" onclick="showTab(this, 'sertifikat')">🎖️ Sertifikat</button>
+            <button class="tab-btn active" onclick="showTab(this, 'materi')">Materi</button>
+            <button class="tab-btn" onclick="showTab(this, 'quiz')">Kuis</button>
+            <button class="tab-btn" onclick="showTab(this, 'catatan')">Catatan</button>
+            <button class="tab-btn" onclick="showTab(this, 'forum')">Forum</button>
+            <button class="tab-btn" onclick="showTab(this, 'leaderboard')">Leaderboard</button>
+            <button class="tab-btn" onclick="showTab(this, 'sertifikat')">Sertifikat</button>
         </div>
 
         <div class="content">
 
             <!-- ===== TAB: DASHBOARD/MATERI ===== -->
             <div id="materi" class="tab-content active">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">📊 Dashboard Pembelajaran</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Dashboard Pembelajaran</h2>
 
                 <!-- Dashboard Cards -->
                 <div class="dashboard-grid">
@@ -965,7 +965,7 @@
                 <!-- Search Bar -->
                 <div class="search-box">
                     <input type="text" class="search-input" id="searchInput" placeholder="Cari materi pembelajaran...">
-                    <button class="search-btn" onclick="searchMateri()">🔍 Cari</button>
+                    <button class="search-btn" onclick="searchMateri()">Cari</button>
                 </div>
 
                 <!-- Progress Section -->
@@ -980,13 +980,13 @@
                 </div>
 
                 <!-- Materi Cards -->
-                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">📚 Materi Pembelajaran</h2>
+                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">Materi Pembelajaran</h2>
                 <div class="lessons-container" id="lessonsContainer">
                     <!-- Akan diisi oleh JavaScript -->
                 </div>
 
                 <!-- Favorit Section -->
-                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">❤️ Materi Favorit Anda</h2>
+                <h2 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">Materi Favorit Anda</h2>
                 <div class="lessons-container" id="favoritesContainer">
                     <p style="grid-column: 1/-1; text-align: center; color: #999;">Belum ada materi favorit</p>
                 </div>
@@ -994,7 +994,7 @@
 
             <!-- ===== TAB: QUIZ ===== -->
             <div id="quiz" class="tab-content">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">❓ Uji Pemahaman Anda</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Uji Pemahaman Anda</h2>
 
                 <!-- Quiz Progress -->
                 <div class="progress-section">
@@ -1012,23 +1012,23 @@
 
                 <!-- Results -->
                 <div id="quizResult" class="result-container">
-                    <div class="result-icon" id="resultIcon">🎉</div>
+                    <div class="result-icon" id="resultIcon"></div>
                     <div class="score" id="scoreDisplay">0/5</div>
                     <div class="result-message" id="resultMessage">Selamat! Anda telah menyelesaikan kuis!</div>
-                    <button class="btn btn-primary" onclick="downloadResult()">📥 Download Hasil</button>
+                    <button class="btn btn-primary" onclick="downloadResult()">Download Hasil</button>
                     <div class="result-buttons">
-                        <button class="btn btn-primary" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
-                        <button class="btn btn-secondary" onclick="showTab(event.target, 'materi')">📚 Kembali ke Materi</button>
+                        <button class="btn btn-primary" onclick="resetQuiz()">Ulangi Kuis</button>
+                        <button class="btn btn-secondary" onclick="showTab(event.target, 'materi')">Kembali ke Materi</button>
                     </div>
                 </div>
             </div>
 
             <!-- ===== TAB: CATATAN ===== -->
             <div id="catatan" class="tab-content">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">📝 Catatan Pembelajaran Anda</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Catatan Pembelajaran Anda</h2>
 
                 <div style="margin-bottom: 25px;">
-                    <button class="btn btn-primary" onclick="openNoteModal()">➕ Tambah Catatan Baru</button>
+                    <button class="btn btn-primary" onclick="openNoteModal()">Tambah Catatan Baru</button>
                 </div>
 
                 <div class="notes-container" id="notesContainer">
@@ -1038,10 +1038,10 @@
 
             <!-- ===== TAB: FORUM ===== -->
             <div id="forum" class="tab-content">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">💬 Forum Diskusi</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Forum Diskusi</h2>
 
                 <div style="margin-bottom: 25px;">
-                    <button class="btn btn-primary" onclick="openPostModal()">✍️ Buat Postingan Baru</button>
+                    <button class="btn btn-primary" onclick="openPostModal()">Buat Postingan Baru</button>
                 </div>
 
                 <div class="forum-container" id="forumContainer">
@@ -1051,7 +1051,7 @@
 
             <!-- ===== TAB: LEADERBOARD ===== -->
             <div id="leaderboard" class="tab-content">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">🏆 Leaderboard Pengguna</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Leaderboard Pengguna</h2>
 
                 <table class="leaderboard-table">
                     <thead>
@@ -1071,10 +1071,10 @@
 
             <!-- ===== TAB: SERTIFIKAT ===== -->
             <div id="sertifikat" class="tab-content">
-                <h2 style="margin-bottom: 25px; color: var(--primary);">🎖️ Sertifikat Anda</h2>
+                <h2 style="margin-bottom: 25px; color: var(--primary);">Sertifikat Anda</h2>
 
                 <div style="text-align: center;">
-                    <button class="btn btn-primary" id="certificateBtn" onclick="downloadCertificate()" style="display: none;">📥 Download Sertifikat</button>
+                    <button class="btn btn-primary" id="certificateBtn" onclick="downloadCertificate()" style="display: none;">Download Sertifikat</button>
                     <p style="color: #999; margin-top: 20px;" id="certificateMessage">Selesaikan semua kuis untuk mendapatkan sertifikat!</p>
                 </div>
 
@@ -1086,8 +1086,8 @@
     <!-- ===== MODAL: Add Note ===== -->
     <div id="noteModal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('noteModal')">✕</button>
-            <h2 style="margin-bottom: 20px; color: var(--primary);">📝 Tambah Catatan</h2>
+            <button class="close-modal" onclick="closeModal('noteModal')"></button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">Tambah Catatan</h2>
             <input type="text" id="noteTitleInput" placeholder="Judul catatan..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; font-size: 1em;">
             <textarea id="noteTextInput" placeholder="Isi catatan..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; min-height: 150px; font-size: 1em; font-family: inherit;"></textarea>
             <div style="display: flex; gap: 10px;">
@@ -1100,8 +1100,8 @@
     <!-- ===== MODAL: Add Forum Post ===== -->
     <div id="postModal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('postModal')">✕</button>
-            <h2 style="margin-bottom: 20px; color: var(--primary);">✍️ Buat Postingan</h2>
+            <button class="close-modal" onclick="closeModal('postModal')"></button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">Buat Postingan</h2>
             <input type="text" id="postTitleInput" placeholder="Judul diskusi..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; font-size: 1em;">
             <textarea id="postTextInput" placeholder="Pertanyaan atau diskusi Anda..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; min-height: 150px; font-size: 1em; font-family: inherit;"></textarea>
             <div style="display: flex; gap: 10px;">
@@ -1114,8 +1114,8 @@
     <!-- ===== MODAL: User Profile ===== -->
     <div id="userProfileModal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('userProfileModal')">✕</button>
-            <h2 style="margin-bottom: 20px; color: var(--primary);">👤 Profil Pengguna</h2>
+            <button class="close-modal" onclick="closeModal('userProfileModal')"></button>
+            <h2 style="margin-bottom: 20px; color: var(--primary);">Profil Pengguna</h2>
             <div style="margin-bottom: 20px;">
                 <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nama Pengguna:</label>
                 <input type="text" id="userNameInput" placeholder="Masukkan nama..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em;">
@@ -1138,7 +1138,7 @@
         const LESSONS_DATA = [
             {
                 id: 1,
-                icon: '🎯',
+                icon: '',
                 title: '1. Apa itu Artificial Intelligence?',
                 desc: 'Pelajari konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari.',
                 content: 'Artificial Intelligence (AI) adalah simulasi kecerdasan manusia yang diprogram ke dalam mesin. AI memungkinkan komputer untuk belajar dari pengalaman, menyesuaikan dengan input baru, dan melakukan tugas-tugas yang biasanya memerlukan kecerdasan manusia. AI digunakan dalam berbagai aplikasi seperti chatbot, recommendation systems, autonomous vehicles, dan masih banyak lagi.',
@@ -1147,7 +1147,7 @@
             },
             {
                 id: 2,
-                icon: '🧠',
+                icon: '',
                 title: '2. Machine Learning Dasar',
                 desc: 'Memahami konsep Machine Learning, supervised vs unsupervised learning.',
                 content: 'Machine Learning adalah cabang AI yang memungkinkan sistem untuk belajar dan berkembang dari pengalaman tanpa diprogram secara eksplisit. Ada dua jenis utama: Supervised Learning (belajar dari data berlabel) dan Unsupervised Learning (menemukan pola dalam data tanpa label). Contoh aplikasi ML termasuk classification, regression, clustering, dan recommendation systems.',
@@ -1156,7 +1156,7 @@
             },
             {
                 id: 3,
-                icon: '🔮',
+                icon: '',
                 title: '3. Deep Learning dan Neural Networks',
                 desc: 'Pengenalan deep learning dan bagaimana neural networks bekerja.',
                 content: 'Deep Learning menggunakan Neural Networks dengan banyak layer untuk memproses data kompleks. Terinspirasi dari cara kerja otak manusia, neural networks terdiri dari node-node yang saling terhubung dan dapat belajar pola yang sangat kompleks. Deep Learning telah merevolusi bidang seperti computer vision, natural language processing, dan speech recognition.',
@@ -1165,7 +1165,7 @@
             },
             {
                 id: 4,
-                icon: '💬',
+                icon: '',
                 title: '4. Natural Language Processing (NLP)',
                 desc: 'Bagaimana AI memahami dan memproses bahasa manusia.',
                 content: 'Natural Language Processing (NLP) memungkinkan komputer untuk memahami, menginterpretasi, dan menghasilkan bahasa manusia. NLP mencakup tokenization, stemming, named entity recognition, sentiment analysis, dan machine translation. Contoh penerapannya: chatbot, penerjemah otomatis, voice assistants, dan text summarization.',
@@ -1174,7 +1174,7 @@
             },
             {
                 id: 5,
-                icon: '👁️',
+                icon: '',
                 title: '5. Computer Vision',
                 desc: 'Teknologi AI untuk mengenali dan memproses gambar dan video.',
                 content: 'Computer Vision memungkinkan komputer untuk mengidentifikasi dan memproses gambar dengan cara yang sama seperti penglihatan manusia. Teknologi ini digunakan dalam pengenalan wajah, autonomous vehicles, medical imaging, dan quality control industri. Teknik utama mencakup image classification, object detection, face recognition, dan image segmentation.',
@@ -1249,7 +1249,7 @@
         function toggleTheme() {
             appData.darkMode = !appData.darkMode;
             document.body.classList.toggle('dark-mode');
-            document.querySelector('.theme-toggle').textContent = appData.darkMode ? '☀️' : '🌙';
+            document.querySelector('.theme-toggle').textContent = appData.darkMode ? '' : '';
             saveData();
         }
 
@@ -1267,14 +1267,14 @@
                                 <span>${lesson.title}</span>
                             </div>
                             <div>
-                                ${isCompleted ? '<span class="lesson-status">✓ Selesai</span>' : '<span class="lesson-status pending">📌 Baru</span>'}
-                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                                ${isCompleted ? '<span class="lesson-status">Selesai</span>' : '<span class="lesson-status pending">Baru</span>'}
+                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})"></button>
                             </div>
                         </div>
                         <div class="lesson-desc">${lesson.desc}</div>
                         <div class="lesson-footer">
                             <span>${lesson.difficulty}</span>
-                            <span>⏱️ ${lesson.duration}</span>
+                            <span>${lesson.duration}</span>
                         </div>
                     </div>
                 `;
@@ -1286,7 +1286,7 @@
         function viewLesson(id) {
             const lesson = LESSONS_DATA.find(l => l.id === id);
             if (lesson) {
-                showNotification('success', `📚 Membuka: ${lesson.title}`);
+                showNotification('success', `Membuka: ${lesson.title}`);
                 if (!appData.completedLessons.includes(id)) {
                     appData.completedLessons.push(id);
                     appData.points += 50;
@@ -1294,7 +1294,7 @@
                     updateDashboard();
                     renderLessons();
                 }
-                alert(`📖 ${lesson.title}\n\n${lesson.content}`);
+                alert(`${lesson.title}\n\n${lesson.content}`);
             }
         }
 
@@ -1326,7 +1326,7 @@
                             <span>${lesson.icon}</span>
                             <span>${lesson.title}</span>
                         </div>
-                        <button class="favorite-btn active" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                        <button class="favorite-btn active" onclick="toggleFavorite(event, ${lesson.id})"></button>
                     </div>
                     <div class="lesson-desc">${lesson.desc}</div>
                 </div>
@@ -1362,8 +1362,8 @@
                                 <span>${lesson.title}</span>
                             </div>
                             <div>
-                                ${isCompleted ? '<span class="lesson-status">✓ Selesai</span>' : ''}
-                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})">❤️</button>
+                                ${isCompleted ? '<span class="lesson-status">Selesai</span>' : ''}
+                                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, ${lesson.id})"></button>
                             </div>
                         </div>
                         <div class="lesson-desc">${lesson.desc}</div>
@@ -1405,11 +1405,11 @@
             if (isCorrect) {
                 element.classList.add('correct');
                 quizState.score++;
-                showNotification('success', '✅ Jawaban Benar!');
+                showNotification('success', 'Jawaban Benar!');
             } else {
                 element.classList.add('wrong');
                 options[question.correct].classList.add('correct');
-                showNotification('error', '❌ Jawaban Salah!');
+                showNotification('error', 'Jawaban Salah!');
             }
 
             quizState.answered.add(qIdx);
@@ -1442,20 +1442,20 @@
             let message = '';
             let icon = '';
             if (percentage === 100) {
-                message = '🎉 Sempurna! Anda menguasai semua materi!';
-                icon = '🏆';
+                message = 'Sempurna! Anda menguasai semua materi!';
+                icon = '';
                 appData.points += 500;
             } else if (percentage >= 80) {
-                message = '👏 Luar biasa! Nilai Anda sangat bagus!';
-                icon = '⭐';
+                message = 'Luar biasa! Nilai Anda sangat bagus!';
+                icon = '';
                 appData.points += 400;
             } else if (percentage >= 60) {
-                message = '😊 Cukup baik! Terus belajar untuk hasil lebih baik!';
-                icon = '📚';
+                message = 'Cukup baik! Terus belajar untuk hasil lebih baik!';
+                icon = '';
                 appData.points += 300;
             } else {
-                message = '💪 Jangan menyerah! Coba lagi untuk hasil lebih baik!';
-                icon = '🎯';
+                message = 'Jangan menyerah! Coba lagi untuk hasil lebih baik!';
+                icon = '';
                 appData.points += 100;
             }
 
@@ -1504,7 +1504,7 @@
             const text = document.getElementById('noteTextInput').value;
 
             if (!title || !text) {
-                showNotification('warning', '⚠️ Judul dan isi catatan harus diisi!');
+                showNotification('warning', 'Judul dan isi catatan harus diisi!');
                 return;
             }
 
@@ -1521,7 +1521,7 @@
             closeModal('noteModal');
             document.getElementById('noteTitleInput').value = '';
             document.getElementById('noteTextInput').value = '';
-            showNotification('success', '✅ Catatan berhasil ditambahkan!');
+            showNotification('success', 'Catatan berhasil ditambahkan!');
         }
 
         function renderNotes() {
@@ -1537,7 +1537,7 @@
                     <div class="note-title">${note.title}</div>
                     <div class="note-text">${note.text}</div>
                     <small>${note.date}</small>
-                    <button class="note-delete" onclick="deleteNote(${note.id})">🗑️ Hapus</button>
+                    <button class="note-delete" onclick="deleteNote(${note.id})">Hapus</button>
                 </div>
             `).join('');
         }
@@ -1546,7 +1546,7 @@
             appData.notes = appData.notes.filter(n => n.id !== id);
             saveData();
             renderNotes();
-            showNotification('success', '✅ Catatan berhasil dihapus!');
+            showNotification('success', 'Catatan berhasil dihapus!');
         }
 
         // ===== FORUM ===== 
@@ -1559,7 +1559,7 @@
             const text = document.getElementById('postTextInput').value;
 
             if (!title || !text) {
-                showNotification('warning', '⚠️ Judul dan isi postingan harus diisi!');
+                showNotification('warning', 'Judul dan isi postingan harus diisi!');
                 return;
             }
 
@@ -1578,7 +1578,7 @@
             closeModal('postModal');
             document.getElementById('postTitleInput').value = '';
             document.getElementById('postTextInput').value = '';
-            showNotification('success', '✅ Postingan berhasil dibuat!');
+            showNotification('success', 'Postingan berhasil dibuat!');
         }
 
         function renderForum() {
@@ -1597,9 +1597,9 @@
                     <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">${post.title}</div>
                     <div class="post-content">${post.text}</div>
                     <div class="post-actions">
-                        <span class="post-action">👍 Suka</span>
-                        <span class="post-action">💬 Balasan (${post.replies})</span>
-                        <span class="post-action" onclick="deletePost(${post.id})">🗑️ Hapus</span>
+                        <span class="post-action">Suka</span>
+                        <span class="post-action">Balasan (${post.replies})</span>
+                        <span class="post-action" onclick="deletePost(${post.id})">Hapus</span>
                     </div>
                 </div>
             `).join('');
@@ -1609,7 +1609,7 @@
             appData.forum = appData.forum.filter(p => p.id !== id);
             saveData();
             renderForum();
-            showNotification('success', '✅ Postingan berhasil dihapus!');
+            showNotification('success', 'Postingan berhasil dihapus!');
         }
 
         // ===== LEADERBOARD ===== 
@@ -1617,9 +1617,9 @@
             const tbody = document.getElementById('leaderboardBody');
             tbody.innerHTML = appData.leaderboard.map((user, idx) => `
                 <tr>
-                    <td class="rank rank-${idx + 1}">${idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx + 1}</td>
+                    <td class="rank rank-${idx + 1}">${idx === 0 ? '' : idx === 1 ? '' : idx === 2 ? '' : idx + 1}</td>
                     <td>${user.name}</td>
-                    <td>⭐ Level ${user.level}</td>
+                    <td>Level ${user.level}</td>
                     <td><strong>${user.points}</strong></td>
                     <td>${user.completed} Materi</td>
                 </tr>
@@ -1644,7 +1644,7 @@
             const newLevel = Math.floor(appData.points / 500) + 1;
             if (newLevel > appData.level) {
                 appData.level = newLevel;
-                showNotification('success', `🎉 Naik ke Level ${newLevel}!`);
+                showNotification('success', `Naik ke Level ${newLevel}!`);
                 updateLevelBadge();
             }
         }
@@ -1669,7 +1669,7 @@
                 saveData();
                 document.getElementById('userName').textContent = newName;
                 closeModal('userProfileModal');
-                showNotification('success', '✅ Profil berhasil diperbarui!');
+                showNotification('success', 'Profil berhasil diperbarui!');
             }
         }
 
@@ -1704,7 +1704,7 @@
                 a.href = url;
                 a.download = `sertifikat-belajar-ai-${appData.userName}.txt`;
                 a.click();
-                showNotification('success', '📥 Sertifikat berhasil diunduh!');
+                showNotification('success', 'Sertifikat berhasil diunduh!');
             }
         }
 
@@ -1739,7 +1739,7 @@
         }
 
         function showNotifications() {
-            showNotification('success', '🔔 Anda memiliki 3 notifikasi baru!');
+            showNotification('success', 'Anda memiliki 3 notifikasi baru!');
         }
 
         // ===== EVENT LISTENERS ===== 
