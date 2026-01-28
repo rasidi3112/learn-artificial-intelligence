@@ -1,7 +1,7 @@
 #  Belajar AI  
 **Platform Pembelajaran AI Premium untuk Pemula**
 
-Selamat datang di **Belajar AI** — platform pembelajaran interaktif untuk memahami dasar hingga lanjutan *Artificial Intelligence (AI)* secara menyenangkan, terstruktur, dan modern.  
+Selamat datang di **Belajar AI** - platform pembelajaran interaktif untuk memahami dasar hingga lanjutan *Artificial Intelligence (AI)* secara menyenangkan, terstruktur, dan modern.  
 
 Platform ini dirancang khusus untuk **pemula yang ingin memulai perjalanan di dunia AI**, dengan fitur-fitur lengkap seperti progress tracker, kuis, leaderboard, dan sertifikat digital.  
 
@@ -33,7 +33,7 @@ Platform ini dirancang khusus untuk **pemula yang ingin memulai perjalanan di du
 
 ---
 
-## 🚀 Fitur Terbaru
+##  Fitur Terbaru
 
 ✅ **Dashboard Analitik** – Pantau progress & statistik belajar real-time  
 ✅ **Sertifikat Digital** – Otomatis tersedia setelah menyelesaikan materi dan kuis  
