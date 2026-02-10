@@ -101,7 +101,7 @@ Platform ini dikembangkan untuk:
 
 ---
 
-## 👨‍💻 Kontributor
+##  Kontributor
 
 **Ahmad Rasidi**  
 Developer & Creator of Belajar AI  
