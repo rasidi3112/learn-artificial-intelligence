@@ -93,23 +93,15 @@ Platform ini dikembangkan untuk:
 
 ##  Rencana Pengembangan Selanjutnya
 
-🔹 Integrasi API AI interaktif (chat-based learning)  
-🔹 Sistem rekomendasi materi berbasis machine learning  
-🔹 Mode offline learning  
-🔹 Progress sync menggunakan akun pengguna  
-🔹 Sistem mentor & pembelajaran kolaboratif  
+- Integrasi API AI interaktif (chat-based learning)  
+- Sistem rekomendasi materi berbasis machine learning  
+- Mode offline learning  
+- Progress sync menggunakan akun pengguna  
+- Sistem mentor & pembelajaran kolaboratif  
 
----
 
-##  Kontributor
 
-**Ahmad Rasidi**  
-Developer & Creator of Belajar AI  
-📧 rasidi.basit@gmail.com *(opsional)*  
-
----
-
-## 🏁 Lisensi
+##  Lisensi
 
 Proyek ini dikembangkan untuk tujuan edukasi dan pembelajaran.  
 Seluruh konten dapat digunakan kembali dengan menyertakan atribusi kepada pengembang asli.
@@ -126,7 +118,7 @@ Seluruh konten dapat digunakan kembali dengan menyertakan atribusi kepada pengem
 4. **Buka di browser** (Chrome, Edge, Safari, dll)  
 5. **Mulai belajar AI!**
 
-### Opsi 2 — Buka Langsung di GitHub Pages
+### Opsi 2 - Buka Langsung di GitHub Pages
 1. Buka halaman GitHub repositori proyek ini:  
    🔗 [https://github.com/rasidi3112/learn-artificial-intelligence](https://github.com/rasidi3112/learn-artificial-intelligence)
 2. Klik tombol **“Code” → “Download ZIP”** untuk menyimpan proyek,  
