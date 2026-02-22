@@ -258,13 +258,20 @@ const QUIZ = [
     { q: 'Profesi AI yang bertugas membangun infrastruktur dan saluran data (pipeline) adalah?', opts: ['Data Engineer', 'Data Scientist', 'Machine Learning Engineer', 'Web Developer'], ans: 0 }
 ];
 
-let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
+let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, lang: 'id', leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
 let quiz = { current: 0, score: 0, answered: new Set() };
 
 function init() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) data = JSON.parse(saved);
     if (data.darkMode) document.body.classList.add('dark-mode');
+
+    // Set language selector to saved preference
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect && data.lang) {
+        langSelect.value = data.lang;
+    }
+
     document.getElementById('userName').textContent = data.name;
     document.getElementById('levelBadge').textContent = 'Level ' + data.level;
     renderLessons(); initQuiz(); renderLeaderboard(); updateDashboard();
@@ -286,6 +293,17 @@ function toggleTheme() {
     data.darkMode = !data.darkMode;
     document.body.classList.toggle('dark-mode');
     save();
+}
+
+function changeLanguage() {
+    const select = document.getElementById('langSelect');
+    if (select) {
+        data.lang = select.value;
+        const langName = select.options[select.selectedIndex].text;
+        save();
+        notify('success', 'Bahasa diubah ke ' + langName);
+        // Note: For future update, you can add actual translation logic here!
+    }
 }
 
 function renderLessons() {
