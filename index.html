@@ -30,8 +30,8 @@
     <div class="container">
         <header class="header">
             <div class="header-title">
-                <h1>Belajar AI</h1>
-                <p>Platform Pembelajaran AI Premium untuk Pemula</p>
+                <h1 data-i18n="app_title">Belajar AI</h1>
+                <p data-i18n="app_desc">Platform Pembelajaran AI Premium untuk Pemula</p>
             </div>
             <div class="header-controls">
                 <div class="user-badge" onclick="showUserProfile()">
@@ -81,40 +81,41 @@
         </header>
 
         <nav class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab(this,'materi')">Materi</button>
-            <button class="nav-tab" onclick="showTab(this,'quiz')">Kuis</button>
-            <button class="nav-tab" onclick="showTab(this,'catatan')">Catatan</button>
-            <button class="nav-tab" onclick="showTab(this,'forum')">Forum</button>
-            <button class="nav-tab" onclick="showTab(this,'leaderboard')">Leaderboard</button>
-            <button class="nav-tab" onclick="showTab(this,'sertifikat')">Sertifikat</button>
+            <button class="nav-tab active" data-i18n="tab_materi" onclick="showTab(this,'materi')">Materi</button>
+            <button class="nav-tab" data-i18n="tab_kuis" onclick="showTab(this,'quiz')">Kuis</button>
+            <button class="nav-tab" data-i18n="tab_catatan" onclick="showTab(this,'catatan')">Catatan</button>
+            <button class="nav-tab" data-i18n="tab_forum" onclick="showTab(this,'forum')">Forum</button>
+            <button class="nav-tab" data-i18n="tab_leaderboard"
+                onclick="showTab(this,'leaderboard')">Leaderboard</button>
+            <button class="nav-tab" data-i18n="tab_sertifikat" onclick="showTab(this,'sertifikat')">Sertifikat</button>
         </nav>
 
         <main>
             <!-- MATERI TAB -->
             <div id="materi" class="tab-content active">
-                <h2 class="section-title">Dashboard Pembelajaran</h2>
+                <h2 class="section-title" data-i18n="dashboard_title">Dashboard Pembelajaran</h2>
                 <div class="dashboard-grid">
                     <div class="stat-card">
-                        <div class="stat-label">Materi Selesai</div>
+                        <div class="stat-label" data-i18n="stat_materi">Materi Selesai</div>
                         <div class="stat-value" id="materiSelesai">0</div>
                     </div>
                     <div class="stat-card alt1">
-                        <div class="stat-label">Skor Rata-Rata</div>
+                        <div class="stat-label" data-i18n="stat_skor">Skor Rata-Rata</div>
                         <div class="stat-value" id="skorRata">0%</div>
                     </div>
                     <div class="stat-card alt2">
-                        <div class="stat-label">Streak Belajar</div>
+                        <div class="stat-label" data-i18n="stat_streak">Streak Belajar</div>
                         <div class="stat-value" id="streakBelajar">0</div>
                     </div>
                     <div class="stat-card alt3">
-                        <div class="stat-label">Total Poin</div>
+                        <div class="stat-label" data-i18n="stat_poin">Total Poin</div>
                         <div class="stat-value" id="poinTotal">0</div>
                     </div>
                 </div>
 
                 <div class="progress-section card">
                     <div class="progress-header">
-                        <h3>Progress Pembelajaran</h3><span id="progressPercent">0%</span>
+                        <h3 data-i18n="progress_title">Progress Pembelajaran</h3><span id="progressPercent">0%</span>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressBar" style="width:0%"></div>
@@ -122,19 +123,20 @@
                 </div>
 
                 <div class="search-box">
-                    <input type="text" class="search-input" id="searchInput" placeholder="Cari materi pembelajaran...">
-                    <button class="btn-primary" onclick="searchMateri()">Cari</button>
+                    <input type="text" class="search-input" id="searchInput" data-i18n-prop="placeholder"
+                        data-i18n="search_placeholder" placeholder="Cari materi pembelajaran...">
+                    <button class="btn-primary" data-i18n="btn_cari" onclick="searchMateri()">Cari</button>
                 </div>
 
-                <h2 class="section-title">Daftar Materi Pembelajaran</h2>
+                <h2 class="section-title" data-i18n="list_materi_title">Daftar Materi Pembelajaran</h2>
                 <div class="lessons-grid" id="lessonsContainer"></div>
 
                 <div class="section-header" style="margin-top:40px">
-                    <h2 class="section-title" style="margin:0">Materi Favorit</h2>
+                    <h2 class="section-title" style="margin:0" data-i18n="fav_materi_title">Materi Favorit</h2>
                 </div>
                 <div class="lessons-grid" id="favoritesContainer">
                     <div class="empty-state">
-                        <p>Belum ada materi favorit.</p>
+                        <p data-i18n="fav_empty">Belum ada materi favorit.</p>
                     </div>
                 </div>
             </div>
@@ -226,13 +228,14 @@
         </main>
 
         <footer class="footer">
-            <p class="footer-quote">"Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana kecerdasan bisa
-                membuat manusia lebih bijak."</p>
+            <p class="footer-quote" data-i18n="footer_quote">"Belajar AI bukan tentang menjadi robot, tapi memahami
+                bagaimana kecerdasan bisa membuat manusia lebih bijak."</p>
             <p class="footer-author">— Ahmad Rasidi</p>
             <div class="footer-info">
-                <p>Dikembangkan oleh <strong>Ahmad Rasidi</strong></p>
-                <p>Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.</p>
-                <p style="margin-top:12px;opacity:0.7">© 2025 Belajar AI. Semua hak dilindungi.</p>
+                <p><span data-i18n="footer_dev">Dikembangkan oleh</span> <strong>Ahmad Rasidi</strong></p>
+                <p data-i18n="footer_desc">Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.</p>
+                <p style="margin-top:12px;opacity:0.7" data-i18n="footer_copy">© 2025 Belajar AI. Semua hak dilindungi.
+                </p>
             </div>
         </footer>
     </div>
