@@ -165,6 +165,69 @@ const LESSONS = [
                 content: 'OpenCV:\n- Library open-source untuk computer vision\n- Mendukung C++, Python, Java\n- Fitur: Image processing, video capture, object detection\n\nMediaPipe (Google):\n- Face detection, hand tracking, pose estimation\n- Optimized untuk real-time pada device\n\nTorchvision (PyTorch):\n- Datasets, transforms, pre-trained models\n\nTensorFlow Hub:\n- Repository model pre-trained\n\nHugging Face:\n- Vision Transformers dan model multimodal'
             }
         ]
+    },
+    {
+        id: 6,
+        title: 'Prompt Engineering Dasar',
+        desc: 'Seni berinteraksi dengan AI generatif seperti ChatGPT untuk hasil maksimal.',
+        level: 'Pemula',
+        duration: '15 menit',
+        sections: [
+            {
+                title: 'Apa itu Prompt Engineering?',
+                content: 'Prompt Engineering adalah keterampilan merancang, mengoptimalkan, dan menstrukturkan instruksi (prompt) yang diberikan kepada model AI Generatif (seperti LLM) agar menghasilkan output yang relevan, akurat, dan sesuai dengan keinginan pengguna.'
+            },
+            {
+                title: 'Prinsip Dasar Prompting',
+                content: '1. Jelas dan Spesifik: Hindari ambiguitas.\n2. Berikan Konteks: Beritahu AI peran apa yang harus dimainkan (misal: "Bertindak sebagai pakar marketing").\n3. Tentukan Format Output: Minta AI merespons dalam format tertentu (tabel, daftar, poin-poin).\n4. Batasi Ruang Lingkup: Jelaskan apa yang TIDAK boleh dilakukan AI.'
+            },
+            {
+                title: 'Teknik Prompting Lanjutan',
+                content: 'Zero-shot Prompting: Meminta AI melakukan tugas tanpa memberikan contoh sama sekali.\n\nFew-shot Prompting: Memberikan satu atau beberapa contoh output agar model memahami pola yang diinginkan.\n\nChain of Thought (CoT): Meminta model untuk menjelaskan langkah demi langkah pemikirannya ("Mari berpikir selangkah demi selangkah") sebelum memberikan jawaban akhir.'
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: 'Etika dan Bias dalam AI',
+        desc: 'Membahas pentingnya keamanan, privasi, dan keadilan dalam menggunakan AI.',
+        level: 'Menengah',
+        duration: '20 menit',
+        sections: [
+            {
+                title: 'Mengapa Etika AI Penting?',
+                content: 'Saat AI mengambil peran lebih besar dalam keputusan hidup (kredit bank, rekrutmen kerja, diagnosa medis), sangat penting untuk memastikan sistem ini adil, transparan, dan tidak merugikan kelompok mana pun.'
+            },
+            {
+                title: 'Bias dalam AI',
+                content: 'AI belajar dari data yang dibuat oleh manusia. Jika data historis mengandung prasangka (bias), model AI akan memperbesar bias tersebut. Contoh: Alat rekrutmen AI yang lebih menyukai kandidat pria karena dipelajari dari data masa lalu yang didominasi pria.'
+            },
+            {
+                title: 'Privasi dan Keamanan',
+                content: 'Sistem AI modern membutuhkan jumlah data yang luar biasa besar (Big Data). Hal ini memunculkan kekhawatiran terkait pengumpulan data pribadi, pengawasan massal, dan keamanan jika data tersebut bocor atau disalahgunakan.'
+            }
+        ]
+    },
+    {
+        id: 8,
+        title: 'Panduan Karir di Bidang AI',
+        desc: 'Peluang pekerjaan, tren masa depan, dan cara memulai karir di industri AI.',
+        level: 'Pemula',
+        duration: '15 menit',
+        sections: [
+            {
+                title: 'Peluang Karir AI',
+                content: '1. Machine Learning Engineer: Membangun dan men-deploy model AI ke produksi.\n2. Data Scientist: Menganalisa data kompleks untuk wawasan bisnis.\n3. Data Engineer: Membangun infrastruktur dan pipeline untuk memproses data.\n4. AI Researcher: Melakukan penelitian untuk menemukan terobosan algoritma baru.\n5. Prompt Engineer: Menguji dan memaksimalkan output AI Generatif.'
+            },
+            {
+                title: 'Keterampilan Utama',
+                content: '- Bahasa Pemrograman: Python, R, SQL.\n- Matematika: Aljabar Linier, Kalkulus, Probabilitas, dan Statistik.\n- Tools/Framework: PyTorch, TensorFlow, Scikit-learn, Pandas.\n- Soft Skills: Pemecahan masalah, komunikasi, dan berpikir kritis.'
+            },
+            {
+                title: 'Cara Memulai',
+                content: 'Mulailah dengan memperkuat dasar Python dan matematika. Ikuti kursus online dasar-dasar Machine Learning (seperti modul di platform ini!), cobalah membangun proyek portofolio kecil-kecilan (seperti klasifikasi gambar sederhana atau prediksi harga), lalu berpartisipasi dalam komunitas seperti Kaggle atau GitHub.'
+            }
+        ]
     }
 ];
 const QUIZ = [
@@ -187,7 +250,12 @@ const QUIZ = [
     { q: 'GPT adalah singkatan dari?', opts: ['General Processing Tool', 'Generative Pre-trained Transformer', 'Global Pattern Technology', 'Graph Processing Technique'], ans: 1 },
     // Computer Vision
     { q: 'Computer Vision memungkinkan AI untuk?', opts: ['Mendengar suara', 'Mengenali gambar dan objek', 'Menulis kode', 'Mengirim email'], ans: 1 },
-    { q: 'YOLO adalah algoritma untuk?', opts: ['Image Classification', 'Object Detection', 'Semantic Segmentation', 'Image Generation'], ans: 1 }
+    { q: 'YOLO adalah algoritma untuk?', opts: ['Image Classification', 'Object Detection', 'Semantic Segmentation', 'Image Generation'], ans: 1 },
+    // Penambahan Kuis Baru
+    { q: 'Seni merancang instruksi untuk LLM seperti ChatGPT disebut?', opts: ['Software Engineering', 'Prompt Engineering', 'Data Engineering', 'Machine Learning'], ans: 1 },
+    { q: 'Teknik memberikan satu atau lebih contoh agar AI tahu pola output yang kita inginkan dinamakan?', opts: ['Zero-shot prompting', 'One-shot attack', 'Few-shot prompting', 'Chain of thought'], ans: 2 },
+    { q: 'Penyebab utama munculnya bias pada algoritma AI adalah?', opts: ['Komputer terlalu pintar', 'Kecepatan internet lambat', 'Data latih yang mengandung bias manusia', 'Listrik yang tidak stabil'], ans: 2 },
+    { q: 'Profesi AI yang bertugas membangun infrastruktur dan saluran data (pipeline) adalah?', opts: ['Data Engineer', 'Data Scientist', 'Machine Learning Engineer', 'Web Developer'], ans: 0 }
 ];
 
 let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
