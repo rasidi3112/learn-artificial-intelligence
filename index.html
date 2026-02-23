@@ -144,10 +144,10 @@
             <!-- QUIZ TAB -->
             <div id="quiz" class="tab-content">
                 <div class="card quiz-card">
-                    <h2 class="section-title">Uji Pemahaman Anda</h2>
+                    <h2 class="section-title" data-i18n="quiz_title">Uji Pemahaman Anda</h2>
                     <div class="progress-section">
                         <div class="progress-header">
-                            <h3>Progress Kuis</h3><span id="quizProgressPercent">0%</span>
+                            <h3 data-i18n="quiz_progress">Progress Kuis</h3><span id="quizProgressPercent">0%</span>
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" id="quizProgressBar" style="width:0%"></div>
@@ -158,9 +158,11 @@
                         <div class="result-score" id="scoreDisplay">0/5</div>
                         <div class="result-msg" id="resultMessage">Selamat!</div>
                         <div class="result-btns">
-                            <button class="btn-primary" onclick="downloadResult()">Download Hasil</button>
-                            <button class="btn-primary" onclick="resetQuiz()">Ulangi Kuis</button>
-                            <button class="btn-secondary"
+                            <button class="btn-primary" data-i18n="quiz_download" onclick="downloadResult()">Download
+                                Hasil</button>
+                            <button class="btn-primary" data-i18n="quiz_retry" onclick="resetQuiz()">Ulangi
+                                Kuis</button>
+                            <button class="btn-secondary" data-i18n="quiz_back"
                                 onclick="showTab(document.querySelector('.nav-tab'),'materi')">Kembali</button>
                         </div>
                     </div>
@@ -170,12 +172,12 @@
             <!-- CATATAN TAB -->
             <div id="catatan" class="tab-content">
                 <div class="section-header">
-                    <h2 class="section-title" style="margin:0">Catatan Pembelajaran</h2><button class="btn-primary"
-                        onclick="openNoteModal()">Tambah Catatan</button>
+                    <h2 class="section-title" style="margin:0" data-i18n="notes_title">Catatan Pembelajaran</h2><button
+                        class="btn-primary" data-i18n="notes_add" onclick="openNoteModal()">Tambah Catatan</button>
                 </div>
                 <div class="notes-grid" id="notesContainer">
                     <div class="empty-state">
-                        <p>Belum ada catatan. Mulai buat catatan Anda!</p>
+                        <p data-i18n="notes_empty">Belum ada catatan. Mulai buat catatan Anda!</p>
                     </div>
                 </div>
             </div>
@@ -183,12 +185,12 @@
             <!-- FORUM TAB -->
             <div id="forum" class="tab-content">
                 <div class="section-header">
-                    <h2 class="section-title" style="margin:0">Forum Diskusi</h2><button class="btn-primary"
-                        onclick="openPostModal()">Buat Postingan</button>
+                    <h2 class="section-title" style="margin:0" data-i18n="forum_title">Forum Diskusi</h2><button
+                        class="btn-primary" data-i18n="forum_add" onclick="openPostModal()">Buat Postingan</button>
                 </div>
                 <div class="forum-list" id="forumContainer">
                     <div class="empty-state">
-                        <p>Belum ada postingan. Jadilah yang pertama!</p>
+                        <p data-i18n="forum_empty">Belum ada postingan. Jadilah yang pertama!</p>
                     </div>
                 </div>
             </div>
@@ -196,16 +198,16 @@
             <!-- LEADERBOARD TAB -->
             <div id="leaderboard" class="tab-content">
                 <div class="card">
-                    <h2 class="section-title">Papan Peringkat</h2>
+                    <h2 class="section-title" data-i18n="lb_title">Papan Peringkat</h2>
                     <div style="overflow-x:auto">
                         <table class="leaderboard-table">
                             <thead>
                                 <tr>
-                                    <th>Peringkat</th>
-                                    <th>Nama</th>
-                                    <th>Level</th>
-                                    <th>Poin</th>
-                                    <th>Materi</th>
+                                    <th data-i18n="lb_rank">Peringkat</th>
+                                    <th data-i18n="lb_name">Nama</th>
+                                    <th data-i18n="lb_level">Level</th>
+                                    <th data-i18n="lb_points">Poin</th>
+                                    <th data-i18n="lb_lessons">Materi</th>
                                 </tr>
                             </thead>
                             <tbody id="leaderboardBody"></tbody>
@@ -217,11 +219,11 @@
             <!-- SERTIFIKAT TAB -->
             <div id="sertifikat" class="tab-content">
                 <div class="card" style="text-align:center">
-                    <h2 class="section-title">Sertifikat Digital</h2>
-                    <button class="btn-primary" id="certBtn" onclick="downloadCertificate()"
+                    <h2 class="section-title" data-i18n="cert_title">Sertifikat Digital</h2>
+                    <button class="btn-primary" id="certBtn" data-i18n="cert_download" onclick="downloadCertificate()"
                         style="display:none">Download Sertifikat</button>
-                    <p id="certMsg" style="color:var(--text-secondary);margin:20px 0">Selesaikan semua materi untuk
-                        mendapatkan sertifikat!</p>
+                    <p id="certMsg" data-i18n="cert_msg" style="color:var(--text-secondary);margin:20px 0">Selesaikan
+                        semua materi untuk mendapatkan sertifikat!</p>
                     <div id="certContainer"></div>
                 </div>
             </div>
@@ -244,42 +246,52 @@
     <div id="noteModal" class="modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('noteModal')">×</button>
-            <h3 class="modal-title">Tambah Catatan</h3>
-            <div class="form-group"><label class="form-label">Judul</label><input type="text" class="form-input"
-                    id="noteTitleInput" placeholder="Judul catatan..."></div>
-            <div class="form-group"><label class="form-label">Isi Catatan</label><textarea class="form-textarea"
-                    id="noteTextInput" placeholder="Tulis catatan Anda..."></textarea></div>
-            <div class="modal-btns"><button class="btn-primary" onclick="addNote()">Simpan</button><button
-                    class="btn-secondary" onclick="closeModal('noteModal')">Batal</button></div>
+            <h3 class="modal-title" data-i18n="modal_note_title">Tambah Catatan</h3>
+            <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
+                    type="text" class="form-input" id="noteTitleInput" data-i18n="modal_note_ph_title"
+                    data-i18n-prop="placeholder" placeholder="Judul catatan..."></div>
+            <div class="form-group"><label class="form-label" data-i18n="modal_note_content">Isi
+                    Catatan</label><textarea class="form-textarea" id="noteTextInput" data-i18n="modal_note_ph_content"
+                    data-i18n-prop="placeholder" placeholder="Tulis catatan Anda..."></textarea></div>
+            <div class="modal-btns"><button class="btn-primary" data-i18n="btn_save"
+                    onclick="addNote()">Simpan</button><button class="btn-secondary" data-i18n="btn_cancel"
+                    onclick="closeModal('noteModal')">Batal</button></div>
         </div>
     </div>
 
     <div id="postModal" class="modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('postModal')">×</button>
-            <h3 class="modal-title">Buat Postingan</h3>
-            <div class="form-group"><label class="form-label">Judul</label><input type="text" class="form-input"
-                    id="postTitleInput" placeholder="Judul diskusi..."></div>
-            <div class="form-group"><label class="form-label">Isi Postingan</label><textarea class="form-textarea"
-                    id="postTextInput" placeholder="Tulis pertanyaan atau diskusi..."></textarea></div>
-            <div class="modal-btns"><button class="btn-primary" onclick="addPost()">Posting</button><button
-                    class="btn-secondary" onclick="closeModal('postModal')">Batal</button></div>
+            <h3 class="modal-title" data-i18n="modal_post_title">Buat Postingan</h3>
+            <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
+                    type="text" class="form-input" id="postTitleInput" data-i18n="modal_post_ph_title"
+                    data-i18n-prop="placeholder" placeholder="Judul diskusi..."></div>
+            <div class="form-group"><label class="form-label" data-i18n="modal_post_content">Isi
+                    Postingan</label><textarea class="form-textarea" id="postTextInput"
+                    data-i18n="modal_post_ph_content" data-i18n-prop="placeholder"
+                    placeholder="Tulis pertanyaan atau diskusi..."></textarea></div>
+            <div class="modal-btns"><button class="btn-primary" data-i18n="btn_post"
+                    onclick="addPost()">Posting</button><button class="btn-secondary" data-i18n="btn_cancel"
+                    onclick="closeModal('postModal')">Batal</button></div>
         </div>
     </div>
 
     <div id="userModal" class="modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('userModal')">×</button>
-            <h3 class="modal-title">Profil Pengguna</h3>
-            <div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input"
-                    id="userNameInput" placeholder="Nama Anda..."></div>
+            <h3 class="modal-title" data-i18n="modal_profile_title">Profil Pengguna</h3>
+            <div class="form-group"><label class="form-label" data-i18n="modal_profile_name">Nama</label><input
+                    type="text" class="form-input" id="userNameInput" data-i18n="modal_profile_ph"
+                    data-i18n-prop="placeholder" placeholder="Nama Anda..."></div>
             <div class="card" style="margin:20px 0;padding:16px;background:var(--bg-light)">
-                <p><strong>Level:</strong> <span id="profileLevel">1</span></p>
-                <p><strong>Poin:</strong> <span id="profilePoints">0</span></p>
-                <p><strong>Materi Selesai:</strong> <span id="profileCompleted">0</span></p>
+                <p><strong data-i18n="modal_profile_level">Level:</strong> <span id="profileLevel">1</span></p>
+                <p><strong data-i18n="modal_profile_points">Poin:</strong> <span id="profilePoints">0</span></p>
+                <p><strong data-i18n="modal_profile_completed">Materi Selesai:</strong> <span
+                        id="profileCompleted">0</span></p>
             </div>
-            <div class="modal-btns"><button class="btn-primary" onclick="saveProfile()">Simpan</button><button
-                    class="btn-secondary" onclick="closeModal('userModal')">Tutup</button></div>
+            <div class="modal-btns"><button class="btn-primary" data-i18n="btn_save"
+                    onclick="saveProfile()">Simpan</button><button class="btn-secondary" data-i18n="btn_close"
+                    onclick="closeModal('userModal')">Tutup</button></div>
         </div>
     </div>
 
