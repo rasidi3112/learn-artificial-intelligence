@@ -106,6 +106,50 @@ function tDuration(duration) {
     return duration;
 }
 
+// Section title translations: { lessonId: [sectionTitle1, sectionTitle2, ...] }
+const sectionTranslations = {
+    en: { 1: ['Introduction', 'History of AI', 'Types of AI', 'AI Applications in Daily Life', 'Main Components of AI', 'Conclusion'], 2: ['What is Machine Learning?', 'Supervised Learning', 'Unsupervised Learning', 'Reinforcement Learning', 'Machine Learning Process', 'Evaluation Metrics'], 3: ['What is Deep Learning?', 'Neural Network Structure', 'How Neural Networks Work', 'Deep Learning Architectures', 'Deep Learning Frameworks', 'Deep Learning Challenges'], 4: ['Introduction to NLP', 'Text Preprocessing', 'Text Representation', 'NLP Applications', 'Large Language Models (LLM)', 'NLP Challenges'], 5: ['Introduction to Computer Vision', 'Image Processing Pipeline', 'Computer Vision Tasks', 'CV Architectures', 'Practical Applications', 'Challenges'], 6: ['What is Prompt Engineering?', 'Prompt Techniques', 'Tips for Effective Prompts', 'Practical Use Cases'], 7: ['Why AI Ethics?', 'Bias in AI', 'Privacy & Security', 'Responsible AI Principles'], 8: ['AI Career Landscape', 'Key Roles in AI', 'Essential Skills', 'Getting Started'] },
+    zh: { 1: ['引言', 'AI的历史', 'AI的类型', 'AI在生活中的应用', 'AI的主要组成部分', '总结'], 2: ['什么是机器学习？', '监督学习', '无监督学习', '强化学习', '机器学习流程', '评估指标'], 3: ['什么是深度学习？', '神经网络结构', '神经网络工作原理', '深度学习架构', '深度学习框架', '深度学习挑战'], 4: ['NLP简介', '文本预处理', '文本表示', 'NLP应用', '大型语言模型', 'NLP挑战'], 5: ['计算机视觉简介', '图像处理流程', '计算机视觉任务', 'CV架构', '实际应用', '挑战'], 6: ['什么是提示工程？', '提示技术', '有效提示的技巧', '实际用例'], 7: ['为什么需要AI伦理？', 'AI中的偏见', '隐私与安全', '负责任的AI原则'], 8: ['AI职业前景', 'AI关键角色', '必备技能', '如何入门'] },
+    es: { 1: ['Introducción', 'Historia de la IA', 'Tipos de IA', 'Aplicaciones de IA', 'Componentes Principales', 'Conclusión'], 2: ['¿Qué es Machine Learning?', 'Aprendizaje Supervisado', 'Aprendizaje No Supervisado', 'Aprendizaje por Refuerzo', 'Proceso de ML', 'Métricas'], 3: ['¿Qué es Deep Learning?', 'Estructura de Redes Neuronales', 'Funcionamiento', 'Arquitecturas', 'Frameworks', 'Desafíos'], 4: ['Introducción a NLP', 'Preprocesamiento', 'Representación', 'Aplicaciones', 'Modelos de Lenguaje', 'Desafíos'], 5: ['Introducción a CV', 'Procesamiento de Imágenes', 'Tareas', 'Arquitecturas', 'Aplicaciones', 'Desafíos'], 6: ['¿Qué es Prompt Engineering?', 'Técnicas', 'Consejos', 'Casos de Uso'], 7: ['¿Por qué Ética en IA?', 'Sesgos', 'Privacidad', 'IA Responsable'], 8: ['Panorama', 'Roles', 'Habilidades', 'Cómo Empezar'] },
+    ar: { 1: ['مقدمة', 'تاريخ الذكاء الاصطناعي', 'أنواعه', 'تطبيقاته', 'المكونات الرئيسية', 'الخلاصة'], 2: ['ما هو التعلم الآلي؟', 'التعلم الموجه', 'التعلم غير الموجه', 'التعلم المعزز', 'العملية', 'مقاييس التقييم'], 3: ['ما هو التعلم العميق؟', 'البنية', 'كيف تعمل', 'البنى', 'أطر العمل', 'التحديات'], 4: ['مقدمة في NLP', 'معالجة النص', 'تمثيل النص', 'التطبيقات', 'نماذج اللغة', 'التحديات'], 5: ['مقدمة في CV', 'معالجة الصور', 'المهام', 'البنى', 'التطبيقات', 'التحديات'], 6: ['ما هي هندسة الأوامر؟', 'التقنيات', 'نصائح', 'أمثلة'], 7: ['لماذا الأخلاقيات؟', 'التحيز', 'الخصوصية', 'مبادئ'], 8: ['المشهد الوظيفي', 'الأدوار', 'المهارات', 'كيف تبدأ'] },
+    hi: { 1: ['परिचय', 'AI का इतिहास', 'AI के प्रकार', 'AI अनुप्रयोग', 'मुख्य घटक', 'निष्कर्ष'], 2: ['ML क्या है?', 'सुपरवाइज्ड', 'अनसुपरवाइज्ड', 'रीइन्फोर्समेंट', 'प्रक्रिया', 'मेट्रिक्स'], 3: ['डीप लर्निंग क्या है?', 'संरचना', 'कार्यप्रणाली', 'आर्किटेक्चर', 'फ्रेमवर्क', 'चुनौतियां'], 4: ['NLP परिचय', 'प्रीप्रोसेसिंग', 'रिप्रेजेंटेशन', 'अनुप्रयोग', 'भाषा मॉडल', 'चुनौतियां'], 5: ['CV परिचय', 'इमेज प्रोसेसिंग', 'कार्य', 'आर्किटेक्चर', 'अनुप्रयोग', 'चुनौतियां'], 6: ['प्रॉम्प्ट इंजीनियरिंग क्या?', 'तकनीकें', 'सुझाव', 'उपयोग'], 7: ['नैतिकता क्यों?', 'पूर्वाग्रह', 'गोपनीयता', 'जिम्मेदार AI'], 8: ['करियर', 'भूमिकाएं', 'कौशल', 'शुरुआत'] },
+    pt: { 1: ['Introdução', 'História da IA', 'Tipos', 'Aplicações', 'Componentes', 'Conclusão'], 2: ['O que é ML?', 'Supervisionado', 'Não Supervisionado', 'Por Reforço', 'Processo', 'Métricas'], 3: ['O que é DL?', 'Estrutura', 'Como Funciona', 'Arquiteturas', 'Frameworks', 'Desafios'], 4: ['Introdução NLP', 'Pré-processamento', 'Representação', 'Aplicações', 'LLMs', 'Desafios'], 5: ['Introdução CV', 'Processamento', 'Tarefas', 'Arquiteturas', 'Aplicações', 'Desafios'], 6: ['O que é Prompt?', 'Técnicas', 'Dicas', 'Casos de Uso'], 7: ['Por que Ética?', 'Viés', 'Privacidade', 'IA Responsável'], 8: ['Panorama', 'Funções', 'Habilidades', 'Como Começar'] },
+    fr: { 1: ['Introduction', "Histoire de l'IA", "Types d'IA", 'Applications', 'Composants', 'Conclusion'], 2: ["Qu'est-ce que le ML ?", 'Supervisé', 'Non Supervisé', 'Par Renforcement', 'Processus', 'Métriques'], 3: ["Qu'est-ce que le DL ?", 'Structure', 'Fonctionnement', 'Architectures', 'Frameworks', 'Défis'], 4: ['Introduction NLP', 'Prétraitement', 'Représentation', 'Applications', 'LLM', 'Défis'], 5: ['Introduction CV', 'Traitement', 'Tâches', 'Architectures', 'Applications', 'Défis'], 6: ["Qu'est-ce que le Prompt ?", 'Techniques', 'Conseils', 'Cas'], 7: ["Pourquoi l'Éthique ?", 'Biais', 'Confidentialité', 'IA Responsable'], 8: ['Panorama', 'Rôles', 'Compétences', 'Débuter'] },
+    de: { 1: ['Einführung', 'Geschichte', 'Arten', 'Anwendungen', 'Komponenten', 'Fazit'], 2: ['Was ist ML?', 'Überwacht', 'Unüberwacht', 'Bestärkend', 'Prozess', 'Metriken'], 3: ['Was ist DL?', 'Struktur', 'Funktionsweise', 'Architekturen', 'Frameworks', 'Herausforderungen'], 4: ['Einführung NLP', 'Vorverarbeitung', 'Darstellung', 'Anwendungen', 'LLM', 'Herausforderungen'], 5: ['Einführung CV', 'Bildverarbeitung', 'Aufgaben', 'Architekturen', 'Anwendungen', 'Herausforderungen'], 6: ['Was ist Prompt?', 'Techniken', 'Tipps', 'Anwendungsfälle'], 7: ['Warum Ethik?', 'Vorurteile', 'Datenschutz', 'Verantwortungsvolle KI'], 8: ['Karriere', 'Rollen', 'Fähigkeiten', 'Erste Schritte'] },
+    ja: { 1: ['はじめに', 'AIの歴史', 'AIの種類', '日常生活でのAI応用', 'AIの主要コンポーネント', 'まとめ'], 2: ['機械学習とは？', '教師あり学習', '教師なし学習', '強化学習', '機械学習のプロセス', '評価指標'], 3: ['ディープラーニングとは？', 'ニューラルネットワークの構造', '動作の仕組み', 'アーキテクチャ', 'フレームワーク', '課題'], 4: ['NLP入門', 'テキスト前処理', 'テキスト表現', '応用例', '大規模言語モデル', '課題'], 5: ['コンピュータビジョン入門', '画像処理', 'CVタスク', 'アーキテクチャ', '実用例', '課題'], 6: ['プロンプトエンジニアリングとは？', 'テクニック', '効果的なヒント', 'ユースケース'], 7: ['なぜAI倫理が重要か？', 'AIのバイアス', 'プライバシーとセキュリティ', '責任あるAIの原則'], 8: ['AIキャリアの展望', '主要な役割', '必須スキル', '始め方'] },
+    ko: { 1: ['소개', 'AI의 역사', 'AI의 유형', 'AI 적용', '주요 구성요소', '결론'], 2: ['ML이란?', '지도 학습', '비지도 학습', '강화 학습', 'ML 프로세스', '평가 지표'], 3: ['딥러닝이란?', '신경망 구조', '작동 원리', '아키텍처', '프레임워크', '과제'], 4: ['NLP 소개', '전처리', '텍스트 표현', '응용', 'LLM', '과제'], 5: ['CV 소개', '이미지 처리', 'CV 작업', '아키텍처', '응용', '과제'], 6: ['프롬프트 엔지니어링이란?', '기법', '팁', '사용 사례'], 7: ['왜 AI 윤리?', '편견', '보안', '책임 있는 AI'], 8: ['커리어 전망', '역할', '스킬', '시작하기'] },
+    ru: { 1: ['Введение', 'История ИИ', 'Типы ИИ', 'Применения', 'Компоненты', 'Заключение'], 2: ['Что такое ML?', 'С учителем', 'Без учителя', 'С подкреплением', 'Процесс', 'Метрики'], 3: ['Что такое DL?', 'Структура', 'Принцип работы', 'Архитектуры', 'Фреймворки', 'Проблемы'], 4: ['Введение в NLP', 'Предобработка', 'Представление', 'Применения', 'LLM', 'Проблемы'], 5: ['Введение в CV', 'Обработка', 'Задачи', 'Архитектуры', 'Применения', 'Проблемы'], 6: ['Что такое Prompt?', 'Техники', 'Советы', 'Примеры'], 7: ['Зачем этика?', 'Предвзятость', 'Конфиденциальность', 'Ответственный ИИ'], 8: ['Ландшафт', 'Роли', 'Навыки', 'Как начать'] },
+    tr: { 1: ['Giriş', 'Tarih', 'Türler', 'Uygulamalar', 'Bileşenler', 'Sonuç'], 2: ['ML Nedir?', 'Denetimli', 'Denetimsiz', 'Pekiştirmeli', 'Süreç', 'Metrikler'], 3: ['DL Nedir?', 'Yapı', 'Çalışma', 'Mimariler', 'Çerçeveler', 'Zorluklar'], 4: ['NLP Giriş', 'Ön İşleme', 'Temsil', 'Uygulamalar', 'LLM', 'Zorluklar'], 5: ['CV Girişi', 'Görüntü İşleme', 'Görevler', 'Mimariler', 'Uygulamalar', 'Zorluklar'], 6: ['Prompt Nedir?', 'Teknikler', 'İpuçları', 'Örnekler'], 7: ['Neden Etik?', 'Önyargı', 'Gizlilik', 'Sorumlu AI'], 8: ['Kariyer', 'Roller', 'Beceriler', 'Başlangıç'] },
+    it: { 1: ['Introduzione', "Storia dell'IA", 'Tipi', 'Applicazioni', 'Componenti', 'Conclusione'], 2: ["Cos'è il ML?", 'Supervisionato', 'Non Supervisionato', 'Per Rinforzo', 'Processo', 'Metriche'], 3: ["Cos'è il DL?", 'Struttura', 'Funzionamento', 'Architetture', 'Framework', 'Sfide'], 4: ['Intro NLP', 'Pre-elaborazione', 'Rappresentazione', 'Applicazioni', 'LLM', 'Sfide'], 5: ['Intro CV', 'Elaborazione', 'Compiti', 'Architetture', 'Applicazioni', 'Sfide'], 6: ["Cos'è il Prompt?", 'Tecniche', 'Consigli', "Casi d'Uso"], 7: ["Perché l'Etica?", 'Pregiudizi', 'Privacy', 'IA Responsabile'], 8: ['Panorama', 'Ruoli', 'Competenze', 'Come Iniziare'] },
+    vi: { 1: ['Giới thiệu', 'Lịch sử AI', 'Các loại AI', 'Ứng dụng', 'Thành phần chính', 'Kết luận'], 2: ['ML là gì?', 'Có giám sát', 'Không giám sát', 'Tăng cường', 'Quy trình', 'Đánh giá'], 3: ['DL là gì?', 'Cấu trúc', 'Hoạt động', 'Kiến trúc', 'Framework', 'Thách thức'], 4: ['Giới thiệu NLP', 'Tiền xử lý', 'Biểu diễn', 'Ứng dụng', 'LLM', 'Thách thức'], 5: ['Giới thiệu CV', 'Xử lý ảnh', 'Nhiệm vụ', 'Kiến trúc', 'Ứng dụng', 'Thách thức'], 6: ['Prompt là gì?', 'Kỹ thuật', 'Mẹo', 'Ví dụ'], 7: ['Tại sao đạo đức?', 'Thiên kiến', 'Bảo mật', 'AI có trách nhiệm'], 8: ['Toàn cảnh', 'Vai trò', 'Kỹ năng', 'Bắt đầu'] }
+};
+
+// Content notice for non-Indonesian languages
+const contentNotice = {
+    en: '📌 The detailed lesson content below is in Indonesian (Bahasa Indonesia).',
+    zh: '📌 以下详细课程内容使用印尼语。',
+    es: '📌 El contenido detallado está en indonesio.',
+    ar: '📌 المحتوى التفصيلي أدناه باللغة الإندونيسية.',
+    hi: '📌 नीचे दी गई सामग्री इंडोनेशियाई भाषा में है।',
+    pt: '📌 O conteúdo detalhado está em indonésio.',
+    fr: "📌 Le contenu détaillé est en indonésien.",
+    de: '📌 Der detaillierte Inhalt ist auf Indonesisch.',
+    ja: '📌 以下の詳細なレッスン内容はインドネシア語です。',
+    ko: '📌 아래 상세 콘텐츠는 인도네시아어입니다.',
+    ru: '📌 Подробное содержание на индонезийском языке.',
+    tr: '📌 Detaylı içerik Endonezce olarak sunulmaktadır.',
+    it: "📌 Il contenuto dettagliato è in indonesiano.",
+    vi: '📌 Nội dung chi tiết bên dưới bằng tiếng Indonesia.'
+};
+
+// Helper: get translated section title
+function tSectionTitle(lessonId, sectionIdx) {
+    const lang = (data && data.lang) || 'id';
+    if (lang === 'id') return null;
+    const st = sectionTranslations[lang];
+    return (st && st[lessonId] && st[lessonId][sectionIdx]) || null;
+}
+
 const LESSONS = [
     {
         id: 1,
@@ -479,13 +523,18 @@ function viewLesson(id) {
         `;
 
         if (l.sections) {
+            const lang = (data && data.lang) || 'id';
+            if (lang !== 'id' && contentNotice[lang]) {
+                html += `<div style="background:rgba(99,102,241,0.1);border-left:4px solid var(--primary);padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.9rem;color:var(--text-secondary)">${contentNotice[lang]}</div>`;
+            }
             html += '<div class="lesson-sections">';
             l.sections.forEach((section, idx) => {
+                const secTitle = tSectionTitle(l.id, idx) || section.title;
                 html += `
                     <div class="lesson-section" style="margin-bottom:28px">
                         <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:10px">
                             <span style="background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem">${idx + 1}</span>
-                            ${section.title}
+                            ${secTitle}
                         </h3>
                         <div style="color:var(--text-secondary);line-height:1.8;padding-left:38px;white-space:pre-wrap">${section.content}</div>
                     </div>
