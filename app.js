@@ -37,12 +37,74 @@ const extraKeys = {
     vi: { quiz_title: 'Kiểm Tra Hiểu Biết', quiz_progress: 'Tiến Độ Câu Hỏi', quiz_download: 'Tải Kết Quả', quiz_retry: 'Làm Lại', quiz_back: 'Quay Lại', notes_title: 'Ghi Chú Học Tập', notes_add: 'Thêm Ghi Chú', notes_empty: 'Chưa có ghi chú. Bắt đầu viết nào!', forum_title: 'Diễn Đàn Thảo Luận', forum_add: 'Tạo Bài Viết', forum_empty: 'Chưa có bài viết. Hãy là người đầu tiên!', lb_title: 'Bảng Xếp Hạng', lb_rank: 'Hạng', lb_name: 'Tên', lb_level: 'Cấp Độ', lb_points: 'Điểm', lb_lessons: 'Bài Học', cert_title: 'Chứng Chỉ Số', cert_download: 'Tải Chứng Chỉ', cert_msg: 'Hoàn thành tất cả bài học để nhận chứng chỉ!', modal_note_title: 'Thêm Ghi Chú', modal_label_title: 'Tiêu Đề', modal_note_content: 'Nội Dung Ghi Chú', modal_note_ph_title: 'Tiêu đề ghi chú...', modal_note_ph_content: 'Viết ghi chú của bạn...', modal_post_title: 'Tạo Bài Viết', modal_post_content: 'Nội Dung', modal_post_ph_title: 'Tiêu đề thảo luận...', modal_post_ph_content: 'Viết câu hỏi hoặc thảo luận...', modal_profile_title: 'Hồ Sơ Người Dùng', modal_profile_name: 'Tên', modal_profile_ph: 'Tên của bạn...', modal_profile_level: 'Cấp Độ:', modal_profile_points: 'Điểm:', modal_profile_completed: 'Bài Học Đã Hoàn Thành:', btn_save: 'Lưu', btn_cancel: 'Hủy', btn_close: 'Đóng', btn_post: 'Đăng' }
 };
 
-// Merge extra keys into translations
-Object.keys(extraKeys).forEach(lang => {
-    if (translations[lang]) {
-        Object.assign(translations[lang], extraKeys[lang]);
-    }
-});
+// Dynamic UI labels for render functions
+const dynamicKeys = {
+    id: { status_done: 'Selesai', status_new: 'Baru', label_level: 'Tingkat', label_duration: 'Durasi', btn_add_fav: 'Tambah Favorit', btn_remove_fav: 'Hapus Favorit', no_fav: 'Belum ada materi favorit.', no_search: 'Tidak ada materi yang sesuai.', btn_done_read: 'Selesai Membaca', btn_make_note: 'Buat Catatan', notify_open: 'Membuka', quiz_q: 'Soal', level_beginner: 'Pemula', level_intermediate: 'Menengah', level_advanced: 'Lanjut', min: 'menit' },
+    en: { status_done: 'Completed', status_new: 'New', label_level: 'Level', label_duration: 'Duration', btn_add_fav: 'Add Favorite', btn_remove_fav: 'Remove Favorite', no_fav: 'No favorite lessons yet.', no_search: 'No matching lessons found.', btn_done_read: 'Done Reading', btn_make_note: 'Make Note', notify_open: 'Opening', quiz_q: 'Question', level_beginner: 'Beginner', level_intermediate: 'Intermediate', level_advanced: 'Advanced', min: 'min' },
+    zh: { status_done: '已完成', status_new: '新', label_level: '等级', label_duration: '时长', btn_add_fav: '添加收藏', btn_remove_fav: '取消收藏', no_fav: '暂无收藏的课程。', no_search: '没有找到匹配的课程。', btn_done_read: '阅读完毕', btn_make_note: '做笔记', notify_open: '正在打开', quiz_q: '题目', level_beginner: '初级', level_intermediate: '中级', level_advanced: '高级', min: '分钟' },
+    es: { status_done: 'Completado', status_new: 'Nuevo', label_level: 'Nivel', label_duration: 'Duración', btn_add_fav: 'Agregar Favorito', btn_remove_fav: 'Quitar Favorito', no_fav: 'No hay lecciones favoritas.', no_search: 'No se encontraron lecciones.', btn_done_read: 'Terminado', btn_make_note: 'Crear Nota', notify_open: 'Abriendo', quiz_q: 'Pregunta', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzado', min: 'min' },
+    ar: { status_done: 'مكتمل', status_new: 'جديد', label_level: 'المستوى', label_duration: 'المدة', btn_add_fav: 'إضافة مفضلة', btn_remove_fav: 'إزالة مفضلة', no_fav: 'لا توجد دروس مفضلة.', no_search: 'لا توجد نتائج.', btn_done_read: 'تم القراءة', btn_make_note: 'إنشاء ملاحظة', notify_open: 'جاري الفتح', quiz_q: 'سؤال', level_beginner: 'مبتدئ', level_intermediate: 'متوسط', level_advanced: 'متقدم', min: 'دقيقة' },
+    hi: { status_done: 'पूर्ण', status_new: 'नया', label_level: 'स्तर', label_duration: 'अवधि', btn_add_fav: 'पसंदीदा जोड़ें', btn_remove_fav: 'पसंदीदा हटाएं', no_fav: 'कोई पसंदीदा नहीं।', no_search: 'कोई परिणाम नहीं।', btn_done_read: 'पढ़ना समाप्त', btn_make_note: 'नोट बनाएं', notify_open: 'खोल रहे हैं', quiz_q: 'प्रश्न', level_beginner: 'शुरुआती', level_intermediate: 'मध्यवर्ती', level_advanced: 'उन्नत', min: 'मिनट' },
+    pt: { status_done: 'Concluído', status_new: 'Novo', label_level: 'Nível', label_duration: 'Duração', btn_add_fav: 'Adicionar Favorito', btn_remove_fav: 'Remover Favorito', no_fav: 'Nenhuma lição favorita.', no_search: 'Nenhuma lição encontrada.', btn_done_read: 'Leitura Concluída', btn_make_note: 'Criar Nota', notify_open: 'Abrindo', quiz_q: 'Questão', level_beginner: 'Iniciante', level_intermediate: 'Intermediário', level_advanced: 'Avançado', min: 'min' },
+    fr: { status_done: 'Terminé', status_new: 'Nouveau', label_level: 'Niveau', label_duration: 'Durée', btn_add_fav: 'Ajouter Favori', btn_remove_fav: 'Retirer Favori', no_fav: 'Aucune leçon favorite.', no_search: 'Aucune leçon trouvée.', btn_done_read: 'Lecture terminée', btn_make_note: 'Créer Note', notify_open: 'Ouverture de', quiz_q: 'Question', level_beginner: 'Débutant', level_intermediate: 'Intermédiaire', level_advanced: 'Avancé', min: 'min' },
+    de: { status_done: 'Abgeschlossen', status_new: 'Neu', label_level: 'Stufe', label_duration: 'Dauer', btn_add_fav: 'Favorit hinzufügen', btn_remove_fav: 'Favorit entfernen', no_fav: 'Keine Lieblingslektionen.', no_search: 'Keine Lektionen gefunden.', btn_done_read: 'Fertig gelesen', btn_make_note: 'Notiz erstellen', notify_open: 'Öffne', quiz_q: 'Frage', level_beginner: 'Anfänger', level_intermediate: 'Mittel', level_advanced: 'Fortgeschritten', min: 'Min' },
+    ja: { status_done: '完了', status_new: '新規', label_level: 'レベル', label_duration: '所要時間', btn_add_fav: 'お気に入り追加', btn_remove_fav: 'お気に入り解除', no_fav: 'お気に入りはありません。', no_search: '該当するレッスンがありません。', btn_done_read: '読了', btn_make_note: 'ノートを作成', notify_open: '開く', quiz_q: '問題', level_beginner: '初級', level_intermediate: '中級', level_advanced: '上級', min: '分' },
+    ko: { status_done: '완료', status_new: '새로운', label_level: '레벨', label_duration: '소요시간', btn_add_fav: '즐겨찾기 추가', btn_remove_fav: '즐겨찾기 해제', no_fav: '즐겨찾기가 없습니다.', no_search: '일치하는 레슨이 없습니다.', btn_done_read: '읽기 완료', btn_make_note: '노트 작성', notify_open: '열기', quiz_q: '문제', level_beginner: '초급', level_intermediate: '중급', level_advanced: '고급', min: '분' },
+    ru: { status_done: 'Завершено', status_new: 'Новый', label_level: 'Уровень', label_duration: 'Длительность', btn_add_fav: 'В избранное', btn_remove_fav: 'Из избранного', no_fav: 'Нет избранных уроков.', no_search: 'Уроки не найдены.', btn_done_read: 'Прочитано', btn_make_note: 'Создать заметку', notify_open: 'Открытие', quiz_q: 'Вопрос', level_beginner: 'Начальный', level_intermediate: 'Средний', level_advanced: 'Продвинутый', min: 'мин' },
+    tr: { status_done: 'Tamamlandı', status_new: 'Yeni', label_level: 'Seviye', label_duration: 'Süre', btn_add_fav: 'Favori Ekle', btn_remove_fav: 'Favori Kaldır', no_fav: 'Favori ders yok.', no_search: 'Eşleşen ders bulunamadı.', btn_done_read: 'Okuma Tamamlandı', btn_make_note: 'Not Oluştur', notify_open: 'Açılıyor', quiz_q: 'Soru', level_beginner: 'Başlangıç', level_intermediate: 'Orta', level_advanced: 'İleri', min: 'dk' },
+    it: { status_done: 'Completato', status_new: 'Nuovo', label_level: 'Livello', label_duration: 'Durata', btn_add_fav: 'Aggiungi Preferito', btn_remove_fav: 'Rimuovi Preferito', no_fav: 'Nessuna lezione preferita.', no_search: 'Nessuna lezione trovata.', btn_done_read: 'Lettura completata', btn_make_note: 'Crea Nota', notify_open: 'Apertura di', quiz_q: 'Domanda', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzato', min: 'min' },
+    vi: { status_done: 'Hoàn thành', status_new: 'Mới', label_level: 'Cấp độ', label_duration: 'Thời gian', btn_add_fav: 'Thêm Yêu thích', btn_remove_fav: 'Bỏ Yêu thích', no_fav: 'Chưa có bài học yêu thích.', no_search: 'Không tìm thấy bài học.', btn_done_read: 'Đọc xong', btn_make_note: 'Tạo Ghi chú', notify_open: 'Đang mở', quiz_q: 'Câu', level_beginner: 'Cơ bản', level_intermediate: 'Trung cấp', level_advanced: 'Nâng cao', min: 'phút' }
+};
+
+// Lesson titles & descriptions per language (keyed by lesson id)
+const lessonTranslations = {
+    en: { 1: { title: 'What is Artificial Intelligence?', desc: 'Learn the basic concepts of AI, its history, and applications in daily life.' }, 2: { title: 'Machine Learning Basics', desc: 'Understand Machine Learning concepts, supervised and unsupervised learning.' }, 3: { title: 'Deep Learning & Neural Networks', desc: 'Introduction to deep learning and how neural networks work.' }, 4: { title: 'Natural Language Processing (NLP)', desc: 'How AI understands and processes human language.' }, 5: { title: 'Computer Vision', desc: 'AI technology for recognizing and processing images and videos.' }, 6: { title: 'Basic Prompt Engineering', desc: 'The art of interacting with generative AI like ChatGPT for maximum results.' }, 7: { title: 'Ethics and Bias in AI', desc: 'Discussing the importance of security, privacy, and fairness in using AI.' }, 8: { title: 'Career Guide in AI', desc: 'Job opportunities, future trends, and how to start a career in the AI industry.' } },
+    zh: { 1: { title: '什么是人工智能？', desc: '学习AI的基本概念、历史及其在日常生活中的应用。' }, 2: { title: '机器学习基础', desc: '了解机器学习概念、监督学习和无监督学习。' }, 3: { title: '深度学习与神经网络', desc: '深度学习入门及神经网络的工作原理。' }, 4: { title: '自然语言处理（NLP）', desc: 'AI如何理解和处理人类语言。' }, 5: { title: '计算机视觉', desc: '用于识别和处理图像与视频的AI技术。' }, 6: { title: '提示工程基础', desc: '与ChatGPT等生成式AI互动以获得最佳效果的艺术。' }, 7: { title: 'AI中的伦理与偏见', desc: '讨论在使用AI时安全、隐私和公平的重要性。' }, 8: { title: 'AI领域职业指南', desc: '就业机会、未来趋势以及如何在AI行业开始职业生涯。' } },
+    es: { 1: { title: '¿Qué es la Inteligencia Artificial?', desc: 'Aprende los conceptos básicos de IA, su historia y aplicaciones.' }, 2: { title: 'Fundamentos de Machine Learning', desc: 'Comprende los conceptos de aprendizaje automático.' }, 3: { title: 'Deep Learning y Redes Neuronales', desc: 'Introducción al aprendizaje profundo y redes neuronales.' }, 4: { title: 'Procesamiento de Lenguaje Natural', desc: 'Cómo la IA entiende y procesa el lenguaje humano.' }, 5: { title: 'Visión por Computadora', desc: 'Tecnología IA para reconocer y procesar imágenes y videos.' }, 6: { title: 'Ingeniería de Prompts Básica', desc: 'El arte de interactuar con IA generativa para obtener resultados máximos.' }, 7: { title: 'Ética y Sesgo en la IA', desc: 'Seguridad, privacidad y equidad en el uso de IA.' }, 8: { title: 'Guía de Carrera en IA', desc: 'Oportunidades laborales y cómo iniciar una carrera en IA.' } },
+    ar: { 1: { title: 'ما هو الذكاء الاصطناعي؟', desc: 'تعلم المفاهيم الأساسية للذكاء الاصطناعي وتاريخه وتطبيقاته.' }, 2: { title: 'أساسيات تعلم الآلة', desc: 'فهم مفاهيم التعلم الآلي.' }, 3: { title: 'التعلم العميق والشبكات العصبية', desc: 'مقدمة في التعلم العميق والشبكات العصبية.' }, 4: { title: 'معالجة اللغة الطبيعية', desc: 'كيف يفهم الذكاء الاصطناعي اللغة البشرية.' }, 5: { title: 'الرؤية الحاسوبية', desc: 'تقنية الذكاء الاصطناعي للتعرف على الصور والفيديو.' }, 6: { title: 'هندسة الأوامر الأساسية', desc: 'فن التفاعل مع الذكاء الاصطناعي التوليدي.' }, 7: { title: 'الأخلاقيات والتحيز في الذكاء الاصطناعي', desc: 'أهمية الأمان والخصوصية والعدالة.' }, 8: { title: 'دليل المهنة في الذكاء الاصطناعي', desc: 'فرص العمل وكيفية بدء مسيرة مهنية.' } },
+    hi: { 1: { title: 'कृत्रिम बुद्धिमत्ता क्या है?', desc: 'AI की बुनियादी अवधारणाएं, इतिहास और दैनिक जीवन में अनुप्रयोग सीखें।' }, 2: { title: 'मशीन लर्निंग मूल बातें', desc: 'मशीन लर्निंग अवधारणाओं को समझें।' }, 3: { title: 'डीप लर्निंग और न्यूरल नेटवर्क', desc: 'डीप लर्निंग और न्यूरल नेटवर्क का परिचय।' }, 4: { title: 'प्राकृतिक भाषा प्रसंस्करण', desc: 'AI मानव भाषा को कैसे समझता है।' }, 5: { title: 'कंप्यूटर विज़न', desc: 'छवियों और वीडियो को पहचानने की AI तकनीक।' }, 6: { title: 'प्रॉम्प्ट इंजीनियरिंग मूल बातें', desc: 'जनरेटिव AI के साथ इंटरैक्ट करने की कला।' }, 7: { title: 'AI में नैतिकता और पूर्वाग्रह', desc: 'AI में सुरक्षा, गोपनीयता और निष्पक्षता।' }, 8: { title: 'AI में करियर गाइड', desc: 'नौकरी के अवसर और AI उद्योग में करियर कैसे शुरू करें।' } },
+    pt: { 1: { title: 'O que é Inteligência Artificial?', desc: 'Aprenda conceitos básicos de IA, história e aplicações.' }, 2: { title: 'Fundamentos de Machine Learning', desc: 'Compreenda conceitos de aprendizado de máquina.' }, 3: { title: 'Deep Learning e Redes Neurais', desc: 'Introdução ao aprendizado profundo e redes neurais.' }, 4: { title: 'Processamento de Linguagem Natural', desc: 'Como a IA entende a linguagem humana.' }, 5: { title: 'Visão Computacional', desc: 'Tecnologia IA para reconhecer imagens e vídeos.' }, 6: { title: 'Engenharia de Prompts Básica', desc: 'A arte de interagir com IA generativa.' }, 7: { title: 'Ética e Viés na IA', desc: 'Segurança, privacidade e equidade no uso de IA.' }, 8: { title: 'Guia de Carreira em IA', desc: 'Oportunidades e como iniciar carreira em IA.' } },
+    fr: { 1: { title: "Qu'est-ce que l'Intelligence Artificielle ?", desc: "Apprenez les concepts de base de l'IA, son histoire et ses applications." }, 2: { title: 'Les Bases du Machine Learning', desc: "Comprenez les concepts d'apprentissage automatique." }, 3: { title: 'Deep Learning et Réseaux Neuronaux', desc: "Introduction à l'apprentissage profond." }, 4: { title: 'Traitement du Langage Naturel', desc: "Comment l'IA comprend le langage humain." }, 5: { title: 'Vision par Ordinateur', desc: "Technologie IA pour reconnaître images et vidéos." }, 6: { title: "Ingénierie de Prompts de Base", desc: "L'art d'interagir avec l'IA générative." }, 7: { title: "Éthique et Biais dans l'IA", desc: "Sécurité, confidentialité et équité dans l'utilisation de l'IA." }, 8: { title: "Guide de Carrière en IA", desc: "Opportunités et comment démarrer une carrière en IA." } },
+    de: { 1: { title: 'Was ist Künstliche Intelligenz?', desc: 'Lernen Sie die Grundlagen der KI, ihre Geschichte und Anwendungen.' }, 2: { title: 'Grundlagen des Machine Learning', desc: 'Verstehen Sie Machine-Learning-Konzepte.' }, 3: { title: 'Deep Learning & Neuronale Netze', desc: 'Einführung in Deep Learning und neuronale Netze.' }, 4: { title: 'Natürliche Sprachverarbeitung', desc: 'Wie KI menschliche Sprache versteht.' }, 5: { title: 'Computer Vision', desc: 'KI-Technologie zur Bild- und Videoerkennung.' }, 6: { title: 'Grundlagen des Prompt Engineering', desc: 'Die Kunst der Interaktion mit generativer KI.' }, 7: { title: 'Ethik und Voreingenommenheit in KI', desc: 'Sicherheit, Datenschutz und Fairness bei der Nutzung von KI.' }, 8: { title: 'Karriereguide im Bereich KI', desc: 'Jobmöglichkeiten und Karrierestart in der KI-Branche.' } },
+    ja: { 1: { title: '人工知能とは？', desc: 'AIの基本概念、歴史、日常生活での応用を学びます。' }, 2: { title: '機械学習の基礎', desc: '機械学習の概念を理解します。' }, 3: { title: 'ディープラーニングとニューラルネットワーク', desc: 'ディープラーニングの入門。' }, 4: { title: '自然言語処理（NLP）', desc: 'AIが人間の言語を理解する方法。' }, 5: { title: 'コンピュータビジョン', desc: '画像と動画を認識するAI技術。' }, 6: { title: 'プロンプトエンジニアリング基礎', desc: '生成AIと対話する技術。' }, 7: { title: 'AIにおける倫理とバイアス', desc: 'AIにおけるセキュリティ、プライバシー、公平性。' }, 8: { title: 'AI分野のキャリアガイド', desc: 'AI業界でのキャリアの始め方。' } },
+    ko: { 1: { title: '인공지능이란?', desc: 'AI의 기본 개념, 역사, 일상 생활에서의 적용을 배웁니다.' }, 2: { title: '머신러닝 기초', desc: '머신러닝 개념을 이해합니다.' }, 3: { title: '딥러닝과 신경망', desc: '딥러닝과 신경망 소개.' }, 4: { title: '자연어 처리(NLP)', desc: 'AI가 인간 언어를 이해하는 방법.' }, 5: { title: '컴퓨터 비전', desc: '이미지와 비디오를 인식하는 AI 기술.' }, 6: { title: '프롬프트 엔지니어링 기초', desc: '생성 AI와 상호작용하는 기술.' }, 7: { title: 'AI의 윤리와 편견', desc: 'AI 사용의 보안, 개인정보 보호, 공정성.' }, 8: { title: 'AI 분야 커리어 가이드', desc: 'AI 산업에서 커리어를 시작하는 방법.' } },
+    ru: { 1: { title: 'Что такое Искусственный Интеллект?', desc: 'Изучите основы ИИ, его историю и применения.' }, 2: { title: 'Основы Машинного Обучения', desc: 'Понимание концепций машинного обучения.' }, 3: { title: 'Глубокое Обучение и Нейронные Сети', desc: 'Введение в глубокое обучение.' }, 4: { title: 'Обработка Естественного Языка', desc: 'Как ИИ понимает человеческий язык.' }, 5: { title: 'Компьютерное Зрение', desc: 'Технология ИИ для распознавания изображений и видео.' }, 6: { title: 'Основы Промпт-Инженерии', desc: 'Искусство взаимодействия с генеративным ИИ.' }, 7: { title: 'Этика и Предвзятость в ИИ', desc: 'Безопасность, конфиденциальность и справедливость.' }, 8: { title: 'Карьерный Гид в Области ИИ', desc: 'Возможности и как начать карьеру в ИИ.' } },
+    tr: { 1: { title: 'Yapay Zeka Nedir?', desc: 'Yapay zekanın temel kavramları, tarihi ve uygulamalarını öğrenin.' }, 2: { title: 'Makine Öğrenimi Temelleri', desc: 'Makine öğrenimi kavramlarını anlayın.' }, 3: { title: 'Derin Öğrenme ve Sinir Ağları', desc: 'Derin öğrenme ve sinir ağlarına giriş.' }, 4: { title: 'Doğal Dil İşleme', desc: 'Yapay zeka insan dilini nasıl anlar.' }, 5: { title: 'Bilgisayarla Görü', desc: 'Görüntü ve video tanıma AI teknolojisi.' }, 6: { title: 'Temel Prompt Mühendisliği', desc: 'Üretken yapay zekalarla etkileşim sanatı.' }, 7: { title: "AI'da Etik ve Önyargı", desc: 'AI kullanımında güvenlik, gizlilik ve adalet.' }, 8: { title: "AI Alanında Kariyer Rehberi", desc: 'İş fırsatları ve AI kariyerine nasıl başlanır.' } },
+    it: { 1: { title: "Cos'è l'Intelligenza Artificiale?", desc: "Impara i concetti base dell'IA, la sua storia e applicazioni." }, 2: { title: 'Fondamenti di Machine Learning', desc: "Comprendi i concetti dell'apprendimento automatico." }, 3: { title: 'Deep Learning e Reti Neurali', desc: 'Introduzione al deep learning e reti neurali.' }, 4: { title: 'Elaborazione del Linguaggio Naturale', desc: "Come l'IA comprende il linguaggio umano." }, 5: { title: 'Visione Artificiale', desc: "Tecnologia IA per il riconoscimento di immagini e video." }, 6: { title: 'Ingegneria dei Prompt di Base', desc: "L'arte di interagire con l'IA generativa." }, 7: { title: "Etica e Pregiudizi nell'IA", desc: "Sicurezza, privacy e equità nell'uso dell'IA." }, 8: { title: "Guida alla Carriera nell'IA", desc: "Opportunità e come iniziare una carriera nell'IA." } },
+    vi: { 1: { title: 'Trí Tuệ Nhân Tạo Là Gì?', desc: 'Học các khái niệm cơ bản về AI, lịch sử và ứng dụng.' }, 2: { title: 'Cơ Bản Về Machine Learning', desc: 'Hiểu các khái niệm học máy.' }, 3: { title: 'Deep Learning & Mạng Nơ-ron', desc: 'Giới thiệu về học sâu và mạng nơ-ron.' }, 4: { title: 'Xử Lý Ngôn Ngữ Tự Nhiên', desc: 'AI hiểu ngôn ngữ con người như thế nào.' }, 5: { title: 'Thị Giác Máy Tính', desc: 'Công nghệ AI nhận dạng hình ảnh và video.' }, 6: { title: 'Kỹ Thuật Prompt Cơ Bản', desc: 'Nghệ thuật tương tác với AI tạo sinh.' }, 7: { title: 'Đạo Đức và Thiên Kiến Trong AI', desc: 'An ninh, quyền riêng tư và công bằng trong AI.' }, 8: { title: 'Hướng Dẫn Nghề Nghiệp AI', desc: 'Cơ hội việc làm và cách bắt đầu sự nghiệp AI.' } }
+};
+
+// Merge all extra keys
+Object.keys(extraKeys).forEach(lang => { if (translations[lang]) Object.assign(translations[lang], extraKeys[lang]); });
+Object.keys(dynamicKeys).forEach(lang => { if (translations[lang]) Object.assign(translations[lang], dynamicKeys[lang]); });
+
+// Helper: get translated string
+function t(key) {
+    const lang = (data && data.lang) || 'id';
+    const dict = translations[lang];
+    return (dict && dict[key]) || (translations.id && translations.id[key]) || key;
+}
+
+// Helper: get translated lesson title/desc
+function tLesson(id, field) {
+    const lang = (data && data.lang) || 'id';
+    if (lang === 'id') return null; // use original
+    const lt = lessonTranslations[lang];
+    return (lt && lt[id] && lt[id][field]) || null;
+}
+
+// Helper: translate level
+function tLevel(level) {
+    const map = { 'Pemula': 'level_beginner', 'Menengah': 'level_intermediate', 'Lanjut': 'level_advanced' };
+    return map[level] ? t(map[level]) : level;
+}
+
+// Helper: translate duration
+function tDuration(duration) {
+    const match = duration.match(/(\d+)\s*menit/);
+    if (match) return match[1] + ' ' + t('min');
+    return duration;
+}
 
 const LESSONS = [
     {
@@ -369,10 +431,9 @@ function changeLanguage() {
         const langName = select.options[select.selectedIndex].text;
         save();
         applyLanguage();
-        // Since we changed language, let's also refresh dynamic strings 
-        // to original form if they were translated (currently dynamic contents like lessons are fixed in ID).
-
-        notify('success', 'Bahasa diubah ke ' + langName);
+        renderLessons();
+        initQuiz();
+        notify('success', 'Language → ' + langName);
     }
 }
 
@@ -380,11 +441,13 @@ function renderLessons() {
     const c = document.getElementById('lessonsContainer');
     c.innerHTML = LESSONS.map(l => {
         const done = data.completed.includes(l.id), fav = data.favorites.includes(l.id);
+        const title = tLesson(l.id, 'title') || l.title;
+        const desc = tLesson(l.id, 'desc') || l.desc;
         return `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})">
-            <div class="lesson-header"><span class="lesson-title">${l.title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? 'Selesai' : 'Baru'}</span></div>
-            <p class="lesson-desc">${l.desc}</p>
-            <div class="lesson-meta"><span>Tingkat: ${l.level}</span><span>Durasi: ${l.duration}</span></div>
-            <div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" onclick="toggleFav(event,${l.id})">${fav ? 'Hapus Favorit' : 'Tambah Favorit'}</button></div>
+            <div class="lesson-header"><span class="lesson-title">${title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span></div>
+            <p class="lesson-desc">${desc}</p>
+            <div class="lesson-meta"><span>${t('label_level')}: ${tLevel(l.level)}</span><span>${t('label_duration')}: ${tDuration(l.duration)}</span></div>
+            <div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" onclick="toggleFav(event,${l.id})">${fav ? t('btn_remove_fav') : t('btn_add_fav')}</button></div>
         </div>`;
     }).join('');
     renderFavorites();
@@ -400,15 +463,17 @@ function viewLesson(id) {
             updateDashboard();
             renderLessons();
         }
+        const title = tLesson(l.id, 'title') || l.title;
+        const desc = tLesson(l.id, 'desc') || l.desc;
 
         let html = `
             <div class="lesson-modal-header" style="margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid var(--border-light)">
-                <h2 style="font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:8px">${l.title}</h2>
-                <p style="color:var(--text-secondary);margin-bottom:16px">${l.desc}</p>
+                <h2 style="font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:8px">${title}</h2>
+                <p style="color:var(--text-secondary);margin-bottom:16px">${desc}</p>
                 <div style="display:flex;gap:20px;font-size:0.9rem;color:var(--text-secondary)">
-                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">Tingkat: ${l.level}</span>
-                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">Durasi: ${l.duration}</span>
-                    <span style="background:rgba(16,185,129,0.1);color:var(--success);padding:6px 14px;border-radius:20px">Selesai</span>
+                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">${t('label_level')}: ${tLevel(l.level)}</span>
+                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">${t('label_duration')}: ${tDuration(l.duration)}</span>
+                    <span style="background:rgba(16,185,129,0.1);color:var(--success);padding:6px 14px;border-radius:20px">${t('status_done')}</span>
                 </div>
             </div>
         `;
@@ -431,22 +496,24 @@ function viewLesson(id) {
 
         html += `
             <div style="margin-top:30px;padding-top:20px;border-top:2px solid var(--border-light);display:flex;gap:12px;flex-wrap:wrap">
-                <button class="btn-primary" onclick="closeModal('lessonModal')">Selesai Membaca</button>
-                <button class="btn-secondary" onclick="addNoteFromLesson('${l.title}')">Buat Catatan</button>
+                <button class="btn-primary" onclick="closeModal('lessonModal')">${t('btn_done_read')}</button>
+                <button class="btn-secondary" onclick="addNoteFromLesson('${l.title}')">${t('btn_make_note')}</button>
             </div>
         `;
 
         document.getElementById('lessonModalContent').innerHTML = html;
         document.getElementById('lessonModal').classList.add('active');
-        notify('success', 'Membuka: ' + l.title);
+        notify('success', t('notify_open') + ': ' + title);
     }
 }
 
 function addNoteFromLesson(title) {
     closeModal('lessonModal');
-    document.getElementById('noteTitleInput').value = 'Catatan: ' + title;
+    document.getElementById('noteTitleInput').value = t('tab_catatan') + ': ' + title;
     openNoteModal();
 }
+
+
 
 function toggleFav(e, id) {
     e.stopPropagation();
@@ -458,26 +525,36 @@ function toggleFav(e, id) {
 function renderFavorites() {
     const c = document.getElementById('favoritesContainer');
     const favs = LESSONS.filter(l => data.favorites.includes(l.id));
-    if (!favs.length) { c.innerHTML = '<div class="empty-state"><p>Belum ada materi favorit.</p></div>'; return; }
-    c.innerHTML = favs.map(l => `<div class="lesson-card" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${l.title}</span></div><p class="lesson-desc">${l.desc}</p><button class="btn-fav active" onclick="toggleFav(event,${l.id})">Hapus Favorit</button></div>`).join('');
+    if (!favs.length) { c.innerHTML = '<div class="empty-state"><p>' + t('no_fav') + '</p></div>'; return; }
+    c.innerHTML = favs.map(l => {
+        const title = tLesson(l.id, 'title') || l.title;
+        const desc = tLesson(l.id, 'desc') || l.desc;
+        return `<div class="lesson-card" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${title}</span></div><p class="lesson-desc">${desc}</p><button class="btn-fav active" onclick="toggleFav(event,${l.id})">${t('btn_remove_fav')}</button></div>`;
+    }).join('');
 }
 
 function searchMateri() {
     const q = document.getElementById('searchInput').value.toLowerCase();
     if (!q.trim()) { renderLessons(); return; }
-    const results = LESSONS.filter(l => l.title.toLowerCase().includes(q) || l.desc.toLowerCase().includes(q));
+    const results = LESSONS.filter(l => {
+        const title = tLesson(l.id, 'title') || l.title;
+        const desc = tLesson(l.id, 'desc') || l.desc;
+        return title.toLowerCase().includes(q) || desc.toLowerCase().includes(q) || l.title.toLowerCase().includes(q) || l.desc.toLowerCase().includes(q);
+    });
     const c = document.getElementById('lessonsContainer');
-    if (!results.length) { c.innerHTML = '<div class="empty-state"><p>Tidak ada materi yang sesuai.</p></div>'; return; }
+    if (!results.length) { c.innerHTML = '<div class="empty-state"><p>' + t('no_search') + '</p></div>'; return; }
     c.innerHTML = results.map(l => {
         const done = data.completed.includes(l.id);
-        return `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${l.title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? 'Selesai' : 'Baru'}</span></div><p class="lesson-desc">${l.desc}</p></div>`;
+        const title = tLesson(l.id, 'title') || l.title;
+        const desc = tLesson(l.id, 'desc') || l.desc;
+        return `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span></div><p class="lesson-desc">${desc}</p></div>`;
     }).join('');
 }
 
 function initQuiz() {
     const c = document.getElementById('quizContent');
     c.innerHTML = QUIZ.map((q, i) => `<div class="quiz-item ${i === 0 ? 'active' : ''}" id="q${i}" style="${i === 0 ? '' : 'display:none'}">
-        <div class="quiz-header"><div class="question">${i + 1}. ${q.q}</div><span class="quiz-counter">Soal ${i + 1}/${QUIZ.length}</span></div>
+        <div class="quiz-header"><div class="question">${i + 1}. ${q.q}</div><span class="quiz-counter">${t('quiz_q')} ${i + 1}/${QUIZ.length}</span></div>
         <div class="options">${q.opts.map((o, j) => `<div class="option" onclick="checkAnswer(${i},${j},this)">${o}</div>`).join('')}</div>
     </div>`).join('');
 }
