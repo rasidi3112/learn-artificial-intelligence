@@ -523,20 +523,17 @@ function viewLesson(id) {
         `;
 
         if (l.sections) {
-            const lang = (data && data.lang) || 'id';
-            if (lang !== 'id' && contentNotice[lang]) {
-                html += `<div style="background:rgba(99,102,241,0.1);border-left:4px solid var(--primary);padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.9rem;color:var(--text-secondary)">${contentNotice[lang]}</div>`;
-            }
             html += '<div class="lesson-sections">';
             l.sections.forEach((section, idx) => {
                 const secTitle = tSectionTitle(l.id, idx) || section.title;
+                const secContent = (typeof tSectionContent === 'function' ? tSectionContent(l.id, idx) : null) || section.content;
                 html += `
                     <div class="lesson-section" style="margin-bottom:28px">
                         <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:10px">
                             <span style="background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem">${idx + 1}</span>
                             ${secTitle}
                         </h3>
-                        <div style="color:var(--text-secondary);line-height:1.8;padding-left:38px;white-space:pre-wrap">${section.content}</div>
+                        <div style="color:var(--text-secondary);line-height:1.8;padding-left:38px;white-space:pre-wrap">${secContent}</div>
                     </div>
                 `;
             });
