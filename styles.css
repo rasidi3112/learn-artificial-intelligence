@@ -4,6 +4,25 @@
     box-sizing: border-box;
 }
 
+/* Skip-to-content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 0 0 8px 8px;
+    z-index: 9999;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 :root {
     --primary: #6366f1;
     --primary-dark: #4f46e5;
@@ -1037,7 +1056,11 @@ body.dark-mode .form-textarea {
     z-index: 2000;
     animation: slideIn 0.3s ease;
     max-width: 400px;
+    transition: opacity 0.3s ease;
 }
+
+.notification:nth-child(2) { top: 90px; }
+.notification:nth-child(3) { top: 160px; }
 
 body.dark-mode .notification {
     background: var(--card-dark);
@@ -1211,4 +1234,148 @@ body.dark-mode .empty-state {
     .stat-card {
         padding: 20px;
     }
+}
+
+/* === Phase 6: Achievement Badges === */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.badge-card {
+    text-align: center;
+    padding: 20px 12px;
+    border-radius: 16px;
+    background: var(--bg-light);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .badge-card {
+    background: var(--card-dark);
+}
+
+.badge-card.unlocked {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.badge-card.unlocked .badge-icon {
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+.badge-card.locked {
+    opacity: 0.45;
+    filter: grayscale(1);
+}
+
+.badge-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.badge-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+body.dark-mode .badge-name {
+    color: var(--text-dark-primary);
+}
+
+.badge-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+body.dark-mode .badge-desc {
+    color: var(--text-dark-secondary);
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* === Phase 6: Forum Replies === */
+.post-replies {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.post-replies.show {
+    display: block;
+    animation: fadeSlideIn 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reply-card {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--bg-light);
+    border-radius: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+body.dark-mode .reply-card {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.reply-author {
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+.reply-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+body.dark-mode .reply-date {
+    color: var(--text-dark-secondary);
+}
+
+.reply-text {
+    margin-top: 6px;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+body.dark-mode .reply-text {
+    color: var(--text-dark-primary);
+}
+
+/* === Phase 6: Note Edit Button === */
+.note-actions-group {
+    display: flex;
+    gap: 8px;
+}
+
+.note-edit {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.note-edit:hover {
+    background: rgba(99, 102, 241, 0.1);
 }

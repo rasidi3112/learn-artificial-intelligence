@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    <a href="#materi" class="skip-link">Skip to content</a>
     <div class="container">
         <header class="header">
             <div class="header-title">
@@ -80,19 +81,19 @@
             </div>
         </header>
 
-        <nav class="nav-tabs">
-            <button class="nav-tab active" data-i18n="tab_materi" onclick="showTab(this,'materi')">Materi</button>
-            <button class="nav-tab" data-i18n="tab_kuis" onclick="showTab(this,'quiz')">Kuis</button>
-            <button class="nav-tab" data-i18n="tab_catatan" onclick="showTab(this,'catatan')">Catatan</button>
-            <button class="nav-tab" data-i18n="tab_forum" onclick="showTab(this,'forum')">Forum</button>
-            <button class="nav-tab" data-i18n="tab_leaderboard"
+        <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
+            <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="materi" data-i18n="tab_materi" onclick="showTab(this,'materi')">Materi</button>
+            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="quiz" data-i18n="tab_kuis" onclick="showTab(this,'quiz')">Kuis</button>
+            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="catatan" data-i18n="tab_catatan" onclick="showTab(this,'catatan')">Catatan</button>
+            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="forum" data-i18n="tab_forum" onclick="showTab(this,'forum')">Forum</button>
+            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="leaderboard" data-i18n="tab_leaderboard"
                 onclick="showTab(this,'leaderboard')">Leaderboard</button>
-            <button class="nav-tab" data-i18n="tab_sertifikat" onclick="showTab(this,'sertifikat')">Sertifikat</button>
+            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sertifikat" data-i18n="tab_sertifikat" onclick="showTab(this,'sertifikat')">Sertifikat</button>
         </nav>
 
         <main>
             <!-- MATERI TAB -->
-            <div id="materi" class="tab-content active">
+            <div id="materi" class="tab-content active" role="tabpanel" aria-labelledby="tab-materi">
                 <h2 class="section-title" data-i18n="dashboard_title">Dashboard Pembelajaran</h2>
                 <div class="dashboard-grid">
                     <div class="stat-card">
@@ -122,6 +123,11 @@
                     </div>
                 </div>
 
+                <div class="achievements-section card" style="margin-top:24px">
+                    <h3 class="section-title" style="font-size:1.1rem;margin-bottom:16px" data-i18n="achievements_title">Pencapaian</h3>
+                    <div class="badges-grid" id="badgesContainer"></div>
+                </div>
+
                 <div class="search-box">
                     <input type="text" class="search-input" id="searchInput" data-i18n-prop="placeholder"
                         data-i18n="search_placeholder" placeholder="Cari materi pembelajaran...">
@@ -142,7 +148,7 @@
             </div>
 
             <!-- QUIZ TAB -->
-            <div id="quiz" class="tab-content">
+            <div id="quiz" class="tab-content" role="tabpanel" aria-labelledby="tab-quiz">
                 <div class="card quiz-card">
                     <h2 class="section-title" data-i18n="quiz_title">Uji Pemahaman Anda</h2>
                     <div class="progress-section">
@@ -170,7 +176,7 @@
             </div>
 
             <!-- CATATAN TAB -->
-            <div id="catatan" class="tab-content">
+            <div id="catatan" class="tab-content" role="tabpanel" aria-labelledby="tab-catatan">
                 <div class="section-header">
                     <h2 class="section-title" style="margin:0" data-i18n="notes_title">Catatan Pembelajaran</h2><button
                         class="btn-primary" data-i18n="notes_add" onclick="openNoteModal()">Tambah Catatan</button>
@@ -183,7 +189,7 @@
             </div>
 
             <!-- FORUM TAB -->
-            <div id="forum" class="tab-content">
+            <div id="forum" class="tab-content" role="tabpanel" aria-labelledby="tab-forum">
                 <div class="section-header">
                     <h2 class="section-title" style="margin:0" data-i18n="forum_title">Forum Diskusi</h2><button
                         class="btn-primary" data-i18n="forum_add" onclick="openPostModal()">Buat Postingan</button>
@@ -196,7 +202,7 @@
             </div>
 
             <!-- LEADERBOARD TAB -->
-            <div id="leaderboard" class="tab-content">
+            <div id="leaderboard" class="tab-content" role="tabpanel" aria-labelledby="tab-leaderboard">
                 <div class="card">
                     <h2 class="section-title" data-i18n="lb_title">Papan Peringkat</h2>
                     <div style="overflow-x:auto">
@@ -217,7 +223,7 @@
             </div>
 
             <!-- SERTIFIKAT TAB -->
-            <div id="sertifikat" class="tab-content">
+            <div id="sertifikat" class="tab-content" role="tabpanel" aria-labelledby="tab-sertifikat">
                 <div class="card" style="text-align:center">
                     <h2 class="section-title" data-i18n="cert_title">Sertifikat Digital</h2>
                     <button class="btn-primary" id="certBtn" data-i18n="cert_download" onclick="downloadCertificate()"
@@ -243,10 +249,10 @@
     </div>
 
     <!-- MODALS -->
-    <div id="noteModal" class="modal">
+    <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('noteModal')">×</button>
-            <h3 class="modal-title" data-i18n="modal_note_title">Tambah Catatan</h3>
+            <button class="modal-close" onclick="closeModal('noteModal')" aria-label="Close">×</button>
+            <h3 class="modal-title" id="noteModalTitle" data-i18n="modal_note_title">Tambah Catatan</h3>
             <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
                     type="text" class="form-input" id="noteTitleInput" data-i18n="modal_note_ph_title"
                     data-i18n-prop="placeholder" placeholder="Judul catatan..."></div>
@@ -259,10 +265,10 @@
         </div>
     </div>
 
-    <div id="postModal" class="modal">
+    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('postModal')">×</button>
-            <h3 class="modal-title" data-i18n="modal_post_title">Buat Postingan</h3>
+            <button class="modal-close" onclick="closeModal('postModal')" aria-label="Close">×</button>
+            <h3 class="modal-title" id="postModalTitle" data-i18n="modal_post_title">Buat Postingan</h3>
             <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
                     type="text" class="form-input" id="postTitleInput" data-i18n="modal_post_ph_title"
                     data-i18n-prop="placeholder" placeholder="Judul diskusi..."></div>
@@ -276,10 +282,10 @@
         </div>
     </div>
 
-    <div id="userModal" class="modal">
+    <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('userModal')">×</button>
-            <h3 class="modal-title" data-i18n="modal_profile_title">Profil Pengguna</h3>
+            <button class="modal-close" onclick="closeModal('userModal')" aria-label="Close">×</button>
+            <h3 class="modal-title" id="userModalTitle" data-i18n="modal_profile_title">Profil Pengguna</h3>
             <div class="form-group"><label class="form-label" data-i18n="modal_profile_name">Nama</label><input
                     type="text" class="form-input" id="userNameInput" data-i18n="modal_profile_ph"
                     data-i18n-prop="placeholder" placeholder="Nama Anda..."></div>
@@ -289,15 +295,18 @@
                 <p><strong data-i18n="modal_profile_completed">Materi Selesai:</strong> <span
                         id="profileCompleted">0</span></p>
             </div>
-            <div class="modal-btns"><button class="btn-primary" data-i18n="btn_save"
-                    onclick="saveProfile()">Simpan</button><button class="btn-secondary" data-i18n="btn_close"
-                    onclick="closeModal('userModal')">Tutup</button></div>
+            <div class="modal-btns">
+                <button class="btn-primary" data-i18n="btn_save" onclick="saveProfile()">Simpan</button>
+                <button class="btn-secondary" onclick="exportData()" data-i18n="btn_export">Ekspor Data</button>
+                <button class="btn-secondary" onclick="importData()" data-i18n="btn_import">Impor Data</button>
+                <button class="btn-secondary" data-i18n="btn_close" onclick="closeModal('userModal')">Tutup</button>
+            </div>
         </div>
     </div>
 
-    <div id="lessonModal" class="modal">
+    <div id="lessonModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle">
         <div class="modal-content" style="max-width:900px;max-height:90vh;overflow-y:auto">
-            <button class="modal-close" onclick="closeModal('lessonModal')">×</button>
+            <button class="modal-close" onclick="closeModal('lessonModal')" aria-label="Close">×</button>
             <div id="lessonModalContent"></div>
         </div>
     </div>

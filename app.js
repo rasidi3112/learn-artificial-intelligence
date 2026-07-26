@@ -1,4 +1,21 @@
 const STORAGE_KEY = 'belajarAI_v2';
+const MAX_NOTIFICATIONS = 3;
+
+// Security: Sanitize user input before inserting into innerHTML
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+
+// Utility: Debounce function calls
+function debounce(fn, delay) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+}
 
 const translations = {
     id: { app_title: 'Belajar AI', app_desc: 'Platform Pembelajaran AI Premium untuk Pemula', tab_materi: 'Materi', tab_kuis: 'Kuis', tab_catatan: 'Catatan', tab_forum: 'Forum', tab_leaderboard: 'Leaderboard', tab_sertifikat: 'Sertifikat', dashboard_title: 'Dashboard Pembelajaran', stat_materi: 'Materi Selesai', stat_skor: 'Skor Rata-Rata', stat_streak: 'Streak Belajar', stat_poin: 'Total Poin', progress_title: 'Progress Pembelajaran', search_placeholder: 'Cari materi pembelajaran...', btn_cari: 'Cari', list_materi_title: 'Daftar Materi Pembelajaran', fav_materi_title: 'Materi Favorit', fav_empty: 'Belum ada materi favorit.', footer_quote: '"Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana kecerdasan bisa membuat manusia lebih bijak."', footer_dev: 'Dikembangkan oleh', footer_desc: 'Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.', footer_copy: '© 2025 Belajar AI. Semua hak dilindungi.' },
@@ -39,21 +56,21 @@ const extraKeys = {
 
 // Dynamic UI labels for render functions
 const dynamicKeys = {
-    id: { status_done: 'Selesai', status_new: 'Baru', label_level: 'Tingkat', label_duration: 'Durasi', btn_add_fav: 'Tambah Favorit', btn_remove_fav: 'Hapus Favorit', no_fav: 'Belum ada materi favorit.', no_search: 'Tidak ada materi yang sesuai.', btn_done_read: 'Selesai Membaca', btn_make_note: 'Buat Catatan', notify_open: 'Membuka', quiz_q: 'Soal', level_beginner: 'Pemula', level_intermediate: 'Menengah', level_advanced: 'Lanjut', min: 'menit' },
-    en: { status_done: 'Completed', status_new: 'New', label_level: 'Level', label_duration: 'Duration', btn_add_fav: 'Add Favorite', btn_remove_fav: 'Remove Favorite', no_fav: 'No favorite lessons yet.', no_search: 'No matching lessons found.', btn_done_read: 'Done Reading', btn_make_note: 'Make Note', notify_open: 'Opening', quiz_q: 'Question', level_beginner: 'Beginner', level_intermediate: 'Intermediate', level_advanced: 'Advanced', min: 'min' },
-    zh: { status_done: '已完成', status_new: '新', label_level: '等级', label_duration: '时长', btn_add_fav: '添加收藏', btn_remove_fav: '取消收藏', no_fav: '暂无收藏的课程。', no_search: '没有找到匹配的课程。', btn_done_read: '阅读完毕', btn_make_note: '做笔记', notify_open: '正在打开', quiz_q: '题目', level_beginner: '初级', level_intermediate: '中级', level_advanced: '高级', min: '分钟' },
-    es: { status_done: 'Completado', status_new: 'Nuevo', label_level: 'Nivel', label_duration: 'Duración', btn_add_fav: 'Agregar Favorito', btn_remove_fav: 'Quitar Favorito', no_fav: 'No hay lecciones favoritas.', no_search: 'No se encontraron lecciones.', btn_done_read: 'Terminado', btn_make_note: 'Crear Nota', notify_open: 'Abriendo', quiz_q: 'Pregunta', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzado', min: 'min' },
-    ar: { status_done: 'مكتمل', status_new: 'جديد', label_level: 'المستوى', label_duration: 'المدة', btn_add_fav: 'إضافة مفضلة', btn_remove_fav: 'إزالة مفضلة', no_fav: 'لا توجد دروس مفضلة.', no_search: 'لا توجد نتائج.', btn_done_read: 'تم القراءة', btn_make_note: 'إنشاء ملاحظة', notify_open: 'جاري الفتح', quiz_q: 'سؤال', level_beginner: 'مبتدئ', level_intermediate: 'متوسط', level_advanced: 'متقدم', min: 'دقيقة' },
-    hi: { status_done: 'पूर्ण', status_new: 'नया', label_level: 'स्तर', label_duration: 'अवधि', btn_add_fav: 'पसंदीदा जोड़ें', btn_remove_fav: 'पसंदीदा हटाएं', no_fav: 'कोई पसंदीदा नहीं।', no_search: 'कोई परिणाम नहीं।', btn_done_read: 'पढ़ना समाप्त', btn_make_note: 'नोट बनाएं', notify_open: 'खोल रहे हैं', quiz_q: 'प्रश्न', level_beginner: 'शुरुआती', level_intermediate: 'मध्यवर्ती', level_advanced: 'उन्नत', min: 'मिनट' },
-    pt: { status_done: 'Concluído', status_new: 'Novo', label_level: 'Nível', label_duration: 'Duração', btn_add_fav: 'Adicionar Favorito', btn_remove_fav: 'Remover Favorito', no_fav: 'Nenhuma lição favorita.', no_search: 'Nenhuma lição encontrada.', btn_done_read: 'Leitura Concluída', btn_make_note: 'Criar Nota', notify_open: 'Abrindo', quiz_q: 'Questão', level_beginner: 'Iniciante', level_intermediate: 'Intermediário', level_advanced: 'Avançado', min: 'min' },
-    fr: { status_done: 'Terminé', status_new: 'Nouveau', label_level: 'Niveau', label_duration: 'Durée', btn_add_fav: 'Ajouter Favori', btn_remove_fav: 'Retirer Favori', no_fav: 'Aucune leçon favorite.', no_search: 'Aucune leçon trouvée.', btn_done_read: 'Lecture terminée', btn_make_note: 'Créer Note', notify_open: 'Ouverture de', quiz_q: 'Question', level_beginner: 'Débutant', level_intermediate: 'Intermédiaire', level_advanced: 'Avancé', min: 'min' },
-    de: { status_done: 'Abgeschlossen', status_new: 'Neu', label_level: 'Stufe', label_duration: 'Dauer', btn_add_fav: 'Favorit hinzufügen', btn_remove_fav: 'Favorit entfernen', no_fav: 'Keine Lieblingslektionen.', no_search: 'Keine Lektionen gefunden.', btn_done_read: 'Fertig gelesen', btn_make_note: 'Notiz erstellen', notify_open: 'Öffne', quiz_q: 'Frage', level_beginner: 'Anfänger', level_intermediate: 'Mittel', level_advanced: 'Fortgeschritten', min: 'Min' },
-    ja: { status_done: '完了', status_new: '新規', label_level: 'レベル', label_duration: '所要時間', btn_add_fav: 'お気に入り追加', btn_remove_fav: 'お気に入り解除', no_fav: 'お気に入りはありません。', no_search: '該当するレッスンがありません。', btn_done_read: '読了', btn_make_note: 'ノートを作成', notify_open: '開く', quiz_q: '問題', level_beginner: '初級', level_intermediate: '中級', level_advanced: '上級', min: '分' },
-    ko: { status_done: '완료', status_new: '새로운', label_level: '레벨', label_duration: '소요시간', btn_add_fav: '즐겨찾기 추가', btn_remove_fav: '즐겨찾기 해제', no_fav: '즐겨찾기가 없습니다.', no_search: '일치하는 레슨이 없습니다.', btn_done_read: '읽기 완료', btn_make_note: '노트 작성', notify_open: '열기', quiz_q: '문제', level_beginner: '초급', level_intermediate: '중급', level_advanced: '고급', min: '분' },
-    ru: { status_done: 'Завершено', status_new: 'Новый', label_level: 'Уровень', label_duration: 'Длительность', btn_add_fav: 'В избранное', btn_remove_fav: 'Из избранного', no_fav: 'Нет избранных уроков.', no_search: 'Уроки не найдены.', btn_done_read: 'Прочитано', btn_make_note: 'Создать заметку', notify_open: 'Открытие', quiz_q: 'Вопрос', level_beginner: 'Начальный', level_intermediate: 'Средний', level_advanced: 'Продвинутый', min: 'мин' },
-    tr: { status_done: 'Tamamlandı', status_new: 'Yeni', label_level: 'Seviye', label_duration: 'Süre', btn_add_fav: 'Favori Ekle', btn_remove_fav: 'Favori Kaldır', no_fav: 'Favori ders yok.', no_search: 'Eşleşen ders bulunamadı.', btn_done_read: 'Okuma Tamamlandı', btn_make_note: 'Not Oluştur', notify_open: 'Açılıyor', quiz_q: 'Soru', level_beginner: 'Başlangıç', level_intermediate: 'Orta', level_advanced: 'İleri', min: 'dk' },
-    it: { status_done: 'Completato', status_new: 'Nuovo', label_level: 'Livello', label_duration: 'Durata', btn_add_fav: 'Aggiungi Preferito', btn_remove_fav: 'Rimuovi Preferito', no_fav: 'Nessuna lezione preferita.', no_search: 'Nessuna lezione trovata.', btn_done_read: 'Lettura completata', btn_make_note: 'Crea Nota', notify_open: 'Apertura di', quiz_q: 'Domanda', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzato', min: 'min' },
-    vi: { status_done: 'Hoàn thành', status_new: 'Mới', label_level: 'Cấp độ', label_duration: 'Thời gian', btn_add_fav: 'Thêm Yêu thích', btn_remove_fav: 'Bỏ Yêu thích', no_fav: 'Chưa có bài học yêu thích.', no_search: 'Không tìm thấy bài học.', btn_done_read: 'Đọc xong', btn_make_note: 'Tạo Ghi chú', notify_open: 'Đang mở', quiz_q: 'Câu', level_beginner: 'Cơ bản', level_intermediate: 'Trung cấp', level_advanced: 'Nâng cao', min: 'phút' }
+    id: { status_done: 'Selesai', status_new: 'Baru', label_level: 'Tingkat', label_duration: 'Durasi', btn_add_fav: 'Tambah Favorit', btn_remove_fav: 'Hapus Favorit', no_fav: 'Belum ada materi favorit.', no_search: 'Tidak ada materi yang sesuai.', btn_done_read: 'Selesai Membaca', btn_make_note: 'Buat Catatan', notify_open: 'Membuka', quiz_q: 'Soal', level_beginner: 'Pemula', level_intermediate: 'Menengah', level_advanced: 'Lanjut', min: 'menit', notes_no_data: 'Belum ada catatan.', forum_no_data: 'Belum ada postingan.', btn_like: 'Suka', btn_reply: 'Balas', btn_delete: 'Hapus', notify_correct: 'Jawaban Benar!', notify_wrong: 'Jawaban Salah!', notify_fill_fields: 'Lengkapi semua field!', notify_note_added: 'Catatan berhasil ditambahkan!', notify_note_deleted: 'Catatan dihapus!', notify_post_created: 'Postingan berhasil dibuat!', notify_post_deleted: 'Postingan dihapus!', notify_profile_saved: 'Profil diperbarui!', notify_pdf_prep: 'Menyiapkan PDF...', notify_pdf_done: 'Sertifikat PDF berhasil diunduh!', notify_pdf_fail: 'Gagal membuat PDF', notify_cert_missing: 'Sertifikat tidak ditemukan!', notify_notif_count: 'Anda memiliki 3 notifikasi baru!', quiz_result_perfect: 'Sempurna! Anda menguasai semua materi!', quiz_result_great: 'Luar biasa! Nilai Anda sangat bagus!', quiz_result_good: 'Cukup baik! Terus belajar!', quiz_result_retry: 'Jangan menyerah! Coba lagi!', report_title: 'LAPORAN HASIL KUIS', report_name: 'Nama', report_date: 'Tanggal', report_score: 'Skor', report_percent: 'Persentase', lb_materi_suffix: 'Materi', btn_edit: 'Edit', notify_note_updated: 'Catatan diperbarui!', notify_reply_added: 'Balasan ditambahkan!', btn_export: 'Ekspor Data', btn_import: 'Impor Data', notify_export_done: 'Data berhasil diekspor!', notify_import_done: 'Data berhasil diimpor!', notify_import_fail: 'Format data tidak valid!', badge_first_lesson: 'Pelajar Pertama', badge_first_lesson_desc: 'Selesaikan pelajaran pertama', badge_all_lessons: 'Master AI', badge_all_lessons_desc: 'Selesaikan semua pelajaran', badge_perfect_quiz: 'Jenius Kuis', badge_perfect_quiz_desc: 'Raih skor sempurna di kuis', badge_note_taker: 'Pencatat', badge_note_taker_desc: 'Buat 5 catatan', badge_social: 'Sosial', badge_social_desc: 'Buat 3 postingan forum', badge_streak: 'Konsisten', badge_streak_desc: 'Raih streak 5 hari', achievements_title: 'Pencapaian', badge_locked: 'Terkunci', btn_show_replies: 'Tampilkan Balasan', btn_hide_replies: 'Sembunyikan Balasan' },
+    en: { status_done: 'Completed', status_new: 'New', label_level: 'Level', label_duration: 'Duration', btn_add_fav: 'Add Favorite', btn_remove_fav: 'Remove Favorite', no_fav: 'No favorite lessons yet.', no_search: 'No matching lessons found.', btn_done_read: 'Done Reading', btn_make_note: 'Make Note', notify_open: 'Opening', quiz_q: 'Question', level_beginner: 'Beginner', level_intermediate: 'Intermediate', level_advanced: 'Advanced', min: 'min', notes_no_data: 'No notes yet.', forum_no_data: 'No posts yet.', btn_like: 'Like', btn_reply: 'Reply', btn_delete: 'Delete', notify_correct: 'Correct Answer!', notify_wrong: 'Wrong Answer!', notify_fill_fields: 'Please fill in all fields!', notify_note_added: 'Note added successfully!', notify_note_deleted: 'Note deleted!', notify_post_created: 'Post created successfully!', notify_post_deleted: 'Post deleted!', notify_profile_saved: 'Profile updated!', notify_pdf_prep: 'Preparing PDF...', notify_pdf_done: 'Certificate PDF downloaded!', notify_pdf_fail: 'Failed to create PDF', notify_cert_missing: 'Certificate not found!', notify_notif_count: 'You have 3 new notifications!', quiz_result_perfect: 'Perfect! You mastered all the material!', quiz_result_great: 'Great job! Excellent score!', quiz_result_good: 'Good enough! Keep learning!', quiz_result_retry: 'Don\'t give up! Try again!', report_title: 'QUIZ RESULTS REPORT', report_name: 'Name', report_date: 'Date', report_score: 'Score', report_percent: 'Percentage', lb_materi_suffix: 'Lessons', btn_edit: 'Edit', notify_note_updated: 'Note updated!', notify_reply_added: 'Reply added!', btn_export: 'Export Data', btn_import: 'Import Data', notify_export_done: 'Data exported successfully!', notify_import_done: 'Data imported successfully!', notify_import_fail: 'Invalid data format!', badge_first_lesson: 'First Learner', badge_first_lesson_desc: 'Complete your first lesson', badge_all_lessons: 'AI Master', badge_all_lessons_desc: 'Complete all lessons', badge_perfect_quiz: 'Quiz Genius', badge_perfect_quiz_desc: 'Get a perfect quiz score', badge_note_taker: 'Note Taker', badge_note_taker_desc: 'Create 5 notes', badge_social: 'Social', badge_social_desc: 'Create 3 forum posts', badge_streak: 'Consistent', badge_streak_desc: 'Reach a 5-day streak', achievements_title: 'Achievements', badge_locked: 'Locked', btn_show_replies: 'Show Replies', btn_hide_replies: 'Hide Replies' },
+    zh: { status_done: '已完成', status_new: '新', label_level: '等级', label_duration: '时长', btn_add_fav: '添加收藏', btn_remove_fav: '取消收藏', no_fav: '暂无收藏的课程。', no_search: '没有找到匹配的课程。', btn_done_read: '阅读完毕', btn_make_note: '做笔记', notify_open: '正在打开', quiz_q: '题目', level_beginner: '初级', level_intermediate: '中级', level_advanced: '高级', min: '分钟', notes_no_data: '暂无笔记。', forum_no_data: '暂无帖子。', btn_like: '点赞', btn_reply: '回复', btn_delete: '删除', notify_correct: '回答正确！', notify_wrong: '回答错误！', notify_fill_fields: '请填写所有字段！', notify_note_added: '笔记添加成功！', notify_note_deleted: '笔记已删除！', notify_post_created: '帖子创建成功！', notify_post_deleted: '帖子已删除！', notify_profile_saved: '个人资料已更新！', notify_pdf_prep: '正在准备PDF...', notify_pdf_done: '证书PDF下载成功！', notify_pdf_fail: 'PDF创建失败', notify_cert_missing: '未找到证书！', notify_notif_count: '您有3条新通知！', quiz_result_perfect: '完美！您掌握了所有内容！', quiz_result_great: '太棒了！成绩优秀！', quiz_result_good: '不错！继续加油！', quiz_result_retry: '别放弃！再试一次！', report_title: '测验结果报告', report_name: '姓名', report_date: '日期', report_score: '分数', report_percent: '百分比', lb_materi_suffix: '课程' },
+    es: { status_done: 'Completado', status_new: 'Nuevo', label_level: 'Nivel', label_duration: 'Duración', btn_add_fav: 'Agregar Favorito', btn_remove_fav: 'Quitar Favorito', no_fav: 'No hay lecciones favoritas.', no_search: 'No se encontraron lecciones.', btn_done_read: 'Terminado', btn_make_note: 'Crear Nota', notify_open: 'Abriendo', quiz_q: 'Pregunta', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzado', min: 'min', notes_no_data: 'No hay notas aún.', forum_no_data: 'No hay publicaciones.', btn_like: 'Me gusta', btn_reply: 'Responder', btn_delete: 'Eliminar', notify_correct: '¡Respuesta correcta!', notify_wrong: '¡Respuesta incorrecta!', notify_fill_fields: '¡Complete todos los campos!', notify_note_added: '¡Nota añadida!', notify_note_deleted: '¡Nota eliminada!', notify_post_created: '¡Publicación creada!', notify_post_deleted: '¡Publicación eliminada!', notify_profile_saved: '¡Perfil actualizado!', notify_pdf_prep: 'Preparando PDF...', notify_pdf_done: '¡Certificado descargado!', notify_pdf_fail: 'Error al crear PDF', notify_cert_missing: '¡Certificado no encontrado!', notify_notif_count: '¡Tiene 3 notificaciones nuevas!', quiz_result_perfect: '¡Perfecto!', quiz_result_great: '¡Excelente!', quiz_result_good: '¡Buen trabajo!', quiz_result_retry: '¡No te rindas!', report_title: 'INFORME DE RESULTADOS', report_name: 'Nombre', report_date: 'Fecha', report_score: 'Puntuación', report_percent: 'Porcentaje', lb_materi_suffix: 'Lecciones' },
+    ar: { status_done: 'مكتمل', status_new: 'جديد', label_level: 'المستوى', label_duration: 'المدة', btn_add_fav: 'إضافة مفضلة', btn_remove_fav: 'إزالة مفضلة', no_fav: 'لا توجد دروس مفضلة.', no_search: 'لا توجد نتائج.', btn_done_read: 'تم القراءة', btn_make_note: 'إنشاء ملاحظة', notify_open: 'جاري الفتح', quiz_q: 'سؤال', level_beginner: 'مبتدئ', level_intermediate: 'متوسط', level_advanced: 'متقدم', min: 'دقيقة', notes_no_data: 'لا توجد ملاحظات.', forum_no_data: 'لا توجد منشورات.', btn_like: 'إعجاب', btn_reply: 'رد', btn_delete: 'حذف', notify_correct: 'إجابة صحيحة!', notify_wrong: 'إجابة خاطئة!', notify_fill_fields: 'يرجى ملء جميع الحقول!', notify_note_added: 'تمت إضافة الملاحظة!', notify_note_deleted: 'تم حذف الملاحظة!', notify_post_created: 'تم إنشاء المنشور!', notify_post_deleted: 'تم حذف المنشور!', notify_profile_saved: 'تم تحديث الملف الشخصي!', notify_pdf_prep: 'جاري تحضير PDF...', notify_pdf_done: 'تم تنزيل الشهادة!', notify_pdf_fail: 'فشل إنشاء PDF', notify_cert_missing: 'الشهادة غير موجودة!', notify_notif_count: 'لديك 3 إشعارات جديدة!', quiz_result_perfect: 'ممتاز!', quiz_result_great: 'رائع!', quiz_result_good: 'جيد!', quiz_result_retry: 'لا تستسلم!', report_title: 'تقرير نتائج الاختبار', report_name: 'الاسم', report_date: 'التاريخ', report_score: 'النتيجة', report_percent: 'النسبة', lb_materi_suffix: 'دروس' },
+    hi: { status_done: 'पूर्ण', status_new: 'नया', label_level: 'स्तर', label_duration: 'अवधि', btn_add_fav: 'पसंदीदा जोड़ें', btn_remove_fav: 'पसंदीदा हटाएं', no_fav: 'कोई पसंदीदा नहीं।', no_search: 'कोई परिणाम नहीं।', btn_done_read: 'पढ़ना समाप्त', btn_make_note: 'नोट बनाएं', notify_open: 'खोल रहे हैं', quiz_q: 'प्रश्न', level_beginner: 'शुरुआती', level_intermediate: 'मध्यवर्ती', level_advanced: 'उन्नत', min: 'मिनट', notes_no_data: 'अभी कोई नोट नहीं।', forum_no_data: 'अभी कोई पोस्ट नहीं।', btn_like: 'पसंद', btn_reply: 'जवाब', btn_delete: 'हटाएं', notify_correct: 'सही उत्तर!', notify_wrong: 'गलत उत्तर!', notify_fill_fields: 'सभी फ़ील्ड भरें!', notify_note_added: 'नोट जोड़ा गया!', notify_note_deleted: 'नोट हटाया गया!', notify_post_created: 'पोस्ट बनाई गई!', notify_post_deleted: 'पोस्ट हटाई गई!', notify_profile_saved: 'प्रोफ़ाइल अपडेट!', notify_pdf_prep: 'PDF तैयार हो रहा...', notify_pdf_done: 'प्रमाणपत्र डाउनलोड हुआ!', notify_pdf_fail: 'PDF बनाने में विफल', notify_cert_missing: 'प्रमाणपत्र नहीं मिला!', notify_notif_count: 'आपके पास 3 नई सूचनाएं हैं!', quiz_result_perfect: 'उत्कृष्ट!', quiz_result_great: 'शानदार!', quiz_result_good: 'अच्छा!', quiz_result_retry: 'हार न मानें!', report_title: 'क्विज़ रिपोर्ट', report_name: 'नाम', report_date: 'तारीख', report_score: 'स्कोर', report_percent: 'प्रतिशत', lb_materi_suffix: 'पाठ' },
+    pt: { status_done: 'Concluído', status_new: 'Novo', label_level: 'Nível', label_duration: 'Duração', btn_add_fav: 'Adicionar Favorito', btn_remove_fav: 'Remover Favorito', no_fav: 'Nenhuma lição favorita.', no_search: 'Nenhuma lição encontrada.', btn_done_read: 'Leitura Concluída', btn_make_note: 'Criar Nota', notify_open: 'Abrindo', quiz_q: 'Questão', level_beginner: 'Iniciante', level_intermediate: 'Intermediário', level_advanced: 'Avançado', min: 'min', notes_no_data: 'Nenhuma nota ainda.', forum_no_data: 'Nenhuma postagem.', btn_like: 'Curtir', btn_reply: 'Responder', btn_delete: 'Excluir', notify_correct: 'Resposta correta!', notify_wrong: 'Resposta errada!', notify_fill_fields: 'Preencha todos os campos!', notify_note_added: 'Nota adicionada!', notify_note_deleted: 'Nota excluída!', notify_post_created: 'Postagem criada!', notify_post_deleted: 'Postagem excluída!', notify_profile_saved: 'Perfil atualizado!', notify_pdf_prep: 'Preparando PDF...', notify_pdf_done: 'Certificado baixado!', notify_pdf_fail: 'Falha ao criar PDF', notify_cert_missing: 'Certificado não encontrado!', notify_notif_count: 'Você tem 3 novas notificações!', quiz_result_perfect: 'Perfeito!', quiz_result_great: 'Excelente!', quiz_result_good: 'Bom trabalho!', quiz_result_retry: 'Não desista!', report_title: 'RELATÓRIO DO QUIZ', report_name: 'Nome', report_date: 'Data', report_score: 'Pontuação', report_percent: 'Porcentagem', lb_materi_suffix: 'Lições' },
+    fr: { status_done: 'Terminé', status_new: 'Nouveau', label_level: 'Niveau', label_duration: 'Durée', btn_add_fav: 'Ajouter Favori', btn_remove_fav: 'Retirer Favori', no_fav: 'Aucune leçon favorite.', no_search: 'Aucune leçon trouvée.', btn_done_read: 'Lecture terminée', btn_make_note: 'Créer Note', notify_open: 'Ouverture de', quiz_q: 'Question', level_beginner: 'Débutant', level_intermediate: 'Intermédiaire', level_advanced: 'Avancé', min: 'min', notes_no_data: 'Aucune note.', forum_no_data: 'Aucune publication.', btn_like: 'Aimer', btn_reply: 'Répondre', btn_delete: 'Supprimer', notify_correct: 'Bonne réponse !', notify_wrong: 'Mauvaise réponse !', notify_fill_fields: 'Remplissez tous les champs !', notify_note_added: 'Note ajoutée !', notify_note_deleted: 'Note supprimée !', notify_post_created: 'Publication créée !', notify_post_deleted: 'Publication supprimée !', notify_profile_saved: 'Profil mis à jour !', notify_pdf_prep: 'Préparation du PDF...', notify_pdf_done: 'Certificat téléchargé !', notify_pdf_fail: 'Échec de création du PDF', notify_cert_missing: 'Certificat introuvable !', notify_notif_count: 'Vous avez 3 nouvelles notifications !', quiz_result_perfect: 'Parfait !', quiz_result_great: 'Excellent !', quiz_result_good: 'Bien !', quiz_result_retry: 'N\'abandonnez pas !', report_title: 'RAPPORT DE QUIZ', report_name: 'Nom', report_date: 'Date', report_score: 'Score', report_percent: 'Pourcentage', lb_materi_suffix: 'Leçons' },
+    de: { status_done: 'Abgeschlossen', status_new: 'Neu', label_level: 'Stufe', label_duration: 'Dauer', btn_add_fav: 'Favorit hinzufügen', btn_remove_fav: 'Favorit entfernen', no_fav: 'Keine Lieblingslektionen.', no_search: 'Keine Lektionen gefunden.', btn_done_read: 'Fertig gelesen', btn_make_note: 'Notiz erstellen', notify_open: 'Öffne', quiz_q: 'Frage', level_beginner: 'Anfänger', level_intermediate: 'Mittel', level_advanced: 'Fortgeschritten', min: 'Min', notes_no_data: 'Keine Notizen.', forum_no_data: 'Keine Beiträge.', btn_like: 'Gefällt mir', btn_reply: 'Antworten', btn_delete: 'Löschen', notify_correct: 'Richtig!', notify_wrong: 'Falsch!', notify_fill_fields: 'Bitte alle Felder ausfüllen!', notify_note_added: 'Notiz hinzugefügt!', notify_note_deleted: 'Notiz gelöscht!', notify_post_created: 'Beitrag erstellt!', notify_post_deleted: 'Beitrag gelöscht!', notify_profile_saved: 'Profil aktualisiert!', notify_pdf_prep: 'PDF wird vorbereitet...', notify_pdf_done: 'Zertifikat heruntergeladen!', notify_pdf_fail: 'PDF-Erstellung fehlgeschlagen', notify_cert_missing: 'Zertifikat nicht gefunden!', notify_notif_count: 'Sie haben 3 neue Benachrichtigungen!', quiz_result_perfect: 'Perfekt!', quiz_result_great: 'Hervorragend!', quiz_result_good: 'Gut!', quiz_result_retry: 'Nicht aufgeben!', report_title: 'QUIZ-BERICHT', report_name: 'Name', report_date: 'Datum', report_score: 'Punktzahl', report_percent: 'Prozent', lb_materi_suffix: 'Lektionen' },
+    ja: { status_done: '完了', status_new: '新規', label_level: 'レベル', label_duration: '所要時間', btn_add_fav: 'お気に入り追加', btn_remove_fav: 'お気に入り解除', no_fav: 'お気に入りはありません。', no_search: '該当するレッスンがありません。', btn_done_read: '読了', btn_make_note: 'ノートを作成', notify_open: '開く', quiz_q: '問題', level_beginner: '初級', level_intermediate: '中級', level_advanced: '上級', min: '分', notes_no_data: 'ノートがありません。', forum_no_data: '投稿がありません。', btn_like: 'いいね', btn_reply: '返信', btn_delete: '削除', notify_correct: '正解！', notify_wrong: '不正解！', notify_fill_fields: 'すべてのフィールドを入力してください！', notify_note_added: 'ノートを追加しました！', notify_note_deleted: 'ノートを削除しました！', notify_post_created: '投稿を作成しました！', notify_post_deleted: '投稿を削除しました！', notify_profile_saved: 'プロフィールを更新しました！', notify_pdf_prep: 'PDF準備中...', notify_pdf_done: '証明書をダウンロードしました！', notify_pdf_fail: 'PDF作成に失敗', notify_cert_missing: '証明書が見つかりません！', notify_notif_count: '3件の新しい通知があります！', quiz_result_perfect: '完璧！', quiz_result_great: '素晴らしい！', quiz_result_good: 'よくできました！', quiz_result_retry: '諦めないで！', report_title: 'クイズ結果レポート', report_name: '名前', report_date: '日付', report_score: 'スコア', report_percent: '割合', lb_materi_suffix: 'レッスン' },
+    ko: { status_done: '완료', status_new: '새로운', label_level: '레벨', label_duration: '소요시간', btn_add_fav: '즐겨찾기 추가', btn_remove_fav: '즐겨찾기 해제', no_fav: '즐겨찾기가 없습니다.', no_search: '일치하는 레슨이 없습니다.', btn_done_read: '읽기 완료', btn_make_note: '노트 작성', notify_open: '열기', quiz_q: '문제', level_beginner: '초급', level_intermediate: '중급', level_advanced: '고급', min: '분', notes_no_data: '노트가 없습니다.', forum_no_data: '게시물이 없습니다.', btn_like: '좋아요', btn_reply: '답글', btn_delete: '삭제', notify_correct: '정답!', notify_wrong: '오답!', notify_fill_fields: '모든 필드를 입력하세요!', notify_note_added: '노트 추가됨!', notify_note_deleted: '노트 삭제됨!', notify_post_created: '게시물 작성됨!', notify_post_deleted: '게시물 삭제됨!', notify_profile_saved: '프로필 업데이트됨!', notify_pdf_prep: 'PDF 준비 중...', notify_pdf_done: '인증서 다운로드 완료!', notify_pdf_fail: 'PDF 생성 실패', notify_cert_missing: '인증서를 찾을 수 없습니다!', notify_notif_count: '새 알림이 3개 있습니다!', quiz_result_perfect: '완벽!', quiz_result_great: '훌륭해요!', quiz_result_good: '잘했어요!', quiz_result_retry: '포기하지 마세요!', report_title: '퀴즈 결과 보고서', report_name: '이름', report_date: '날짜', report_score: '점수', report_percent: '비율', lb_materi_suffix: '레슨' },
+    ru: { status_done: 'Завершено', status_new: 'Новый', label_level: 'Уровень', label_duration: 'Длительность', btn_add_fav: 'В избранное', btn_remove_fav: 'Из избранного', no_fav: 'Нет избранных уроков.', no_search: 'Уроки не найдены.', btn_done_read: 'Прочитано', btn_make_note: 'Создать заметку', notify_open: 'Открытие', quiz_q: 'Вопрос', level_beginner: 'Начальный', level_intermediate: 'Средний', level_advanced: 'Продвинутый', min: 'мин', notes_no_data: 'Нет заметок.', forum_no_data: 'Нет постов.', btn_like: 'Нравится', btn_reply: 'Ответить', btn_delete: 'Удалить', notify_correct: 'Верно!', notify_wrong: 'Неверно!', notify_fill_fields: 'Заполните все поля!', notify_note_added: 'Заметка добавлена!', notify_note_deleted: 'Заметка удалена!', notify_post_created: 'Пост создан!', notify_post_deleted: 'Пост удалён!', notify_profile_saved: 'Профиль обновлён!', notify_pdf_prep: 'Подготовка PDF...', notify_pdf_done: 'Сертификат скачан!', notify_pdf_fail: 'Ошибка создания PDF', notify_cert_missing: 'Сертификат не найден!', notify_notif_count: 'У вас 3 новых уведомления!', quiz_result_perfect: 'Идеально!', quiz_result_great: 'Отлично!', quiz_result_good: 'Хорошо!', quiz_result_retry: 'Не сдавайтесь!', report_title: 'ОТЧЁТ ВИКТОРИНЫ', report_name: 'Имя', report_date: 'Дата', report_score: 'Счёт', report_percent: 'Процент', lb_materi_suffix: 'Уроков' },
+    tr: { status_done: 'Tamamlandı', status_new: 'Yeni', label_level: 'Seviye', label_duration: 'Süre', btn_add_fav: 'Favori Ekle', btn_remove_fav: 'Favori Kaldır', no_fav: 'Favori ders yok.', no_search: 'Eşleşen ders bulunamadı.', btn_done_read: 'Okuma Tamamlandı', btn_make_note: 'Not Oluştur', notify_open: 'Açılıyor', quiz_q: 'Soru', level_beginner: 'Başlangıç', level_intermediate: 'Orta', level_advanced: 'İleri', min: 'dk', notes_no_data: 'Henüz not yok.', forum_no_data: 'Henüz gönderi yok.', btn_like: 'Beğen', btn_reply: 'Yanıtla', btn_delete: 'Sil', notify_correct: 'Doğru!', notify_wrong: 'Yanlış!', notify_fill_fields: 'Tüm alanları doldurun!', notify_note_added: 'Not eklendi!', notify_note_deleted: 'Not silindi!', notify_post_created: 'Gönderi oluşturuldu!', notify_post_deleted: 'Gönderi silindi!', notify_profile_saved: 'Profil güncellendi!', notify_pdf_prep: 'PDF hazırlanıyor...', notify_pdf_done: 'Sertifika indirildi!', notify_pdf_fail: 'PDF oluşturulamadı', notify_cert_missing: 'Sertifika bulunamadı!', notify_notif_count: '3 yeni bildiriminiz var!', quiz_result_perfect: 'Mükemmel!', quiz_result_great: 'Harika!', quiz_result_good: 'İyi!', quiz_result_retry: 'Vazgeçmeyin!', report_title: 'SINAV RAPORU', report_name: 'Ad', report_date: 'Tarih', report_score: 'Puan', report_percent: 'Yüzde', lb_materi_suffix: 'Ders' },
+    it: { status_done: 'Completato', status_new: 'Nuovo', label_level: 'Livello', label_duration: 'Durata', btn_add_fav: 'Aggiungi Preferito', btn_remove_fav: 'Rimuovi Preferito', no_fav: 'Nessuna lezione preferita.', no_search: 'Nessuna lezione trovata.', btn_done_read: 'Lettura completata', btn_make_note: 'Crea Nota', notify_open: 'Apertura di', quiz_q: 'Domanda', level_beginner: 'Principiante', level_intermediate: 'Intermedio', level_advanced: 'Avanzato', min: 'min', notes_no_data: 'Nessuna nota.', forum_no_data: 'Nessun post.', btn_like: 'Mi piace', btn_reply: 'Rispondi', btn_delete: 'Elimina', notify_correct: 'Corretto!', notify_wrong: 'Sbagliato!', notify_fill_fields: 'Compila tutti i campi!', notify_note_added: 'Nota aggiunta!', notify_note_deleted: 'Nota eliminata!', notify_post_created: 'Post creato!', notify_post_deleted: 'Post eliminato!', notify_profile_saved: 'Profilo aggiornato!', notify_pdf_prep: 'Preparazione PDF...', notify_pdf_done: 'Certificato scaricato!', notify_pdf_fail: 'Errore creazione PDF', notify_cert_missing: 'Certificato non trovato!', notify_notif_count: 'Hai 3 nuove notifiche!', quiz_result_perfect: 'Perfetto!', quiz_result_great: 'Eccellente!', quiz_result_good: 'Buon lavoro!', quiz_result_retry: 'Non arrenderti!', report_title: 'RAPPORTO QUIZ', report_name: 'Nome', report_date: 'Data', report_score: 'Punteggio', report_percent: 'Percentuale', lb_materi_suffix: 'Lezioni' },
+    vi: { status_done: 'Hoàn thành', status_new: 'Mới', label_level: 'Cấp độ', label_duration: 'Thời gian', btn_add_fav: 'Thêm Yêu thích', btn_remove_fav: 'Bỏ Yêu thích', no_fav: 'Chưa có bài học yêu thích.', no_search: 'Không tìm thấy bài học.', btn_done_read: 'Đọc xong', btn_make_note: 'Tạo Ghi chú', notify_open: 'Đang mở', quiz_q: 'Câu', level_beginner: 'Cơ bản', level_intermediate: 'Trung cấp', level_advanced: 'Nâng cao', min: 'phút', notes_no_data: 'Chưa có ghi chú.', forum_no_data: 'Chưa có bài viết.', btn_like: 'Thích', btn_reply: 'Trả lời', btn_delete: 'Xóa', notify_correct: 'Đúng rồi!', notify_wrong: 'Sai rồi!', notify_fill_fields: 'Vui lòng điền đầy đủ!', notify_note_added: 'Đã thêm ghi chú!', notify_note_deleted: 'Đã xóa ghi chú!', notify_post_created: 'Đã tạo bài viết!', notify_post_deleted: 'Đã xóa bài viết!', notify_profile_saved: 'Đã cập nhật hồ sơ!', notify_pdf_prep: 'Đang chuẩn bị PDF...', notify_pdf_done: 'Đã tải chứng chỉ!', notify_pdf_fail: 'Tạo PDF thất bại', notify_cert_missing: 'Không tìm thấy chứng chỉ!', notify_notif_count: 'Bạn có 3 thông báo mới!', quiz_result_perfect: 'Hoàn hảo!', quiz_result_great: 'Tuyệt vời!', quiz_result_good: 'Tốt lắm!', quiz_result_retry: 'Đừng bỏ cuộc!', report_title: 'BÁO CÁO KẾT QUẢ', report_name: 'Tên', report_date: 'Ngày', report_score: 'Điểm', report_percent: 'Tỷ lệ', lb_materi_suffix: 'Bài học' }
 };
 
 // Lesson titles & descriptions per language (keyed by lesson id)
@@ -408,8 +425,9 @@ const QUIZ = [
     { q: 'Profesi AI yang bertugas membangun infrastruktur dan saluran data (pipeline) adalah?', opts: ['Data Engineer', 'Data Scientist', 'Machine Learning Engineer', 'Web Developer'], ans: 0 }
 ];
 
-let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, lang: 'id', leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
+let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, lang: 'id', certId: null, badges: [], leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
 let quiz = { current: 0, score: 0, answered: new Set() };
+const debouncedSearch = debounce(searchMateri, 300);
 
 function init() {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -428,15 +446,27 @@ function init() {
     document.getElementById('userName').textContent = data.name;
     document.getElementById('levelBadge').textContent = 'Level ' + data.level;
     renderLessons(); initQuiz(); renderLeaderboard(); updateDashboard();
+
+    // Bind debounced search + Enter key
+    const searchEl = document.getElementById('searchInput');
+    if (searchEl) {
+        searchEl.addEventListener('input', debouncedSearch);
+        searchEl.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); searchMateri(); }
+        });
+    }
 }
 
 function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
 
 function showTab(btn, id) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    // Smooth scroll to content
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (id === 'catatan') renderNotes();
     if (id === 'forum') renderForum();
     if (id === 'sertifikat') showCertificate();
@@ -481,19 +511,33 @@ function changeLanguage() {
     }
 }
 
+// DRY helper: renders a single lesson card
+function renderLessonCard(l, options) {
+    const done = data.completed.includes(l.id);
+    const fav = data.favorites.includes(l.id);
+    const title = escapeHTML(tLesson(l.id, 'title') || l.title);
+    const desc = escapeHTML(tLesson(l.id, 'desc') || l.desc);
+    const showMeta = options && options.showMeta !== false;
+    const showFav = options && options.showFav !== false;
+
+    let html = `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})">`;
+    html += `<div class="lesson-header"><span class="lesson-title">${title}</span>`;
+    if (showMeta) html += `<span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span>`;
+    html += `</div><p class="lesson-desc">${desc}</p>`;
+    if (showMeta) html += `<div class="lesson-meta"><span>${t('label_level')}: ${tLevel(l.level)}</span><span>${t('label_duration')}: ${tDuration(l.duration)}</span></div>`;
+    if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" onclick="toggleFav(event,${l.id})">${fav ? t('btn_remove_fav') : t('btn_add_fav')}</button></div>`;
+    html += `</div>`;
+    return html;
+}
+
+// DRY helper: renders an empty state message
+function renderEmptyState(msgKey) {
+    return '<div class="empty-state"><p>' + escapeHTML(t(msgKey)) + '</p></div>';
+}
+
 function renderLessons() {
     const c = document.getElementById('lessonsContainer');
-    c.innerHTML = LESSONS.map(l => {
-        const done = data.completed.includes(l.id), fav = data.favorites.includes(l.id);
-        const title = tLesson(l.id, 'title') || l.title;
-        const desc = tLesson(l.id, 'desc') || l.desc;
-        return `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})">
-            <div class="lesson-header"><span class="lesson-title">${title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span></div>
-            <p class="lesson-desc">${desc}</p>
-            <div class="lesson-meta"><span>${t('label_level')}: ${tLevel(l.level)}</span><span>${t('label_duration')}: ${tDuration(l.duration)}</span></div>
-            <div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" onclick="toggleFav(event,${l.id})">${fav ? t('btn_remove_fav') : t('btn_add_fav')}</button></div>
-        </div>`;
-    }).join('');
+    c.innerHTML = LESSONS.map(l => renderLessonCard(l, { showMeta: true, showFav: true })).join('');
     renderFavorites();
 }
 
@@ -548,7 +592,7 @@ function viewLesson(id) {
         `;
 
         document.getElementById('lessonModalContent').innerHTML = html;
-        document.getElementById('lessonModal').classList.add('active');
+        openModal('lessonModal');
         notify('success', t('notify_open') + ': ' + title);
     }
 }
@@ -571,12 +615,8 @@ function toggleFav(e, id) {
 function renderFavorites() {
     const c = document.getElementById('favoritesContainer');
     const favs = LESSONS.filter(l => data.favorites.includes(l.id));
-    if (!favs.length) { c.innerHTML = '<div class="empty-state"><p>' + t('no_fav') + '</p></div>'; return; }
-    c.innerHTML = favs.map(l => {
-        const title = tLesson(l.id, 'title') || l.title;
-        const desc = tLesson(l.id, 'desc') || l.desc;
-        return `<div class="lesson-card" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${title}</span></div><p class="lesson-desc">${desc}</p><button class="btn-fav active" onclick="toggleFav(event,${l.id})">${t('btn_remove_fav')}</button></div>`;
-    }).join('');
+    if (!favs.length) { c.innerHTML = renderEmptyState('no_fav'); return; }
+    c.innerHTML = favs.map(l => renderLessonCard(l, { showMeta: false, showFav: true })).join('');
 }
 
 function searchMateri() {
@@ -588,33 +628,47 @@ function searchMateri() {
         return title.toLowerCase().includes(q) || desc.toLowerCase().includes(q) || l.title.toLowerCase().includes(q) || l.desc.toLowerCase().includes(q);
     });
     const c = document.getElementById('lessonsContainer');
-    if (!results.length) { c.innerHTML = '<div class="empty-state"><p>' + t('no_search') + '</p></div>'; return; }
-    c.innerHTML = results.map(l => {
-        const done = data.completed.includes(l.id);
-        const title = tLesson(l.id, 'title') || l.title;
-        const desc = tLesson(l.id, 'desc') || l.desc;
-        return `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})"><div class="lesson-header"><span class="lesson-title">${title}</span><span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span></div><p class="lesson-desc">${desc}</p></div>`;
-    }).join('');
+    if (!results.length) { c.innerHTML = renderEmptyState('no_search'); return; }
+    c.innerHTML = results.map(l => renderLessonCard(l, { showMeta: true, showFav: false })).join('');
 }
+
+// Shuffle array using Fisher-Yates (for quiz randomization)
+function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+let quizOrder = []; // stores shuffled indices
 
 function initQuiz() {
     const c = document.getElementById('quizContent');
-    c.innerHTML = QUIZ.map((q, i) => `<div class="quiz-item ${i === 0 ? 'active' : ''}" id="q${i}" style="${i === 0 ? '' : 'display:none'}">
-        <div class="quiz-header"><div class="question">${i + 1}. ${q.q}</div><span class="quiz-counter">${t('quiz_q')} ${i + 1}/${QUIZ.length}</span></div>
-        <div class="options">${q.opts.map((o, j) => `<div class="option" onclick="checkAnswer(${i},${j},this)">${o}</div>`).join('')}</div>
-    </div>`).join('');
+    quizOrder = shuffleArray(QUIZ.map((_, i) => i));
+    c.innerHTML = quizOrder.map((qi, displayIdx) => {
+        const q = QUIZ[qi];
+        return `<div class="quiz-item ${displayIdx === 0 ? 'active' : ''}" id="q${displayIdx}" style="${displayIdx === 0 ? '' : 'display:none'}">
+        <div class="quiz-header"><div class="question">${displayIdx + 1}. ${q.q}</div><span class="quiz-counter">${t('quiz_q')} ${displayIdx + 1}/${QUIZ.length}</span></div>
+        <div class="options" role="radiogroup">${q.opts.map((o, j) => `<div class="option" role="radio" aria-checked="false" tabindex="0" onclick="checkAnswer(${qi},${j},this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();checkAnswer(${qi},${j},this)}">${o}</div>`).join('')}</div>
+    </div>`;
+    }).join('');
 }
 
 function checkAnswer(qi, oi, el) {
     if (quiz.answered.has(qi)) return;
     const correct = oi === QUIZ[qi].ans;
-    el.parentElement.querySelectorAll('.option').forEach(o => o.style.pointerEvents = 'none');
-    if (correct) { el.classList.add('correct'); quiz.score++; notify('success', 'Jawaban Benar!'); }
-    else { el.classList.add('wrong'); el.parentElement.querySelectorAll('.option')[QUIZ[qi].ans].classList.add('correct'); notify('error', 'Jawaban Salah!'); }
+    el.parentElement.querySelectorAll('.option').forEach(o => { o.style.pointerEvents = 'none'; o.setAttribute('aria-checked', 'false'); });
+    el.setAttribute('aria-checked', 'true');
+    if (correct) { el.classList.add('correct'); quiz.score++; notify('success', t('notify_correct')); }
+    else { el.classList.add('wrong'); el.parentElement.querySelectorAll('.option')[QUIZ[qi].ans].classList.add('correct'); notify('error', t('notify_wrong')); }
     quiz.answered.add(qi);
     updateQuizProgress();
+    // Find the display index for this question
+    const displayIdx = quizOrder.indexOf(qi);
     setTimeout(() => {
-        if (qi < QUIZ.length - 1) { document.getElementById('q' + qi).style.display = 'none'; document.getElementById('q' + (qi + 1)).style.display = 'block'; }
+        if (displayIdx < QUIZ.length - 1) { document.getElementById('q' + displayIdx).style.display = 'none'; document.getElementById('q' + (displayIdx + 1)).style.display = 'block'; }
         else showQuizResult();
     }, 1200);
 }
@@ -630,7 +684,7 @@ function showQuizResult() {
     const r = document.getElementById('quizResult'); r.style.display = 'block';
     const pct = (quiz.score / QUIZ.length) * 100;
     document.getElementById('scoreDisplay').textContent = quiz.score + '/' + QUIZ.length;
-    let msg = pct === 100 ? 'Sempurna! Anda menguasai semua materi!' : pct >= 80 ? 'Luar biasa! Nilai Anda sangat bagus!' : pct >= 60 ? 'Cukup baik! Terus belajar!' : 'Jangan menyerah! Coba lagi!';
+    let msg = pct === 100 ? t('quiz_result_perfect') : pct >= 80 ? t('quiz_result_great') : pct >= 60 ? t('quiz_result_good') : t('quiz_result_retry');
     document.getElementById('resultMessage').textContent = msg;
     data.points += pct === 100 ? 500 : pct >= 80 ? 400 : pct >= 60 ? 300 : 100;
     data.scores.push({ date: new Date().toLocaleDateString('id-ID'), score: pct });
@@ -645,60 +699,173 @@ function resetQuiz() {
 }
 
 function downloadResult() {
-    const txt = `LAPORAN HASIL KUIS\n\nNama: ${data.name}\nTanggal: ${new Date().toLocaleDateString('id-ID')}\nSkor: ${quiz.score}/${QUIZ.length}\nPersentase: ${Math.round((quiz.score / QUIZ.length) * 100)}%`;
+    const txt = `${t('report_title')}\n\n${t('report_name')}: ${data.name}\n${t('report_date')}: ${new Date().toLocaleDateString('id-ID')}\n${t('report_score')}: ${quiz.score}/${QUIZ.length}\n${t('report_percent')}: ${Math.round((quiz.score / QUIZ.length) * 100)}%`;
     const blob = new Blob([txt], { type: 'text/plain' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'hasil-kuis.txt'; a.click();
 }
 
-function openNoteModal() { document.getElementById('noteModal').classList.add('active'); }
-function openPostModal() { document.getElementById('postModal').classList.add('active'); }
-function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+let _lastFocused = null;
+
+function openNoteModal() { openModal('noteModal'); }
+function openPostModal() { openModal('postModal'); }
+
+function openModal(id) {
+    _lastFocused = document.activeElement;
+    document.getElementById(id).classList.add('active');
+    // Focus the first focusable element inside the modal
+    setTimeout(() => {
+        const modal = document.getElementById(id);
+        const focusable = modal.querySelector('input, textarea, button:not(.modal-close), select');
+        if (focusable) focusable.focus();
+    }, 100);
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    // Return focus to the element that opened the modal
+    if (_lastFocused) { _lastFocused.focus(); _lastFocused = null; }
+}
+
+// Close modals on Escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        ['noteModal', 'postModal', 'userModal', 'lessonModal'].forEach(id => {
+            const modal = document.getElementById(id);
+            if (modal && modal.classList.contains('active')) closeModal(id);
+        });
+    }
+});
+
+let _editingNoteId = null;
 
 function addNote() {
-    const t = document.getElementById('noteTitleInput').value, c = document.getElementById('noteTextInput').value;
-    if (!t || !c) { notify('warning', 'Lengkapi semua field!'); return; }
-    data.notes.push({ id: Date.now(), title: t, text: c, date: new Date().toLocaleDateString('id-ID') });
-    save(); renderNotes(); closeModal('noteModal');
-    document.getElementById('noteTitleInput').value = ''; document.getElementById('noteTextInput').value = '';
-    notify('success', 'Catatan berhasil ditambahkan!');
+    const title = document.getElementById('noteTitleInput').value, content = document.getElementById('noteTextInput').value;
+    if (!title || !content) { notify('warning', t('notify_fill_fields')); return; }
+    if (_editingNoteId) {
+        // Edit existing note
+        const note = data.notes.find(n => n.id === _editingNoteId);
+        if (note) { note.title = title; note.text = content; note.date = new Date().toLocaleDateString('id-ID'); }
+        _editingNoteId = null;
+        save(); renderNotes(); closeModal('noteModal');
+        document.getElementById('noteTitleInput').value = ''; document.getElementById('noteTextInput').value = '';
+        notify('success', t('notify_note_updated'));
+    } else {
+        data.notes.push({ id: Date.now(), title: title, text: content, date: new Date().toLocaleDateString('id-ID') });
+        save(); renderNotes(); closeModal('noteModal');
+        document.getElementById('noteTitleInput').value = ''; document.getElementById('noteTextInput').value = '';
+        notify('success', t('notify_note_added'));
+        checkBadges();
+    }
+}
+
+function editNote(id) {
+    const note = data.notes.find(n => n.id === id);
+    if (!note) return;
+    _editingNoteId = id;
+    document.getElementById('noteTitleInput').value = note.title;
+    document.getElementById('noteTextInput').value = note.text;
+    openModal('noteModal');
 }
 
 function renderNotes() {
     const c = document.getElementById('notesContainer');
-    if (!data.notes.length) { c.innerHTML = '<div class="empty-state"><p>Belum ada catatan.</p></div>'; return; }
+    if (!data.notes.length) { c.innerHTML = renderEmptyState('notes_no_data'); return; }
     const colors = ['', 'pink', 'blue', 'green'];
-    c.innerHTML = data.notes.map((n, i) => `<div class="note-card ${colors[i % 4]}"><div class="note-title">${n.title}</div><div class="note-text">${n.text}</div><div class="note-footer"><span class="note-date">${n.date}</span><button class="note-delete" onclick="deleteNote(${n.id})">Hapus</button></div></div>`).join('');
+    c.innerHTML = data.notes.map((n, i) => `<div class="note-card ${colors[i % 4]}"><div class="note-title">${escapeHTML(n.title)}</div><div class="note-text">${escapeHTML(n.text)}</div><div class="note-footer"><span class="note-date">${escapeHTML(n.date)}</span><div class="note-actions-group"><button class="note-edit" onclick="editNote(${n.id})">${t('btn_edit')}</button><button class="note-delete" onclick="deleteNote(${n.id})">${t('btn_delete')}</button></div></div></div>`).join('');
 }
 
-function deleteNote(id) { data.notes = data.notes.filter(n => n.id !== id); save(); renderNotes(); notify('success', 'Catatan dihapus!'); }
+function deleteNote(id) { data.notes = data.notes.filter(n => n.id !== id); save(); renderNotes(); notify('success', t('notify_note_deleted')); }
 
 function addPost() {
-    const t = document.getElementById('postTitleInput').value, c = document.getElementById('postTextInput').value;
-    if (!t || !c) { notify('warning', 'Lengkapi semua field!'); return; }
-    data.forum.push({ id: Date.now(), author: data.name, title: t, text: c, date: new Date().toLocaleDateString('id-ID') });
+    const title = document.getElementById('postTitleInput').value, content = document.getElementById('postTextInput').value;
+    if (!title || !content) { notify('warning', t('notify_fill_fields')); return; }
+    data.forum.push({ id: Date.now(), author: data.name, title: title, text: content, date: new Date().toLocaleDateString('id-ID'), likes: 0, replies: [] });
     save(); renderForum(); closeModal('postModal');
     document.getElementById('postTitleInput').value = ''; document.getElementById('postTextInput').value = '';
-    notify('success', 'Postingan berhasil dibuat!');
+    notify('success', t('notify_post_created'));
+    checkBadges();
+}
+
+function likePost(id) {
+    const post = data.forum.find(p => p.id === id);
+    if (post) { post.likes = (post.likes || 0) + 1; save(); renderForum(); }
+}
+
+function replyToPost(id) {
+    const text = prompt(t('btn_reply') + ':');
+    if (!text || !text.trim()) return;
+    const post = data.forum.find(p => p.id === id);
+    if (post) {
+        if (!post.replies) post.replies = [];
+        post.replies.push({ id: Date.now(), author: data.name, text: text.trim(), date: new Date().toLocaleDateString('id-ID') });
+        save(); renderForum();
+        notify('success', t('notify_reply_added'));
+    }
+}
+
+function toggleReplies(id) {
+    const el = document.getElementById('replies-' + id);
+    if (el) el.classList.toggle('show');
 }
 
 function renderForum() {
     const c = document.getElementById('forumContainer');
-    if (!data.forum.length) { c.innerHTML = '<div class="empty-state"><p>Belum ada postingan.</p></div>'; return; }
-    c.innerHTML = data.forum.slice().reverse().map(p => `<div class="post-card"><div class="post-header"><span class="post-author">${p.author}</span><span class="post-time">${p.date}</span></div><div class="post-title">${p.title}</div><div class="post-content">${p.text}</div><div class="post-actions"><span class="post-action">Suka</span><span class="post-action">Balas</span><span class="post-action" onclick="deletePost(${p.id})">Hapus</span></div></div>`).join('');
+    if (!data.forum.length) { c.innerHTML = renderEmptyState('forum_no_data'); return; }
+    c.innerHTML = data.forum.slice().reverse().map(p => {
+        const likes = p.likes || 0;
+        const replies = p.replies || [];
+        let html = `<div class="post-card">`;
+        html += `<div class="post-header"><span class="post-author">${escapeHTML(p.author)}</span><span class="post-time">${escapeHTML(p.date)}</span></div>`;
+        html += `<div class="post-title">${escapeHTML(p.title)}</div>`;
+        html += `<div class="post-content">${escapeHTML(p.text)}</div>`;
+        html += `<div class="post-actions">`;
+        html += `<span class="post-action" onclick="likePost(${p.id})">❤ ${t('btn_like')} (${likes})</span>`;
+        html += `<span class="post-action" onclick="replyToPost(${p.id})">${t('btn_reply')}</span>`;
+        if (replies.length) html += `<span class="post-action" onclick="toggleReplies(${p.id})">${t('btn_show_replies')} (${replies.length})</span>`;
+        html += `<span class="post-action" onclick="deletePost(${p.id})">${t('btn_delete')}</span>`;
+        html += `</div>`;
+        if (replies.length) {
+            html += `<div class="post-replies" id="replies-${p.id}">`;
+            html += replies.map(r => `<div class="reply-card"><span class="reply-author">${escapeHTML(r.author)}</span><span class="reply-date">${escapeHTML(r.date)}</span><p class="reply-text">${escapeHTML(r.text)}</p></div>`).join('');
+            html += `</div>`;
+        }
+        html += `</div>`;
+        return html;
+    }).join('');
 }
 
-function deletePost(id) { data.forum = data.forum.filter(p => p.id !== id); save(); renderForum(); notify('success', 'Postingan dihapus!'); }
+function deletePost(id) { data.forum = data.forum.filter(p => p.id !== id); save(); renderForum(); notify('success', t('notify_post_deleted')); }
 
 function renderLeaderboard() {
     const b = document.getElementById('leaderboardBody');
-    b.innerHTML = data.leaderboard.map((u, i) => `<tr><td class="rank rank-${i + 1}">${i < 3 ? ['#1', '#2', '#3'][i] : i + 1}</td><td>${u.name}</td><td>Level ${u.level}</td><td><strong>${u.points.toLocaleString('id-ID')}</strong></td><td>${u.completed} Materi</td></tr>`).join('');
+    b.innerHTML = data.leaderboard.map((u, i) => `<tr><td class="rank rank-${i + 1}">${i < 3 ? ['#1', '#2', '#3'][i] : i + 1}</td><td>${escapeHTML(u.name)}</td><td>Level ${u.level}</td><td><strong>${u.points.toLocaleString('id-ID')}</strong></td><td>${u.completed} ${t('lb_materi_suffix')}</td></tr>`).join('');
+}
+
+// Animated counter helper
+function animateCounter(el, target, suffix, duration) {
+    suffix = suffix || '';
+    duration = duration || 800;
+    const start = parseInt(el.textContent) || 0;
+    if (start === target) { el.textContent = target + suffix; return; }
+    const startTime = performance.now();
+    function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + (target - start) * eased);
+        el.textContent = current.toLocaleString('id-ID') + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
 }
 
 function updateDashboard() {
-    document.getElementById('materiSelesai').textContent = data.completed.length;
-    document.getElementById('skorRata').textContent = data.scores.length ? Math.round(data.scores.reduce((a, b) => a + b.score, 0) / data.scores.length) + '%' : '0%';
-    document.getElementById('streakBelajar').textContent = data.streak;
-    document.getElementById('poinTotal').textContent = data.points.toLocaleString('id-ID');
+    animateCounter(document.getElementById('materiSelesai'), data.completed.length);
+    const avg = data.scores.length ? Math.round(data.scores.reduce((a, b) => a + b.score, 0) / data.scores.length) : 0;
+    animateCounter(document.getElementById('skorRata'), avg, '%');
+    animateCounter(document.getElementById('streakBelajar'), data.streak);
+    animateCounter(document.getElementById('poinTotal'), data.points);
     const p = (data.completed.length / LESSONS.length) * 100;
     document.getElementById('progressBar').style.width = p + '%';
     document.getElementById('progressPercent').textContent = Math.round(p) + '%';
@@ -710,12 +877,12 @@ function showUserProfile() {
     document.getElementById('profileLevel').textContent = data.level;
     document.getElementById('profilePoints').textContent = data.points.toLocaleString('id-ID');
     document.getElementById('profileCompleted').textContent = data.completed.length;
-    document.getElementById('userModal').classList.add('active');
+    openModal('userModal');
 }
 
 function saveProfile() {
     const n = document.getElementById('userNameInput').value.trim();
-    if (n) { data.name = n; save(); document.getElementById('userName').textContent = n; closeModal('userModal'); notify('success', 'Profil diperbarui!'); }
+    if (n) { data.name = n; save(); document.getElementById('userName').textContent = n; closeModal('userModal'); notify('success', t('notify_profile_saved')); }
 }
 
 function showCertificate() {
@@ -723,7 +890,12 @@ function showCertificate() {
     if (data.completed.length === LESSONS.length) {
         document.getElementById('certBtn').style.display = 'inline-block';
         document.getElementById('certMsg').style.display = 'none';
-        const certId = 'CERT/' + new Date().getFullYear() + '/AI/' + Date.now().toString(36).toUpperCase();
+        // Stable certificate ID — generated once and persisted
+        if (!data.certId) {
+            data.certId = 'CERT/' + new Date().getFullYear() + '/AI/' + Date.now().toString(36).toUpperCase();
+            save();
+        }
+        const certId = data.certId;
         const issueDate = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
         const issueDateID = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -766,7 +938,7 @@ function showCertificate() {
                             <div style="text-align:center;margin-bottom:35px;">
                                 <p style="font-size:14px;color:#555;margin-bottom:20px;letter-spacing:1px;">This is to certify that / Dengan ini menyatakan bahwa</p>
                                 
-                                <h2 style="font-family:'Playfair Display',serif;font-size:42px;color:#1a365d;margin:25px 0;font-weight:500;">${data.name}</h2>
+                                <h2 style="font-family:'Playfair Display',serif;font-size:42px;color:#1a365d;margin:25px 0;font-weight:500;">${escapeHTML(data.name)}</h2>
                                 
                                 <div style="width:300px;height:1px;background:#c9a227;margin:0 auto 25px;"></div>
                                 
@@ -849,11 +1021,11 @@ function showCertificate() {
 function downloadCertificate() {
     const element = document.getElementById('certificatePDF');
     if (!element) {
-        notify('error', 'Sertifikat tidak ditemukan!');
+        notify('error', t('notify_cert_missing'));
         return;
     }
 
-    notify('success', 'Menyiapkan PDF...');
+    notify('success', t('notify_pdf_prep'));
 
     const opt = {
         margin: 10,
@@ -864,19 +1036,107 @@ function downloadCertificate() {
     };
 
     html2pdf().set(opt).from(element).save().then(() => {
-        notify('success', 'Sertifikat PDF berhasil diunduh!');
+        notify('success', t('notify_pdf_done'));
     }).catch(err => {
-        notify('error', 'Gagal membuat PDF: ' + err.message);
+        notify('error', t('notify_pdf_fail') + ': ' + err.message);
     });
 }
 
 function notify(type, msg) {
+    // Limit max visible notifications
+    const existing = document.querySelectorAll('.notification');
+    if (existing.length >= MAX_NOTIFICATIONS) {
+        existing[0].remove();
+    }
     const n = document.createElement('div'); n.className = 'notification ' + type; n.textContent = msg;
     document.body.appendChild(n);
     setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 300); }, 3000);
 }
 
-function showNotifications() { notify('success', 'Anda memiliki 3 notifikasi baru!'); }
+function showNotifications() { notify('success', t('notify_notif_count')); }
 
-window.onclick = e => { if (e.target.classList.contains('modal')) e.target.classList.remove('active'); };
-document.addEventListener('DOMContentLoaded', init);
+// === Phase 6: Data Export/Import ===
+function exportData() {
+    const json = JSON.stringify(data, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'belajar-ai-data-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    notify('success', t('notify_export_done'));
+}
+
+function importData() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+            try {
+                const imported = JSON.parse(ev.target.result);
+                if (!imported.name || !imported.completed) throw new Error('Invalid');
+                // Merge imported data preserving schema
+                Object.assign(data, imported);
+                if (!data.badges) data.badges = [];
+                if (!data.certId) data.certId = null;
+                save();
+                applyLanguage();
+                renderLessons(); initQuiz(); renderLeaderboard(); updateDashboard(); renderBadges();
+                document.getElementById('userName').textContent = data.name;
+                document.getElementById('levelBadge').textContent = 'Level ' + data.level;
+                notify('success', t('notify_import_done'));
+            } catch (err) {
+                notify('error', t('notify_import_fail'));
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+// === Phase 6: Achievement Badges ===
+const BADGE_DEFS = [
+    { id: 'first_lesson', icon: '🎓', nameKey: 'badge_first_lesson', descKey: 'badge_first_lesson_desc', check: () => data.completed.length >= 1 },
+    { id: 'all_lessons', icon: '🏆', nameKey: 'badge_all_lessons', descKey: 'badge_all_lessons_desc', check: () => data.completed.length >= LESSONS.length },
+    { id: 'perfect_quiz', icon: '💯', nameKey: 'badge_perfect_quiz', descKey: 'badge_perfect_quiz_desc', check: () => data.scores.some(s => s.score === 100) },
+    { id: 'note_taker', icon: '📝', nameKey: 'badge_note_taker', descKey: 'badge_note_taker_desc', check: () => data.notes.length >= 5 },
+    { id: 'social', icon: '💬', nameKey: 'badge_social', descKey: 'badge_social_desc', check: () => data.forum.length >= 3 },
+    { id: 'streak', icon: '🔥', nameKey: 'badge_streak', descKey: 'badge_streak_desc', check: () => data.streak >= 5 }
+];
+
+function checkBadges() {
+    if (!data.badges) data.badges = [];
+    let newBadge = false;
+    BADGE_DEFS.forEach(b => {
+        if (!data.badges.includes(b.id) && b.check()) {
+            data.badges.push(b.id);
+            newBadge = true;
+            notify('success', '🏅 ' + t(b.nameKey) + '!');
+        }
+    });
+    if (newBadge) { save(); renderBadges(); }
+}
+
+function renderBadges() {
+    const container = document.getElementById('badgesContainer');
+    if (!container) return;
+    if (!data.badges) data.badges = [];
+    container.innerHTML = BADGE_DEFS.map(b => {
+        const unlocked = data.badges.includes(b.id);
+        return `<div class="badge-card ${unlocked ? 'unlocked' : 'locked'}">
+            <div class="badge-icon">${b.icon}</div>
+            <div class="badge-name">${t(b.nameKey)}</div>
+            <div class="badge-desc">${unlocked ? t(b.descKey) : t('badge_locked')}</div>
+        </div>`;
+    }).join('');
+}
+
+window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(e.target.id); };
+document.addEventListener('DOMContentLoaded', function () {
+    init();
+    checkBadges();
+    renderBadges();
+});
