@@ -32,19 +32,19 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 |---|--------|-------|--------|
 | 1 | **Apa itu Kecerdasan Buatan?** — Konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari | Pemula | 15 menit |
 | 2 | **Machine Learning Dasar** — Konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi | Menengah | 20 menit |
-| 3 | **Pembelajaran Mendalam & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
+| 3 | **Deep Learning & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
 | 4 | **Natural Language Processing (NLP)** — Bagaimana AI memahami dan memproses bahasa manusia | Menengah | 18 menit |
 | 5 | **Computer Vision** — Teknologi AI untuk mengenali dan memproses gambar dan video | Lanjut | 22 menit |
 | 6 | **Prompt Engineering Dasar** — Seni berinteraksi dengan AI generatif seperti ChatGPT untuk hasil maksimal | Pemula | 15 menit |
 | 7 | **Etika dan Bias dalam AI** — Pentingnya keamanan, privasi, dan keadilan dalam menggunakan AI | Menengah | 20 menit |
 | 8 | **Panduan Karir di Bidang AI** — Peluang pekerjaan, tren masa depan, dan cara memulai karir di industri AI | Pemula | 15 menit |
-| 9 | **Reinforcement Learning** — AI belajar dari interaksi lingkungan melalui reward | Lanjut | 28 menit |
-| 10 | **Generative AI & Large Language Models** — Fondasi transformer, LLM, prompt, dan RAG | Menengah | 26 menit |
-| 11 | **AI in Healthcare** — Penerapan AI di bidang kesehatan, validasi klinis, dan privasi | Menengah | 25 menit |
-| 12 | **AI untuk Bisnis & Industri** — Transformasi digital, MLOps, dan tata kelola bisnis | Menengah | 24 menit |
-| 13 | **Robotika & AI** — Integrasi sensor, pemetaan (SLAM), dan kontrol gerak robot | Lanjut | 30 menit |
-| 14 | **Edge AI & IoT** — Optimasi model, kuantisasi, dan inferensi pada perangkat edge | Lanjut | 27 menit |
-| 15 | **AutoML & No-Code AI** — Membangun pipeline model otomatis dan evaluasi tanpa coding | Pemula | 20 menit |
+| 9 | **Reinforcement Learning** — Cara agen mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan | Lanjut | 28 menit |
+| 10 | **Generative AI & Large Language Models** — Model yang menghasilkan teks, gambar, kode, dan cara menggunakannya dengan data terkontrol | Menengah | 26 menit |
+| 11 | **AI in Healthcare** — Penggunaan AI medis, validasi klinis, dan batas keselamatan sebelum deployment | Menengah | 25 menit |
+| 12 | **AI untuk Bisnis & Industri** — Menghubungkan masalah bisnis dengan data, model, KPI, dan tata kelola | Menengah | 24 menit |
+| 13 | **Robotika & AI** — Persepsi, perencanaan, kontrol, dan pembelajaran untuk robot di dunia fisik | Lanjut | 30 menit |
+| 14 | **Edge AI & IoT** — Inferensi AI dekat sensor dengan batas daya, memori, konektivitas, dan keamanan | Lanjut | 27 menit |
+| 15 | **AutoML & No-Code AI** — Otomatisasi pembangunan model sambil menguji data, metrik, dan keputusan | Pemula | 20 menit |
 
 ---
 
@@ -61,7 +61,7 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 ###  Kuis Interaktif
 | Fitur | Deskripsi |
 |-------|-----------|
-| **33 Soal Kuis** | Uji pemahaman dari semua 15 materi pembelajaran |
+| **33 Soal Kuis** | Uji pemahaman dari semua materi |
 | **Urutan Acak** | Soal diacak setiap percobaan (Fisher-Yates shuffle) |
 | **Navigasi Keyboard** | Jawab soal dengan Enter/Space |
 | **Download Hasil** | Unduh laporan kuis sebagai file teks |
@@ -123,9 +123,9 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 ```
 learn-artificial-intelligence/
 ├── index.html              # Halaman utama (318 baris)
-├── app.js                  # Logika aplikasi (1142 baris)
+├── app.js                  # Logika aplikasi (1487 baris)
 ├── content-translations.js # Konten materi & terjemahan (810 baris)
-├── styles.css              # Styling & animasi (1380 baris)
+├── styles.css              # Styling & animasi (1942 baris)
 └── README.md               # Dokumentasi ini
 ```
 

@@ -801,6 +801,641 @@ const sectionContentTranslations = {
     }
 };
 
+/*
+ * Content for lessons 9–15.
+ * Kept as an extension block so the original translations for lessons 1–8
+ * remain untouched and the fallback behaviour stays backwards-compatible.
+ */
+Object.assign(sectionContentTranslations.en, {
+    9: [
+        `Reinforcement Learning (RL) models decisions as a Markov Decision Process: an agent observes a state, chooses an action, then receives a reward and a new state. Policy π(a|s) chooses actions while discount factor γ weights future rewards. In Gymnasium's CartPole, the agent receives +1 while the pole remains upright.`,
+        `Value-based RL estimates the long-term value of a state or state-action pair. Q-learning updates Q(s,a) with α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy exploration occasionally tries a random action; DQN replaces the table with a neural network and uses replay buffers plus a target network for more stable Atari training.`,
+        `For continuous actions such as a robot arm angle, a policy can output an action distribution. REINFORCE learns from episode rewards, actor-critic adds a value estimator, and PPO limits how much the policy changes per update. Stable-Baselines3 provides practical PPO, DQN, and SAC implementations.`,
+        `A badly designed reward can optimize the metric while missing the real goal. For a warehouse robot, add collision, energy, and waiting-time penalties instead of rewarding speed alone. Compare several random seeds in a separate evaluation environment, then use MuJoCo or Isaac Sim, domain randomization, action limits, and an emergency stop before moving to hardware.`
+    ],
+    10: [
+        `Discriminative models choose labels such as spam or not spam, while generative models learn data patterns to create new examples. Autoregressive LLMs predict the next token; diffusion models gradually remove noise to form an image. GPT, Llama, Mistral, and Stable Diffusion illustrate these two families.`,
+        `A tokenizer such as Byte Pair Encoding turns text into tokens, which become embeddings. Self-attention measures which tokens matter to one another, while positional encoding preserves order. During pre-training the model reduces next-token prediction error; temperature and top-p change variety, not factual correctness.`,
+        `Retrieval-Augmented Generation (RAG) retrieves relevant document chunks before the LLM answers. Embeddings from text-embedding-3 or BGE can be searched with FAISS, pgvector, or Chroma. Fine-tuning and LoRA stabilize repeated formats, while validated JSON schemas make function calling safer for stock or calendar APIs.`,
+        `Test normal cases, edge cases, and questions with no answer. Measure groundedness, citation accuracy, latency, tokens per request, and human escalation. Treat hallucination as a real failure mode, protect system instructions from prompt injection, restrict tool permissions, redact personal data, and keep logs free of secrets.`
+    ],
+    11: [
+        `Healthcare AI can support image triage, risk prediction, documentation, and drug research; it does not replace clinical judgment. Computer vision may flag a suspicious area on an X-ray or CT, while NLP extracts medicines and allergies from notes. A useful output states the population, purpose, and next action, such as prioritizing a doctor's review.`,
+        `Clinical data contains delayed labels, incomplete codes, and differences between hospitals and devices. DICOM stores images with metadata, while datasets such as MIMIC require strict access governance. Split by patient and time, prevent leakage, validate externally, and report sensitivity, specificity, positive predictive value, and calibration rather than accuracy alone.`,
+        `An auditable radiology pipeline can de-identify DICOM, normalize images, run DenseNet or U-Net, and show Grad-CAM as a review aid. A heatmap is not a causal explanation. Record data, preprocessing, model, threshold, and approval versions, then test subgroups by age, sex, device, and location.`,
+        `An authorized clinician should see context, confidence, and a way to reject a recommendation. Define alert ownership and adverse-event reporting, apply least-privilege access, encryption, minimum retention, and de-identification. Before deployment, include clinical, security, privacy, and compliance teams in the risk review.`
+    ],
+    12: [
+        `Start with a repeated decision that has a measurable outcome, not with a favorite model. Retail demand forecasting, fraud review, and factory visual inspection need a baseline, a decision owner, and KPIs such as service level, false-positive rate, processing time, or cost per case. A higher accuracy score is not automatically business value.`,
+        `Transaction, CRM, ERP, sensor, and service-log data often need to be joined first. XGBoost or Prophet can forecast demand with promotion and holiday features; recommendations can combine collaborative filtering with stock rules. OCR plus validation can check invoice PO numbers and totals, but feature definitions must match between training and production.`,
+        `A production model needs data and code versioning, experiment tracking in MLflow, pipeline tests, and a batch or API deployment. Monitor input drift, prediction drift, latency, error rate, and downstream business metrics. PSI can signal distribution changes; delayed labels must be linked back to the original prediction, with rollback and a manual path ready.`,
+        `A useful pilot limits one process, one primary user, and a defined evaluation period. Show important factors when a person reviews a recommendation and collect rejected examples. Define prohibited data, automation limits, and accountability; compare ROI with a baseline or control group so seasonality is not mistaken for AI impact.`
+    ],
+    13: [
+        `Robots combine RGB-D cameras, LiDAR, IMU, wheel encoders, and force-torque sensors to estimate the world. Perception detects objects or poses, a planner chooses a path, and a controller sends motor commands. ROS 2 connects these components through nodes, topics, services, and actions.`,
+        `SLAM builds a map while estimating the robot's position. ORB-SLAM uses visual features, LiDAR SLAM matches scans, and an Extended Kalman Filter can fuse IMU, odometry, and GPS. ROS 2 Navigation2 commonly uses A* or NavFn for global paths and costmaps for local obstacle avoidance.`,
+        `A robot arm solves inverse kinematics to turn a target pose into joint angles. MoveIt plans motion and checks collisions; a vision model estimates a grasp point and the gripper closes with force feedback. Imitation learning and simulation in MuJoCo or Isaac Sim can reduce the risk before limited robot fine-tuning.`,
+        `The physical world has no undo button. Limit speed, force, workspace, and policy actions; add an emergency stop, safety sensors, and interlocks. Test blocked sensors, dropped objects, network loss, and people entering the workspace. Timestamped logs, incident replay, and manual mode make failures recoverable.`
+    ],
+    14: [
+        `Edge AI runs a model on or near the device that produces the data. A camera can reject a defective product in milliseconds and a vibration sensor can detect an anomaly while offline. ESP32, Raspberry Pi, Jetson, and Coral differ in RAM, power, and accelerators, so choose hardware from latency and field conditions.`,
+        `Quantization turns float32 weights into int8, pruning removes less useful connections, and knowledge distillation trains a smaller model from a teacher. TensorFlow Lite, TensorRT, ONNX Runtime, and OpenVINO target different devices. Measure accuracy, p50/p95 latency, memory, temperature, and power—not only file size.`,
+        `In a factory, an accelerometer can send a vibration window to a gateway, score an anomaly locally, and publish only the score or an important clip over MQTT. Include device ID, synchronized time, firmware version, and model version. Buffer during outages, avoid duplicate actuator commands, and separate telemetry from control.`,
+        `Verify signed firmware and models before execution. Use secure boot where supported, unique device credentials, TLS, and key rotation. Roll out models to a small cohort first, monitor crashes and drift, and keep rollback available. Retraining and regression tests belong in the device lifecycle, not only at launch.`
+    ],
+    15: [
+        `AutoML can automate basic cleaning, category encoding, model selection, limited feature engineering, and hyperparameter tuning. Auto-sklearn, H2O AutoML, and AutoGluon compare pipelines; Vertex AI and Azure Machine Learning provide managed workflows. Teachable Machine is useful for small image or audio prototypes, but automation cannot repair a bad target.`,
+        `Define what one row represents, when the prediction is made, and which columns exist at that moment. For churn within 30 days, a later cancellation reason is leakage. Split temporal data by time, check missing values, duplicate customers, class imbalance, and units before pressing train.`,
+        `An AutoML leaderboard may favor accuracy even when fraud is only 2% of transactions. Choose precision-recall, ROC-AUC, F1, MAE, or business cost for the problem. Inspect the confusion matrix at the operational threshold and compare against a rule-based or logistic-regression baseline.`,
+        `Store the dataset, configuration, metrics, and prediction examples so results can be reproduced. Use SHAP or feature importance to check whether signals make sense; correlation is not causation. Retest exported models on production data, monitor drift, and keep human review for high-risk decisions. No-code still requires an accountable process owner.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.zh, {
+    9: [
+        `强化学习（RL）把决策建模为马尔可夫决策过程：智能体观察状态、选择动作，然后获得奖励和下一个状态。策略 π(a|s) 选择动作，折扣因子 γ 衡量未来奖励。在 Gymnasium 的 CartPole 中，只要杆子保持直立，智能体每步获得 +1 奖励。`,
+        `基于价值的方法估计状态或状态-动作对的长期价值。Q-learning 使用 α[r + γ max Q(s′,a′) − Q(s,a)] 更新 Q 值。ε-greedy 偶尔随机探索；DQN 用神经网络替代表格，并使用 replay buffer 和 target network 稳定 Atari 游戏训练。`,
+        `对于机械臂角度等连续动作，策略可以输出动作分布。REINFORCE 从回合奖励学习，actor-critic 增加价值估计器，PPO 限制每次更新的策略变化幅度。Stable-Baselines3 提供了可实践的 PPO、DQN 和 SAC 实现。`,
+        `奖励设计错误时，模型可能只优化指标而没有完成真实目标。仓储机器人不应只奖励速度，还应加入碰撞、能耗和等待时间惩罚。使用多个随机种子和独立评估环境，再在转向真实硬件前用 MuJoCo 或 Isaac Sim、域随机化、动作限制和急停进行测试。`
+    ],
+    10: [
+        `判别模型决定垃圾邮件等标签，生成模型则学习数据规律并创造新样本。自回归 LLM 预测下一个 token；扩散模型逐步去除噪声生成图像。GPT、Llama、Mistral 和 Stable Diffusion 展示了这些模型家族。`,
+        `Byte Pair Encoding 等 tokenizer 把文本切成 token，再转换为 embedding。Self-attention 计算 token 之间的相关性，位置编码保留顺序。预训练通过降低下一个 token 的预测误差学习；temperature 和 top-p 改变多样性，并不保证事实正确。`,
+        `RAG 会在 LLM 回答前检索相关文档片段。text-embedding-3 或 BGE 生成的 embedding 可以用 FAISS、pgvector 或 Chroma 搜索。Fine-tuning 和 LoRA 可稳定重复格式，经过验证的 JSON schema 能让库存或日历 API 的 function calling 更安全。`,
+        `用正常案例、边界案例和没有答案的问题测试系统。记录 groundedness、引用准确率、延迟、每次请求的 token 和人工升级率。把幻觉当作真实故障，防范 prompt injection，限制工具权限，先删除个人数据，并确保日志不含秘密。`
+    ],
+    11: [
+        `医疗 AI 可以辅助影像分诊、风险预测、文档处理和药物研究，但不能替代临床判断。计算机视觉可以标记 X 光或 CT 中的可疑区域，NLP 可以从病历提取药物和过敏信息。好的输出应说明人群、目的和下一步，例如优先安排医生复核。`,
+        `临床数据常有延迟标签、不完整编码，以及医院和设备之间的差异。DICOM 保存医学影像和元数据，MIMIC 等数据集需要严格的访问治理。按患者和时间划分数据，避免泄漏，进行外部验证，并报告 sensitivity、specificity、PPV 和 calibration，而不只是 accuracy。`,
+        `可审计的放射学 pipeline 可以先对 DICOM 去标识化和归一化，再运行 DenseNet 或 U-Net，并用 Grad-CAM 展示需要复核的区域。热力图不是因果解释。记录数据、预处理、模型、阈值和审批版本，并按年龄、性别、设备和地点测试子群体。`,
+        `授权医护人员需要看到患者背景、置信度，并能拒绝建议。明确告警由谁处理以及如何报告不良事件，使用最小权限、传输和存储加密、最短保留期限及二次使用前去标识化。部署前应让临床、安全、隐私和合规团队共同评估风险。`
+    ],
+    12: [
+        `先选择可重复且有明确结果的决策，而不是先挑模型。零售需求预测、欺诈审核和工厂视觉检测都需要业务基线、决策负责人以及 service level、误报率、处理时间或单案成本等 KPI。accuracy 上升不等于业务价值上升。`,
+        `交易、CRM、ERP、传感器和服务日志通常需要先整合。XGBoost 或 Prophet 可以利用促销和节假日特征预测需求；推荐系统可以结合协同过滤和库存规则。OCR 能提取发票文字，再由分类器或规则检查 PO 编号和总额，训练和生产必须使用同一特征定义。`,
+        `生产模型需要数据和代码版本管理、MLflow 实验记录、pipeline 测试，以及 batch job 或 API 部署。监控输入漂移、预测漂移、延迟、错误率和业务结果。PSI 可以提示分布变化；延迟标签要关联回原始预测，并准备回滚和人工流程。`,
+        `有效的试点应限制在一个流程、一个主要用户和一段明确的评估期内。让审核者看到重要因素，并收集被拒绝的案例。规定禁止使用的数据、自动化边界和责任人；用基线或对照组比较 ROI，避免把季节性误认为 AI 影响。`
+    ],
+    13: [
+        `机器人结合 RGB-D 摄像头、LiDAR、IMU、轮编码器和力矩传感器来估计环境。感知系统检测物体或姿态，规划器选择路径，控制器发送电机命令。ROS 2 通过 node、topic、service 和 action 连接这些组件。`,
+        `SLAM 在估计机器人位置的同时建立地图。ORB-SLAM 使用视觉特征，LiDAR SLAM 匹配扫描，扩展卡尔曼滤波器可以融合 IMU、里程计和 GPS。ROS 2 Navigation2 通常使用 A* 或 NavFn 规划全局路径，再用 costmap 避开局部障碍。`,
+        `机械臂通过逆运动学把目标姿态转换成关节角度。MoveIt 负责运动规划和碰撞检查；视觉模型估计抓取点，夹爪用力反馈闭合。模仿学习以及 MuJoCo 或 Isaac Sim 中的仿真，可以在有限的真实机器人微调前降低风险。`,
+        `物理世界没有撤销按钮。限制速度、力度、工作空间和策略动作，加入急停、安全传感器和互锁。测试传感器被遮挡、物体掉落、网络中断及人员进入工作区的情况。带时间戳的日志、事件回放和手动模式帮助恢复故障。`
+    ],
+    14: [
+        `Edge AI 把模型运行在产生数据的设备上或附近。摄像头可以在毫秒级拒绝缺陷产品，振动传感器即使离线也能检测异常。ESP32、树莓派、Jetson 和 Coral 的内存、功耗和加速器不同，应根据延迟和现场条件选硬件。`,
+        `量化把 float32 权重变成 int8，剪枝移除不重要的连接，知识蒸馏则让小模型学习教师模型。TensorFlow Lite、TensorRT、ONNX Runtime 和 OpenVINO 面向不同设备。应同时测量准确率、p50/p95 延迟、内存、温度和功耗，而不只是文件大小。`,
+        `在工厂中，加速度计可以把振动窗口发给 gateway，模型在本地计算异常分数，再通过 MQTT 只发送分数或重要片段。消息要包含设备 ID、同步时间、固件版本和模型版本。断网时使用本地缓存，避免重复执行执行器命令，并分离遥测和控制链路。`,
+        `设备运行前应验证已签名的固件和模型。硬件支持时启用 secure boot，为设备使用唯一凭据、TLS 和密钥轮换。先向小范围设备发布模型，监控崩溃和漂移并保留回滚；重训练和回归测试属于设备生命周期的一部分。`
+    ],
+    15: [
+        `AutoML 可以自动完成基础清洗、类别编码、模型选择、有限的特征工程和超参数调优。Auto-sklearn、H2O AutoML 和 AutoGluon 会比较多个 pipeline；Vertex AI 和 Azure Machine Learning 提供托管流程。Teachable Machine 适合小型图像或音频原型，但自动化不能修复错误的目标。`,
+        `先定义一行数据代表什么、何时做预测，以及当时能看到哪些列。预测 30 天内流失时，之后才出现的“取消原因”属于数据泄漏。时间数据应按时间切分，并在训练前检查缺失值、重复客户、类别不平衡和单位。`,
+        `当欺诈交易只占 2% 时，AutoML leaderboard 偏好的 accuracy 可能会误导。按问题选择 precision-recall、ROC-AUC、F1、MAE 或业务成本，在实际阈值查看 confusion matrix，并与规则或 logistic regression 基线比较。`,
+        `保存数据集、配置版本、指标和预测样例，确保结果可复现。用 SHAP 或 feature importance 检查模型是否依赖合理信号；相关性不代表因果。导出的模型还要在生产数据上复测、监控漂移，高风险决策保留人工复核。No-code 仍需要责任人。`
+    ]
+});
+
+Object.assign(sectionContentTranslations.es, {
+    9: [
+        `El aprendizaje por refuerzo modela las decisiones como un proceso de decisión de Markov: el agente observa un estado, elige una acción y recibe una recompensa y un nuevo estado. La política π(a|s) elige acciones y γ pondera las recompensas futuras. En CartPole de Gymnasium, el agente recibe +1 mientras el poste siga en pie.`,
+        `El RL basado en valores estima el valor a largo plazo de un estado o de un par estado-acción. Q-learning actualiza Q(s,a) con α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy explora ocasionalmente acciones aleatorias; DQN usa una red neuronal, replay buffer y target network para estabilizar el entrenamiento.`,
+        `Para acciones continuas, como el ángulo de un brazo robótico, la política puede producir una distribución de acciones. REINFORCE aprende de las recompensas del episodio, actor-critic añade un estimador de valor y PPO limita el cambio de política por actualización. Stable-Baselines3 incluye implementaciones de PPO, DQN y SAC.`,
+        `Una recompensa mal diseñada puede optimizar la métrica y fallar el objetivo real. En un robot de almacén hay que penalizar colisiones, energía y espera, no solo premiar la velocidad. Compara varias semillas en un entorno de evaluación separado y usa MuJoCo o Isaac Sim, randomización de dominio, límites de acción y parada de emergencia antes del hardware.`
+    ],
+    10: [
+        `Los modelos discriminativos eligen etiquetas, como spam o no spam; los generativos aprenden patrones para crear ejemplos nuevos. Los LLM autorregresivos predicen el token siguiente y los modelos de difusión eliminan ruido gradualmente para crear imágenes. GPT, Llama, Mistral y Stable Diffusion son ejemplos conocidos.`,
+        `Un tokenizer como Byte Pair Encoding convierte el texto en tokens y después en embeddings. Self-attention calcula qué tokens son relevantes entre sí y la codificación posicional conserva el orden. En el preentrenamiento se minimiza el error del siguiente token; temperature y top-p cambian la variedad, no garantizan la verdad.`,
+        `RAG recupera fragmentos relevantes antes de que responda el LLM. Los embeddings de text-embedding-3 o BGE se pueden buscar con FAISS, pgvector o Chroma. Fine-tuning y LoRA estabilizan formatos repetidos, mientras los esquemas JSON validados hacen más seguro el function calling para inventario o calendarios.`,
+        `Prueba casos normales, límites y preguntas sin respuesta. Mide groundedness, exactitud de citas, latencia, tokens por solicitud y escalamiento a personas. Trata las alucinaciones como fallos reales, protege las instrucciones contra prompt injection, limita permisos de herramientas, elimina datos personales y no guardes secretos en los logs.`
+    ],
+    11: [
+        `La IA sanitaria puede apoyar el triaje de imágenes, la predicción de riesgos, la documentación y la investigación de fármacos, pero no sustituye el juicio clínico. Computer vision puede señalar una zona sospechosa en una radiografía o CT, y NLP extraer medicamentos y alergias. Una salida útil especifica población, objetivo y siguiente acción.`,
+        `Los datos clínicos tienen etiquetas tardías, códigos incompletos y diferencias entre hospitales y dispositivos. DICOM guarda imágenes y metadatos; conjuntos como MIMIC requieren un control de acceso estricto. Divide por paciente y tiempo, evita leakage, valida externamente y reporta sensibilidad, especificidad, valor predictivo positivo y calibración.`,
+        `Un pipeline radiológico auditable puede desidentificar DICOM, normalizar imágenes, ejecutar DenseNet o U-Net y mostrar Grad-CAM como ayuda para la revisión. El mapa de calor no es una explicación causal. Registra versiones de datos, preprocessing, modelo, umbral y aprobación, y prueba subgrupos por edad, sexo, dispositivo y ubicación.`,
+        `Un profesional autorizado debe ver el contexto, la confianza y una forma de rechazar la recomendación. Define quién atiende las alertas y cómo se reportan eventos adversos; aplica mínimo privilegio, cifrado, retención mínima y desidentificación. Antes del despliegue participan los equipos clínico, de seguridad, privacidad y cumplimiento.`
+    ],
+    12: [
+        `Empieza por una decisión repetida con un resultado medible, no por un modelo favorito. La previsión de demanda, la revisión de fraude y la inspección visual necesitan una línea base, un responsable y KPI como nivel de servicio, falsos positivos, tiempo de proceso o coste por caso. Más accuracy no implica más valor.`,
+        `Los datos de transacciones, CRM, ERP, sensores y logs suelen tener que unirse primero. XGBoost o Prophet pueden pronosticar demanda con promociones y festivos; las recomendaciones combinan filtrado colaborativo y reglas de stock. OCR puede extraer facturas y validar números PO y totales, siempre con las mismas features en entrenamiento y producción.`,
+        `Un modelo en producción necesita versionado de datos y código, experimentos en MLflow, pruebas de pipeline y despliegue como batch o API. Monitoriza input drift, prediction drift, latencia, errores y métricas de negocio. PSI detecta cambios de distribución; las etiquetas tardías deben enlazarse con la predicción original y debe existir rollback.`,
+        `Un piloto útil limita un proceso, un usuario principal y un periodo de evaluación. Muestra los factores importantes, recoge rechazos y define datos prohibidos, límites de automatización y responsabilidades. Compara el ROI con una línea base o grupo de control para no confundir estacionalidad con impacto de IA.`
+    ],
+    13: [
+        `Los robots combinan cámaras RGB-D, LiDAR, IMU, encoders de ruedas y sensores de fuerza para estimar el entorno. La percepción detecta objetos, el planificador elige una trayectoria y el controlador envía órdenes al motor. ROS 2 conecta los componentes mediante nodes, topics, services y actions.`,
+        `SLAM crea un mapa mientras estima la posición del robot. ORB-SLAM usa rasgos visuales, LiDAR SLAM empareja escaneos y un filtro de Kalman extendido puede fusionar IMU, odometría y GPS. Navigation2 suele usar A* o NavFn para el camino global y costmaps para obstáculos locales.`,
+        `Un brazo robótico resuelve cinemática inversa para convertir una pose objetivo en ángulos articulares. MoveIt planifica movimientos y comprueba colisiones; un modelo visual estima el punto de agarre y la pinza usa feedback de fuerza. Imitation learning y simulación en MuJoCo o Isaac Sim reducen el riesgo.`,
+        `El mundo físico no tiene botón de deshacer. Limita velocidad, fuerza, espacio y acciones de la política; añade parada de emergencia, sensores de seguridad e interlocks. Prueba sensores bloqueados, objetos caídos, pérdida de red y personas en el área. Los logs con timestamp, replay de incidentes y modo manual permiten recuperarse.`
+    ],
+    14: [
+        `Edge AI ejecuta el modelo en el dispositivo que genera los datos o cerca de él. Una cámara puede rechazar un defecto en milisegundos y un sensor de vibración detectar anomalías sin conexión. ESP32, Raspberry Pi, Jetson y Coral tienen límites distintos de RAM, energía y aceleración; la selección empieza por la latencia.`,
+        `La cuantización convierte pesos float32 en int8, pruning elimina conexiones y knowledge distillation entrena un modelo pequeño con uno maestro. TensorFlow Lite, TensorRT, ONNX Runtime y OpenVINO apuntan a dispositivos diferentes. Mide precisión, latencia p50/p95, memoria, temperatura y energía, no solo el tamaño del archivo.`,
+        `En una fábrica, un acelerómetro puede enviar una ventana de vibración al gateway, calcular localmente el score de anomalía y publicar por MQTT solo el score o un clip importante. Incluye ID, hora sincronizada, versión de firmware y modelo. Usa buffer durante cortes, evita comandos duplicados y separa telemetría de control.`,
+        `Verifica firmware y modelos firmados antes de ejecutarlos. Usa secure boot, credenciales únicas, TLS y rotación de claves cuando sea posible. Despliega primero a una cohorte pequeña, vigila crashes y drift y conserva rollback. El reentrenamiento y las pruebas de regresión forman parte del ciclo de vida.`
+    ],
+    15: [
+        `AutoML automatiza limpieza básica, encoding, selección de modelos, feature engineering limitado y ajuste de hiperparámetros. Auto-sklearn, H2O AutoML y AutoGluon comparan pipelines; Vertex AI y Azure Machine Learning ofrecen flujos gestionados. Teachable Machine sirve para prototipos pequeños, pero la automatización no arregla un objetivo incorrecto.`,
+        `Define qué representa una fila, cuándo se predice y qué columnas existen en ese momento. En churn a 30 días, el motivo de cancelación posterior es leakage. Separa datos temporales por fecha y revisa valores ausentes, clientes duplicados, desbalance y unidades antes de entrenar.`,
+        `Con solo 2% de fraude, accuracy puede premiar un modelo que ignora los positivos. Elige precision-recall, ROC-AUC, F1, MAE o coste de negocio, revisa la matriz de confusión en el umbral operativo y compara con reglas o regresión logística.`,
+        `Guarda dataset, configuración, métricas y ejemplos para reproducir resultados. Usa SHAP o feature importance para comprobar señales razonables; correlación no es causalidad. Prueba el modelo exportado con datos de producción, monitoriza drift y conserva revisión humana para decisiones de riesgo. No-code sigue necesitando un responsable.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.ar, {
+    9: [
+        `يتعامل التعلم المعزز مع القرارات باعتبارها عملية قرار ماركوف: يراقب الوكيل الحالة، يختار فعلاً، ثم يحصل على مكافأة وحالة جديدة. تحدد السياسة π(a|s) الأفعال، بينما يوازن معامل الخصم γ المكافآت المستقبلية. في CartPole ضمن Gymnasium يحصل الوكيل على +1 ما دام العمود قائماً.`,
+        `يقدّر التعلم المعزز القائم على القيمة قيمة الحالة أو زوج الحالة والفعل على المدى الطويل. يحدّث Q-learning القيمة بالصيغة α[r + γ max Q(s′,a′) − Q(s,a)]. يجرّب ε-greedy أفعالاً عشوائية أحياناً؛ ويستبدل DQN الجدول بشبكة عصبية مع replay buffer وtarget network.`,
+        `في الأفعال المستمرة مثل زاوية ذراع روبوت، تستطيع السياسة إخراج توزيع للأفعال. يتعلم REINFORCE من مكافأة الحلقة، ويضيف actor-critic مقدّر قيمة، بينما يحد PPO مقدار تغير السياسة في كل تحديث. يوفر Stable-Baselines3 تطبيقات PPO وDQN وSAC العملية.`,
+        `قد تجعل المكافأة السيئة الوكيل يحسن الرقم ويفشل الهدف الحقيقي. أضف للروبوت في المستودع عقوبات الاصطدام والطاقة والانتظار، لا مكافأة السرعة وحدها. استخدم بذوراً عشوائية متعددة وبيئة تقييم منفصلة، ثم اختبر في MuJoCo أو Isaac Sim مع حدود للفعل وزر إيقاف طارئ.`
+    ],
+    10: [
+        `تختار النماذج التمييزية تسميات مثل مزعج أو غير مزعج، بينما تتعلم النماذج التوليدية أنماط البيانات لإنشاء أمثلة جديدة. تتنبأ نماذج LLM ذاتية الانحدار بالرمز التالي، وتزيل نماذج الانتشار الضوضاء تدريجياً لتكوين الصور. GPT وLlama وMistral وStable Diffusion أمثلة واضحة.`,
+        `يحوّل tokenizer مثل Byte Pair Encoding النص إلى رموز ثم إلى embeddings. يحسب self-attention أهمية الرموز لبعضها، ويحافظ positional encoding على الترتيب. يقلل التدريب المسبق خطأ الرمز التالي؛ وتغير temperature وtop-p التنوع، لا صحة الحقائق.`,
+        `يسترجع RAG مقاطع الوثائق المناسبة قبل إجابة LLM. يمكن البحث في embeddings من text-embedding-3 أو BGE باستخدام FAISS أو pgvector أو Chroma. يثبت Fine-tuning وLoRA الصيغ المتكررة، وتزيد مخططات JSON المتحقق منها أمان function calling لواجهات المخزون والتقويم.`,
+        `اختبر الحالات العادية والحدية والأسئلة التي لا جواب لها. قس groundedness ودقة الاستشهاد والتأخير والرموز ومعدل التحويل إلى إنسان. اعتبر الهلوسة فشلاً حقيقياً، واحم التعليمات من prompt injection، وقيّد صلاحيات الأدوات، واحذف البيانات الشخصية من السجلات.`
+    ],
+    11: [
+        `تساعد AI الصحية في فرز الصور وتوقع المخاطر والتوثيق وأبحاث الأدوية، لكنها لا تستبدل الحكم السريري. قد تحدد computer vision منطقة مشبوهة في الأشعة أو CT، ويستخرج NLP الأدوية والحساسيات من السجلات. يجب أن يذكر الناتج السكان والهدف والخطوة التالية، مثل إعطاء الأولوية لمراجعة الطبيب.`,
+        `تحتوي البيانات السريرية على تسميات متأخرة ورموز ناقصة وفروق بين المستشفيات والأجهزة. يحفظ DICOM الصور وبياناتها الوصفية، وتتطلب مجموعات مثل MIMIC حوكمة وصول صارمة. اقسم البيانات حسب المريض والزمن، امنع التسرب، ونفذ تحققاً خارجياً مع sensitivity وspecificity وPPV وcalibration.`,
+        `يمكن لخط أشعة قابل للتدقيق إزالة هوية DICOM وتطبيع الصور وتشغيل DenseNet أو U-Net وإظهار Grad-CAM للمراجعة. الخريطة الحرارية ليست تفسيراً سببياً. سجل نسخ البيانات والمعالجة والنموذج والعتبة والموافقة، واختبر الفئات حسب العمر والجنس والجهاز والموقع.`,
+        `يجب أن يرى المختص المعتمد سياق المريض والثقة وطريقة رفض التوصية. حدد مالك التنبيه وإبلاغ الأحداث السلبية، وطبق أقل صلاحية والتشفير والاحتفاظ الأدنى وإزالة الهوية. قبل النشر، شارك فرق الطب والأمن والخصوصية والامتثال في مراجعة المخاطر.`
+    ],
+    12: [
+        `ابدأ بقرار متكرر له نتيجة قابلة للقياس، لا بنموذج مفضل. يحتاج توقع الطلب ومراجعة الاحتيال والفحص البصري إلى خط أساس ومالك قرار ومؤشرات مثل مستوى الخدمة ومعدل الإنذارات الكاذبة ووقت المعالجة وتكلفة الحالة. ارتفاع accuracy لا يعني قيمة تجارية تلقائياً.`,
+        `غالباً يجب دمج بيانات المعاملات وCRM وERP والحساسات والسجلات أولاً. يستطيع XGBoost أو Prophet توقع الطلب مع خصائص العروض والعطلات، ويمكن للتوصيات جمع collaborative filtering مع قواعد المخزون. يستخرج OCR بيانات الفاتورة ثم يتحقق من PO والإجمالي، مع تطابق تعريف الخصائص بين التدريب والإنتاج.`,
+        `يحتاج النموذج الإنتاجي إلى إصدارات للبيانات والكود وتجارب في MLflow واختبارات pipeline ونشر كـ batch أو API. راقب input drift وprediction drift والتأخير والأخطاء ومؤشرات العمل. يمكن لـ PSI كشف تغير التوزيع؛ اربط التسميات المتأخرة بالتنبؤ الأصلي وجهز rollback ومساراً يدوياً.`,
+        `يقيد الاختبار الجيد عملية واحدة ومستخدماً أساسياً ومدة واضحة. اعرض العوامل المهمة واجمع أمثلة الرفض، وحدد البيانات المحظورة وحدود التشغيل والمسؤولية. قارن ROI بخط أساس أو مجموعة ضابطة حتى لا تخلط الموسمية بأثر AI.`
+    ],
+    13: [
+        `تجمع الروبوتات كاميرات RGB-D وLiDAR وIMU ومشفرات العجلات وحساسات القوة لتقدير العالم. تكشف الرؤية الأشياء أو الوضعيات، ويختار المخطط المسار، ويرسل المتحكم أوامر المحركات. تصل ROS 2 هذه المكونات عبر nodes وtopics وservices وactions.`,
+        `يبني SLAM خريطة أثناء تقدير موقع الروبوت. يستخدم ORB-SLAM الخصائص البصرية، ويطابق LiDAR SLAM المسوحات، ويمكن لمرشح كالمان الممتد دمج IMU وodometry وGPS. يستخدم Navigation2 غالباً A* أو NavFn للمسار العام وcostmap للعوائق المحلية.`,
+        `تحل ذراع الروبوت inverse kinematics لتحويل الوضعية المطلوبة إلى زوايا المفاصل. يخطط MoveIt الحركة ويفحص التصادم؛ ويقدر نموذج الرؤية نقطة الإمساك وتغلق القبضة بتغذية القوة. يقلل imitation learning والمحاكاة في MuJoCo أو Isaac Sim المخاطر قبل الضبط على روبوت حقيقي.`,
+        `العالم المادي لا يملك زر تراجع. حد السرعة والقوة والمساحة والأفعال، وأضف إيقافاً طارئاً وحساسات أمان وinterlocks. اختبر الحساس المغلق والأجسام الساقطة وانقطاع الشبكة ودخول الأشخاص. تساعد السجلات المؤرخة وإعادة الحادث والوضع اليدوي على التعافي.`
+    ],
+    14: [
+        `تشغل Edge AI النموذج على الجهاز الذي ينتج البيانات أو بالقرب منه. يمكن للكاميرا رفض عيب خلال أجزاء من الثانية، ويمكن لحساس الاهتزاز كشف الشذوذ دون اتصال. تختلف ESP32 وRaspberry Pi وJetson وCoral في الذاكرة والطاقة والتسريع؛ يبدأ اختيار العتاد من التأخير وظروف الميدان.`,
+        `تحول quantization الأوزان من float32 إلى int8، ويزيل pruning الاتصالات الأقل فائدة، ويدرب knowledge distillation نموذجاً صغيراً من معلم. تستهدف TensorFlow Lite وTensorRT وONNX Runtime وOpenVINO أجهزة مختلفة. قس الدقة وتأخير p50/p95 والذاكرة والحرارة والطاقة، لا حجم الملف فقط.`,
+        `في مصنع، يرسل accelerometer نافذة اهتزاز إلى gateway، ويحسب النموذج درجة الشذوذ محلياً ثم ينشر عبر MQTT الدرجة أو مقطعاً مهماً فقط. يجب أن تتضمن الرسالة معرف الجهاز والوقت المتزامن وإصدار firmware وmodel. خزّن محلياً أثناء الانقطاع وافصل القياس عن التحكم وتجنب أوامر المشغل المكررة.`,
+        `تحقق من firmware والنماذج الموقعة قبل تشغيلها. استخدم secure boot عند توفره، وبيانات اعتماد فريدة وTLS وتدوير المفاتيح. ابدأ بمجموعة صغيرة، راقب الأعطال والانحراف واحتفظ بخيار rollback؛ إعادة التدريب واختبارات الانحدار جزء من دورة حياة الجهاز.`
+    ],
+    15: [
+        `يؤتمت AutoML التنظيف الأساسي وترميز الفئات واختيار النموذج وهندسة الخصائص المحدودة وضبط المعاملات. تقارن Auto-sklearn وH2O AutoML وAutoGluon مسارات متعددة، وتوفر Vertex AI وAzure Machine Learning تدفقات مُدارة. تناسب Teachable Machine النماذج الأولية الصغيرة، لكن الأتمتة لا تصلح هدفاً خاطئاً.`,
+        `حدد ما تمثله الصفوف ومتى يحدث التنبؤ وما الأعمدة المتاحة حينها. في churn لمدة 30 يوماً، سبب الإلغاء اللاحق هو تسرب بيانات. اقسم البيانات الزمنية حسب الوقت وافحص القيم المفقودة والعملاء المكررين وعدم توازن الفئات والوحدات قبل التدريب.`,
+        `إذا كان الاحتيال 2% فقط، فقد تفضل لوحة AutoML accuracy نموذجاً يتجاهل الحالات الإيجابية. اختر precision-recall أو ROC-AUC أو F1 أو MAE أو تكلفة العمل، وافحص confusion matrix عند العتبة التشغيلية وقارن بخط أساس بسيط.`,
+        `احفظ مجموعة البيانات والإعدادات والمقاييس وأمثلة التنبؤ لإعادة الإنتاج. استخدم SHAP أو feature importance للتحقق من الإشارات المعقولة؛ الارتباط ليس سببية. اختبر النموذج المصدر على بيانات الإنتاج وراقب drift واحتفظ بمراجعة بشرية للقرارات عالية المخاطر. No-code لا يلغي المسؤولية.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.hi, {
+    9: [
+        `Reinforcement Learning निर्णयों को Markov Decision Process के रूप में देखता है: agent state देखता है, action चुनता है, फिर reward और अगला state पाता है। Policy π(a|s) action चुनती है और discount factor γ भविष्य के reward को महत्व देता है। Gymnasium के CartPole में pole सीधा रहने पर हर step +1 मिलता है।`,
+        `Value-based RL state या state-action pair का दीर्घकालिक मूल्य अनुमानित करता है। Q-learning Q(s,a) को α[r + γ max Q(s′,a′) − Q(s,a)] से अपडेट करता है। ε-greedy कभी-कभी random action आजमाता है; DQN table की जगह neural network, replay buffer और target network इस्तेमाल करता है।`,
+        `Robot arm angle जैसे continuous action के लिए policy action distribution निकाल सकती है। REINFORCE episode reward से सीखता है, actor-critic value estimator जोड़ता है और PPO हर update में policy change सीमित करता है। Stable-Baselines3 में PPO, DQN और SAC के उपयोगी implementations हैं।`,
+        `गलत reward metric को बेहतर कर सकता है लेकिन असली लक्ष्य विफल हो सकता है। Warehouse robot को केवल speed का reward देने के बजाय collision, energy और waiting penalty दें। कई random seeds और अलग evaluation environment का उपयोग करें; hardware से पहले MuJoCo या Isaac Sim, domain randomization, action limits और emergency stop आजमाएँ।`
+    ],
+    10: [
+        `Discriminative models spam या not spam जैसे labels चुनते हैं, जबकि generative models data patterns सीखकर नए examples बनाते हैं। Autoregressive LLM अगला token predict करते हैं; diffusion models noise धीरे-धीरे हटाकर image बनाते हैं। GPT, Llama, Mistral और Stable Diffusion इनके उदाहरण हैं।`,
+        `Byte Pair Encoding जैसा tokenizer text को tokens और फिर embeddings में बदलता है। Self-attention tokens की प्रासंगिकता मापता है और positional encoding क्रम रखता है। Pre-training में next-token error घटाया जाता है; temperature और top-p variety बदलते हैं, factual truth की गारंटी नहीं देते।`,
+        `RAG उत्तर से पहले relevant document chunks खोजता है। text-embedding-3 या BGE embeddings को FAISS, pgvector या Chroma से खोजा जा सकता है। Fine-tuning और LoRA repeated formats को स्थिर करते हैं; validated JSON schemas stock या calendar API के function calling को सुरक्षित बनाते हैं।`,
+        `Normal cases, edge cases और बिना उत्तर वाले सवालों पर test करें। Groundedness, citation accuracy, latency, tokens per request और human escalation मापें। Hallucination को failure मानें, prompt injection से system instructions बचाएँ, tool permissions सीमित करें और personal data logs में न रखें।`
+    ],
+    11: [
+        `Healthcare AI image triage, risk prediction, documentation और drug research में मदद कर सकती है, clinical judgment को replace नहीं करती। Computer vision X-ray या CT में suspicious area दिखा सकती है और NLP notes से medicines तथा allergies निकाल सकता है। Output में population, purpose और अगला कदम स्पष्ट होना चाहिए।`,
+        `Clinical data में delayed labels, incomplete codes और hospitals तथा devices के बीच अंतर होता है। DICOM images और metadata रखता है; MIMIC जैसे datasets को strict access governance चाहिए। Patient और time के अनुसार split करें, leakage रोकें, external validation करें और sensitivity, specificity, PPV तथा calibration report करें।`,
+        `Auditable radiology pipeline DICOM de-identify और normalize करके DenseNet या U-Net चला सकती है, फिर review aid के रूप में Grad-CAM दिखा सकती है। Heatmap causal explanation नहीं है। Data, preprocessing, model, threshold और approval versions दर्ज करें तथा age, sex, device और location subgroups test करें।`,
+        `Authorized clinician को patient context, confidence और recommendation reject करने का रास्ता दिखना चाहिए। Alert owner और adverse-event reporting तय करें; least privilege, encryption, minimum retention और de-identification लागू करें। Deployment से पहले clinical, security, privacy और compliance teams risk review करें।`
+    ],
+    12: [
+        `ऐसे repeated decision से शुरू करें जिसका परिणाम मापा जा सके, model से नहीं। Demand forecasting, fraud review और factory inspection के लिए baseline, decision owner और service level, false-positive rate, processing time या case cost जैसे KPI चाहिए। Accuracy बढ़ना अपने आप business value नहीं है।`,
+        `Transactions, CRM, ERP, sensors और service logs को पहले जोड़ना पड़ सकता है। XGBoost या Prophet promotion और holiday features से demand forecast कर सकते हैं; recommendation system collaborative filtering और stock rules मिला सकता है। OCR invoice पढ़कर PO number और total validate कर सकता है, पर training और production में feature definitions समान हों।`,
+        `Production model को data/code versioning, MLflow experiments, pipeline tests और batch या API deployment चाहिए। Input drift, prediction drift, latency, errors और business metrics monitor करें। PSI distribution change दिखा सकता है; delayed labels को original prediction से जोड़ें और rollback तथा manual path रखें।`,
+        `Pilot को एक process, एक primary user और स्पष्ट evaluation period तक सीमित रखें। Review करने वाले को important factors दिखाएँ, rejected examples इकट्ठे करें और prohibited data, automation limits तथा accountability तय करें। ROI को baseline या control group से compare करें, seasonality को AI impact न समझें।`
+    ],
+    13: [
+        `Robots RGB-D cameras, LiDAR, IMU, wheel encoders और force-torque sensors को मिलाकर दुनिया का अनुमान लगाते हैं। Perception objects या poses detect करता है, planner path चुनता है और controller motor commands भेजता है। ROS 2 nodes, topics, services और actions से components जोड़ता है।`,
+        `SLAM robot की position का अनुमान लगाते हुए map बनाता है। ORB-SLAM visual features, LiDAR SLAM scan matching और Extended Kalman Filter IMU, odometry और GPS को मिला सकता है। ROS 2 Navigation2 global path के लिए A* या NavFn और local obstacles के लिए costmap इस्तेमाल करता है।`,
+        `Robot arm inverse kinematics से target pose को joint angles में बदलता है। MoveIt motion planning और collision checking करता है; vision model grasp point बताता है और gripper force feedback से बंद होता है। Imitation learning और MuJoCo या Isaac Sim simulation real robot fine-tuning का जोखिम घटाते हैं।`,
+        `Physical world में undo button नहीं होता। Speed, force, workspace और policy actions सीमित करें; emergency stop, safety sensors और interlocks जोड़ें। Blocked sensors, गिरती वस्तु, network loss और workspace में व्यक्ति आने के scenarios test करें। Timestamped logs, incident replay और manual mode recovery में मदद करते हैं।`
+    ],
+    14: [
+        `Edge AI data बनाने वाले device पर या उसके पास model चलाता है। Camera milliseconds में defective product reject कर सकता है और vibration sensor offline भी anomaly पकड़ सकता है। ESP32, Raspberry Pi, Jetson और Coral की RAM, power और accelerator सीमाएँ अलग हैं; hardware latency और field conditions से चुनें।`,
+        `Quantization float32 weights को int8 बनाता है, pruning कम उपयोगी connections हटाता है और knowledge distillation छोटे model को teacher से सीखाता है। TensorFlow Lite, TensorRT, ONNX Runtime और OpenVINO अलग targets के लिए हैं। Accuracy, p50/p95 latency, memory, temperature और power मापें, केवल file size नहीं।`,
+        `Factory में accelerometer vibration window gateway को भेज सकता है, model local anomaly score निकाल सकता है और MQTT से केवल score या important clip भेज सकता है। Message में device ID, synchronized time, firmware और model version रखें। Outage में buffer करें, duplicate actuator commands रोकें और telemetry तथा control अलग रखें।`,
+        `Execution से पहले signed firmware और models verify करें। Hardware support करे तो secure boot, unique credentials, TLS और key rotation लगाएँ। पहले छोटे cohort में release करें, crashes और drift देखें और rollback रखें। Retraining तथा regression tests device lifecycle का हिस्सा हैं।`
+    ],
+    15: [
+        `AutoML basic cleaning, category encoding, model selection, limited feature engineering और hyperparameter tuning automate कर सकता है। Auto-sklearn, H2O AutoML और AutoGluon pipelines compare करते हैं; Vertex AI और Azure Machine Learning managed workflows देते हैं। Teachable Machine छोटे prototypes के लिए ठीक है, गलत target को automation ठीक नहीं कर सकती।`,
+        `एक row क्या दिखाती है, prediction कब होती है और उस समय कौन से columns उपलब्ध हैं—पहले तय करें। 30-day churn में बाद में मिलने वाला cancellation reason leakage है। Temporal data को time के अनुसार split करें और missing values, duplicate customers, class imbalance तथा units जाँचें।`,
+        `यदि fraud केवल 2% है तो accuracy misleading हो सकती है। Problem के अनुसार precision-recall, ROC-AUC, F1, MAE या business cost चुनें। Operational threshold पर confusion matrix देखें और rules या logistic regression जैसे baseline से तुलना करें।`,
+        `Dataset, configuration, metrics और prediction examples save करें ताकि परिणाम reproduce हों। SHAP या feature importance से reasonable signals जाँचें; correlation causation नहीं है। Production data पर exported model retest करें, drift monitor करें और high-risk decisions में human review रखें। No-code में भी owner जरूरी है।`
+    ]
+});
+
+Object.assign(sectionContentTranslations.pt, {
+    9: [
+        `Reinforcement Learning modela decisões como um Processo de Decisão de Markov: o agente observa um estado, escolhe uma ação e recebe uma recompensa e um novo estado. A política π(a|s) escolhe ações e γ pondera recompensas futuras. No CartPole do Gymnasium, o agente recebe +1 enquanto a haste permanece em pé.`,
+        `RL baseado em valor estima o valor de longo prazo de um estado ou par estado-ação. Q-learning atualiza Q(s,a) com α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy explora ações aleatórias ocasionalmente; DQN troca a tabela por uma rede neural, replay buffer e target network.`,
+        `Para ações contínuas, como o ângulo de um braço robótico, a política pode produzir uma distribuição. REINFORCE aprende com recompensas do episódio, actor-critic adiciona um estimador de valor e PPO limita a mudança da política por atualização. Stable-Baselines3 oferece PPO, DQN e SAC.`,
+        `Uma recompensa mal definida pode otimizar a métrica e falhar o objetivo real. Em um robô de armazém, penalize colisões, energia e espera, não apenas velocidade. Compare várias seeds em ambiente separado e use MuJoCo ou Isaac Sim, randomização de domínio, limites de ação e parada de emergência antes do hardware.`
+    ],
+    10: [
+        `Modelos discriminativos escolhem rótulos, como spam ou não spam; modelos generativos aprendem padrões para criar novos exemplos. LLMs autoregressivos preveem o próximo token e modelos de difusão removem ruído gradualmente para criar imagens. GPT, Llama, Mistral e Stable Diffusion são exemplos.`,
+        `Um tokenizer como Byte Pair Encoding transforma texto em tokens e embeddings. Self-attention calcula a relevância entre tokens e positional encoding preserva a ordem. O pré-treinamento reduz o erro do próximo token; temperature e top-p alteram variedade, não garantem fatos.`,
+        `RAG recupera trechos relevantes antes da resposta do LLM. Embeddings de text-embedding-3 ou BGE podem ser buscados com FAISS, pgvector ou Chroma. Fine-tuning e LoRA estabilizam formatos repetidos, enquanto schemas JSON validados tornam function calling mais seguro.`,
+        `Teste casos normais, limites e perguntas sem resposta. Meça groundedness, precisão das citações, latência, tokens por pedido e escalamento humano. Trate hallucination como falha, proteja instruções contra prompt injection, limite ferramentas, redija dados pessoais e mantenha segredos fora dos logs.`
+    ],
+    11: [
+        `A IA na saúde pode apoiar triagem de imagens, previsão de risco, documentação e pesquisa de medicamentos, mas não substitui o julgamento clínico. Computer vision pode marcar áreas suspeitas em X-ray ou CT, enquanto NLP extrai medicamentos e alergias. A saída deve indicar população, objetivo e próxima ação.`,
+        `Dados clínicos têm rótulos atrasados, códigos incompletos e diferenças entre hospitais e dispositivos. DICOM armazena imagens e metadados; bases como MIMIC exigem governança rigorosa. Divida por paciente e tempo, evite leakage, valide externamente e reporte sensitivity, specificity, PPV e calibration.`,
+        `Um pipeline radiológico auditável pode desidentificar DICOM, normalizar imagens, executar DenseNet ou U-Net e exibir Grad-CAM como apoio à revisão. Heatmap não é explicação causal. Registre versões de dados, preprocessing, modelo, threshold e aprovação; teste subgrupos por idade, sexo, dispositivo e local.`,
+        `Um profissional autorizado deve ver contexto, confiança e uma forma de rejeitar a recomendação. Defina o responsável pelos alertas e eventos adversos; aplique menor privilégio, criptografia, retenção mínima e desidentificação. Antes do deploy, envolva equipes clínicas, de segurança, privacidade e compliance.`
+    ],
+    12: [
+        `Comece por uma decisão repetida com resultado mensurável, não pelo modelo. Previsão de demanda, revisão de fraude e inspeção visual precisam de baseline, responsável e KPIs como service level, falsos positivos, tempo ou custo por caso. Mais accuracy não significa automaticamente mais valor.`,
+        `Dados de transações, CRM, ERP, sensores e logs de serviço precisam ser integrados. XGBoost ou Prophet podem prever demanda com promoções e feriados; recomendações podem juntar collaborative filtering e regras de estoque. OCR extrai faturas e valida PO e total, com as mesmas features no treino e na produção.`,
+        `Um modelo em produção precisa de versionamento, experimentos no MLflow, testes de pipeline e deploy batch ou API. Monitore input drift, prediction drift, latência, erros e métricas de negócio. PSI sinaliza mudanças de distribuição; relacione rótulos atrasados às previsões e prepare rollback e caminho manual.`,
+        `Limite o piloto a um processo, um usuário principal e um período definido. Mostre fatores importantes, colete rejeições e defina dados proibidos, limites de automação e responsabilidade. Compare ROI com baseline ou controle para não confundir sazonalidade com impacto de IA.`
+    ],
+    13: [
+        `Robôs combinam câmeras RGB-D, LiDAR, IMU, encoders de roda e sensores de força para estimar o ambiente. Perception detecta objetos, planner escolhe a trajetória e controller envia comandos ao motor. ROS 2 conecta componentes por nodes, topics, services e actions.`,
+        `SLAM cria um mapa enquanto estima a posição do robô. ORB-SLAM usa recursos visuais, LiDAR SLAM combina scans e um Extended Kalman Filter pode fundir IMU, odometria e GPS. Navigation2 usa A* ou NavFn no caminho global e costmaps para obstáculos locais.`,
+        `Um braço resolve inverse kinematics para converter uma pose em ângulos. MoveIt planeja e verifica colisões; um modelo visual estima o grasp point e a garra usa feedback de força. Imitation learning e simulação em MuJoCo ou Isaac Sim reduzem risco antes do ajuste no robô.`,
+        `O mundo físico não tem desfazer. Limite velocidade, força, espaço e ações; inclua parada de emergência, sensores de segurança e interlocks. Teste sensores bloqueados, objetos caindo, perda de rede e pessoas na área. Logs com timestamp, replay e modo manual ajudam na recuperação.`
+    ],
+    14: [
+        `Edge AI executa o modelo no dispositivo que produz os dados ou perto dele. Uma câmera pode rejeitar um defeito em milissegundos e um sensor de vibração detectar anomalias offline. ESP32, Raspberry Pi, Jetson e Coral têm limites diferentes; escolha pelo alvo de latência e pelas condições reais.`,
+        `Quantization converte pesos float32 para int8, pruning remove conexões e knowledge distillation treina um modelo menor com um professor. TensorFlow Lite, TensorRT, ONNX Runtime e OpenVINO atendem dispositivos diferentes. Meça acurácia, latência p50/p95, memória, temperatura e energia.`,
+        `Em uma fábrica, o acelerômetro envia uma janela de vibração ao gateway, o modelo calcula o score local e MQTT envia apenas o score ou um trecho importante. Inclua ID, timestamp sincronizado, versão do firmware e do modelo. Faça buffer durante quedas, evite comandos duplicados e separe telemetria de controle.`,
+        `Verifique firmware e modelos assinados antes da execução. Use secure boot, credenciais únicas, TLS e rotação de chaves quando possível. Faça rollout para uma pequena coorte, monitore crashes e drift e mantenha rollback. Retreinamento e testes de regressão fazem parte do ciclo de vida.`
+    ],
+    15: [
+        `AutoML automatiza limpeza básica, encoding, seleção de modelos, feature engineering limitado e tuning. Auto-sklearn, H2O AutoML e AutoGluon comparam pipelines; Vertex AI e Azure Machine Learning oferecem fluxos gerenciados. Teachable Machine serve para protótipos, mas automação não corrige um alvo ruim.`,
+        `Defina o que uma linha representa, quando a previsão ocorre e quais colunas existem nesse momento. Em churn de 30 dias, o motivo de cancelamento posterior é leakage. Separe dados temporais por data e verifique missing values, duplicatas, desbalanceamento e unidades.`,
+        `Com apenas 2% de fraude, accuracy pode premiar um modelo que ignora positivos. Escolha precision-recall, ROC-AUC, F1, MAE ou custo de negócio, veja a confusion matrix no threshold operacional e compare com regras ou regressão logística.`,
+        `Guarde dataset, configuração, métricas e exemplos para reproduzir resultados. Use SHAP ou feature importance para conferir sinais razoáveis; correlação não é causalidade. Reteste o modelo exportado com dados reais, monitore drift e mantenha revisão humana em decisões de risco. No-code também precisa de responsável.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.fr, {
+    9: [
+        `L'apprentissage par renforcement modélise les décisions comme un processus de décision de Markov : l'agent observe un état, choisit une action, puis reçoit une récompense et un nouvel état. La politique π(a|s) choisit les actions et γ pondère les récompenses futures. Dans CartPole de Gymnasium, l'agent reçoit +1 tant que la barre reste droite.`,
+        `Le RL fondé sur la valeur estime la valeur à long terme d'un état ou d'une paire état-action. Q-learning met à jour Q(s,a) avec α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy explore parfois une action aléatoire ; DQN remplace la table par un réseau neuronal avec replay buffer et target network.`,
+        `Pour les actions continues, comme l'angle d'un bras robotique, la politique peut produire une distribution d'actions. REINFORCE apprend avec la récompense de l'épisode, actor-critic ajoute un estimateur de valeur et PPO limite le changement de politique à chaque mise à jour. Stable-Baselines3 fournit PPO, DQN et SAC.`,
+        `Une mauvaise récompense peut optimiser le score tout en ratant l'objectif réel. Pour un robot d'entrepôt, ajoutez des pénalités de collision, d'énergie et d'attente, pas seulement une récompense de vitesse. Comparez plusieurs seeds dans un environnement séparé et utilisez MuJoCo ou Isaac Sim, la randomisation de domaine, des limites d'action et un arrêt d'urgence.`
+    ],
+    10: [
+        `Les modèles discriminatifs choisissent des étiquettes comme spam ou non-spam ; les modèles génératifs apprennent les motifs des données pour créer de nouveaux exemples. Les LLM autorégressifs prédisent le token suivant et les modèles de diffusion retirent progressivement le bruit pour former une image. GPT, Llama, Mistral et Stable Diffusion sont des exemples.`,
+        `Un tokenizer comme Byte Pair Encoding transforme le texte en tokens puis en embeddings. Self-attention mesure la pertinence entre tokens et positional encoding conserve l'ordre. Le pré-entraînement réduit l'erreur du token suivant ; temperature et top-p modifient la variété, sans garantir la véracité.`,
+        `RAG récupère des extraits pertinents avant la réponse du LLM. Les embeddings de text-embedding-3 ou BGE peuvent être recherchés avec FAISS, pgvector ou Chroma. Fine-tuning et LoRA stabilisent les formats répétés, tandis que des schémas JSON validés sécurisent le function calling pour un stock ou un calendrier.`,
+        `Testez les cas normaux, limites et les questions sans réponse. Mesurez groundedness, précision des citations, latence, tokens par requête et escalade humaine. Traitez l'hallucination comme un vrai échec, protégez les instructions contre prompt injection, limitez les outils, masquez les données personnelles et excluez les secrets des logs.`
+    ],
+    11: [
+        `L'IA médicale peut aider au triage d'images, à la prédiction des risques, à la documentation et à la recherche de médicaments, mais elle ne remplace pas le jugement clinique. Computer vision peut signaler une zone suspecte sur une radiographie ou un CT, tandis que NLP extrait les médicaments et allergies. La sortie doit préciser la population, l'objectif et la prochaine action.`,
+        `Les données cliniques contiennent des labels retardés, des codes incomplets et des différences entre hôpitaux et appareils. DICOM conserve les images et leurs métadonnées ; des jeux comme MIMIC exigent une gouvernance stricte. Séparez par patient et par temps, évitez le leakage, validez extérieurement et rapportez sensitivity, specificity, PPV et calibration.`,
+        `Un pipeline radiologique auditable peut désidentifier DICOM, normaliser les images, exécuter DenseNet ou U-Net et afficher Grad-CAM pour aider la revue. Une heatmap n'est pas une explication causale. Versionnez les données, le preprocessing, le modèle, le seuil et l'approbation, puis testez les sous-groupes par âge, sexe, appareil et lieu.`,
+        `Un professionnel autorisé doit voir le contexte, la confiance et un moyen de refuser la recommandation. Définissez le responsable des alertes et des événements indésirables ; appliquez le moindre privilège, le chiffrement, une rétention minimale et la désidentification. Avant le déploiement, réunissez les équipes clinique, sécurité, vie privée et conformité.`
+    ],
+    12: [
+        `Commencez par une décision répétée dont le résultat est mesurable, pas par un modèle favori. Prévision de demande, revue de fraude et inspection visuelle nécessitent une baseline, un responsable et des KPI comme le niveau de service, le taux de faux positifs, le temps ou le coût par cas. Une meilleure accuracy ne suffit pas à créer de la valeur.`,
+        `Les données de transactions, CRM, ERP, capteurs et logs doivent souvent être réunies. XGBoost ou Prophet peuvent prévoir la demande avec promotions et jours fériés ; les recommandations combinent collaborative filtering et règles de stock. OCR extrait les factures puis vérifie PO et total, avec les mêmes features en entraînement et en production.`,
+        `Un modèle de production demande le versionnage, le suivi des expériences dans MLflow, des tests de pipeline et un déploiement batch ou API. Surveillez input drift, prediction drift, latence, erreurs et métriques métier. PSI signale un changement de distribution ; reliez les labels tardifs aux prédictions et prévoyez rollback et procédure manuelle.`,
+        `Un bon pilote se limite à un processus, un utilisateur principal et une période définie. Montrez les facteurs importants, collectez les rejets et définissez données interdites, limites d'automatisation et responsabilités. Comparez le ROI à une baseline ou à un groupe témoin pour ne pas confondre saisonnalité et impact de l'IA.`
+    ],
+    13: [
+        `Les robots combinent caméras RGB-D, LiDAR, IMU, encodeurs de roues et capteurs force-couple pour estimer le monde. La perception détecte les objets, le planificateur choisit la trajectoire et le contrôleur envoie les commandes moteur. ROS 2 relie les composants via nodes, topics, services et actions.`,
+        `SLAM construit une carte tout en estimant la position du robot. ORB-SLAM utilise des points visuels, LiDAR SLAM associe des scans et un filtre de Kalman étendu peut fusionner IMU, odométrie et GPS. Navigation2 utilise souvent A* ou NavFn pour le chemin global et des costmaps pour les obstacles locaux.`,
+        `Un bras robotique résout l'inverse kinematics pour transformer une pose cible en angles articulaires. MoveIt planifie le mouvement et vérifie les collisions ; un modèle visuel estime le point de prise et la pince utilise le retour de force. Imitation learning et simulation avec MuJoCo ou Isaac Sim réduisent le risque avant le réglage sur robot.`,
+        `Le monde physique n'a pas de bouton annuler. Limitez vitesse, force, espace de travail et actions ; ajoutez arrêt d'urgence, capteurs de sécurité et interlocks. Testez capteurs masqués, objets tombés, perte réseau et présence humaine. Les logs horodatés, le replay d'incidents et le mode manuel facilitent la récupération.`
+    ],
+    14: [
+        `Edge AI exécute le modèle sur l'appareil qui produit les données ou à proximité. Une caméra peut rejeter un défaut en quelques millisecondes et un capteur de vibration détecter une anomalie hors ligne. ESP32, Raspberry Pi, Jetson et Coral ont des limites différentes ; choisissez selon la latence et le terrain.`,
+        `La quantification convertit les poids float32 en int8, le pruning retire des connexions et la knowledge distillation entraîne un petit modèle avec un modèle enseignant. TensorFlow Lite, TensorRT, ONNX Runtime et OpenVINO ciblent des appareils différents. Mesurez précision, latence p50/p95, mémoire, température et énergie, pas seulement la taille du fichier.`,
+        `Dans une usine, un accéléromètre peut envoyer une fenêtre de vibration à une passerelle, calculer localement le score d'anomalie et publier via MQTT uniquement le score ou un extrait important. Incluez ID, heure synchronisée, versions firmware et modèle. Utilisez un buffer pendant les pannes, évitez les commandes dupliquées et séparez télémétrie et contrôle.`,
+        `Vérifiez les firmwares et modèles signés avant exécution. Utilisez secure boot si possible, identifiants uniques, TLS et rotation des clés. Déployez d'abord sur une petite cohorte, surveillez crashes et drift et gardez rollback. Réentraînement et tests de régression font partie du cycle de vie.`
+    ],
+    15: [
+        `AutoML automatise le nettoyage de base, l'encodage, la sélection de modèles, une feature engineering limitée et le tuning. Auto-sklearn, H2O AutoML et AutoGluon comparent des pipelines ; Vertex AI et Azure Machine Learning proposent des workflows gérés. Teachable Machine convient aux prototypes, mais l'automatisation ne corrige pas une mauvaise cible.`,
+        `Définissez ce que représente une ligne, quand la prédiction est faite et quelles colonnes existent alors. Pour un churn à 30 jours, le motif d'annulation apparu après est une fuite de données. Séparez les données temporelles par date et vérifiez valeurs manquantes, doublons, déséquilibre et unités.`,
+        `Avec seulement 2 % de fraude, accuracy peut favoriser un modèle qui ignore les positifs. Choisissez precision-recall, ROC-AUC, F1, MAE ou coût métier, examinez la matrice de confusion au seuil opérationnel et comparez à des règles ou une régression logistique.`,
+        `Conservez dataset, configuration, métriques et exemples pour reproduire les résultats. Utilisez SHAP ou feature importance pour vérifier les signaux ; corrélation ne signifie pas causalité. Retestez le modèle exporté sur des données de production, surveillez le drift et gardez une revue humaine pour les décisions à risque. No-code exige aussi un responsable.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.de, {
+    9: [
+        `Reinforcement Learning modelliert Entscheidungen als Markov-Entscheidungsprozess: Der Agent beobachtet einen Zustand, wählt eine Aktion und erhält eine Belohnung sowie einen neuen Zustand. Die Policy π(a|s) wählt Aktionen, der Diskontfaktor γ gewichtet zukünftige Belohnungen. In Gymnasium CartPole gibt es +1, solange die Stange aufrecht bleibt.`,
+        `Value-based RL schätzt den langfristigen Wert eines Zustands oder Zustand-Aktions-Paares. Q-learning aktualisiert Q(s,a) mit α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy probiert gelegentlich zufällige Aktionen; DQN ersetzt die Tabelle durch ein neuronales Netz mit replay buffer und target network.`,
+        `Für kontinuierliche Aktionen wie den Winkel eines Roboterarms kann die Policy eine Aktionsverteilung ausgeben. REINFORCE lernt aus Episodenbelohnungen, actor-critic ergänzt einen Wertschätzer und PPO begrenzt die Policy-Änderung pro Update. Stable-Baselines3 bietet PPO-, DQN- und SAC-Implementierungen.`,
+        `Eine falsch entworfene Belohnung kann die Metrik optimieren und das echte Ziel verfehlen. Ein Lagerroboter braucht neben Geschwindigkeit auch Strafen für Kollisionen, Energie und Wartezeit. Vergleichen Sie mehrere Seeds in einer getrennten Umgebung und nutzen Sie vor echter Hardware MuJoCo oder Isaac Sim, Domain Randomization, Aktionsgrenzen und einen Not-Aus.`
+    ],
+    10: [
+        `Diskriminative Modelle wählen Labels wie Spam oder kein Spam; generative Modelle lernen Datenmuster und erzeugen neue Beispiele. Autoregressive LLMs sagen das nächste Token voraus, Diffusionsmodelle entfernen schrittweise Rauschen und bilden Bilder. GPT, Llama, Mistral und Stable Diffusion sind Beispiele.`,
+        `Ein Tokenizer wie Byte Pair Encoding macht aus Text Tokens und daraus Embeddings. Self-Attention misst die Relevanz zwischen Tokens, positional encoding bewahrt die Reihenfolge. Beim Pretraining wird der Fehler des nächsten Tokens minimiert; temperature und top-p ändern die Vielfalt, nicht die Faktentreue.`,
+        `RAG ruft relevante Dokumentabschnitte ab, bevor das LLM antwortet. Embeddings aus text-embedding-3 oder BGE lassen sich mit FAISS, pgvector oder Chroma suchen. Fine-tuning und LoRA stabilisieren wiederholte Formate, validierte JSON-Schemas machen Function Calling für Lager- oder Kalender-APIs sicherer.`,
+        `Testen Sie normale Fälle, Grenzfälle und Fragen ohne Antwort. Messen Sie Groundedness, Zitiergenauigkeit, Latenz, Tokens pro Anfrage und Eskalationen. Behandeln Sie Halluzinationen als Fehler, schützen Sie Systemanweisungen vor Prompt Injection, begrenzen Sie Tool-Rechte, redigieren Sie personenbezogene Daten und speichern Sie keine Geheimnisse in Logs.`
+    ],
+    11: [
+        `KI im Gesundheitswesen kann Bildtriage, Risikoprognosen, Dokumentation und Arzneimittelforschung unterstützen, ersetzt aber keine klinische Beurteilung. Computer Vision kann verdächtige Bereiche in Röntgen oder CT markieren, NLP Medikamente und Allergien aus Notizen extrahieren. Die Ausgabe sollte Population, Zweck und nächste Maßnahme nennen.`,
+        `Klinische Daten haben verspätete Labels, unvollständige Codes und Unterschiede zwischen Kliniken und Geräten. DICOM speichert Bilder mit Metadaten; Datensätze wie MIMIC brauchen strenge Zugriffskontrollen. Teilen Sie nach Patient und Zeit, vermeiden Sie Leakage, validieren Sie extern und berichten Sie Sensitivität, Spezifität, PPV und Kalibrierung.`,
+        `Eine auditierbare Radiologie-Pipeline kann DICOM de-identifizieren, Bilder normalisieren, DenseNet oder U-Net ausführen und Grad-CAM als Review-Hilfe anzeigen. Eine Heatmap ist keine kausale Erklärung. Versionieren Sie Daten, Preprocessing, Modell, Threshold und Freigabe und prüfen Sie Untergruppen nach Alter, Geschlecht, Gerät und Ort.`,
+        `Berechtigte Fachkräfte müssen Kontext, Konfidenz und eine Möglichkeit zum Ablehnen sehen. Legen Sie Alert-Verantwortung und die Meldung unerwünschter Ereignisse fest; nutzen Sie Least Privilege, Verschlüsselung, kurze Aufbewahrung und De-Identifizierung. Vor dem Deployment prüfen klinische, Sicherheits-, Datenschutz- und Compliance-Teams gemeinsam die Risiken.`
+    ],
+    12: [
+        `Beginnen Sie mit einer wiederkehrenden Entscheidung und messbarem Ergebnis, nicht mit einem Lieblingsmodell. Nachfrageprognose, Betrugsprüfung und visuelle Inspektion brauchen eine Baseline, einen Verantwortlichen und KPIs wie Service-Level, Fehlalarmrate, Bearbeitungszeit oder Kosten pro Fall. Mehr Accuracy ist nicht automatisch Geschäftswert.`,
+        `Transaktions-, CRM-, ERP-, Sensor- und Servicelog-Daten müssen oft zuerst verbunden werden. XGBoost oder Prophet können Nachfrage mit Werbe- und Feiertagsmerkmalen prognostizieren; Empfehlungen kombinieren Collaborative Filtering mit Bestandsregeln. OCR liest Rechnungen und prüft PO-Nummer und Summe, mit identischen Features in Training und Produktion.`,
+        `Ein Produktionsmodell braucht Versionierung, MLflow-Experimente, Pipeline-Tests und ein Batch- oder API-Deployment. Überwachen Sie Input Drift, Prediction Drift, Latenz, Fehler und Geschäftsmetriken. PSI zeigt Verteilungsänderungen; verspätete Labels müssen mit der ursprünglichen Prognose verbunden sein, Rollback und manueller Ablauf vorbereitet werden.`,
+        `Ein guter Pilot beschränkt sich auf einen Prozess, einen Hauptnutzer und einen definierten Zeitraum. Zeigen Sie wichtige Faktoren, sammeln Sie Ablehnungen und definieren Sie verbotene Daten, Automatisierungsgrenzen und Verantwortung. Vergleichen Sie ROI mit Baseline oder Kontrollgruppe, damit Saisonalität nicht als KI-Effekt erscheint.`
+    ],
+    13: [
+        `Roboter kombinieren RGB-D-Kameras, LiDAR, IMU, Radencoder und Kraft-Momenten-Sensoren, um die Umgebung zu schätzen. Wahrnehmung erkennt Objekte, der Planner wählt eine Bahn und der Controller sendet Motorbefehle. ROS 2 verbindet Komponenten über Nodes, Topics, Services und Actions.`,
+        `SLAM erstellt eine Karte und schätzt gleichzeitig die Roboterposition. ORB-SLAM nutzt Bildmerkmale, LiDAR-SLAM vergleicht Scans und ein Extended Kalman Filter kann IMU, Odometrie und GPS verbinden. Navigation2 verwendet oft A* oder NavFn für globale Wege und Costmaps für lokale Hindernisse.`,
+        `Ein Roboterarm löst inverse Kinematik, um eine Zielpose in Gelenkwinkel umzuwandeln. MoveIt plant Bewegungen und prüft Kollisionen; ein Bildmodell schätzt den Greifpunkt und der Greifer nutzt Kraftfeedback. Imitation Learning und Simulation mit MuJoCo oder Isaac Sim senken das Risiko vor dem Feintuning am Roboter.`,
+        `Die physische Welt hat keine Undo-Taste. Begrenzen Sie Geschwindigkeit, Kraft, Arbeitsbereich und Policy-Aktionen; ergänzen Sie Not-Aus, Sicherheitssensoren und Interlocks. Testen Sie verdeckte Sensoren, fallende Objekte, Netzausfall und Personen im Arbeitsbereich. Zeitgestempelte Logs, Incident-Replay und manueller Modus helfen bei der Wiederherstellung.`
+    ],
+    14: [
+        `Edge AI führt Modelle auf oder nahe dem Gerät aus, das die Daten erzeugt. Eine Kamera kann Fehler in Millisekunden aussortieren, ein Vibrationssensor Anomalien offline erkennen. ESP32, Raspberry Pi, Jetson und Coral unterscheiden sich bei RAM, Energie und Beschleunigern; wählen Sie nach Latenzziel und Umgebung.`,
+        `Quantisierung macht aus Float32-Gewichten Int8, Pruning entfernt wenig wichtige Verbindungen und Knowledge Distillation trainiert ein kleines Modell mit einem Lehrer. TensorFlow Lite, TensorRT, ONNX Runtime und OpenVINO zielen auf unterschiedliche Geräte. Messen Sie Genauigkeit, p50/p95-Latenz, Speicher, Temperatur und Energie, nicht nur Dateigröße.`,
+        `In einer Fabrik sendet ein Beschleunigungssensor ein Vibrationsfenster an ein Gateway, das Modell berechnet lokal den Anomaliescore und MQTT überträgt nur Score oder wichtigen Ausschnitt. Nachrichtdaten brauchen Geräte-ID, synchronisierte Zeit, Firmware- und Modellversion. Puffern Sie bei Ausfällen, verhindern Sie doppelte Aktorbefehle und trennen Sie Telemetrie und Steuerung.`,
+        `Prüfen Sie signierte Firmware und Modelle vor der Ausführung. Nutzen Sie Secure Boot, eindeutige Gerätezugänge, TLS und Schlüsselrotation, wenn möglich. Starten Sie mit einer kleinen Gruppe, überwachen Sie Abstürze und Drift und halten Sie Rollback bereit. Retraining und Regressionstests gehören zum Lebenszyklus.`
+    ],
+    15: [
+        `AutoML automatisiert grundlegende Bereinigung, Kategorienkodierung, Modellauswahl, begrenztes Feature Engineering und Hyperparameter-Tuning. Auto-sklearn, H2O AutoML und AutoGluon vergleichen Pipelines; Vertex AI und Azure Machine Learning bieten verwaltete Abläufe. Teachable Machine eignet sich für kleine Prototypen, korrigiert aber kein falsches Ziel.`,
+        `Definieren Sie, was eine Zeile darstellt, wann vorhergesagt wird und welche Spalten dann verfügbar sind. Bei 30-Tage-Churn ist ein späterer Kündigungsgrund Leakage. Teilen Sie Zeitdaten nach Datum und prüfen Sie fehlende Werte, Duplikate, Klassenungleichgewicht und Einheiten vor dem Training.`,
+        `Bei nur 2 % Betrug kann Accuracy ein Modell belohnen, das positive Fälle ignoriert. Wählen Sie Precision-Recall, ROC-AUC, F1, MAE oder Geschäftskosten, prüfen Sie die Confusion Matrix am operativen Threshold und vergleichen Sie mit Regeln oder logistischer Regression.`,
+        `Speichern Sie Datensatz, Konfiguration, Metriken und Vorhersagebeispiele für Reproduzierbarkeit. Nutzen Sie SHAP oder Feature Importance und verwechseln Sie Korrelation nicht mit Ursache. Testen Sie exportierte Modelle mit Produktionsdaten, überwachen Sie Drift und behalten Sie menschliche Prüfung bei risikoreichen Entscheidungen. No-Code braucht weiterhin Verantwortung.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.ja, {
+    9: [
+        `強化学習（RL）は意思決定をマルコフ決定過程として扱います。エージェントは状態を観測して行動を選び、報酬と次の状態を受け取ります。方策 π(a|s) が行動を選び、割引率 γ が将来の報酬を重み付けします。Gymnasium の CartPole では棒が立っている間、毎ステップ +1 です。`,
+        `価値ベースの RL は状態や状態・行動ペアの長期的な価値を推定します。Q-learning は α[r + γ max Q(s′,a′) − Q(s,a)] で Q を更新します。ε-greedy は時々ランダムな行動を試し、DQN は表をニューラルネットワークに置き換え、replay buffer と target network を使います。`,
+        `ロボットアームの角度のような連続行動では、方策が行動分布を出力できます。REINFORCE はエピソード報酬から学習し、actor-critic は価値推定器を加え、PPO は更新ごとの方策変化を制限します。Stable-Baselines3 には PPO、DQN、SAC の実装があります。`,
+        `報酬設計を誤ると、数値だけを最適化して本来の目的を失います。倉庫ロボットには速度だけでなく衝突、エネルギー、待ち時間のペナルティを加えます。複数の random seed と別の評価環境を使い、実機の前に MuJoCo や Isaac Sim、行動制限、非常停止を検証します。`
+    ],
+    10: [
+        `識別モデルはスパムかどうかのようなラベルを選び、生成モデルはデータのパターンを学習して新しい例を作ります。自己回帰型 LLM は次の token を予測し、拡散モデルはノイズを段階的に除去して画像を作ります。GPT、Llama、Mistral、Stable Diffusion が例です。`,
+        `Byte Pair Encoding などの tokenizer は文章を token に分け、embedding に変換します。Self-attention は token 間の関係を計算し、positional encoding は順序を保持します。事前学習は次 token の誤差を減らしますが、temperature と top-p は多様性を変えるだけで事実性を保証しません。`,
+        `RAG は LLM が答える前に関連文書の断片を検索します。text-embedding-3 や BGE の embedding は FAISS、pgvector、Chroma で検索できます。Fine-tuning と LoRA は繰り返し形式を安定させ、検証済み JSON schema は在庫やカレンダー API の function calling を安全にします。`,
+        `通常ケース、境界ケース、答えがない質問でテストします。Groundedness、引用精度、遅延、リクエスト当たり token、人的エスカレーションを測定します。Hallucination を障害として扱い、prompt injection から指示を守り、tool 権限を制限し、個人情報と秘密をログに残しません。`
+    ],
+    11: [
+        `医療 AI は画像トリアージ、リスク予測、文書化、創薬研究を支援できますが、臨床判断の代わりにはなりません。Computer vision は X 線や CT の疑わしい領域を示し、NLP は記録から薬やアレルギーを抽出できます。出力には対象集団、目的、次の行動を明記します。`,
+        `臨床データには遅れて付くラベル、不完全なコード、病院や機器の差があります。DICOM は画像とメタデータを保存し、MIMIC などは厳格なアクセス管理を必要とします。患者と時間で分割し、leakage を防ぎ、外部検証を行い、sensitivity、specificity、PPV、calibration を報告します。`,
+        `監査可能な放射線 pipeline は DICOM の匿名化、画像正規化、DenseNet や U-Net の推論、レビュー補助の Grad-CAM を行えます。ヒートマップは因果説明ではありません。データ、前処理、モデル、threshold、承認の版を記録し、年齢、性別、機器、場所ごとに評価します。`,
+        `権限を持つ医療者には患者の文脈、確信度、推薦を拒否する方法が必要です。アラートの担当者と有害事象の報告方法を定義し、最小権限、暗号化、最小保持、匿名化を適用します。導入前に臨床、安全、プライバシー、コンプライアンスを含めて審査します。`
+    ],
+    12: [
+        `好きなモデルからではなく、繰り返し発生し結果を測れる意思決定から始めます。需要予測、詐欺審査、工場検査には baseline、担当者、service level、false-positive rate、処理時間、案件コストなどの KPI が必要です。accuracy の向上だけでは価値になりません。`,
+        `取引、CRM、ERP、センサー、サービスログは先に統合する必要があります。XGBoost や Prophet は販促や休日の特徴量で需要を予測でき、推薦は collaborative filtering と在庫ルールを組み合わせられます。OCR は請求書を読み、学習時と本番で同じ特徴定義を使って PO と合計を検証します。`,
+        `本番モデルにはデータとコードの版管理、MLflow の実験記録、pipeline テスト、batch または API のデプロイが必要です。input drift、prediction drift、遅延、エラー、業務指標を監視します。PSI で分布変化を検知し、遅延ラベルを元の予測に戻せるようにして rollback と手動運用を備えます。`,
+        `よい pilot は一つの業務、一人の主利用者、明確な評価期間に絞ります。重要な要因を示し、拒否例を集め、禁止データ、自動化の境界、責任者を決めます。ROI は baseline や対照群と比較し、季節性を AI の効果と誤認しないようにします。`
+    ],
+    13: [
+        `ロボットは RGB-D カメラ、LiDAR、IMU、車輪 encoder、力・トルクセンサーを組み合わせて環境を推定します。認識が物体や姿勢を検出し、planner が経路を選び、controller がモーター命令を送ります。ROS 2 は node、topic、service、action で構成要素を接続します。`,
+        `SLAM はロボットの位置を推定しながら地図を作ります。ORB-SLAM は視覚特徴、LiDAR SLAM は scan matching を使い、拡張カルマンフィルターは IMU、オドメトリ、GPS を融合できます。Navigation2 は全体経路に A* や NavFn、局所障害物に costmap を使います。`,
+        `ロボットアームは inverse kinematics で目標姿勢を関節角に変換します。MoveIt は動作計画と衝突判定を行い、視覚モデルは grasp point を推定し、グリッパーは力フィードバックで閉じます。MuJoCo や Isaac Sim の simulation と imitation learning で実機調整のリスクを下げます。`,
+        `物理世界には undo ボタンがありません。速度、力、作業領域、方策の行動を制限し、非常停止、安全センサー、interlock を追加します。センサー遮蔽、物体落下、ネットワーク断、人の侵入をテストし、timestamp 付きログ、incident replay、手動モードを用意します。`
+    ],
+    14: [
+        `Edge AI はデータを生成する機器上、またはその近くでモデルを実行します。カメラは数ミリ秒で不良品を拒否でき、振動センサーはオフラインでも異常を検出できます。ESP32、Raspberry Pi、Jetson、Coral は RAM、電力、アクセラレータが異なるため、遅延と現場条件から選びます。`,
+        `Quantization は float32 を int8 に変え、pruning は不要な接続を取り除き、knowledge distillation は教師モデルから小型モデルを学習します。TensorFlow Lite、TensorRT、ONNX Runtime、OpenVINO は異なる機器を対象にします。精度、p50/p95 遅延、メモリ、温度、電力を測定します。`,
+        `工場では加速度計が振動 window を gateway に送り、モデルがローカルで異常 score を計算し、MQTT で score や重要 clip だけを送れます。device ID、同期時刻、firmware 版、model 版を含めます。切断時は buffer を使い、重複する actuator 命令を防ぎ、telemetry と control を分けます。`,
+        `実行前に署名済み firmware と model を検証します。対応機器では secure boot、固有 credential、TLS、鍵のローテーションを使います。小さな cohort から段階的に配布し、crash と drift を監視して rollback を残します。再学習と回帰テストも lifecycle の一部です。`
+    ],
+    15: [
+        `AutoML は基本的なクリーニング、カテゴリ encoding、モデル選択、限定的な feature engineering、hyperparameter tuning を自動化します。Auto-sklearn、H2O AutoML、AutoGluon は pipeline を比較し、Vertex AI と Azure Machine Learning は管理された workflow を提供します。Teachable Machine は小さな prototype に向きますが、間違った target は直せません。`,
+        `一行が何を表すか、いつ予測するか、その時点で使える列は何かを決めます。30 日以内の churn 予測で後から出るキャンセル理由を使うと leakage です。時系列データは時間で分割し、欠損、重複顧客、クラス不均衡、単位を確認します。`,
+        `詐欺が取引の 2% しかないと、accuracy は陽性を無視するモデルを高く評価します。precision-recall、ROC-AUC、F1、MAE、業務コストを選び、実際の threshold で confusion matrix を確認し、ルールや logistic regression と比較します。`,
+        `dataset、設定、指標、予測例を保存して再現できるようにします。SHAP や feature importance で合理的な信号を確認し、相関を因果と混同しません。production data で再テストし、drift を監視し、高リスク判断には人のレビューを残します。No-code でも責任者は必要です。`
+    ]
+});
+
+Object.assign(sectionContentTranslations.ko, {
+    9: [
+        `강화학습은 의사결정을 마르코프 결정 과정으로 모델링합니다. 에이전트가 상태를 관찰하고 행동을 선택하면 보상과 다음 상태를 받습니다. 정책 π(a|s)가 행동을 고르고 할인율 γ가 미래 보상의 비중을 정합니다. Gymnasium CartPole에서는 막대가 서 있는 동안 매 단계 +1을 받습니다.`,
+        `가치 기반 RL은 상태 또는 상태-행동 쌍의 장기 가치를 추정합니다. Q-learning은 α[r + γ max Q(s′,a′) − Q(s,a)]로 Q를 업데이트합니다. ε-greedy는 가끔 무작위 행동을 시도하고, DQN은 표 대신 신경망과 replay buffer, target network를 사용합니다.`,
+        `로봇 팔의 각도처럼 연속적인 행동에서는 정책이 행동 분포를 출력할 수 있습니다. REINFORCE는 에피소드 보상으로 학습하고, actor-critic은 가치 추정기를 추가하며, PPO는 업데이트마다 정책 변화량을 제한합니다. Stable-Baselines3에는 PPO, DQN, SAC 구현이 있습니다.`,
+        `보상을 잘못 설계하면 실제 목적을 놓친 채 지표만 최적화할 수 있습니다. 창고 로봇에는 속도뿐 아니라 충돌, 에너지, 대기 시간 패널티를 넣어야 합니다. 여러 random seed와 별도 평가 환경을 사용하고, 실제 장비 전에 MuJoCo나 Isaac Sim, action 제한, 비상 정지를 시험합니다.`
+    ],
+    10: [
+        `판별 모델은 스팸 여부 같은 라벨을 고르고, 생성 모델은 데이터 패턴을 학습해 새 예시를 만듭니다. 자기회귀 LLM은 다음 token을 예측하고 diffusion 모델은 noise를 단계적으로 제거해 이미지를 만듭니다. GPT, Llama, Mistral, Stable Diffusion이 대표적인 예입니다.`,
+        `Byte Pair Encoding 같은 tokenizer가 텍스트를 token과 embedding으로 바꿉니다. Self-attention은 token 간 관련성을 계산하고 positional encoding은 순서를 보존합니다. 사전 학습은 다음 token 오류를 줄이지만 temperature와 top-p는 다양성만 바꾸며 사실성을 보장하지 않습니다.`,
+        `RAG는 LLM이 답하기 전에 관련 문서 조각을 검색합니다. text-embedding-3 또는 BGE embedding은 FAISS, pgvector, Chroma로 검색할 수 있습니다. Fine-tuning과 LoRA는 반복 형식을 안정화하고, 검증된 JSON schema는 재고나 캘린더 API의 function calling을 안전하게 합니다.`,
+        `일반 사례, 경계 사례, 답이 없는 질문으로 테스트합니다. groundedness, 인용 정확도, 지연, 요청당 token, 사람에게 넘기는 비율을 측정합니다. hallucination을 실패로 보고 prompt injection을 막고, 도구 권한을 제한하며, 개인정보와 비밀을 로그에 남기지 않습니다.`
+    ],
+    11: [
+        `의료 AI는 영상 분류, 위험 예측, 문서화, 신약 연구를 지원할 수 있지만 임상 판단을 대신하지 않습니다. Computer vision은 X-ray나 CT의 의심 영역을 표시하고 NLP는 기록에서 약물과 알레르기를 추출할 수 있습니다. 결과에는 대상 집단, 목적, 다음 행동이 있어야 합니다.`,
+        `임상 데이터에는 늦게 붙는 라벨, 불완전한 코드, 병원과 장비 간 차이가 있습니다. DICOM은 이미지와 메타데이터를 저장하며 MIMIC 같은 데이터셋은 엄격한 접근 관리가 필요합니다. 환자와 시간으로 분리하고 leakage를 막으며 sensitivity, specificity, PPV, calibration을 보고합니다.`,
+        `감사 가능한 영상 pipeline은 DICOM 비식별화, 이미지 정규화, DenseNet 또는 U-Net 실행, 검토용 Grad-CAM 표시를 수행할 수 있습니다. heatmap은 인과적 설명이 아닙니다. 데이터, 전처리, 모델, threshold, 승인 버전을 기록하고 연령, 성별, 장비, 지역별로 테스트합니다.`,
+        `권한 있는 의료진은 환자 맥락, confidence, 추천을 거부할 방법을 봐야 합니다. 알림 담당자와 이상 사건 보고를 정하고 최소 권한, 암호화, 최소 보존, 비식별화를 적용합니다. 배포 전 임상, 보안, 개인정보, 규정 준수 팀이 함께 위험을 검토합니다.`
+    ],
+    12: [
+        `좋아하는 모델이 아니라 반복되고 결과를 측정할 수 있는 의사결정에서 시작합니다. 수요 예측, 사기 검토, 공장 검사는 baseline, 담당자, service level, false-positive rate, 처리 시간, 건당 비용 같은 KPI가 필요합니다. accuracy 향상만으로 사업 가치가 생기지는 않습니다.`,
+        `거래, CRM, ERP, 센서, 서비스 로그는 먼저 통합해야 하는 경우가 많습니다. XGBoost나 Prophet은 프로모션과 휴일 feature로 수요를 예측하고, 추천은 collaborative filtering과 재고 규칙을 결합할 수 있습니다. OCR은 invoice에서 PO와 합계를 검증하며 학습과 운영의 feature 정의가 같아야 합니다.`,
+        `운영 모델에는 데이터와 코드 버전 관리, MLflow 실험 기록, pipeline 테스트, batch 또는 API 배포가 필요합니다. input drift, prediction drift, latency, error, 사업 지표를 모니터링합니다. PSI로 분포 변화를 감지하고 늦게 오는 라벨을 원래 예측에 연결하며 rollback과 수동 절차를 준비합니다.`,
+        `좋은 pilot은 한 프로세스, 한 주요 사용자, 명확한 기간으로 제한합니다. 중요한 요인을 보여 주고 거부 사례를 모으며 금지 데이터, 자동화 경계, 책임자를 정합니다. ROI를 baseline이나 대조군과 비교해 계절성을 AI 효과로 착각하지 않습니다.`
+    ],
+    13: [
+        `로봇은 RGB-D 카메라, LiDAR, IMU, 바퀴 encoder, 힘-토크 센서를 결합해 환경을 추정합니다. perception은 물체나 pose를 감지하고 planner는 경로를 선택하며 controller는 모터 명령을 보냅니다. ROS 2는 node, topic, service, action으로 구성 요소를 연결합니다.`,
+        `SLAM은 로봇의 위치를 추정하면서 지도를 만듭니다. ORB-SLAM은 시각 feature를, LiDAR SLAM은 scan matching을 사용하며 Extended Kalman Filter는 IMU, odometry, GPS를 융합할 수 있습니다. Navigation2는 전체 경로에 A*나 NavFn, 지역 장애물에 costmap을 사용합니다.`,
+        `로봇 팔은 inverse kinematics로 목표 pose를 joint angle로 바꿉니다. MoveIt은 동작 계획과 충돌 검사를 하고 vision model은 grasp point를 추정하며 gripper는 힘 feedback으로 닫힙니다. imitation learning과 MuJoCo 또는 Isaac Sim 시뮬레이션으로 실제 로봇 조정의 위험을 줄입니다.`,
+        `물리 세계에는 undo 버튼이 없습니다. 속도, 힘, 작업 공간, 정책 행동을 제한하고 비상 정지, 안전 센서, interlock을 추가합니다. 센서 가림, 낙하 물체, 네트워크 단절, 사람의 진입을 테스트하고 timestamp 로그, incident replay, 수동 모드를 준비합니다.`
+    ],
+    14: [
+        `Edge AI는 데이터를 만드는 장치 또는 가까운 곳에서 모델을 실행합니다. 카메라는 밀리초 안에 불량품을 거절하고 진동 센서는 오프라인에서도 이상을 감지할 수 있습니다. ESP32, Raspberry Pi, Jetson, Coral은 RAM, 전력, 가속기가 다르므로 latency와 현장 조건으로 선택합니다.`,
+        `Quantization은 float32 weight를 int8로 바꾸고 pruning은 덜 중요한 연결을 제거하며 knowledge distillation은 teacher model로 작은 모델을 학습합니다. TensorFlow Lite, TensorRT, ONNX Runtime, OpenVINO는 서로 다른 장치를 대상으로 합니다. 정확도, p50/p95 latency, 메모리, 온도, 전력을 측정하세요.`,
+        `공장에서는 accelerometer가 진동 window를 gateway로 보내고 모델이 현지에서 anomaly score를 계산한 뒤 MQTT로 score나 중요한 clip만 보낼 수 있습니다. device ID, 동기화 시간, firmware와 model version을 포함합니다. 장애 중 buffer를 사용하고 중복 actuator 명령을 막으며 telemetry와 control을 분리합니다.`,
+        `실행 전에 서명된 firmware와 model을 검증합니다. 가능하면 secure boot, 장치별 credential, TLS, key rotation을 사용합니다. 작은 cohort부터 배포하고 crash와 drift를 모니터링하며 rollback을 유지합니다. 재학습과 regression test도 device lifecycle의 일부입니다.`
+    ],
+    15: [
+        `AutoML은 기본 정제, category encoding, model selection, 제한적인 feature engineering, hyperparameter tuning을 자동화합니다. Auto-sklearn, H2O AutoML, AutoGluon은 pipeline을 비교하고 Vertex AI와 Azure Machine Learning은 관리형 workflow를 제공합니다. Teachable Machine은 작은 prototype에 좋지만 잘못된 target은 고치지 못합니다.`,
+        `한 행이 무엇을 의미하는지, prediction 시점과 그때 사용할 수 있는 column을 정합니다. 30일 churn 예측에서 나중에 생긴 cancellation reason을 쓰면 leakage입니다. 시간 데이터는 시간으로 나누고 missing value, 중복 고객, class imbalance, 단위를 확인합니다.`,
+        `사기가 2%뿐이면 accuracy는 양성 사례를 무시하는 모델을 높게 평가할 수 있습니다. precision-recall, ROC-AUC, F1, MAE 또는 business cost를 선택하고 운영 threshold의 confusion matrix를 본 뒤 규칙이나 logistic regression baseline과 비교합니다.`,
+        `dataset, configuration, metric, prediction example을 저장해 결과를 재현합니다. SHAP이나 feature importance로 합리적인 신호를 확인하고 correlation을 causation으로 오해하지 않습니다. 운영 데이터에서 모델을 재시험하고 drift를 감시하며 위험한 결정에는 human review를 남깁니다. No-code에도 owner가 필요합니다.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.ru, {
+    9: [
+        `Обучение с подкреплением моделирует решения как марковский процесс: агент наблюдает состояние, выбирает действие, получает награду и новое состояние. Политика π(a|s) выбирает действия, а γ учитывает будущие награды. В CartPole из Gymnasium агент получает +1, пока шест остаётся вертикальным.`,
+        `Value-based RL оценивает долгосрочную ценность состояния или пары состояние-действие. Q-learning обновляет Q(s,a) по формуле α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy иногда исследует случайное действие; DQN заменяет таблицу нейросетью и использует replay buffer и target network.`,
+        `Для непрерывных действий, например угла роборуки, политика может выдавать распределение действий. REINFORCE учится по награде эпизода, actor-critic добавляет оценку ценности, а PPO ограничивает изменение политики за обновление. Stable-Baselines3 содержит реализации PPO, DQN и SAC.`,
+        `Неверная награда может улучшить метрику и провалить настоящую цель. Для складского робота добавьте штрафы за столкновения, энергию и ожидание, а не только награду за скорость. Сравните несколько random seed в отдельной среде оценки, затем используйте MuJoCo или Isaac Sim, ограничения действий и аварийную остановку.`
+    ],
+    10: [
+        `Дискриминативные модели выбирают метки вроде спама, а генеративные изучают закономерности данных и создают новые примеры. Авторегрессионные LLM предсказывают следующий token, а diffusion-модели постепенно убирают шум для создания изображения. GPT, Llama, Mistral и Stable Diffusion — практические примеры.`,
+        `Tokenizer вроде Byte Pair Encoding превращает текст в tokens и embeddings. Self-attention вычисляет связь между токенами, positional encoding сохраняет порядок. При pre-training уменьшается ошибка следующего token; temperature и top-p меняют разнообразие, но не гарантируют фактическую точность.`,
+        `RAG извлекает релевантные фрагменты документов до ответа LLM. Embeddings от text-embedding-3 или BGE можно искать через FAISS, pgvector или Chroma. Fine-tuning и LoRA стабилизируют повторяющиеся форматы, а проверенные JSON-схемы делают function calling безопаснее.`,
+        `Тестируйте обычные случаи, границы и вопросы без ответа. Измеряйте groundedness, точность цитат, задержку, tokens на запрос и передачу человеку. Считайте hallucination настоящей ошибкой, защищайте инструкции от prompt injection, ограничивайте инструменты и не сохраняйте личные данные и секреты в логах.`
+    ],
+    11: [
+        `Медицинский AI помогает с триажем изображений, прогнозом риска, документацией и исследованием лекарств, но не заменяет клиническое решение. Computer vision может отметить подозрительную область на рентгене или CT, а NLP извлечь лекарства и аллергии. Результат должен указывать популяцию, цель и следующий шаг.`,
+        `Клинические данные содержат запаздывающие labels, неполные коды и различия между больницами и устройствами. DICOM хранит изображения и метаданные, а MIMIC требует строгого управления доступом. Делите данные по пациентам и времени, избегайте leakage, проводите внешнюю проверку и сообщайте sensitivity, specificity, PPV и calibration.`,
+        `Аудируемый радиологический pipeline может обезличить DICOM, нормализовать изображения, запустить DenseNet или U-Net и показать Grad-CAM как помощь при проверке. Heatmap не является причинным объяснением. Записывайте версии данных, preprocessing, модели, threshold и согласования, тестируйте подгруппы.`,
+        `Уполномоченный специалист должен видеть контекст, confidence и способ отклонить рекомендацию. Определите владельца alert и отчётность по adverse events; применяйте минимальные права, шифрование, короткое хранение и обезличивание. До deployment подключите клиническую, security, privacy и compliance команды.`
+    ],
+    12: [
+        `Начинайте с повторяющегося решения с измеримым результатом, а не с любимой модели. Прогноз спроса, проверка мошенничества и визуальный контроль требуют baseline, владельца решения и KPI: service level, false-positive rate, время или стоимость случая. Рост accuracy сам по себе не создаёт бизнес-ценность.`,
+        `Данные транзакций, CRM, ERP, сенсоров и сервисных логов часто нужно объединить. XGBoost или Prophet прогнозируют спрос с признаками промо и праздников; рекомендации объединяют collaborative filtering с правилами запасов. OCR извлекает счета и проверяет PO и сумму, при одинаковых features в обучении и production.`,
+        `Production-модели нужны versioning данных и кода, эксперименты в MLflow, тесты pipeline и batch или API deployment. Следите за input drift, prediction drift, latency, ошибками и бизнес-метриками. PSI показывает изменение распределения; связывайте поздние labels с исходным prediction и готовьте rollback и ручной путь.`,
+        `Хороший пилот ограничен одним процессом, главным пользователем и определённым периодом. Показывайте важные факторы, собирайте отклонённые примеры и определяйте запрещённые данные, границы автоматизации и ответственность. Сравнивайте ROI с baseline или контрольной группой, чтобы не принять сезонность за эффект AI.`
+    ],
+    13: [
+        `Роботы объединяют RGB-D камеры, LiDAR, IMU, энкодеры колёс и force-torque сенсоры для оценки мира. Perception находит объекты и позы, planner выбирает траекторию, controller отправляет команды моторам. ROS 2 связывает компоненты через nodes, topics, services и actions.`,
+        `SLAM строит карту и одновременно оценивает положение робота. ORB-SLAM использует визуальные признаки, LiDAR SLAM сопоставляет сканы, а Extended Kalman Filter объединяет IMU, одометрию и GPS. Navigation2 применяет A* или NavFn для глобального пути и costmap для локальных препятствий.`,
+        `Роборука решает inverse kinematics и переводит целевую pose в углы суставов. MoveIt планирует движение и проверяет столкновения; vision model оценивает grasp point, а gripper закрывается по force feedback. Imitation learning и симуляция MuJoCo или Isaac Sim снижают риск перед настройкой на роботе.`,
+        `В физическом мире нет кнопки отмены. Ограничьте скорость, силу, рабочую область и действия policy; добавьте emergency stop, safety sensors и interlocks. Проверяйте закрытые сенсоры, падение объектов, потерю сети и вход людей. Timestamped logs, replay инцидента и ручной режим помогают восстановлению.`
+    ],
+    14: [
+        `Edge AI запускает модель на устройстве, создающем данные, или рядом с ним. Камера может отклонить дефект за миллисекунды, а vibration sensor — найти аномалию без сети. ESP32, Raspberry Pi, Jetson и Coral отличаются RAM, питанием и ускорителями, поэтому выбор начинается с latency и условий поля.`,
+        `Quantization переводит float32 в int8, pruning удаляет менее полезные связи, а knowledge distillation обучает маленькую модель от teacher. TensorFlow Lite, TensorRT, ONNX Runtime и OpenVINO предназначены для разных устройств. Измеряйте accuracy, p50/p95 latency, память, температуру и питание, а не только размер файла.`,
+        `На фабрике accelerometer отправляет окно вибрации на gateway, модель локально считает anomaly score, а MQTT передаёт только score или важный clip. В payload нужны device ID, синхронное время, версии firmware и model. Используйте buffer при сбоях, исключайте повторные команды actuator и разделяйте telemetry и control.`,
+        `До запуска проверяйте подписанные firmware и модели. Используйте secure boot, уникальные credentials, TLS и ротацию ключей. Сначала выпускайте модель на небольшую cohort, следите за crash и drift и сохраняйте rollback. Retraining и regression tests входят в жизненный цикл устройства.`
+    ],
+    15: [
+        `AutoML автоматизирует базовую очистку, encoding категорий, выбор модели, ограниченный feature engineering и настройку гиперпараметров. Auto-sklearn, H2O AutoML и AutoGluon сравнивают pipelines; Vertex AI и Azure Machine Learning дают управляемые workflows. Teachable Machine подходит для прототипов, но не исправляет неверный target.`,
+        `Определите, что означает строка, когда делается prediction и какие столбцы доступны в этот момент. Для churn на 30 дней последующая причина отмены — leakage. Делите временные данные по дате и проверяйте missing values, дубликаты клиентов, дисбаланс классов и единицы.`,
+        `Если fraud составляет 2%, accuracy может наградить модель, игнорирующую положительные случаи. Выбирайте precision-recall, ROC-AUC, F1, MAE или бизнес-стоимость, смотрите confusion matrix на operational threshold и сравнивайте с правилами или logistic regression.`,
+        `Сохраняйте dataset, конфигурацию, метрики и примеры предсказаний. Используйте SHAP или feature importance, помня, что корреляция не равна причинности. Повторно тестируйте экспортированную модель на production data, следите за drift и оставляйте human review для рискованных решений. No-code всё равно требует владельца.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.tr, {
+    9: [
+        `Pekiştirmeli öğrenme kararları Markov Karar Süreci olarak modeller: ajan durumu gözlemler, eylem seçer, ardından ödül ve yeni durum alır. Politika π(a|s) eylemleri seçer, γ gelecekteki ödülleri ağırlıklandırır. Gymnasium CartPole'da çubuk dik kaldığı sürece her adım +1 verir.`,
+        `Değer tabanlı RL, durumun veya durum-eylem çiftinin uzun vadeli değerini tahmin eder. Q-learning Q(s,a)'yı α[r + γ max Q(s′,a′) − Q(s,a)] ile günceller. ε-greedy bazen rastgele eylem dener; DQN tablo yerine sinir ağı, replay buffer ve target network kullanır.`,
+        `Robot kolu açısı gibi sürekli eylemlerde politika bir eylem dağılımı üretebilir. REINFORCE bölüm ödülünden öğrenir, actor-critic değer tahmincisi ekler ve PPO her güncellemede politika değişimini sınırlar. Stable-Baselines3 PPO, DQN ve SAC uygulamaları sağlar.`,
+        `Yanlış ödül tasarımı gerçek hedefi kaçırıp yalnızca metriği iyileştirebilir. Depo robotuna hızın yanında çarpışma, enerji ve bekleme cezaları ekleyin. Ayrı değerlendirme ortamında birden fazla seed karşılaştırın; gerçek donanımdan önce MuJoCo veya Isaac Sim, eylem sınırları ve acil durdurma kullanın.`
+    ],
+    10: [
+        `Ayrımcı modeller spam gibi etiketleri seçer, üretici modeller ise veri örüntülerini öğrenip yeni örnekler oluşturur. Otoregresif LLM'ler sonraki token'ı tahmin eder; diffusion modelleri görüntü oluşturmak için gürültüyü kademeli azaltır. GPT, Llama, Mistral ve Stable Diffusion örnektir.`,
+        `Byte Pair Encoding gibi tokenizer metni token'lara ve embedding'lere dönüştürür. Self-attention token ilişkilerini hesaplar, positional encoding sıralamayı korur. Ön eğitim sonraki token hatasını azaltır; temperature ve top-p çeşitliliği değiştirir, doğruluğu garanti etmez.`,
+        `RAG, LLM yanıt vermeden önce ilgili belge parçalarını getirir. text-embedding-3 veya BGE embedding'leri FAISS, pgvector ya da Chroma ile aranabilir. Fine-tuning ve LoRA tekrarlanan formatları sabitler; doğrulanmış JSON şemaları stok veya takvim API'leri için function calling'i güvenli kılar.`,
+        `Normal, sınır ve cevabı olmayan sorularla test edin. Groundedness, alıntı doğruluğu, gecikme, istek başına token ve insana aktarma oranını ölçün. Hallucination'ı gerçek hata sayın, prompt injection'a karşı talimatları koruyun, araç izinlerini sınırlayın ve kişisel veri ile sırları loglamayın.`
+    ],
+    11: [
+        `Sağlık AI'sı görüntü triyajı, risk tahmini, dokümantasyon ve ilaç araştırmasına destek olabilir; klinik kararı değiştirmez. Computer vision X-ray veya CT'de şüpheli alanı işaretleyebilir, NLP notlardan ilaç ve alerji çıkarabilir. Çıktı popülasyonu, amacı ve sonraki adımı belirtmelidir.`,
+        `Klinik veriler gecikmiş etiketler, eksik kodlar ve hastane/cihaz farklılıkları içerir. DICOM görüntü ve metadata saklar; MIMIC gibi veri setleri sıkı erişim yönetimi ister. Hasta ve zamana göre ayırın, leakage'i önleyin, dış doğrulama yapın ve sensitivity, specificity, PPV, calibration raporlayın.`,
+        `Denetlenebilir radyoloji pipeline'ı DICOM'u anonimleştirip görüntüyü normalize edebilir, DenseNet veya U-Net çalıştırabilir ve inceleme yardımı olarak Grad-CAM gösterebilir. Heatmap nedensel açıklama değildir. Veri, preprocessing, model, threshold ve onay sürümlerini kaydedin; alt grupları yaş, cinsiyet, cihaz ve konuma göre test edin.`,
+        `Yetkili uzman bağlamı, güveni ve öneriyi reddetme yolunu görmelidir. Uyarı sahibini ve olumsuz olay raporunu belirleyin; en az yetki, şifreleme, minimum saklama ve anonimleştirme uygulayın. Deployment öncesi klinik, güvenlik, gizlilik ve uyum ekiplerini sürece katın.`
+    ],
+    12: [
+        `Favori modelden değil, tekrarlanan ve ölçülebilir sonuçlu karardan başlayın. Talep tahmini, dolandırıcılık incelemesi ve fabrika görsel denetimi baseline, karar sahibi ve service level, false-positive rate, işlem süresi veya vaka maliyeti gibi KPI'lar ister. Accuracy artışı tek başına iş değeri değildir.`,
+        `İşlem, CRM, ERP, sensör ve servis logları önce birleştirilmelidir. XGBoost veya Prophet promosyon ve tatil özellikleriyle talep tahmini yapabilir; öneri sistemi collaborative filtering ile stok kurallarını birleştirebilir. OCR fatura ve PO toplamını kontrol eder; eğitim ve üretimde feature tanımları aynı olmalıdır.`,
+        `Üretim modeli veri/kod sürümleme, MLflow deneyleri, pipeline testleri ve batch veya API deployment gerektirir. Input drift, prediction drift, latency, error ve iş metriklerini izleyin. PSI dağılım değişimini gösterebilir; gecikmiş etiketleri ilk prediction'a bağlayın ve rollback ile manuel yol hazırlayın.`,
+        `İyi pilot bir süreç, bir ana kullanıcı ve belirli bir süreyle sınırlıdır. Önemli faktörleri gösterin, reddedilen örnekleri toplayın, yasak verileri, otomasyon sınırlarını ve sorumluluğu tanımlayın. ROI'yi baseline veya kontrol grubuyla karşılaştırarak mevsimselliği AI etkisi sanmayın.`
+    ],
+    13: [
+        `Robotlar RGB-D kamera, LiDAR, IMU, teker encoder'ı ve kuvvet-tork sensörlerini birleştirerek ortamı tahmin eder. Perception nesne veya poz algılar, planner yol seçer, controller motor komutu gönderir. ROS 2 node, topic, service ve action üzerinden bileşenleri bağlar.`,
+        `SLAM robotun konumunu tahmin ederken harita oluşturur. ORB-SLAM görsel özellikleri, LiDAR SLAM tarama eşleştirmeyi kullanır; Extended Kalman Filter IMU, odometri ve GPS'i birleştirebilir. Navigation2 küresel yol için A* veya NavFn, yerel engeller için costmap kullanır.`,
+        `Robot kolu inverse kinematics ile hedef pozu eklem açılarına çevirir. MoveIt hareket planlar ve çarpışma kontrol eder; vision model kavrama noktasını tahmin eder, gripper kuvvet geri bildirimiyle kapanır. Imitation learning ve MuJoCo veya Isaac Sim simülasyonu gerçek robot ayarının riskini azaltır.`,
+        `Fiziksel dünyada geri alma düğmesi yoktur. Hız, kuvvet, çalışma alanı ve politika eylemlerini sınırlayın; acil durdurma, güvenlik sensörü ve interlock ekleyin. Kapalı sensör, düşen nesne, ağ kaybı ve alana insan girişi senaryolarını test edin. Zaman damgalı log, olay tekrarı ve manuel mod kurtarmayı kolaylaştırır.`
+    ],
+    14: [
+        `Edge AI modeli veriyi üreten cihazda veya yakınında çalıştırır. Kamera kusuru milisaniyelerde reddedebilir, titreşim sensörü bağlantı yokken anomali bulabilir. ESP32, Raspberry Pi, Jetson ve Coral RAM, güç ve hızlandırıcı açısından farklıdır; donanımı gecikme hedefi ve saha koşullarına göre seçin.`,
+        `Quantization float32 ağırlıkları int8'e çevirir, pruning gereksiz bağlantıları kaldırır, knowledge distillation küçük modeli öğretmenden öğrenir. TensorFlow Lite, TensorRT, ONNX Runtime ve OpenVINO farklı cihazlara yöneliktir. Accuracy, p50/p95 latency, bellek, sıcaklık ve gücü ölçün; yalnızca dosya boyutuna bakmayın.`,
+        `Fabrikada accelerometer titreşim penceresini gateway'e gönderir, model anomaly score'u yerelde hesaplar ve MQTT yalnızca skor veya önemli clip'i taşır. device ID, senkron zaman, firmware ve model sürümünü ekleyin. Kesintide buffer kullanın, actuator komutlarını çoğaltmayın ve telemetry ile control'ü ayırın.`,
+        `Çalıştırmadan önce imzalı firmware ve modelleri doğrulayın. Destekleniyorsa secure boot, benzersiz kimlik bilgileri, TLS ve anahtar rotasyonu kullanın. Küçük bir cohort ile yayınlayın, crash ve drift'i izleyin, rollback saklayın. Retraining ve regression testleri yaşam döngüsüne dahil edin.`
+    ],
+    15: [
+        `AutoML temel temizleme, kategori encoding, model seçimi, sınırlı feature engineering ve hyperparameter tuning'i otomatikleştirir. Auto-sklearn, H2O AutoML ve AutoGluon pipeline'ları karşılaştırır; Vertex AI ve Azure Machine Learning yönetilen workflow sunar. Teachable Machine prototip için uygundur ancak yanlış target'ı düzeltemez.`,
+        `Bir satırın neyi temsil ettiğini, tahminin ne zaman yapıldığını ve o anda hangi sütunların mevcut olduğunu belirleyin. 30 günlük churn tahmininde sonradan gelen iptal nedeni leakage'tir. Zaman verisini tarihe göre ayırın; eksik değer, kopya müşteri, sınıf dengesizliği ve birimleri kontrol edin.`,
+        `Dolandırıcılık yalnızca %2 ise accuracy pozitifleri görmezden gelen modeli ödüllendirebilir. Precision-recall, ROC-AUC, F1, MAE veya iş maliyetini seçin, operasyon threshold'unda confusion matrix'e bakın ve kural veya logistic regression baseline'ı ile karşılaştırın.`,
+        `Dataset, yapılandırma, metrik ve prediction örneklerini saklayarak yeniden üretilebilirlik sağlayın. SHAP veya feature importance ile sinyallerin mantıklı olup olmadığını kontrol edin; korelasyon nedensellik değildir. Üretim verisinde tekrar test edin, drift'i izleyin ve riskli kararlarda insan incelemesini koruyun. No-code da sorumlu ister.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.it, {
+    9: [
+        `Il Reinforcement Learning modella le decisioni come un processo decisionale di Markov: l'agente osserva uno stato, sceglie un'azione e riceve una ricompensa e un nuovo stato. La policy π(a|s) sceglie le azioni e γ pesa le ricompense future. In CartPole di Gymnasium l'agente riceve +1 finché il palo resta dritto.`,
+        `Il RL basato sul valore stima il valore a lungo termine di uno stato o di una coppia stato-azione. Q-learning aggiorna Q(s,a) con α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy prova talvolta azioni casuali; DQN sostituisce la tabella con una rete neurale, replay buffer e target network.`,
+        `Per azioni continue, come l'angolo di un braccio robotico, la policy può produrre una distribuzione. REINFORCE impara dalla ricompensa dell'episodio, actor-critic aggiunge uno stimatore di valore e PPO limita il cambiamento della policy a ogni update. Stable-Baselines3 offre PPO, DQN e SAC.`,
+        `Una ricompensa sbagliata può ottimizzare la metrica e fallire l'obiettivo reale. Per un robot di magazzino aggiungi penalità per collisioni, energia e attesa, non solo per la velocità. Confronta più seed in un ambiente separato e usa MuJoCo o Isaac Sim, limiti d'azione e arresto di emergenza prima dell'hardware.`
+    ],
+    10: [
+        `I modelli discriminativi scelgono etichette come spam o non spam; quelli generativi imparano i pattern dei dati per creare nuovi esempi. Gli LLM autoregressivi predicono il token successivo, mentre i modelli diffusion rimuovono gradualmente il rumore per creare immagini. GPT, Llama, Mistral e Stable Diffusion sono esempi.`,
+        `Un tokenizer come Byte Pair Encoding trasforma il testo in token e poi in embedding. Self-attention calcola la rilevanza tra token e positional encoding conserva l'ordine. Il pre-training riduce l'errore del token successivo; temperature e top-p cambiano la varietà, non garantiscono la correttezza.`,
+        `RAG recupera frammenti rilevanti prima della risposta dell'LLM. Gli embedding di text-embedding-3 o BGE possono essere cercati con FAISS, pgvector o Chroma. Fine-tuning e LoRA stabilizzano i formati ripetuti, mentre schemi JSON validati rendono più sicuro il function calling.`,
+        `Prova casi normali, limite e domande senza risposta. Misura groundedness, precisione delle citazioni, latenza, token per richiesta ed escalation umana. Tratta le hallucination come errori reali, proteggi le istruzioni dal prompt injection, limita gli strumenti e non salvare dati personali o segreti nei log.`
+    ],
+    11: [
+        `L'AI sanitaria può supportare il triage delle immagini, la previsione del rischio, la documentazione e la ricerca sui farmaci, ma non sostituisce il giudizio clinico. Computer vision può segnalare aree sospette in X-ray o CT, mentre NLP estrae farmaci e allergie. L'output deve indicare popolazione, scopo e prossima azione.`,
+        `I dati clinici hanno label ritardate, codici incompleti e differenze tra ospedali e dispositivi. DICOM conserva immagini e metadati; dataset come MIMIC richiedono governance rigorosa. Dividi per paziente e tempo, evita il leakage, valida esternamente e riporta sensitivity, specificity, PPV e calibration.`,
+        `Una pipeline radiologica verificabile può de-identificare DICOM, normalizzare immagini, eseguire DenseNet o U-Net e mostrare Grad-CAM come supporto alla revisione. Una heatmap non è una spiegazione causale. Registra versioni di dati, preprocessing, modello, threshold e approvazione, testando sottogruppi.`,
+        `Un professionista autorizzato deve vedere contesto, confidenza e come rifiutare la raccomandazione. Definisci il responsabile degli alert e degli eventi avversi; applica minimo privilegio, cifratura, conservazione minima e de-identificazione. Prima del deployment coinvolgi team clinico, sicurezza, privacy e compliance.`
+    ],
+    12: [
+        `Parti da una decisione ripetuta con risultato misurabile, non dal modello preferito. Previsione della domanda, revisione frodi e ispezione visiva richiedono baseline, responsabile e KPI come service level, falsi positivi, tempo o costo per caso. Più accuracy non significa automaticamente più valore.`,
+        `Dati di transazioni, CRM, ERP, sensori e log spesso devono essere uniti. XGBoost o Prophet possono prevedere la domanda con promozioni e festività; le raccomandazioni uniscono collaborative filtering e regole di stock. OCR estrae le fatture e verifica PO e totale, con feature coerenti tra training e produzione.`,
+        `Un modello in produzione richiede versionamento, esperimenti in MLflow, test della pipeline e deployment batch o API. Monitora input drift, prediction drift, latenza, errori e metriche aziendali. PSI segnala cambi di distribuzione; collega le label tardive alla previsione originale e prepara rollback e percorso manuale.`,
+        `Un buon pilota limita un processo, un utente principale e un periodo definito. Mostra i fattori importanti, raccogli i rifiuti e stabilisci dati vietati, limiti di automazione e responsabilità. Confronta ROI con baseline o controllo per non confondere stagionalità e impatto dell'AI.`
+    ],
+    13: [
+        `I robot combinano camere RGB-D, LiDAR, IMU, encoder delle ruote e sensori forza-coppia per stimare l'ambiente. Perception rileva oggetti e pose, planner sceglie il percorso e controller invia i comandi al motore. ROS 2 collega i componenti tramite nodes, topics, services e actions.`,
+        `SLAM costruisce una mappa mentre stima la posizione del robot. ORB-SLAM usa caratteristiche visive, LiDAR SLAM abbina scansioni e un Extended Kalman Filter può fondere IMU, odometria e GPS. Navigation2 usa A* o NavFn per il percorso globale e costmap per gli ostacoli locali.`,
+        `Un braccio robotico risolve l'inverse kinematics per convertire una pose in angoli dei giunti. MoveIt pianifica il movimento e controlla le collisioni; un modello visivo stima il grasp point e la pinza usa il feedback di forza. Imitation learning e simulazione con MuJoCo o Isaac Sim riducono il rischio.`,
+        `Il mondo fisico non ha un pulsante annulla. Limita velocità, forza, spazio di lavoro e azioni della policy; aggiungi arresto di emergenza, sensori di sicurezza e interlock. Prova sensori coperti, oggetti caduti, perdita di rete e persone nell'area. Log con timestamp, replay e modalità manuale aiutano il recupero.`
+    ],
+    14: [
+        `Edge AI esegue il modello sul dispositivo che produce i dati o vicino ad esso. Una camera può rifiutare un difetto in millisecondi e un sensore di vibrazione rilevare anomalie offline. ESP32, Raspberry Pi, Jetson e Coral hanno limiti diversi; scegli in base alla latenza e alle condizioni reali.`,
+        `Quantization converte i pesi float32 in int8, pruning rimuove connessioni poco utili e knowledge distillation addestra un modello piccolo da un teacher. TensorFlow Lite, TensorRT, ONNX Runtime e OpenVINO servono target diversi. Misura accuratezza, latenza p50/p95, memoria, temperatura ed energia.`,
+        `In fabbrica un accelerometro invia una finestra di vibrazione al gateway, il modello calcola localmente l'anomaly score e MQTT invia solo score o clip importante. Includi ID, tempo sincronizzato e versioni firmware e modello. Usa buffer durante i guasti, evita comandi duplicati e separa telemetria e controllo.`,
+        `Verifica firmware e modelli firmati prima dell'esecuzione. Usa secure boot, credenziali uniche, TLS e rotazione delle chiavi quando possibile. Distribuisci prima a una piccola coorte, monitora crash e drift e mantieni rollback. Retraining e test di regressione fanno parte del ciclo di vita.`
+    ],
+    15: [
+        `AutoML automatizza pulizia di base, encoding, selezione del modello, feature engineering limitato e tuning. Auto-sklearn, H2O AutoML e AutoGluon confrontano pipeline; Vertex AI e Azure Machine Learning offrono workflow gestiti. Teachable Machine è utile per prototipi, ma non corregge un target sbagliato.`,
+        `Definisci cosa rappresenta una riga, quando avviene la previsione e quali colonne sono disponibili allora. Nel churn a 30 giorni, il motivo di cancellazione successivo è leakage. Separa i dati temporali per data e controlla valori mancanti, duplicati, squilibrio e unità.`,
+        `Con il 2% di frodi, accuracy può premiare un modello che ignora i positivi. Scegli precision-recall, ROC-AUC, F1, MAE o costo aziendale, guarda la confusion matrix alla soglia operativa e confronta con regole o regressione logistica.`,
+        `Conserva dataset, configurazione, metriche ed esempi per riprodurre i risultati. Usa SHAP o feature importance per verificare segnali sensati; correlazione non è causalità. Ritesta il modello esportato su dati di produzione, monitora drift e mantieni revisione umana per decisioni rischiose. No-code richiede comunque un responsabile.`
+    ]
+});
+
+Object.assign(sectionContentTranslations.vi, {
+    9: [
+        `Học tăng cường mô hình hóa quyết định như một Quy trình Quyết định Markov: tác tử quan sát trạng thái, chọn hành động rồi nhận phần thưởng và trạng thái mới. Policy π(a|s) chọn hành động, còn γ cân bằng phần thưởng tương lai. Trong CartPole của Gymnasium, tác tử nhận +1 khi cột vẫn đứng.`,
+        `RL dựa trên giá trị ước tính giá trị dài hạn của trạng thái hoặc cặp trạng thái-hành động. Q-learning cập nhật Q(s,a) theo α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy đôi khi thử hành động ngẫu nhiên; DQN dùng mạng nơ-ron, replay buffer và target network thay cho bảng.`,
+        `Với hành động liên tục như góc cánh tay robot, policy có thể xuất ra phân phối hành động. REINFORCE học từ phần thưởng episode, actor-critic thêm bộ ước lượng giá trị, còn PPO giới hạn mức thay đổi của policy mỗi lần cập nhật. Stable-Baselines3 có các bản triển khai PPO, DQN và SAC.`,
+        `Phần thưởng thiết kế sai có thể tối ưu chỉ số nhưng bỏ lỡ mục tiêu thật. Với robot kho, hãy phạt va chạm, năng lượng và thời gian chờ thay vì chỉ thưởng tốc độ. So sánh nhiều random seed trong môi trường đánh giá riêng, rồi dùng MuJoCo hoặc Isaac Sim, giới hạn hành động và nút dừng khẩn cấp trước khi chạy phần cứng.`
+    ],
+    10: [
+        `Mô hình phân biệt chọn nhãn như spam hoặc không spam, còn mô hình tạo sinh học mẫu dữ liệu để tạo ví dụ mới. LLM tự hồi quy dự đoán token tiếp theo; mô hình diffusion loại bỏ nhiễu từng bước để tạo ảnh. GPT, Llama, Mistral và Stable Diffusion là các ví dụ thực tế.`,
+        `Tokenizer như Byte Pair Encoding biến văn bản thành token rồi thành embedding. Self-attention tính mức liên quan giữa các token, còn positional encoding giữ thứ tự. Pre-training giảm lỗi dự đoán token tiếp theo; temperature và top-p thay đổi độ đa dạng chứ không bảo đảm tính đúng sự thật.`,
+        `RAG truy xuất các đoạn tài liệu liên quan trước khi LLM trả lời. Embedding từ text-embedding-3 hoặc BGE có thể tìm bằng FAISS, pgvector hoặc Chroma. Fine-tuning và LoRA ổn định các định dạng lặp lại; JSON schema được kiểm tra giúp function calling an toàn hơn.`,
+        `Hãy kiểm thử trường hợp bình thường, biên và câu hỏi không có đáp án. Đo groundedness, độ chính xác trích dẫn, độ trễ, token mỗi yêu cầu và tỷ lệ chuyển cho người. Xem hallucination là lỗi thật, bảo vệ system instruction khỏi prompt injection, giới hạn quyền tool và không lưu dữ liệu cá nhân hoặc bí mật trong log.`
+    ],
+    11: [
+        `AI y tế có thể hỗ trợ phân loại hình ảnh, dự đoán rủi ro, tài liệu hóa và nghiên cứu thuốc, nhưng không thay thế phán đoán lâm sàng. Computer vision có thể đánh dấu vùng đáng ngờ trên X-ray hoặc CT, còn NLP trích xuất thuốc và dị ứng. Kết quả nên nêu rõ quần thể, mục tiêu và hành động tiếp theo.`,
+        `Dữ liệu lâm sàng có nhãn đến muộn, mã không đầy đủ và khác biệt giữa bệnh viện và thiết bị. DICOM lưu hình ảnh cùng metadata; các bộ như MIMIC cần quản trị truy cập nghiêm ngặt. Chia theo bệnh nhân và thời gian, tránh leakage, validation bên ngoài và báo cáo sensitivity, specificity, PPV, calibration.`,
+        `Pipeline X-quang có thể kiểm toán sẽ de-identify DICOM, chuẩn hóa ảnh, chạy DenseNet hoặc U-Net và hiển thị Grad-CAM để hỗ trợ xem xét. Heatmap không phải giải thích nhân quả. Ghi lại phiên bản dữ liệu, preprocessing, model, threshold và phê duyệt; kiểm thử theo tuổi, giới tính, thiết bị và địa điểm.`,
+        `Nhân viên y tế được ủy quyền cần thấy ngữ cảnh bệnh nhân, độ tin cậy và cách từ chối đề xuất. Xác định người xử lý cảnh báo và báo cáo sự cố; áp dụng quyền tối thiểu, mã hóa, lưu trữ tối thiểu và de-identification. Trước deployment, nhóm lâm sàng, bảo mật, riêng tư và tuân thủ cùng đánh giá rủi ro.`
+    ],
+    12: [
+        `Bắt đầu từ quyết định lặp lại có kết quả đo được, không phải từ mô hình yêu thích. Dự báo nhu cầu, rà soát gian lận và kiểm tra hình ảnh cần baseline, người phụ trách và KPI như service level, false-positive rate, thời gian hoặc chi phí mỗi trường hợp. Accuracy tăng chưa chắc tạo giá trị kinh doanh.`,
+        `Dữ liệu giao dịch, CRM, ERP, cảm biến và log dịch vụ thường phải được hợp nhất trước. XGBoost hoặc Prophet dự báo nhu cầu với feature khuyến mãi và ngày lễ; hệ thống gợi ý kết hợp collaborative filtering với quy tắc tồn kho. OCR đọc hóa đơn và kiểm tra PO, tổng tiền, với feature definition giống nhau ở train và production.`,
+        `Model production cần versioning dữ liệu và code, thí nghiệm MLflow, test pipeline và triển khai batch hoặc API. Theo dõi input drift, prediction drift, latency, lỗi và chỉ số kinh doanh. PSI báo hiệu phân phối đổi; liên kết nhãn đến muộn với prediction gốc và chuẩn bị rollback cùng quy trình thủ công.`,
+        `Pilot tốt giới hạn một quy trình, một người dùng chính và một giai đoạn rõ ràng. Hiển thị yếu tố quan trọng, thu thập ví dụ bị từ chối và xác định dữ liệu cấm, ranh giới tự động hóa, trách nhiệm. So sánh ROI với baseline hoặc nhóm đối chứng để không nhầm mùa vụ là tác động của AI.`
+    ],
+    13: [
+        `Robot kết hợp camera RGB-D, LiDAR, IMU, encoder bánh xe và cảm biến lực-mô men để ước tính môi trường. Perception phát hiện vật thể hoặc tư thế, planner chọn đường đi, controller gửi lệnh motor. ROS 2 kết nối các thành phần qua node, topic, service và action.`,
+        `SLAM tạo bản đồ đồng thời ước tính vị trí robot. ORB-SLAM dùng đặc trưng hình ảnh, LiDAR SLAM ghép các lần quét, còn Extended Kalman Filter có thể hợp nhất IMU, odometry và GPS. Navigation2 thường dùng A* hoặc NavFn cho đường tổng thể và costmap cho vật cản cục bộ.`,
+        `Cánh tay robot giải inverse kinematics để đổi pose mục tiêu thành góc khớp. MoveIt lập kế hoạch và kiểm tra va chạm; vision model ước tính grasp point, gripper đóng theo force feedback. Imitation learning và mô phỏng MuJoCo hoặc Isaac Sim giảm rủi ro trước khi tinh chỉnh trên robot thật.`,
+        `Thế giới vật lý không có nút undo. Giới hạn tốc độ, lực, không gian và action policy; thêm dừng khẩn cấp, cảm biến an toàn và interlock. Kiểm thử cảm biến bị che, vật rơi, mất mạng và người bước vào vùng làm việc. Log có timestamp, replay sự cố và chế độ thủ công giúp khôi phục.`
+    ],
+    14: [
+        `Edge AI chạy model trên hoặc gần thiết bị tạo dữ liệu. Camera có thể loại sản phẩm lỗi trong vài mili giây, cảm biến rung phát hiện bất thường khi mất mạng. ESP32, Raspberry Pi, Jetson và Coral khác nhau về RAM, điện năng và accelerator; chọn theo latency và điều kiện thực tế.`,
+        `Quantization đổi trọng số float32 thành int8, pruning bỏ kết nối ít hữu ích, còn knowledge distillation huấn luyện model nhỏ từ model giáo viên. TensorFlow Lite, TensorRT, ONNX Runtime và OpenVINO hướng tới các thiết bị khác nhau. Đo accuracy, latency p50/p95, memory, nhiệt độ và điện năng, không chỉ kích thước file.`,
+        `Trong nhà máy, accelerometer gửi cửa sổ rung đến gateway, model tính anomaly score tại chỗ rồi MQTT chỉ gửi score hoặc clip quan trọng. Payload cần device ID, thời gian đồng bộ, firmware version và model version. Buffer khi mất mạng, tránh lệnh actuator trùng và tách telemetry khỏi control.`,
+        `Xác minh firmware và model đã ký trước khi chạy. Nếu phần cứng hỗ trợ, dùng secure boot, credential riêng, TLS và xoay vòng khóa. Triển khai trước cho cohort nhỏ, theo dõi crash và drift, giữ rollback. Retraining và regression test là một phần của vòng đời thiết bị.`
+    ],
+    15: [
+        `AutoML có thể tự động làm sạch cơ bản, mã hóa category, chọn model, feature engineering giới hạn và tuning hyperparameter. Auto-sklearn, H2O AutoML và AutoGluon so sánh các pipeline; Vertex AI và Azure Machine Learning cung cấp workflow được quản lý. Teachable Machine hợp với prototype nhỏ nhưng không sửa được target sai.`,
+        `Xác định một hàng dữ liệu đại diện cho gì, dự đoán được tạo khi nào và lúc đó có những cột nào. Với churn 30 ngày, lý do hủy xuất hiện sau đó là leakage. Chia dữ liệu theo thời gian, kiểm tra missing value, khách hàng trùng, mất cân bằng lớp và đơn vị trước khi train.`,
+        `Nếu gian lận chỉ chiếm 2%, accuracy có thể ưu ái model bỏ qua lớp dương. Chọn precision-recall, ROC-AUC, F1, MAE hoặc chi phí kinh doanh; xem confusion matrix ở threshold vận hành và so sánh với rule hoặc logistic regression baseline.`,
+        `Lưu dataset, cấu hình, metric và ví dụ prediction để tái tạo kết quả. Dùng SHAP hoặc feature importance để kiểm tra tín hiệu hợp lý; tương quan không phải quan hệ nhân quả. Test lại model đã export với dữ liệu production, theo dõi drift và giữ human review cho quyết định rủi ro. No-code vẫn cần người chịu trách nhiệm.`
+    ]
+});
+
 // Helper to get translated section content  
 function tSectionContent(lessonId, sectionIdx) {
     const lang = (data && data.lang) || 'id';
