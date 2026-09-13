@@ -1248,113 +1248,70 @@ function showCertificate() {
         const signatureSVG = `<div style="font-family:'Brush Script MT',cursive;font-size:42px;color:#1a1a1a;font-style:italic;transform:rotate(-5deg);">Rasidi</div>`;
 
         c.innerHTML = `
-            <div id="certificatePDF" style="background:linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);padding:0;max-width:1000px;margin:30px auto;position:relative;box-shadow: 0 20px 60px rgba(0,0,0,0.15);font-family:'Inter',sans-serif;">
-                
-                <!-- Outer Border Pattern -->
-                <div style="border:4px solid #1a365d;padding:8px;background:#1a365d;">
-                    <div style="border:2px solid #c9a227;padding:4px;background:transparent;">
-                        <div style="background:linear-gradient(135deg, #fefefe 0%, #f8f6f0 100%);padding:50px 60px;">
-                            
-                            <!-- Top Decorative Line -->
-                            <div style="display:flex;align-items:center;justify-content:center;margin-bottom:30px;">
-                                <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#c9a227);"></div>
-                                <div style="padding:0 20px;color:#c9a227;font-size:20px;">✦</div>
-                                <div style="flex:1;height:1px;background:linear-gradient(90deg,#c9a227,transparent);"></div>
+            <div class="certificate-preview">
+                <div id="certificatePDF" class="certificate-pdf">
+                    <div class="certificate-frame">
+                        <div class="certificate-inner">
+                            <div class="certificate-watermark">AI</div>
+
+                            <div class="certificate-brand">
+                                <div class="certificate-brand-mark">AI</div>
+                                <div>
+                                    <div class="certificate-brand-name">Belajar AI</div>
+                                    <div class="certificate-brand-subtitle">Learning Platform · Indonesia</div>
+                                </div>
                             </div>
-                            
-                            <!-- Institution Header -->
-                            <div style="text-align:center;margin-bottom:25px;">
-                                <div style="font-size:13px;letter-spacing:4px;color:#666;text-transform:uppercase;margin-bottom:8px;">Belajar AI Learning Platform</div>
-                                <div style="font-size:11px;color:#888;letter-spacing:2px;">INDONESIA</div>
+
+                            <div class="certificate-heading">
+                                <div class="certificate-kicker">CERTIFICATE OF COMPLETION</div>
+                                <h1>Certificate</h1>
+                                <div class="certificate-heading-subtitle">of Achievement</div>
+                                <div class="certificate-heading-line"><span>✦</span></div>
                             </div>
-                            
-                            <!-- Main Title -->
-                            <div style="text-align:center;margin-bottom:35px;">
-                                <h1 style="font-family:'Playfair Display',serif;font-size:52px;color:#1a365d;font-weight:600;margin:0;letter-spacing:8px;text-transform:uppercase;">Certificate</h1>
-                                <div style="font-family:'Playfair Display',serif;font-size:18px;color:#c9a227;margin-top:8px;font-style:italic;letter-spacing:3px;">of Completion</div>
-                            </div>
-                            
-                            <!-- Decorative Element -->
-                            <div style="display:flex;justify-content:center;margin-bottom:30px;">
-                                <div style="width:150px;height:2px;background:linear-gradient(90deg,transparent,#1a365d,transparent);"></div>
-                            </div>
-                            
-                            <!-- Certificate Body -->
-                            <div style="text-align:center;margin-bottom:35px;">
-                                <p style="font-size:14px;color:#555;margin-bottom:20px;letter-spacing:1px;">This is to certify that / Dengan ini menyatakan bahwa</p>
-                                
-                                <h2 style="font-family:'Playfair Display',serif;font-size:42px;color:#1a365d;margin:25px 0;font-weight:500;">${escapeHTML(data.name)}</h2>
-                                
-                                <div style="width:300px;height:1px;background:#c9a227;margin:0 auto 25px;"></div>
-                                
-                                <p style="font-size:15px;color:#444;max-width:650px;margin:0 auto;line-height:2;">
-                                    has successfully completed the comprehensive training program in<br>
-                                    <em style="color:#666;">/ telah berhasil menyelesaikan program pelatihan komprehensif dalam</em>
+
+                            <div class="certificate-recipient">
+                                <p class="certificate-eyebrow">This certificate is proudly presented to</p>
+                                <h2>${escapeHTML(data.name)}</h2>
+                                <div class="certificate-name-line"></div>
+                                <p class="certificate-description">
+                                    for successfully completing the comprehensive learning program in
                                 </p>
-                                
-                                <h3 style="font-family:'Playfair Display',serif;font-size:26px;color:#1a365d;margin:25px 0 10px;font-weight:600;">
-                                    "Fundamentals of Artificial Intelligence"
-                                </h3>
-                                <p style="font-size:13px;color:#888;font-style:italic;">Dasar-Dasar Kecerdasan Buatan</p>
-                                
-                                <p style="font-size:13px;color:#666;margin-top:20px;">
-                                    Covering: Machine Learning, Deep Learning, Neural Networks, NLP & Computer Vision
-                                </p>
+                                <h3>Fundamentals of Artificial Intelligence</h3>
+                                <p class="certificate-description-id">Dasar-Dasar Kecerdasan Buatan</p>
+                                <p class="certificate-topics">15 lessons · Machine Learning · Deep Learning · NLP · Computer Vision</p>
                             </div>
-                            
-                            <!-- Signature Section -->
-                            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:50px;padding-top:30px;border-top:1px solid #e5e5e5;">
-                                
-                                <!-- Left: Signature -->
-                                <div style="text-align:center;flex:1;">
-                                    <div style="margin-bottom:5px;">${signatureSVG}</div>
-                                    <div style="width:180px;border-top:2px solid #1a365d;margin:0 auto;padding-top:10px;">
-                                        <div style="font-size:14px;font-weight:700;color:#1a365d;">Ahmad Rasidi</div>
-                                        <div style="font-size:11px;color:#666;margin-top:2px;">Founder & Lead Instructor</div>
-                                        <div style="font-size:10px;color:#888;">Belajar AI Platform</div>
+
+                            <div class="certificate-details">
+                                <div class="certificate-signature">
+                                    <div class="certificate-script">${signatureSVG.replace('<div style="', '<div class="certificate-signature-script" style="')}</div>
+                                    <div class="certificate-signature-line"></div>
+                                    <strong>Ahmad Rasidi</strong>
+                                    <span>Founder &amp; Lead Instructor</span>
+                                </div>
+
+                                <div class="certificate-seal">
+                                    <div class="certificate-seal-ring">
+                                        <span>VERIFIED</span>
+                                        <strong>AI</strong>
+                                        <small>CERTIFIED</small>
                                     </div>
                                 </div>
-                                
-                                <!-- Center: Seal -->
-                                <div style="text-align:center;flex:1;">
-                                    <div style="width:100px;height:100px;border:3px solid #c9a227;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#fffef5,#f8f6f0);box-shadow:inset 0 0 20px rgba(201,162,39,0.1);">
-                                        <div style="text-align:center;">
-                                            <div style="font-size:9px;color:#c9a227;font-weight:700;letter-spacing:1px;">VERIFIED</div>
-                                            <div style="font-size:18px;color:#1a365d;font-weight:800;margin:3px 0;">AI</div>
-                                            <div style="font-size:8px;color:#666;">CERTIFIED</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Right: Date & ID -->
-                                <div style="text-align:center;flex:1;">
-                                    <div style="margin-bottom:15px;">
-                                        <div style="font-size:11px;color:#888;margin-bottom:3px;">Date of Issue / Tanggal Terbit</div>
-                                        <div style="font-size:14px;font-weight:600;color:#1a365d;">${issueDate}</div>
-                                        <div style="font-size:11px;color:#666;">${issueDateID}</div>
-                                    </div>
-                                    <div style="background:#f5f5f5;padding:10px 15px;border-radius:4px;border:1px solid #e0e0e0;">
-                                        <div style="font-size:9px;color:#888;letter-spacing:1px;">CERTIFICATE ID</div>
-                                        <div style="font-size:11px;font-weight:600;color:#1a365d;font-family:monospace;margin-top:3px;">${certId}</div>
+
+                                <div class="certificate-meta">
+                                    <span class="certificate-meta-label">DATE OF ISSUE</span>
+                                    <strong>${issueDate}</strong>
+                                    <small>${issueDateID}</small>
+                                    <div class="certificate-id">
+                                        <span>CERTIFICATE ID</span>
+                                        <strong>${certId}</strong>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Bottom Note -->
-                            <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #e5e5e5;">
-                                <p style="font-size:10px;color:#999;line-height:1.8;">
-                                    This certificate is issued by Belajar AI Platform and is valid without physical signature.<br>
-                                    Verify authenticity at: belajar-ai.id/verify/${certId.replace(/\//g, '-')}
-                                </p>
+
+                            <div class="certificate-footer">
+                                <span>This certificate is issued by Belajar AI Platform and is valid without physical signature.</span>
+                                <span>Verify: belajar-ai.id/verify/${certId.replace(/\//g, '-')}</span>
                             </div>
-                            
-                            <!-- Bottom Decorative Line -->
-                            <div style="display:flex;align-items:center;justify-content:center;margin-top:25px;">
-                                <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#c9a227);"></div>
-                                <div style="padding:0 20px;color:#c9a227;font-size:20px;">✦</div>
-                                <div style="flex:1;height:1px;background:linear-gradient(90deg,#c9a227,transparent);"></div>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -1373,10 +1330,17 @@ function downloadCertificate() {
     notify('success', t('notify_pdf_prep'));
 
     const opt = {
-        margin: 10,
+        margin: 5,
         filename: 'Sertifikat-Belajar-AI-' + data.name.replace(/\s+/g, '-') + '.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
+        html2canvas: {
+            scale: 2.5,
+            useCORS: true,
+            backgroundColor: '#f7f2e8',
+            letterRendering: true,
+            windowWidth: 1200
+        },
+        pagebreak: { mode: ['avoid-all'] },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
     };
 
