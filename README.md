@@ -30,21 +30,14 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 
 | # | Materi | Level | Durasi |
 |---|--------|-------|--------|
-| 1 | **Apa itu Artificial Intelligence?** — Konsep dasar AI, sejarah, dan penerapannya | Pemula | 15 menit |
-| 2 | **Machine Learning Dasar** — Supervised vs unsupervised learning | Menengah | 20 menit |
-| 3 | **Deep Learning & Neural Networks** — Pengenalan deep learning | Lanjut | 25 menit |
-| 4 | **Natural Language Processing (NLP)** — AI memahami bahasa manusia | Menengah | 18 menit |
-| 5 | **Computer Vision** — AI mengenali gambar dan video | Lanjut | 22 menit |
-| 6 | **Reinforcement Learning** — AI belajar dari interaksi lingkungan | Lanjut | 20 menit |
-| 7 | **AI Ethics & Responsible AI** — Etika dan tanggung jawab dalam AI | Pemula | 15 menit |
-| 8 | **Generative AI & Large Language Models** — ChatGPT, DALL-E, dan model generatif | Menengah | 22 menit |
-| 9 | **AI in Healthcare** — Penerapan AI di bidang kesehatan | Menengah | 18 menit |
-| 10 | **AI untuk Bisnis & Industri** — Transformasi digital dengan AI | Menengah | 20 menit |
-| 11 | **Robotika & AI** — Integrasi kecerdasan buatan dengan robotika | Lanjut | 25 menit |
-| 12 | **Edge AI & IoT** — AI di perangkat edge dan Internet of Things | Lanjut | 20 menit |
-| 13 | **AI dalam Keamanan Siber** — Deteksi ancaman dan keamanan berbasis AI | Lanjut | 22 menit |
-| 14 | **AutoML & No-Code AI** — Membuat model AI tanpa coding | Pemula | 15 menit |
-| 15 | **Karier di Bidang AI** — Peluang karier dan skill yang dibutuhkan | Pemula | 12 menit |
+| 1 | **Apa itu Kecerdasan Buatan?** — Konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari | Pemula | 15 menit |
+| 2 | **Machine Learning Dasar** — Konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi | Menengah | 20 menit |
+| 3 | **Deep Learning & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
+| 4 | **Natural Language Processing (NLP)** — Bagaimana AI memahami dan memproses bahasa manusia | Menengah | 18 menit |
+| 5 | **Computer Vision** — Teknologi AI untuk mengenali dan memproses gambar dan video | Lanjut | 22 menit |
+| 6 | **Prompt Engineering Dasar** — Seni berinteraksi dengan AI generatif seperti ChatGPT untuk hasil maksimal | Pemula | 15 menit |
+| 7 | **Etika dan Bias dalam AI** — Pentingnya keamanan, privasi, dan keadilan dalam menggunakan AI | Menengah | 20 menit |
+| 8 | **Panduan Karir di Bidang AI** — Peluang pekerjaan, tren masa depan, dan cara memulai karir di industri AI | Pemula | 15 menit |
 
 ---
 
@@ -61,7 +54,7 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 ###  Kuis Interaktif
 | Fitur | Deskripsi |
 |-------|-----------|
-| **20 Soal Kuis** | Uji pemahaman dari semua materi |
+| **19 Soal Kuis** | Uji pemahaman dari semua materi |
 | **Urutan Acak** | Soal diacak setiap percobaan (Fisher-Yates shuffle) |
 | **Navigasi Keyboard** | Jawab soal dengan Enter/Space |
 | **Download Hasil** | Unduh laporan kuis sebagai file teks |
@@ -70,7 +63,7 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 | Badge | Kondisi Unlock |
 |-------|----------------|
 | 🎓 Pelajar Pertama | Selesaikan 1 pelajaran |
-| 🏆 Master AI | Selesaikan semua 15 pelajaran |
+| 🏆 Master AI | Selesaikan semua 8 pelajaran |
 | 💯 Jenius Kuis | Raih skor sempurna (100%) |
 | 📝 Pencatat | Buat 5 catatan |
 | 💬 Sosial | Buat 3 postingan forum |
@@ -122,12 +115,10 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 
 ```
 learn-artificial-intelligence/
-├── index.html              # Halaman utama (310 baris)
-├── app.js                  # Logika aplikasi (1143 baris)
-├── content-translations.js # Konten materi & terjemahan (811 baris)
-├── styles.css              # Styling & animasi (1381 baris)
-├── assets/
-│   └── img/                # Folder aset gambar
+├── index.html              # Halaman utama (318 baris)
+├── app.js                  # Logika aplikasi (1142 baris)
+├── content-translations.js # Konten materi & terjemahan (810 baris)
+├── styles.css              # Styling & animasi (1380 baris)
 └── README.md               # Dokumentasi ini
 ```
 
@@ -167,7 +158,7 @@ Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storag
 - [ ] Progress sync antar perangkat
 - [ ] Mode offline learning (Service Worker)
 - [ ] Sistem mentor & pembelajaran kolaboratif
-- [ ] Penambahan konten materi baru
+- [ ] Penambahan konten materi baru (Reinforcement Learning, Generative AI & LLM, AI in Healthcare, AI untuk Bisnis, Robotika, Edge AI & IoT, AI Keamanan Siber, AutoML & No-Code AI)
 
 ---
 
