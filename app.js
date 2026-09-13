@@ -141,6 +141,155 @@ const sectionTranslations = {
     vi: { 1: ['Giới thiệu', 'Lịch sử AI', 'Các loại AI', 'Ứng dụng', 'Thành phần chính', 'Kết luận'], 2: ['ML là gì?', 'Có giám sát', 'Không giám sát', 'Tăng cường', 'Quy trình', 'Đánh giá'], 3: ['DL là gì?', 'Cấu trúc', 'Hoạt động', 'Kiến trúc', 'Framework', 'Thách thức'], 4: ['Giới thiệu NLP', 'Tiền xử lý', 'Biểu diễn', 'Ứng dụng', 'LLM', 'Thách thức'], 5: ['Giới thiệu CV', 'Xử lý ảnh', 'Nhiệm vụ', 'Kiến trúc', 'Ứng dụng', 'Thách thức'], 6: ['Prompt là gì?', 'Kỹ thuật', 'Mẹo', 'Ví dụ'], 7: ['Tại sao đạo đức?', 'Thiên kiến', 'Bảo mật', 'AI có trách nhiệm'], 8: ['Toàn cảnh', 'Vai trò', 'Kỹ năng', 'Bắt đầu'] }
 };
 
+const additionalLessonTranslations = {
+    en: {
+        9: { title: 'Reinforcement Learning', desc: 'Learn how AI agents make decisions through rewards, simulation, and policy evaluation.' },
+        10: { title: 'Generative AI & Large Language Models', desc: 'Understand models that generate text, images, and code, and use them with controlled data.' },
+        11: { title: 'AI in Healthcare', desc: 'Explore medical AI, clinical validation, and safety limits before use in healthcare.' },
+        12: { title: 'AI for Business & Industry', desc: 'Connect business problems with data, models, operational metrics, and accountable governance.' },
+        13: { title: 'Robotics & AI', desc: 'Learn how perception, planning, control, and learning enable robots to work in the physical world.' },
+        14: { title: 'Edge AI & IoT', desc: 'Run AI inference close to sensors within device limits for power, memory, connectivity, and security.' },
+        15: { title: 'AutoML & No-Code AI', desc: 'Use automation to build models while still testing data, metrics, and resulting decisions.' }
+    },
+    zh: {
+        9: { title: '强化学习', desc: '学习AI智能体如何通过奖励、仿真和策略评估做出决策。' },
+        10: { title: '生成式AI与大型语言模型', desc: '了解生成文本、图像和代码的模型，以及如何以受控数据使用它们。' },
+        11: { title: '医疗中的AI', desc: '认识医疗AI、临床验证和在医疗服务中使用前的安全边界。' },
+        12: { title: '面向商业与工业的AI', desc: '将业务问题与数据、模型、运营指标和可追责治理联系起来。' },
+        13: { title: '机器人技术与AI', desc: '学习感知、规划、控制和学习如何让机器人在物理世界中工作。' },
+        14: { title: '边缘AI与物联网', desc: '在功耗、内存、连接和安全限制下，在传感器附近运行AI推理。' },
+        15: { title: 'AutoML与无代码AI', desc: '利用自动化构建模型，同时检验数据、指标和产生的决策。' }
+    },
+    es: {
+        9: { title: 'Aprendizaje por Refuerzo', desc: 'Aprende cómo los agentes de IA toman decisiones mediante recompensas, simulación y evaluación de políticas.' },
+        10: { title: 'IA Generativa y Modelos de Lenguaje Grandes', desc: 'Comprende modelos que generan texto, imágenes y código, y cómo usarlos con datos controlados.' },
+        11: { title: 'IA en Salud', desc: 'Conoce la IA médica, la validación clínica y los límites de seguridad antes de usarla en salud.' },
+        12: { title: 'IA para Negocios e Industria', desc: 'Conecta problemas de negocio con datos, modelos, métricas operativas y gobernanza responsable.' },
+        13: { title: 'Robótica e IA', desc: 'Aprende cómo percepción, planificación, control y aprendizaje permiten trabajar a los robots en el mundo físico.' },
+        14: { title: 'IA en el Borde e IoT', desc: 'Ejecuta inferencia de IA cerca de los sensores con límites de energía, memoria, conectividad y seguridad.' },
+        15: { title: 'AutoML e IA Sin Código', desc: 'Usa automatización para crear modelos sin dejar de evaluar los datos, métricas y decisiones resultantes.' }
+    },
+    ar: {
+        9: { title: 'التعلم المعزز', desc: 'تعرّف كيف تتخذ وكلاء الذكاء الاصطناعي قرارات عبر المكافآت والمحاكاة وتقييم السياسة.' },
+        10: { title: 'الذكاء الاصطناعي التوليدي ونماذج اللغة الكبيرة', desc: 'افهم النماذج التي تولد النصوص والصور والبرمجيات وكيف تستخدمها مع بيانات مضبوطة.' },
+        11: { title: 'الذكاء الاصطناعي في الرعاية الصحية', desc: 'تعرّف الذكاء الاصطناعي الطبي والتحقق السريري وحدود السلامة قبل استخدامه في الرعاية الصحية.' },
+        12: { title: 'الذكاء الاصطناعي للأعمال والصناعة', desc: 'اربط مشكلات الأعمال بالبيانات والنماذج ومقاييس التشغيل والحوكمة المسؤولة.' },
+        13: { title: 'الروبوتات والذكاء الاصطناعي', desc: 'تعلّم كيف تمكّن الإدراك والتخطيط والتحكم والتعلم الروبوتات من العمل في العالم المادي.' },
+        14: { title: 'ذكاء الحافة وإنترنت الأشياء', desc: 'شغّل استدلال الذكاء الاصطناعي قرب المستشعرات ضمن حدود الطاقة والذاكرة والاتصال والأمان.' },
+        15: { title: 'AutoML والذكاء الاصطناعي بلا كود', desc: 'استخدم الأتمتة لبناء النماذج مع الاستمرار في اختبار البيانات والمقاييس والقرارات الناتجة.' }
+    },
+    hi: {
+        9: { title: 'रीइन्फोर्समेंट लर्निंग', desc: 'जानें कि AI एजेंट पुरस्कार, सिमुलेशन और नीति मूल्यांकन से निर्णय कैसे लेते हैं।' },
+        10: { title: 'जनरेटिव AI और बड़े भाषा मॉडल', desc: 'टेक्स्ट, चित्र और कोड बनाने वाले मॉडल तथा नियंत्रित डेटा के साथ उनके उपयोग को समझें।' },
+        11: { title: 'स्वास्थ्य सेवा में AI', desc: 'चिकित्सकीय AI, क्लिनिकल सत्यापन और स्वास्थ्य सेवा में प्रयोग से पहले सुरक्षा सीमाओं को जानें।' },
+        12: { title: 'व्यवसाय और उद्योग के लिए AI', desc: 'व्यावसायिक समस्याओं को डेटा, मॉडल, संचालन मेट्रिक और जवाबदेह गवर्नेंस से जोड़ें।' },
+        13: { title: 'रोबोटिक्स और AI', desc: 'जानें कि perception, planning, control और learning रोबोट को भौतिक दुनिया में काम करने देते हैं।' },
+        14: { title: 'एज AI और IoT', desc: 'ऊर्जा, मेमोरी, कनेक्टिविटी और सुरक्षा की सीमाओं में सेंसर के पास AI inference चलाएँ।' },
+        15: { title: 'AutoML और नो-कोड AI', desc: 'डेटा, मेट्रिक और निर्णयों की जाँच करते हुए मॉडल बनाने के लिए ऑटोमेशन का उपयोग करें।' }
+    },
+    pt: {
+        9: { title: 'Aprendizado por Reforço', desc: 'Aprenda como agentes de IA tomam decisões com recompensas, simulação e avaliação de políticas.' },
+        10: { title: 'IA Generativa e Modelos de Linguagem Grandes', desc: 'Entenda modelos que geram texto, imagens e código e como usá-los com dados controlados.' },
+        11: { title: 'IA na Saúde', desc: 'Conheça IA médica, validação clínica e limites de segurança antes do uso em saúde.' },
+        12: { title: 'IA para Negócios e Indústria', desc: 'Conecte problemas de negócio a dados, modelos, métricas operacionais e governança responsável.' },
+        13: { title: 'Robótica e IA', desc: 'Aprenda como percepção, planejamento, controle e aprendizado permitem que robôs atuem no mundo físico.' },
+        14: { title: 'IA de Borda e IoT', desc: 'Execute inferência de IA perto dos sensores com limites de energia, memória, conectividade e segurança.' },
+        15: { title: 'AutoML e IA Sem Código', desc: 'Use automação para criar modelos sem deixar de testar dados, métricas e decisões resultantes.' }
+    },
+    fr: {
+        9: { title: 'Apprentissage par Renforcement', desc: 'Découvrez comment les agents IA prennent des décisions par récompenses, simulation et évaluation de politique.' },
+        10: { title: 'IA Générative et Grands Modèles de Langage', desc: 'Comprenez les modèles qui génèrent texte, images et code, et leur usage avec des données contrôlées.' },
+        11: { title: 'IA dans la Santé', desc: 'Découvrez l’IA médicale, la validation clinique et les limites de sécurité avant son emploi en santé.' },
+        12: { title: 'IA pour les Entreprises et l’Industrie', desc: 'Reliez les problèmes métier aux données, modèles, métriques opérationnelles et à une gouvernance responsable.' },
+        13: { title: 'Robotique et IA', desc: 'Apprenez comment perception, planification, contrôle et apprentissage font agir les robots dans le monde physique.' },
+        14: { title: 'IA Embarquée et IoT', desc: 'Exécutez l’inférence IA près des capteurs malgré les limites d’énergie, mémoire, connectivité et sécurité.' },
+        15: { title: 'AutoML et IA Sans Code', desc: 'Utilisez l’automatisation pour créer des modèles tout en testant données, métriques et décisions.' }
+    },
+    de: {
+        9: { title: 'Bestärkendes Lernen', desc: 'Erfahren Sie, wie KI-Agenten mit Belohnungen, Simulation und Policy-Evaluierung Entscheidungen treffen.' },
+        10: { title: 'Generative KI und große Sprachmodelle', desc: 'Verstehen Sie Modelle für Text, Bilder und Code sowie ihren Einsatz mit kontrollierten Daten.' },
+        11: { title: 'KI im Gesundheitswesen', desc: 'Lernen Sie medizinische KI, klinische Validierung und Sicherheitsgrenzen vor dem Einsatz im Gesundheitswesen kennen.' },
+        12: { title: 'KI für Wirtschaft und Industrie', desc: 'Verbinden Sie Geschäftsprobleme mit Daten, Modellen, Betriebsmetriken und verantwortlicher Governance.' },
+        13: { title: 'Robotik und KI', desc: 'Erfahren Sie, wie Wahrnehmung, Planung, Regelung und Lernen Robotern die Arbeit in der physischen Welt ermöglichen.' },
+        14: { title: 'Edge-KI und IoT', desc: 'Führen Sie KI-Inferenz nahe an Sensoren unter Grenzen bei Energie, Speicher, Verbindung und Sicherheit aus.' },
+        15: { title: 'AutoML und No-Code-KI', desc: 'Nutzen Sie Automatisierung zum Modellbau und prüfen Sie weiterhin Daten, Metriken und Entscheidungen.' }
+    },
+    ja: {
+        9: { title: '強化学習', desc: '報酬、シミュレーション、方策評価を通じてAIエージェントが意思決定する方法を学びます。' },
+        10: { title: '生成AIと大規模言語モデル', desc: 'テキスト、画像、コードを生成するモデルと、制御されたデータでの利用法を理解します。' },
+        11: { title: '医療におけるAI', desc: '医療AI、臨床検証、医療現場で使う前の安全上の限界を学びます。' },
+        12: { title: 'ビジネスと産業のためのAI', desc: 'ビジネス課題をデータ、モデル、運用指標、説明責任あるガバナンスにつなげます。' },
+        13: { title: 'ロボティクスとAI', desc: '知覚、計画、制御、学習がロボットを物理世界で動かす仕組みを学びます。' },
+        14: { title: 'エッジAIとIoT', desc: '電力、メモリ、接続性、安全性の制約下で、センサー近くでAI推論を実行します。' },
+        15: { title: 'AutoMLとノーコードAI', desc: 'データ、指標、判断を検証しながら自動化でモデルを構築します。' }
+    },
+    ko: {
+        9: { title: '강화 학습', desc: '보상, 시뮬레이션, 정책 평가를 통해 AI 에이전트가 의사결정하는 방법을 배웁니다.' },
+        10: { title: '생성형 AI와 대규모 언어 모델', desc: '텍스트, 이미지, 코드를 생성하는 모델과 통제된 데이터로 사용하는 방법을 이해합니다.' },
+        11: { title: '헬스케어 AI', desc: '의료 AI, 임상 검증, 의료 환경 적용 전의 안전 한계를 살펴봅니다.' },
+        12: { title: '비즈니스 및 산업을 위한 AI', desc: '비즈니스 문제를 데이터, 모델, 운영 지표, 책임 있는 거버넌스와 연결합니다.' },
+        13: { title: '로보틱스와 AI', desc: '인식, 계획, 제어, 학습이 로봇의 물리 세계 작업을 가능하게 하는 방식을 배웁니다.' },
+        14: { title: '엣지 AI와 IoT', desc: '전력, 메모리, 연결성, 보안 제약 속에서 센서 가까이 AI 추론을 실행합니다.' },
+        15: { title: 'AutoML과 노코드 AI', desc: '데이터, 지표, 의사결정을 계속 검증하면서 자동화로 모델을 만듭니다.' }
+    },
+    ru: {
+        9: { title: 'Обучение с подкреплением', desc: 'Узнайте, как агенты ИИ принимают решения с помощью наград, симуляции и оценки политики.' },
+        10: { title: 'Генеративный ИИ и большие языковые модели', desc: 'Разберитесь в моделях, генерирующих текст, изображения и код, и в их работе с контролируемыми данными.' },
+        11: { title: 'ИИ в здравоохранении', desc: 'Изучите медицинский ИИ, клиническую валидацию и границы безопасности до применения в здравоохранении.' },
+        12: { title: 'ИИ для бизнеса и промышленности', desc: 'Свяжите бизнес-задачи с данными, моделями, операционными метриками и ответственной системой управления.' },
+        13: { title: 'Робототехника и ИИ', desc: 'Узнайте, как восприятие, планирование, управление и обучение позволяют роботам работать в физическом мире.' },
+        14: { title: 'Периферийный ИИ и IoT', desc: 'Запускайте ИИ-инференс рядом с датчиками с учетом ограничений энергии, памяти, связи и безопасности.' },
+        15: { title: 'AutoML и ИИ без кода', desc: 'Используйте автоматизацию для создания моделей, продолжая проверять данные, метрики и решения.' }
+    },
+    tr: {
+        9: { title: 'Pekiştirmeli Öğrenme', desc: 'Yapay zeka ajanlarının ödül, simülasyon ve politika değerlendirmesiyle nasıl karar verdiğini öğrenin.' },
+        10: { title: 'Üretken Yapay Zeka ve Büyük Dil Modelleri', desc: 'Metin, görsel ve kod üreten modelleri ve kontrollü veriyle kullanımlarını anlayın.' },
+        11: { title: 'Sağlıkta Yapay Zeka', desc: 'Sağlık hizmetinde kullanımdan önce tıbbi yapay zekayı, klinik doğrulamayı ve güvenlik sınırlarını öğrenin.' },
+        12: { title: 'İş ve Endüstri için Yapay Zeka', desc: 'İş problemlerini veri, model, operasyonel metrik ve hesap verebilir yönetişimle ilişkilendirin.' },
+        13: { title: 'Robotik ve Yapay Zeka', desc: 'Algılama, planlama, kontrol ve öğrenmenin robotların fiziksel dünyada çalışmasını nasıl sağladığını öğrenin.' },
+        14: { title: 'Uç Yapay Zeka ve IoT', desc: 'Güç, bellek, bağlantı ve güvenlik kısıtları altında sensörlere yakın yapay zeka çıkarımı çalıştırın.' },
+        15: { title: 'AutoML ve Kodsuz Yapay Zeka', desc: 'Veri, metrik ve kararları test etmeyi sürdürürken otomasyonla model oluşturun.' }
+    },
+    it: {
+        9: { title: 'Apprendimento per Rinforzo', desc: 'Scopri come gli agenti IA prendono decisioni tramite ricompense, simulazione e valutazione delle policy.' },
+        10: { title: 'IA Generativa e Grandi Modelli Linguistici', desc: 'Comprendi i modelli che generano testo, immagini e codice e come usarli con dati controllati.' },
+        11: { title: 'IA nella Sanità', desc: 'Conosci l’IA medica, la validazione clinica e i limiti di sicurezza prima dell’uso sanitario.' },
+        12: { title: 'IA per Business e Industria', desc: 'Collega i problemi aziendali a dati, modelli, metriche operative e una governance responsabile.' },
+        13: { title: 'Robotica e IA', desc: 'Scopri come percezione, pianificazione, controllo e apprendimento permettono ai robot di operare nel mondo fisico.' },
+        14: { title: 'Edge AI e IoT', desc: 'Esegui l’inferenza IA vicino ai sensori con limiti di energia, memoria, connettività e sicurezza.' },
+        15: { title: 'AutoML e IA No-Code', desc: 'Usa l’automazione per creare modelli verificando comunque dati, metriche e decisioni risultanti.' }
+    },
+    vi: {
+        9: { title: 'Học Tăng cường', desc: 'Tìm hiểu cách tác tử AI ra quyết định qua phần thưởng, mô phỏng và đánh giá chính sách.' },
+        10: { title: 'AI Tạo sinh và Mô hình Ngôn ngữ Lớn', desc: 'Hiểu các mô hình tạo văn bản, hình ảnh, mã nguồn và cách dùng chúng với dữ liệu được kiểm soát.' },
+        11: { title: 'AI trong Y tế', desc: 'Tìm hiểu AI y tế, thẩm định lâm sàng và các giới hạn an toàn trước khi dùng trong chăm sóc sức khỏe.' },
+        12: { title: 'AI cho Doanh nghiệp và Công nghiệp', desc: 'Kết nối bài toán kinh doanh với dữ liệu, mô hình, chỉ số vận hành và quản trị có trách nhiệm.' },
+        13: { title: 'Robot học và AI', desc: 'Tìm hiểu cách nhận thức, lập kế hoạch, điều khiển và học tập giúp robot làm việc trong thế giới vật lý.' },
+        14: { title: 'Edge AI và IoT', desc: 'Chạy suy luận AI gần cảm biến với giới hạn về điện năng, bộ nhớ, kết nối và bảo mật.' },
+        15: { title: 'AutoML và AI Không Mã', desc: 'Dùng tự động hóa để xây dựng mô hình nhưng vẫn kiểm tra dữ liệu, chỉ số và các quyết định tạo ra.' }
+    }
+};
+
+const additionalSectionTranslations = {
+    en: { 9: ['Sequential Decision Problems', 'Value Functions and Q-Learning', 'From Policy Gradient to PPO', 'Reward Design and Evaluation'], 10: ['Generative Models and Training Data', 'How Transformers Work', 'RAG, Fine-Tuning, and Tool Use', 'Evaluation, Cost, and Risk'], 11: ['Clinical Use Cases', 'Clinical Data and Validation', 'An Auditable Model Pipeline', 'Human-in-the-Loop and Privacy'], 12: ['Choosing the Right Problem', 'Data and Models for Operations', 'MLOps and Monitoring', 'Adoption and Governance'], 13: ['From Sensors to Action', 'Localization, Mapping, and Navigation', 'Manipulation and Learning', 'Safety and Reliability'], 14: ['Why Run Inference at the Edge', 'Optimizing Models for Devices', 'A Resilient IoT Pipeline', 'Security and Lifecycle'], 15: ['What AutoML Automates', 'Preparing Data and the Target', 'Selecting Metrics and Reading Results', 'From Prototype to Safe Decisions'] },
+    zh: { 9: ['序列决策问题', '价值函数与Q学习', '从策略梯度到PPO', '奖励设计与评估'], 10: ['生成模型与训练数据', 'Transformer的工作方式', 'RAG、微调与工具调用', '评估、成本与风险'], 11: ['临床使用场景', '临床数据与验证', '可审计的模型管线', '人在回路与隐私'], 12: ['选择正确的问题', '运营中的数据与模型', 'MLOps与监控', '采用与治理'], 13: ['从传感器到动作', '定位、建图与导航', '操作与学习', '安全与可靠性'], 14: ['为何在边缘运行推理', '为设备优化模型', '抗干扰的IoT管线', '安全与生命周期'], 15: ['AutoML自动化的内容', '准备数据与目标', '选择指标和解读结果', '从原型到安全决策'] },
+    es: { 9: ['Problemas de Decisión Secuencial', 'Funciones de Valor y Q-Learning', 'De Policy Gradient a PPO', 'Diseño de Recompensas y Evaluación'], 10: ['Modelos Generativos y Datos de Entrenamiento', 'Cómo Funcionan los Transformers', 'RAG, Fine-Tuning y Uso de Herramientas', 'Evaluación, Coste y Riesgo'], 11: ['Casos de Uso Clínico', 'Datos Clínicos y Validación', 'Un Pipeline de Modelo Auditable', 'Humano en el Bucle y Privacidad'], 12: ['Elegir el Problema Correcto', 'Datos y Modelos para Operaciones', 'MLOps y Monitorización', 'Adopción y Gobernanza'], 13: ['De Sensores a Acción', 'Localización, Mapeo y Navegación', 'Manipulación y Aprendizaje', 'Seguridad y Fiabilidad'], 14: ['Por Qué Inferir en el Borde', 'Optimización de Modelos para Dispositivos', 'Pipeline IoT Resiliente', 'Seguridad y Ciclo de Vida'], 15: ['Qué Automatiza AutoML', 'Preparar Datos y Objetivo', 'Elegir Métricas e Interpretar Resultados', 'Del Prototipo a Decisiones Seguras'] },
+    ar: { 9: ['مسائل القرار المتسلسل', 'دوال القيمة وQ-Learning', 'من تدرج السياسة إلى PPO', 'تصميم المكافأة والتقييم'], 10: ['النماذج التوليدية وبيانات التدريب', 'كيف تعمل المحولات', 'RAG والضبط الدقيق واستخدام الأدوات', 'التقييم والتكلفة والمخاطر'], 11: ['حالات الاستخدام السريري', 'البيانات السريرية والتحقق', 'مسار نموذج قابل للتدقيق', 'الإنسان في الحلقة والخصوصية'], 12: ['اختيار المشكلة المناسبة', 'البيانات والنماذج للعمليات', 'MLOps والمراقبة', 'التبني والحوكمة'], 13: ['من المستشعرات إلى الفعل', 'تحديد الموقع ورسم الخرائط والملاحة', 'المناولة والتعلم', 'السلامة والموثوقية'], 14: ['لماذا الاستدلال عند الحافة', 'تحسين النماذج للأجهزة', 'خط أنابيب IoT متين', 'الأمان ودورة الحياة'], 15: ['ما الذي يؤتمته AutoML', 'إعداد البيانات والهدف', 'اختيار المقاييس وقراءة النتائج', 'من النموذج الأولي إلى قرارات آمنة'] },
+    hi: { 9: ['क्रमिक निर्णय समस्याएँ', 'वैल्यू फ़ंक्शन और Q-Learning', 'Policy Gradient से PPO तक', 'रिवॉर्ड डिज़ाइन और मूल्यांकन'], 10: ['जनरेटिव मॉडल और प्रशिक्षण डेटा', 'Transformer कैसे काम करते हैं', 'RAG, Fine-Tuning और Tool Use', 'मूल्यांकन, लागत और जोखिम'], 11: ['क्लिनिकल उपयोग मामले', 'क्लिनिकल डेटा और सत्यापन', 'ऑडिट योग्य मॉडल पाइपलाइन', 'Human-in-the-Loop और गोपनीयता'], 12: ['सही समस्या चुनना', 'संचालन के लिए डेटा और मॉडल', 'MLOps और मॉनिटरिंग', 'अपनाना और गवर्नेंस'], 13: ['सेंसर से कार्रवाई तक', 'लोकेलाइज़ेशन, मैपिंग और नेविगेशन', 'मैनिपुलेशन और लर्निंग', 'सुरक्षा और विश्वसनीयता'], 14: ['एज पर Inference क्यों चलाएँ', 'डिवाइस के लिए मॉडल अनुकूलन', 'मजबूत IoT पाइपलाइन', 'सुरक्षा और जीवनचक्र'], 15: ['AutoML क्या स्वचालित करता है', 'डेटा और लक्ष्य तैयार करना', 'मेट्रिक चुनना और परिणाम पढ़ना', 'प्रोटोटाइप से सुरक्षित निर्णय तक'] },
+    pt: { 9: ['Problemas de Decisão Sequencial', 'Funções de Valor e Q-Learning', 'De Policy Gradient a PPO', 'Design de Recompensa e Avaliação'], 10: ['Modelos Generativos e Dados de Treinamento', 'Como Transformers Funcionam', 'RAG, Fine-Tuning e Uso de Ferramentas', 'Avaliação, Custo e Risco'], 11: ['Casos de Uso Clínico', 'Dados Clínicos e Validação', 'Um Pipeline de Modelo Auditável', 'Humano no Circuito e Privacidade'], 12: ['Escolhendo o Problema Certo', 'Dados e Modelos para Operações', 'MLOps e Monitoramento', 'Adoção e Governança'], 13: ['Dos Sensores à Ação', 'Localização, Mapeamento e Navegação', 'Manipulação e Aprendizado', 'Segurança e Confiabilidade'], 14: ['Por que Inferir na Borda', 'Otimização de Modelos para Dispositivos', 'Pipeline IoT Resiliente', 'Segurança e Ciclo de Vida'], 15: ['O que o AutoML Automatiza', 'Preparação de Dados e Alvo', 'Escolha de Métricas e Leitura de Resultados', 'Do Protótipo a Decisões Seguras'] },
+    fr: { 9: ['Problèmes de Décision Séquentielle', 'Fonctions de Valeur et Q-Learning', 'Du Policy Gradient à PPO', 'Conception de Récompense et Évaluation'], 10: ['Modèles Génératifs et Données d’Entraînement', 'Fonctionnement des Transformers', 'RAG, Fine-Tuning et Usage d’Outils', 'Évaluation, Coût et Risque'], 11: ['Cas d’Usage Clinique', 'Données Cliniques et Validation', 'Un Pipeline de Modèle Auditable', 'Humain dans la Boucle et Confidentialité'], 12: ['Choisir le Bon Problème', 'Données et Modèles pour les Opérations', 'MLOps et Surveillance', 'Adoption et Gouvernance'], 13: ['Des Capteurs à l’Action', 'Localisation, Cartographie et Navigation', 'Manipulation et Apprentissage', 'Sécurité et Fiabilité'], 14: ['Pourquoi Inférer en Périphérie', 'Optimisation des Modèles pour les Appareils', 'Pipeline IoT Résilient', 'Sécurité et Cycle de Vie'], 15: ['Ce qu’AutoML Automatise', 'Préparer les Données et la Cible', 'Choisir les Métriques et Lire les Résultats', 'Du Prototype aux Décisions Sûres'] },
+    de: { 9: ['Sequentielle Entscheidungsprobleme', 'Wertfunktionen und Q-Learning', 'Von Policy Gradient zu PPO', 'Reward-Design und Evaluation'], 10: ['Generative Modelle und Trainingsdaten', 'So funktionieren Transformer', 'RAG, Fine-Tuning und Tool-Nutzung', 'Evaluation, Kosten und Risiken'], 11: ['Klinische Anwendungsfälle', 'Klinische Daten und Validierung', 'Eine auditierbare Modellpipeline', 'Mensch in der Schleife und Datenschutz'], 12: ['Das richtige Problem wählen', 'Daten und Modelle für den Betrieb', 'MLOps und Monitoring', 'Einführung und Governance'], 13: ['Von Sensoren zur Aktion', 'Lokalisierung, Kartierung und Navigation', 'Manipulation und Lernen', 'Sicherheit und Zuverlässigkeit'], 14: ['Warum Inferenz am Edge ausführen', 'Modelle für Geräte optimieren', 'Robuste IoT-Pipeline', 'Sicherheit und Lebenszyklus'], 15: ['Was AutoML automatisiert', 'Daten und Ziel vorbereiten', 'Metriken wählen und Ergebnisse lesen', 'Vom Prototyp zu sicheren Entscheidungen'] },
+    ja: { 9: ['逐次意思決定問題', '価値関数とQ学習', '方策勾配からPPOへ', '報酬設計と評価'], 10: ['生成モデルと学習データ', 'Transformerの仕組み', 'RAG、ファインチューニング、ツール利用', '評価、コスト、リスク'], 11: ['臨床でのユースケース', '臨床データと検証', '監査可能なモデルパイプライン', '人間参加型とプライバシー'], 12: ['適切な問題を選ぶ', '運用のためのデータとモデル', 'MLOpsと監視', '導入とガバナンス'], 13: ['センサーから行動へ', '自己位置推定、地図作成、ナビゲーション', 'マニピュレーションと学習', '安全性と信頼性'], 14: ['なぜエッジで推論するのか', 'デバイス向けモデル最適化', '耐障害性のあるIoTパイプライン', 'セキュリティとライフサイクル'], 15: ['AutoMLが自動化すること', 'データとターゲットの準備', '指標の選択と結果の読み方', 'プロトタイプから安全な意思決定へ'] },
+    ko: { 9: ['순차적 의사결정 문제', '가치 함수와 Q-Learning', 'Policy Gradient에서 PPO까지', '보상 설계와 평가'], 10: ['생성 모델과 학습 데이터', 'Transformer의 작동 방식', 'RAG, Fine-Tuning 및 도구 사용', '평가, 비용 및 위험'], 11: ['임상 사용 사례', '임상 데이터와 검증', '감사 가능한 모델 파이프라인', 'Human-in-the-Loop와 개인정보'], 12: ['올바른 문제 선택', '운영을 위한 데이터와 모델', 'MLOps와 모니터링', '도입과 거버넌스'], 13: ['센서에서 행동까지', '위치 추정, 매핑 및 내비게이션', '조작과 학습', '안전성과 신뢰성'], 14: ['엣지에서 추론하는 이유', '디바이스용 모델 최적화', '복원력 있는 IoT 파이프라인', '보안과 수명 주기'], 15: ['AutoML이 자동화하는 것', '데이터와 타깃 준비', '지표 선택과 결과 해석', '프로토타입에서 안전한 의사결정까지'] },
+    ru: { 9: ['Задачи последовательного принятия решений', 'Функции ценности и Q-Learning', 'От Policy Gradient к PPO', 'Проектирование награды и оценка'], 10: ['Генеративные модели и обучающие данные', 'Как работают Transformer', 'RAG, дообучение и вызов инструментов', 'Оценка, стоимость и риски'], 11: ['Клинические сценарии использования', 'Клинические данные и валидация', 'Аудитируемый конвейер модели', 'Человек в контуре и приватность'], 12: ['Выбор правильной задачи', 'Данные и модели для операций', 'MLOps и мониторинг', 'Внедрение и управление'], 13: ['От датчиков к действию', 'Локализация, картирование и навигация', 'Манипуляция и обучение', 'Безопасность и надежность'], 14: ['Зачем выполнять инференс на периферии', 'Оптимизация моделей для устройств', 'Устойчивый IoT-конвейер', 'Безопасность и жизненный цикл'], 15: ['Что автоматизирует AutoML', 'Подготовка данных и цели', 'Выбор метрик и чтение результатов', 'От прототипа к безопасным решениям'] },
+    tr: { 9: ['Sıralı Karar Problemleri', 'Değer Fonksiyonları ve Q-Learning', 'Policy Gradient’ten PPO’ya', 'Ödül Tasarımı ve Değerlendirme'], 10: ['Üretken Modeller ve Eğitim Verisi', 'Transformerlar Nasıl Çalışır', 'RAG, Fine-Tuning ve Araç Kullanımı', 'Değerlendirme, Maliyet ve Risk'], 11: ['Klinik Kullanım Alanları', 'Klinik Veri ve Doğrulama', 'Denetlenebilir Model Hattı', 'Döngüde İnsan ve Gizlilik'], 12: ['Doğru Problemi Seçmek', 'Operasyonlar için Veri ve Modeller', 'MLOps ve İzleme', 'Benimseme ve Yönetişim'], 13: ['Sensörden Eyleme', 'Konumlama, Haritalama ve Navigasyon', 'Manipülasyon ve Öğrenme', 'Güvenlik ve Güvenilirlik'], 14: ['Neden Uçta Çıkarım Yapılır', 'Cihazlar için Model Optimizasyonu', 'Dayanıklı IoT Hattı', 'Güvenlik ve Yaşam Döngüsü'], 15: ['AutoML’in Otomatikleştirdikleri', 'Veri ve Hedef Hazırlama', 'Metrik Seçimi ve Sonuç Okuma', 'Prototipten Güvenli Kararlara'] },
+    it: { 9: ['Problemi Decisionali Sequenziali', 'Funzioni di Valore e Q-Learning', 'Da Policy Gradient a PPO', 'Progettazione della Ricompensa e Valutazione'], 10: ['Modelli Generativi e Dati di Addestramento', 'Come Funzionano i Transformer', 'RAG, Fine-Tuning e Uso di Strumenti', 'Valutazione, Costo e Rischio'], 11: ['Casi d’Uso Clinico', 'Dati Clinici e Validazione', 'Una Pipeline di Modello Verificabile', 'Umano nel Ciclo e Privacy'], 12: ['Scegliere il Problema Giusto', 'Dati e Modelli per le Operazioni', 'MLOps e Monitoraggio', 'Adozione e Governance'], 13: ['Dai Sensori all’Azione', 'Localizzazione, Mappatura e Navigazione', 'Manipolazione e Apprendimento', 'Sicurezza e Affidabilità'], 14: ['Perché Inferire all’Edge', 'Ottimizzare Modelli per Dispositivi', 'Pipeline IoT Resiliente', 'Sicurezza e Ciclo di Vita'], 15: ['Cosa Automatizza AutoML', 'Preparare Dati e Target', 'Scegliere Metriche e Leggere Risultati', 'Dal Prototipo a Decisioni Sicure'] },
+    vi: { 9: ['Bài toán Quyết định Tuần tự', 'Hàm Giá trị và Q-Learning', 'Từ Policy Gradient đến PPO', 'Thiết kế Phần thưởng và Đánh giá'], 10: ['Mô hình Tạo sinh và Dữ liệu Huấn luyện', 'Transformer Hoạt động Thế nào', 'RAG, Fine-Tuning và Dùng Công cụ', 'Đánh giá, Chi phí và Rủi ro'], 11: ['Trường hợp Sử dụng Lâm sàng', 'Dữ liệu Lâm sàng và Thẩm định', 'Pipeline Mô hình Có thể Kiểm toán', 'Con người trong Vòng lặp và Quyền riêng tư'], 12: ['Chọn Đúng Bài toán', 'Dữ liệu và Mô hình cho Vận hành', 'MLOps và Giám sát', 'Áp dụng và Quản trị'], 13: ['Từ Cảm biến đến Hành động', 'Định vị, Lập bản đồ và Điều hướng', 'Thao tác và Học tập', 'An toàn và Độ tin cậy'], 14: ['Vì sao Suy luận tại Edge', 'Tối ưu Mô hình cho Thiết bị', 'Pipeline IoT Bền vững', 'Bảo mật và Vòng đời'], 15: ['AutoML Tự động hóa gì', 'Chuẩn bị Dữ liệu và Mục tiêu', 'Chọn Chỉ số và Đọc Kết quả', 'Từ Nguyên mẫu đến Quyết định An toàn'] }
+};
+
+Object.entries(additionalLessonTranslations).forEach(([lang, lessons]) => Object.assign(lessonTranslations[lang], lessons));
+Object.entries(additionalSectionTranslations).forEach(([lang, sections]) => Object.assign(sectionTranslations[lang], sections));
+
 // Content notice for non-Indonesian languages
 const contentNotice = {
     en: '📌 The detailed lesson content below is in Indonesian (Bahasa Indonesia).',
@@ -395,6 +544,181 @@ const LESSONS = [
                 content: 'Mulailah dengan memperkuat dasar Python dan matematika. Ikuti kursus online dasar-dasar Machine Learning (seperti modul di platform ini!), cobalah membangun proyek portofolio kecil-kecilan (seperti klasifikasi gambar sederhana atau prediksi harga), lalu berpartisipasi dalam komunitas seperti Kaggle atau GitHub.'
             }
         ]
+    },
+    {
+        id: 9,
+        title: 'Reinforcement Learning',
+        desc: 'Pelajari cara agen AI mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan.',
+        level: 'Lanjut',
+        duration: '28 menit',
+        sections: [
+            {
+                title: 'Masalah Keputusan Berurutan',
+                content: 'Reinforcement Learning (RL) memodelkan pengambilan keputusan sebagai Markov Decision Process (MDP): agen mengamati state, memilih action, lalu menerima reward dan state berikutnya. Policy π(a|s) menentukan tindakan; discount factor γ menimbang reward masa depan. Dalam CartPole dari Gymnasium, agen mendapat +1 pada setiap langkah saat tiang tetap tegak. Berbeda dari supervised learning, RL tidak diberi jawaban benar untuk setiap state; agen harus mengeksplorasi konsekuensi tindakannya.'
+            },
+            {
+                title: 'Value Function dan Q-Learning',
+                content: 'Value-based RL memperkirakan nilai jangka panjang dari state atau pasangan state-action. Q-learning memperbarui tabel atau jaringan Q dengan aturan: Q(s,a) ← Q(s,a) + α[r + γ max Q(s′,a′) − Q(s,a)]. Strategi ε-greedy kadang memilih action acak agar agen tidak terjebak pada pilihan yang tampak baik terlalu dini. Deep Q-Network (DQN) mengganti tabel dengan neural network, lalu memakai replay buffer dan target network agar training pada game Atari lebih stabil.'
+            },
+            {
+                title: 'Policy Gradient hingga PPO',
+                content: 'Untuk action kontinu—misalnya sudut motor lengan robot—policy dapat langsung menghasilkan distribusi action. REINFORCE memperbarui parameter policy dari reward episode, sedangkan actor-critic menambahkan critic untuk memperkirakan value dan mengurangi varians gradient. Proximal Policy Optimization (PPO) membatasi besar perubahan policy pada tiap update; Soft Actor-Critic (SAC) sering dipakai untuk kontrol kontinu karena juga mendorong eksplorasi melalui entropy. Stable-Baselines3 menyediakan implementasi PPO, DQN, dan SAC untuk eksperimen awal.'
+            },
+            {
+                title: 'Merancang Reward dan Evaluasi',
+                content: 'Reward yang keliru dapat menghasilkan perilaku yang lolos angka metrik tetapi gagal pada tujuan nyata. Robot gudang yang hanya diberi reward kecepatan dapat memilih jalur berbahaya; tambahkan penalti tabrakan, konsumsi energi, dan waktu tunggu. Latih beberapa random seed, pisahkan environment evaluasi, dan catat rata-rata return serta tingkat keberhasilan, bukan hanya episode terbaik. Untuk robot fisik, mulai dari simulasi seperti MuJoCo atau Isaac Sim, lakukan domain randomization, lalu batasi action dan sediakan emergency stop saat pemindahan ke perangkat nyata.'
+            }
+        ]
+    },
+    {
+        id: 10,
+        title: 'Generative AI & Large Language Models',
+        desc: 'Memahami model yang menghasilkan teks, gambar, kode, dan cara menggunakannya dengan data yang terkontrol.',
+        level: 'Menengah',
+        duration: '26 menit',
+        sections: [
+            {
+                title: 'Model Generatif dan Data Latih',
+                content: 'Model diskriminatif memutuskan label—misalnya spam atau bukan—sedangkan model generatif mempelajari pola data untuk membuat contoh baru. LLM autoregresif memprediksi token berikutnya dalam urutan teks; model difusi menambahkan lalu menghilangkan noise secara bertahap untuk membentuk gambar. GPT, Llama, dan Mistral adalah contoh LLM, sementara Stable Diffusion memakai proses difusi. Kualitas keluaran tetap bergantung pada data latih, instruksi, dan konteks yang tersedia saat inferensi.'
+            },
+            {
+                title: 'Cara Kerja Transformer',
+                content: 'Sebelum masuk model, teks dipecah oleh tokenizer seperti Byte Pair Encoding menjadi token. Token diubah menjadi embedding, lalu layer self-attention menghitung token mana yang relevan satu sama lain; positional encoding memberi informasi urutan. Pada pre-training, model dilatih meminimalkan error prediksi token berikutnya pada korpus besar. Temperature dan top-p mengatur keberagaman token saat generasi: temperature rendah cenderung konsisten, tetapi bukan jaminan kebenaran faktual.'
+            },
+            {
+                title: 'RAG, Fine-tuning, dan Tool Use',
+                content: 'Retrieval-Augmented Generation (RAG) mengambil potongan dokumen yang relevan sebelum LLM menjawab. Dokumen dapat di-embed dengan model seperti text-embedding-3 atau BGE, lalu dicari di FAISS, pgvector, atau Chroma. Contoh: chatbot layanan pelanggan mengambil kebijakan pengembalian terbaru dari knowledge base dan menyertakan sumber pada jawaban. Fine-tuning atau LoRA berguna ketika format, gaya, atau tugas berulang harus stabil; function calling menghubungkan model ke API seperti pencarian stok atau kalender dengan schema JSON yang tervalidasi.'
+            },
+            {
+                title: 'Evaluasi, Biaya, dan Risiko',
+                content: 'Uji sistem dengan kumpulan prompt yang mewakili kasus normal, kasus batas, serta pertanyaan tanpa jawaban. Nilai groundedness, ketepatan kutipan, latency, token per permintaan, dan tingkat eskalasi ke manusia. Jangan menganggap keluaran LLM sebagai bukti: hallucination dapat terdengar meyakinkan. Lindungi instruksi sistem dari prompt injection, batasi tool permission, redaksi data pribadi sebelum dikirim, dan simpan log yang tidak memuat rahasia untuk investigasi kegagalan.'
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: 'AI in Healthcare',
+        desc: 'Mengenal penggunaan AI medis, validasi klinis, dan batas keselamatan sebelum sistem dipakai di layanan kesehatan.',
+        level: 'Menengah',
+        duration: '25 menit',
+        sections: [
+            {
+                title: 'Kasus Penggunaan Klinis',
+                content: 'AI kesehatan dipakai untuk triage citra, prediksi risiko, dokumentasi, dan penelitian obat—bukan pengganti penilaian klinis. Model computer vision dapat menandai area mencurigakan pada X-ray atau CT; NLP dapat mengekstrak obat, alergi, dan diagnosis dari catatan klinis. Sistem early-warning seperti prediksi risiko sepsis memakai tanda vital dan hasil laboratorium yang berubah dari waktu ke waktu. Output yang berguna harus menyebut populasi, tujuan, dan tindakan yang akan dipicu, misalnya “prioritaskan pemeriksaan dokter”, bukan langsung menetapkan diagnosis.'
+            },
+            {
+                title: 'Data Klinis dan Validasi',
+                content: 'Data kesehatan memiliki kode yang tidak lengkap, label yang tertunda, serta perbedaan perangkat dan rumah sakit. Format DICOM menyimpan citra medis beserta metadata; dataset seperti MIMIC memerlukan tata kelola akses yang ketat. Hindari data leakage: hasil laboratorium setelah keputusan klinis tidak boleh dipakai untuk memprediksi keputusan itu. Bagi data menurut pasien dan waktu, lalu lakukan external validation pada lokasi lain. Untuk skrining penyakit langka, sensitivity, specificity, positive predictive value, serta calibration lebih informatif daripada accuracy tunggal.'
+            },
+            {
+                title: 'Alur Model yang Dapat Diaudit',
+                content: 'Sebuah pipeline radiologi dapat melakukan de-identification DICOM, normalisasi citra, inferensi model DenseNet atau U-Net, lalu menampilkan heatmap Grad-CAM sebagai petunjuk area yang perlu ditinjau. Heatmap bukan penjelasan kausal dan tidak boleh menggantikan pembacaan radiolog. Catat versi data, preprocessing, model, threshold, dan siapa yang menyetujui perubahan. Uji subgroup berdasarkan usia, jenis kelamin, perangkat, dan lokasi agar model tidak hanya bekerja baik pada kelompok dominan di data latih.'
+            },
+            {
+                title: 'Human-in-the-Loop dan Privasi',
+                content: 'Dokter atau tenaga profesional yang berwenang perlu melihat konteks pasien, tingkat keyakinan, dan jalur untuk menolak rekomendasi. Tetapkan kapan alert dikirim, siapa yang menindaklanjuti, serta bagaimana adverse event dilaporkan. Terapkan least-privilege access, enkripsi saat transit dan tersimpan, retensi data minimum, serta de-identification sebelum penggunaan sekunder. Sebelum deployment, libatkan tim klinis, keamanan, privasi, dan kepatuhan untuk menilai manfaat, risiko, serta persyaratan regulator di wilayah layanan.'
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: 'AI untuk Bisnis & Industri',
+        desc: 'Menghubungkan masalah bisnis dengan data, model, metrik operasional, dan tata kelola yang dapat dipertanggungjawabkan.',
+        level: 'Menengah',
+        duration: '24 menit',
+        sections: [
+            {
+                title: 'Memilih Masalah yang Tepat',
+                content: 'Mulai dari keputusan yang berulang dan memiliki metrik, bukan dari pilihan model. Peritel dapat memprediksi permintaan per SKU untuk mengurangi stockout; bank dapat memprioritaskan transaksi yang perlu ditinjau sebagai fraud; pabrik dapat mendeteksi cacat visual pada lini produksi. Rumuskan baseline operasional, pemilik keputusan, dan KPI seperti service level, false-positive rate, waktu proses, atau biaya per kasus. Kenaikan accuracy tanpa dampak pada KPI belum tentu menghasilkan nilai bisnis.'
+            },
+            {
+                title: 'Data dan Model untuk Operasi',
+                content: 'Data transaksi, CRM, ERP, sensor, dan log layanan sering perlu disatukan terlebih dahulu. Forecast permintaan dapat memakai XGBoost atau model time series seperti Prophet dengan fitur promosi, hari libur, dan lead time. Sistem rekomendasi dapat menggabungkan collaborative filtering dan aturan ketersediaan stok. Untuk dokumen invoice, OCR mengekstrak teks lalu model klasifikasi atau rule validation memeriksa nomor PO dan total. Definisi fitur harus sama antara training dan produksi agar prediksi tidak bergeser.'
+            },
+            {
+                title: 'MLOps dan Pemantauan',
+                content: 'Model produksi membutuhkan lebih dari notebook. Gunakan versioning untuk data dan kode, catat eksperimen di MLflow, uji pipeline, lalu deploy sebagai batch job atau API. Pantau input drift, prediction drift, latency, error rate, dan metrik bisnis setelah keputusan terjadi. Population Stability Index (PSI) dapat memberi sinyal distribusi fitur berubah; label yang datang terlambat harus tetap dihubungkan kembali ke prediksi asli. Siapkan rollback model dan prosedur manual jika kualitas menurun.'
+            },
+            {
+                title: 'Adopsi dan Tata Kelola',
+                content: 'Pilot yang baik membatasi satu proses, satu pengguna utama, dan periode evaluasi yang jelas. Tampilkan alasan atau faktor penting bila pengguna harus menilai rekomendasi, lalu kumpulkan contoh penolakan untuk perbaikan data. Tentukan data yang tidak boleh dipakai, batas keputusan otomatis, dan penanggung jawab ketika model salah. Dashboard ROI perlu membandingkan hasil dengan baseline atau kelompok kontrol; tanpa pembanding, musiman dan perubahan proses dapat keliru dianggap sebagai dampak AI.'
+            }
+        ]
+    },
+    {
+        id: 13,
+        title: 'Robotika & AI',
+        desc: 'Pelajari bagaimana persepsi, perencanaan, kontrol, dan pembelajaran digabungkan agar robot dapat bekerja di dunia fisik.',
+        level: 'Lanjut',
+        duration: '30 menit',
+        sections: [
+            {
+                title: 'Dari Sensor ke Aksi',
+                content: 'Robot menggabungkan sensor seperti kamera RGB-D, LiDAR, IMU, encoder roda, dan force-torque sensor untuk memperkirakan keadaan dunia. Sistem persepsi mendeteksi objek atau pose; planner memilih lintasan; controller mengirim torsi atau kecepatan motor. ROS 2 mengatur komponen ini sebagai node yang bertukar pesan melalui topic, service, dan action. Sebuah mobile robot, misalnya, dapat menerima peta dari LiDAR, posisi dari localization, lalu mengirim perintah kecepatan ke base controller.'
+            },
+            {
+                title: 'Lokalisasi, Pemetaan, dan Navigasi',
+                content: 'SLAM (Simultaneous Localization and Mapping) membangun peta sambil memperkirakan posisi robot. Algoritma seperti ORB-SLAM memakai fitur visual; LiDAR SLAM memakai kecocokan scan. Extended Kalman Filter dapat memadukan IMU, odometri, dan GPS, sedangkan AMCL melokalisasi robot pada peta yang sudah ada. Navigation2 di ROS 2 biasanya menyusun global path dengan A* atau NavFn dan menghindari rintangan lokal dengan costmap. Peta yang rapi tidak cukup bila sensor terlambat atau frame koordinat salah.'
+            },
+            {
+                title: 'Manipulasi dan Pembelajaran',
+                content: 'Lengan robot perlu menyelesaikan inverse kinematics untuk mengubah pose target menjadi sudut joint. MoveIt dapat merencanakan gerak sambil memeriksa collision scene. Untuk mengambil benda, vision model memperkirakan pose atau grasp point, lalu gripper menutup dengan feedback gaya. Imitation learning belajar dari demonstrasi operator; reinforcement learning dapat melatih policy di simulasi MuJoCo atau Isaac Sim sebelum fine-tuning terbatas pada robot. Kalibrasi camera-to-robot dan toleransi posisi sering lebih menentukan daripada arsitektur model yang dipakai.'
+            },
+            {
+                title: 'Keselamatan dan Keandalan',
+                content: 'Dunia fisik tidak memberi tombol undo. Batasi kecepatan, gaya, ruang kerja, dan action policy; gunakan emergency stop, sensor keselamatan, serta interlock sebelum mengaktifkan aktuator. Uji skenario sensor tertutup, objek jatuh, jaringan putus, dan manusia memasuki area kerja. Simulator membantu menguji ribuan variasi, tetapi gap simulasi-ke-nyata tetap ada karena gesekan, pencahayaan, dan keterlambatan sensor. Logging time-stamped, replay insiden, serta mode manual membuat kegagalan dapat ditelusuri dan dipulihkan.'
+            }
+        ]
+    },
+    {
+        id: 14,
+        title: 'Edge AI & IoT',
+        desc: 'Menjalankan inferensi AI dekat sensor dengan batas daya, memori, konektivitas, dan keamanan perangkat.',
+        level: 'Lanjut',
+        duration: '27 menit',
+        sections: [
+            {
+                title: 'Mengapa Inferensi di Edge',
+                content: 'Edge AI menjalankan model pada atau dekat perangkat penghasil data, bukan selalu mengirim semua data ke cloud. Kamera inspeksi dapat menolak produk cacat dalam puluhan milidetik; sensor getaran dapat mendeteksi anomali walau koneksi putus. Pendekatan ini mengurangi latency, bandwidth, dan paparan video mentah, tetapi perangkat seperti ESP32, Raspberry Pi, NVIDIA Jetson, atau Google Coral memiliki batas RAM, daya, dan akselerator yang berbeda. Pilihan hardware harus dimulai dari target latency, ukuran model, dan kondisi lapangan.'
+            },
+            {
+                title: 'Optimasi Model untuk Perangkat',
+                content: 'Quantization mengubah bobot float32 menjadi int8 agar model lebih kecil dan cepat; lakukan calibration dengan data yang mewakili sensor nyata. Pruning menghapus koneksi yang kurang penting, sedangkan knowledge distillation melatih model kecil mengikuti keluaran model guru. TensorFlow Lite, TensorRT, ONNX Runtime, dan OpenVINO menyediakan compiler atau runtime untuk target berbeda. Jangan hanya mengukur ukuran file: bandingkan akurasi, latency p50/p95, penggunaan memori, suhu, dan konsumsi daya pada perangkat tujuan.'
+            },
+            {
+                title: 'Pipeline IoT yang Tahan Gangguan',
+                content: 'Contoh pabrik: accelerometer mengirim window getaran ke gateway, model anomaly detection memberi skor lokal, lalu hanya skor dan cuplikan penting dikirim melalui MQTT ke server. Payload perlu memiliki device ID, timestamp tersinkron, versi firmware, dan versi model. Buffer lokal menyimpan data saat jaringan hilang; mekanisme retry tidak boleh menggandakan perintah aktuator. Pisahkan jalur telemetri dari jalur kontrol, lalu validasi schema pesan agar firmware lama dan backend baru tidak saling merusak.'
+            },
+            {
+                title: 'Keamanan dan Siklus Hidup',
+                content: 'Perangkat edge harus memverifikasi firmware dan model yang ditandatangani sebelum menjalankannya. Terapkan secure boot bila hardware mendukung, kredensial unik per perangkat, TLS untuk komunikasi, serta rotasi kunci. Rilis model secara bertahap ke kelompok kecil perangkat, pantau crash, latency, dan perubahan distribusi input, lalu sediakan rollback. Data sensor dapat berubah karena pemasangan ulang atau keausan; jadwal retraining dan uji regresi perlu menjadi bagian dari operasi, bukan pekerjaan sekali saat peluncuran.'
+            }
+        ]
+    },
+    {
+        id: 15,
+        title: 'AutoML & No-Code AI',
+        desc: 'Menggunakan otomatisasi untuk membangun model sambil tetap menguji data, metrik, dan keputusan yang dihasilkan.',
+        level: 'Pemula',
+        duration: '20 menit',
+        sections: [
+            {
+                title: 'Apa yang Diotomatisasi AutoML',
+                content: 'AutoML dapat mengotomatisasi pembersihan data dasar, encoding kategori, pemilihan model, feature engineering terbatas, dan hyperparameter tuning. Auto-sklearn, H2O AutoML, dan AutoGluon mencoba beberapa pipeline lalu membandingkan validasinya; platform cloud seperti Vertex AI dan Azure Machine Learning menyediakan alur terkelola. No-code tools seperti Teachable Machine cocok untuk prototipe klasifikasi gambar atau suara. Otomatisasi mempercepat eksperimen, tetapi tidak dapat memperbaiki target bisnis yang salah atau data yang tidak representatif.'
+            },
+            {
+                title: 'Menyiapkan Data dan Target',
+                content: 'Tentukan satu baris data mewakili apa, kapan prediksi dibuat, dan kolom mana yang tersedia pada saat itu. Untuk prediksi churn, target dapat berarti pelanggan berhenti berlangganan dalam 30 hari; kolom “alasan pembatalan” tidak boleh dipakai karena muncul setelah churn terjadi. Pisahkan train, validation, dan test menurut waktu bila data bersifat temporal. Periksa missing value, duplikasi pelanggan, ketidakseimbangan kelas, serta konsistensi satuan sebelum menekan tombol training.'
+            },
+            {
+                title: 'Memilih Metrik dan Membaca Hasil',
+                content: 'Leaderboard AutoML sering mengurutkan accuracy, padahal metrik itu menyesatkan jika hanya 2% transaksi adalah fraud. Gunakan precision-recall, ROC-AUC, F1, MAE, atau biaya salah prediksi sesuai masalah. Lihat confusion matrix pada threshold yang akan dipakai operasi: tim fraud mungkin menerima precision lebih rendah demi recall tinggi, sedangkan tim sales perlu daftar yang cukup kecil untuk ditindaklanjuti. Bandingkan model dengan baseline sederhana seperti aturan bisnis atau logistic regression, bukan hanya sesama model otomatis.'
+            },
+            {
+                title: 'Dari Prototipe ke Keputusan Aman',
+                content: 'Simpan dataset, versi konfigurasi, metrik, dan contoh prediksi agar hasil dapat direproduksi. Gunakan SHAP atau feature importance untuk mengecek apakah model mengandalkan sinyal yang masuk akal; korelasi tinggi bukan bukti sebab-akibat. Ekspor model atau endpoint harus diuji lagi dengan data produksi, pemantauan drift, dan jalur review manusia untuk keputusan berisiko. No-code tidak berarti tanpa tanggung jawab: pemilik proses tetap perlu memahami batas model, menangani keluhan, dan menghentikan otomatisasi ketika bukti kualitas tidak cukup.'
+            }
+        ]
     }
 ];
 const QUIZ = [
@@ -422,7 +746,28 @@ const QUIZ = [
     { q: 'Seni merancang instruksi untuk LLM seperti ChatGPT disebut?', opts: ['Software Engineering', 'Prompt Engineering', 'Data Engineering', 'Machine Learning'], ans: 1 },
     { q: 'Teknik memberikan satu atau lebih contoh agar AI tahu pola output yang kita inginkan dinamakan?', opts: ['Zero-shot prompting', 'One-shot attack', 'Few-shot prompting', 'Chain of thought'], ans: 2 },
     { q: 'Penyebab utama munculnya bias pada algoritma AI adalah?', opts: ['Komputer terlalu pintar', 'Kecepatan internet lambat', 'Data latih yang mengandung bias manusia', 'Listrik yang tidak stabil'], ans: 2 },
-    { q: 'Profesi AI yang bertugas membangun infrastruktur dan saluran data (pipeline) adalah?', opts: ['Data Engineer', 'Data Scientist', 'Machine Learning Engineer', 'Web Developer'], ans: 0 }
+    { q: 'Profesi AI yang bertugas membangun infrastruktur dan saluran data (pipeline) adalah?', opts: ['Data Engineer', 'Data Scientist', 'Machine Learning Engineer', 'Web Developer'], ans: 0 },
+    // Reinforcement Learning
+    { q: 'Dalam Reinforcement Learning, apa tujuan agen?', opts: ['Menghafal semua data latih', 'Memaksimalkan reward kumulatif', 'Menghapus state lingkungan', 'Menghindari semua eksplorasi'], ans: 1 },
+    { q: 'Komponen DQN yang menyimpan pengalaman untuk dipakai kembali saat training adalah?', opts: ['Replay buffer', 'Tokenizer', 'Confusion matrix', 'Feature store'], ans: 0 },
+    // Generative AI & LLM
+    { q: 'Pendekatan yang mengambil potongan dokumen relevan sebelum LLM menjawab disebut?', opts: ['RAG', 'PCA', 'K-Means', 'OCR'], ans: 0 },
+    { q: 'Parameter yang terutama mengatur keragaman token saat LLM menghasilkan teks adalah?', opts: ['Learning rate', 'Temperature', 'Batch size', 'Image width'], ans: 1 },
+    // AI in Healthcare
+    { q: 'Mengapa pembagian data menurut pasien penting pada evaluasi model klinis?', opts: ['Agar gambar lebih berwarna', 'Agar data pasien yang sama tidak bocor ke train dan test', 'Agar training selalu lebih cepat', 'Agar semua threshold bernilai 0,5'], ans: 1 },
+    { q: 'Metrik yang penting untuk menilai model skrining penyakit langka selain accuracy adalah?', opts: ['Sensitivity dan specificity', 'Resolusi layar', 'Jumlah GPU', 'Kecepatan internet'], ans: 0 },
+    // AI untuk Bisnis & Industri
+    { q: 'Contoh KPI yang tepat untuk model prediksi permintaan ritel adalah?', opts: ['Service level dan stockout', 'Warna dashboard', 'Jumlah slide presentasi', 'Nama algoritma'], ans: 0 },
+    { q: 'Apa fungsi utama monitoring input drift pada model produksi?', opts: ['Mengganti semua data dengan data acak', 'Mendeteksi perubahan distribusi data masukan', 'Menambah jumlah kelas target', 'Menghapus log eksperimen'], ans: 1 },
+    // Robotika & AI
+    { q: 'SLAM memungkinkan robot untuk?', opts: ['Menggambar antarmuka web', 'Memetakan lingkungan sambil memperkirakan posisinya', 'Mengompresi file video', 'Menerjemahkan dokumen'], ans: 1 },
+    { q: 'Tool ROS 2 yang umum dipakai untuk perencanaan gerak lengan robot dan pemeriksaan tabrakan adalah?', opts: ['MoveIt', 'Pandas', 'Figma', 'Postman'], ans: 0 },
+    // Edge AI & IoT
+    { q: 'Mengapa inferensi di edge berguna untuk inspeksi produk berbasis kamera?', opts: ['Selalu membutuhkan bandwidth lebih besar', 'Dapat mengurangi latency dan pengiriman video mentah', 'Menghapus kebutuhan sensor', 'Membuat semua model lebih akurat'], ans: 1 },
+    { q: 'Teknik yang umum mengubah bobot float32 menjadi int8 untuk perangkat edge adalah?', opts: ['Quantization', 'Tokenization', 'Normalization', 'Augmentation'], ans: 0 },
+    // AutoML & No-Code AI
+    { q: 'Mengapa accuracy bisa menyesatkan pada dataset fraud dengan kelas positif sangat sedikit?', opts: ['Accuracy tidak dapat dihitung oleh komputer', 'Model dapat benar pada kelas mayoritas tetapi gagal menemukan fraud', 'Fraud tidak memerlukan data', 'Semua kelas pasti seimbang'], ans: 1 },
+    { q: 'Kolom “alasan pembatalan” sebaiknya tidak dipakai untuk prediksi churn bila muncul setelah pelanggan berhenti karena?', opts: ['Data leakage', 'Regularization', 'Token limit', 'Image segmentation'], ans: 0 }
 ];
 
 let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, lang: 'id', certId: null, badges: [], leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };

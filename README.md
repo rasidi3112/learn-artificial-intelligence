@@ -32,12 +32,19 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 |---|--------|-------|--------|
 | 1 | **Apa itu Kecerdasan Buatan?** — Konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari | Pemula | 15 menit |
 | 2 | **Machine Learning Dasar** — Konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi | Menengah | 20 menit |
-| 3 | **Deep Learning & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
+| 3 | **Pembelajaran Mendalam & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
 | 4 | **Natural Language Processing (NLP)** — Bagaimana AI memahami dan memproses bahasa manusia | Menengah | 18 menit |
 | 5 | **Computer Vision** — Teknologi AI untuk mengenali dan memproses gambar dan video | Lanjut | 22 menit |
 | 6 | **Prompt Engineering Dasar** — Seni berinteraksi dengan AI generatif seperti ChatGPT untuk hasil maksimal | Pemula | 15 menit |
 | 7 | **Etika dan Bias dalam AI** — Pentingnya keamanan, privasi, dan keadilan dalam menggunakan AI | Menengah | 20 menit |
 | 8 | **Panduan Karir di Bidang AI** — Peluang pekerjaan, tren masa depan, dan cara memulai karir di industri AI | Pemula | 15 menit |
+| 9 | **Reinforcement Learning** — AI belajar dari interaksi lingkungan melalui reward | Lanjut | 28 menit |
+| 10 | **Generative AI & Large Language Models** — Fondasi transformer, LLM, prompt, dan RAG | Menengah | 26 menit |
+| 11 | **AI in Healthcare** — Penerapan AI di bidang kesehatan, validasi klinis, dan privasi | Menengah | 25 menit |
+| 12 | **AI untuk Bisnis & Industri** — Transformasi digital, MLOps, dan tata kelola bisnis | Menengah | 24 menit |
+| 13 | **Robotika & AI** — Integrasi sensor, pemetaan (SLAM), dan kontrol gerak robot | Lanjut | 30 menit |
+| 14 | **Edge AI & IoT** — Optimasi model, kuantisasi, dan inferensi pada perangkat edge | Lanjut | 27 menit |
+| 15 | **AutoML & No-Code AI** — Membangun pipeline model otomatis dan evaluasi tanpa coding | Pemula | 20 menit |
 
 ---
 
@@ -54,7 +61,7 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 ###  Kuis Interaktif
 | Fitur | Deskripsi |
 |-------|-----------|
-| **19 Soal Kuis** | Uji pemahaman dari semua materi |
+| **33 Soal Kuis** | Uji pemahaman dari semua 15 materi pembelajaran |
 | **Urutan Acak** | Soal diacak setiap percobaan (Fisher-Yates shuffle) |
 | **Navigasi Keyboard** | Jawab soal dengan Enter/Space |
 | **Download Hasil** | Unduh laporan kuis sebagai file teks |
@@ -63,7 +70,7 @@ Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
 | Badge | Kondisi Unlock |
 |-------|----------------|
 | 🎓 Pelajar Pertama | Selesaikan 1 pelajaran |
-| 🏆 Master AI | Selesaikan semua 8 pelajaran |
+| 🏆 Master AI | Selesaikan semua 15 pelajaran |
 | 💯 Jenius Kuis | Raih skor sempurna (100%) |
 | 📝 Pencatat | Buat 5 catatan |
 | 💬 Sosial | Buat 3 postingan forum |
