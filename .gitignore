@@ -1,0 +1,4 @@
+dist/
+deploy.zip
+*.zip
+.DS_Store
