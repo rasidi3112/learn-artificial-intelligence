@@ -2440,10 +2440,12 @@ button,
 .certificate-pdf {
     position: relative;
     width: 1120px;
-    height: 768px;
+    height: 730px;
     box-sizing: border-box;
     padding: 14px;
     overflow: hidden;
+    break-inside: avoid;
+    page-break-inside: avoid;
     color: #172b4d;
     background: #f7f2e8;
     box-shadow: 0 24px 70px rgba(15, 23, 42, 0.2);

@@ -1340,7 +1340,7 @@ function downloadCertificate() {
             letterRendering: true,
             windowWidth: 1200
         },
-        pagebreak: { mode: ['avoid-all'] },
+        pagebreak: { mode: ['avoid-all', 'css'] },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
     };
 
