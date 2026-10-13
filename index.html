@@ -44,6 +44,9 @@
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
+
+    <!-- Detect JavaScript support for progressive enhancement -->
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
@@ -105,19 +108,21 @@
             </div>
         </header>
 
-        <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
-            <button class="nav-tab active" role="tab" id="tab-materi" aria-selected="true" aria-controls="materi"
-                data-i18n="tab_materi" tabindex="0">Materi</button>
-            <button class="nav-tab" role="tab" id="tab-quiz" aria-selected="false" aria-controls="quiz"
-                data-i18n="tab_kuis" tabindex="-1">Kuis</button>
-            <button class="nav-tab" role="tab" id="tab-catatan" aria-selected="false" aria-controls="catatan"
-                data-i18n="tab_catatan" tabindex="-1">Catatan</button>
-            <button class="nav-tab" role="tab" id="tab-forum" aria-selected="false" aria-controls="forum"
-                data-i18n="tab_forum" tabindex="-1">Forum</button>
-            <button class="nav-tab" role="tab" id="tab-leaderboard" aria-selected="false" aria-controls="leaderboard"
-                data-i18n="tab_leaderboard" tabindex="-1">Leaderboard</button>
-            <button class="nav-tab" role="tab" id="tab-sertifikat" aria-selected="false" aria-controls="sertifikat"
-                data-i18n="tab_sertifikat" tabindex="-1">Sertifikat</button>
+        <nav aria-label="Main navigation">
+            <div class="nav-tabs" role="tablist" aria-label="Navigation tabs">
+                <button class="nav-tab active" role="tab" id="tab-materi" aria-selected="true" aria-controls="materi"
+                    data-i18n="tab_materi" tabindex="0">Materi</button>
+                <button class="nav-tab" role="tab" id="tab-quiz" aria-selected="false" aria-controls="quiz"
+                    data-i18n="tab_kuis" tabindex="-1">Kuis</button>
+                <button class="nav-tab" role="tab" id="tab-catatan" aria-selected="false" aria-controls="catatan"
+                    data-i18n="tab_catatan" tabindex="-1">Catatan</button>
+                <button class="nav-tab" role="tab" id="tab-forum" aria-selected="false" aria-controls="forum"
+                    data-i18n="tab_forum" tabindex="-1">Forum</button>
+                <button class="nav-tab" role="tab" id="tab-leaderboard" aria-selected="false" aria-controls="leaderboard"
+                    data-i18n="tab_leaderboard" tabindex="-1">Leaderboard</button>
+                <button class="nav-tab" role="tab" id="tab-sertifikat" aria-selected="false" aria-controls="sertifikat"
+                    data-i18n="tab_sertifikat" tabindex="-1">Sertifikat</button>
+            </div>
         </nav>
 
         <main>
@@ -145,9 +150,9 @@
 
                 <div class="progress-section card">
                     <div class="progress-header">
-                        <h3 data-i18n="progress_title">Progress Pembelajaran</h3><span id="progressPercent">0%</span>
+                        <h3 id="progressTitle" data-i18n="progress_title">Progress Pembelajaran</h3><span id="progressPercent">0%</span>
                     </div>
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    <div class="progress-bar" role="progressbar" aria-labelledby="progressTitle" aria-valuenow="0" aria-valuemin="0"
                         aria-valuemax="100">
                         <div class="progress-fill" id="progressBar" style="width:0%"></div>
                     </div>
@@ -184,13 +189,15 @@
                     <h2 class="section-title" data-i18n="quiz_title">Uji Pemahaman Anda</h2>
                     <div class="progress-section">
                         <div class="progress-header">
-                            <h3 data-i18n="quiz_progress">Progress Kuis</h3><span id="quizProgressPercent">0%</span>
+                            <h3 id="quizProgressTitle" data-i18n="quiz_progress">Progress Kuis</h3><span id="quizProgressPercent">0%</span>
                         </div>
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar" aria-labelledby="quizProgressTitle" aria-valuenow="0" aria-valuemin="0"
                             aria-valuemax="100">
                             <div class="progress-fill" id="quizProgressBar" style="width:0%"></div>
                         </div>
                     </div>
+                    <!-- Live region for announcing quiz feedback to screen readers -->
+                    <div id="quizLiveRegion" class="sr-only" aria-live="polite" aria-atomic="true"></div>
                     <div id="quizContent"></div>
                     <div id="quizResult" class="result-box" style="display:none">
                         <div class="result-score" id="scoreDisplay">0/5</div>
@@ -285,7 +292,7 @@
     </div>
 
     <!-- MODALS -->
-    <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle">
+    <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle" inert aria-hidden="true">
         <div class="modal-content">
             <button class="modal-close" data-modal-close="noteModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="noteModalTitle" data-i18n="modal_note_title">Tambah Catatan</h3>
@@ -301,7 +308,7 @@
         </div>
     </div>
 
-    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle" inert aria-hidden="true">
         <div class="modal-content">
             <button class="modal-close" data-modal-close="postModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="postModalTitle" data-i18n="modal_post_title">Buat Postingan</h3>
@@ -318,7 +325,7 @@
         </div>
     </div>
 
-    <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+    <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle" inert aria-hidden="true">
         <div class="modal-content">
             <button class="modal-close" data-modal-close="userModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="userModalTitle" data-i18n="modal_profile_title">Profil Pengguna</h3>
@@ -340,7 +347,7 @@
         </div>
     </div>
 
-    <div id="lessonModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle">
+    <div id="lessonModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle" inert aria-hidden="true">
         <div class="modal-content" style="max-width:900px;max-height:90vh;overflow-y:auto">
             <button class="modal-close" data-modal-close="lessonModal" aria-label="Close">×</button>
             <div id="lessonModalContent"></div>

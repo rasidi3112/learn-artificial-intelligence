@@ -37,8 +37,8 @@ const translations = {
 
 // Extra translation keys for Quiz, Notes, Forum, Leaderboard, Certificate, Modals, Buttons
 const extraKeys = {
-    id: { quiz_title: 'Uji Pemahaman Anda', quiz_progress: 'Progress Kuis', quiz_download: 'Download Hasil', quiz_retry: 'Ulangi Kuis', quiz_back: 'Kembali', notes_title: 'Catatan Pembelajaran', notes_add: 'Tambah Catatan', notes_empty: 'Belum ada catatan. Mulai buat catatan Anda!', forum_title: 'Forum Diskusi', forum_add: 'Buat Postingan', forum_empty: 'Belum ada postingan. Jadilah yang pertama!', lb_title: 'Papan Peringkat', lb_rank: 'Peringkat', lb_name: 'Nama', lb_level: 'Level', lb_points: 'Poin', lb_lessons: 'Materi', cert_title: 'Sertifikat Digital', cert_download: 'Download Sertifikat', cert_msg: 'Selesaikan semua materi untuk mendapatkan sertifikat!', modal_note_title: 'Tambah Catatan', modal_label_title: 'Judul', modal_note_content: 'Isi Catatan', modal_note_ph_title: 'Judul catatan...', modal_note_ph_content: 'Tulis catatan Anda...', modal_post_title: 'Buat Postingan', modal_post_content: 'Isi Postingan', modal_post_ph_title: 'Judul diskusi...', modal_post_ph_content: 'Tulis pertanyaan atau diskusi...', modal_profile_title: 'Profil Pengguna', modal_profile_name: 'Nama', modal_profile_ph: 'Nama Anda...', modal_profile_level: 'Level:', modal_profile_points: 'Poin:', modal_profile_completed: 'Materi Selesai:', btn_save: 'Simpan', btn_cancel: 'Batal', btn_close: 'Tutup', btn_post: 'Posting' },
-    en: { quiz_title: 'Test Your Understanding', quiz_progress: 'Quiz Progress', quiz_download: 'Download Results', quiz_retry: 'Retry Quiz', quiz_back: 'Back', notes_title: 'Learning Notes', notes_add: 'Add Note', notes_empty: 'No notes yet. Start writing your notes!', forum_title: 'Discussion Forum', forum_add: 'Create Post', forum_empty: 'No posts yet. Be the first!', lb_title: 'Leaderboard', lb_rank: 'Rank', lb_name: 'Name', lb_level: 'Level', lb_points: 'Points', lb_lessons: 'Lessons', cert_title: 'Digital Certificate', cert_download: 'Download Certificate', cert_msg: 'Complete all lessons to get your certificate!', modal_note_title: 'Add Note', modal_label_title: 'Title', modal_note_content: 'Note Content', modal_note_ph_title: 'Note title...', modal_note_ph_content: 'Write your note...', modal_post_title: 'Create Post', modal_post_content: 'Post Content', modal_post_ph_title: 'Discussion title...', modal_post_ph_content: 'Write your question or discussion...', modal_profile_title: 'User Profile', modal_profile_name: 'Name', modal_profile_ph: 'Your name...', modal_profile_level: 'Level:', modal_profile_points: 'Points:', modal_profile_completed: 'Completed Lessons:', btn_save: 'Save', btn_cancel: 'Cancel', btn_close: 'Close', btn_post: 'Post' },
+    id: { quiz_title: 'Uji Pemahaman Anda', quiz_progress: 'Progress Kuis', quiz_download: 'Download Hasil', quiz_retry: 'Ulangi Kuis', quiz_back: 'Kembali', quiz_correct_badge: 'Benar', quiz_wrong_badge: 'Salah', notes_title: 'Catatan Pembelajaran', notes_add: 'Tambah Catatan', notes_empty: 'Belum ada catatan. Mulai buat catatan Anda!', forum_title: 'Forum Diskusi', forum_add: 'Buat Postingan', forum_empty: 'Belum ada postingan. Jadilah yang pertama!', lb_title: 'Papan Peringkat', lb_rank: 'Peringkat', lb_name: 'Nama', lb_level: 'Level', lb_points: 'Poin', lb_lessons: 'Materi', lb_you: 'Anda', lb_empty: 'Belum ada data kompetisi lokal. Selesaikan materi dan kuis untuk mengumpulkan poin!', lb_local_note: 'Papan peringkat ini berbasis progres mandiri di perangkat Anda.', cert_title: 'Sertifikat Digital', cert_download: 'Download Sertifikat', cert_msg: 'Selesaikan semua materi untuk mendapatkan sertifikat!', modal_note_title: 'Tambah Catatan', modal_label_title: 'Judul', modal_note_content: 'Isi Catatan', modal_note_ph_title: 'Judul catatan...', modal_note_ph_content: 'Tulis catatan Anda...', modal_post_title: 'Buat Postingan', modal_post_content: 'Isi Postingan', modal_post_ph_title: 'Judul diskusi...', modal_post_ph_content: 'Tulis pertanyaan atau diskusi...', modal_profile_title: 'Profil Pengguna', modal_profile_name: 'Nama', modal_profile_ph: 'Nama Anda...', modal_profile_level: 'Level:', modal_profile_points: 'Poin:', modal_profile_completed: 'Materi Selesai:', btn_save: 'Simpan', btn_cancel: 'Batal', btn_close: 'Tutup', btn_post: 'Posting' },
+    en: { quiz_title: 'Test Your Understanding', quiz_progress: 'Quiz Progress', quiz_download: 'Download Results', quiz_retry: 'Retry Quiz', quiz_back: 'Back', quiz_correct_badge: 'Correct', quiz_wrong_badge: 'Incorrect', notes_title: 'Learning Notes', notes_add: 'Add Note', notes_empty: 'No notes yet. Start writing your notes!', forum_title: 'Discussion Forum', forum_add: 'Create Post', forum_empty: 'No posts yet. Be the first!', lb_title: 'Leaderboard', lb_rank: 'Rank', lb_name: 'Name', lb_level: 'Level', lb_points: 'Points', lb_lessons: 'Lessons', lb_you: 'You', lb_empty: 'No local competition data yet. Complete lessons and quizzes to earn points!', lb_local_note: 'This leaderboard is based on local self-paced progress.', cert_title: 'Digital Certificate', cert_download: 'Download Certificate', cert_msg: 'Complete all lessons to get your certificate!', modal_note_title: 'Add Note', modal_label_title: 'Title', modal_note_content: 'Note Content', modal_note_ph_title: 'Note title...', modal_note_ph_content: 'Write your note...', modal_post_title: 'Create Post', modal_post_content: 'Post Content', modal_post_ph_title: 'Discussion title...', modal_post_ph_content: 'Write your question or discussion...', modal_profile_title: 'User Profile', modal_profile_name: 'Name', modal_profile_ph: 'Your name...', modal_profile_level: 'Level:', modal_profile_points: 'Points:', modal_profile_completed: 'Completed Lessons:', btn_save: 'Save', btn_cancel: 'Cancel', btn_close: 'Close', btn_post: 'Post' },
     zh: { quiz_title: '测试你的理解', quiz_progress: '测验进度', quiz_download: '下载结果', quiz_retry: '重试测验', quiz_back: '返回', notes_title: '学习笔记', notes_add: '添加笔记', notes_empty: '还没有笔记。开始写笔记吧！', forum_title: '讨论区', forum_add: '创建帖子', forum_empty: '还没有帖子。成为第一个！', lb_title: '排行榜', lb_rank: '排名', lb_name: '姓名', lb_level: '等级', lb_points: '积分', lb_lessons: '课程', cert_title: '数字证书', cert_download: '下载证书', cert_msg: '完成所有课程即可获得证书！', modal_note_title: '添加笔记', modal_label_title: '标题', modal_note_content: '笔记内容', modal_note_ph_title: '笔记标题...', modal_note_ph_content: '写下你的笔记...', modal_post_title: '创建帖子', modal_post_content: '帖子内容', modal_post_ph_title: '讨论标题...', modal_post_ph_content: '写下你的问题或讨论...', modal_profile_title: '用户资料', modal_profile_name: '姓名', modal_profile_ph: '你的名字...', modal_profile_level: '等级：', modal_profile_points: '积分：', modal_profile_completed: '已完成课程：', btn_save: '保存', btn_cancel: '取消', btn_close: '关闭', btn_post: '发布' },
     es: { quiz_title: 'Pon a Prueba tu Comprensión', quiz_progress: 'Progreso del Quiz', quiz_download: 'Descargar Resultados', quiz_retry: 'Reintentar Quiz', quiz_back: 'Volver', notes_title: 'Notas de Aprendizaje', notes_add: 'Agregar Nota', notes_empty: 'No hay notas aún. ¡Comienza a escribir!', forum_title: 'Foro de Discusión', forum_add: 'Crear Publicación', forum_empty: 'No hay publicaciones. ¡Sé el primero!', lb_title: 'Tabla de Clasificación', lb_rank: 'Rango', lb_name: 'Nombre', lb_level: 'Nivel', lb_points: 'Puntos', lb_lessons: 'Lecciones', cert_title: 'Certificado Digital', cert_download: 'Descargar Certificado', cert_msg: '¡Completa todas las lecciones para obtener tu certificado!', modal_note_title: 'Agregar Nota', modal_label_title: 'Título', modal_note_content: 'Contenido de la Nota', modal_note_ph_title: 'Título de la nota...', modal_note_ph_content: 'Escribe tu nota...', modal_post_title: 'Crear Publicación', modal_post_content: 'Contenido', modal_post_ph_title: 'Título de la discusión...', modal_post_ph_content: 'Escribe tu pregunta o discusión...', modal_profile_title: 'Perfil de Usuario', modal_profile_name: 'Nombre', modal_profile_ph: 'Tu nombre...', modal_profile_level: 'Nivel:', modal_profile_points: 'Puntos:', modal_profile_completed: 'Lecciones Completadas:', btn_save: 'Guardar', btn_cancel: 'Cancelar', btn_close: 'Cerrar', btn_post: 'Publicar' },
     ar: { quiz_title: 'اختبر فهمك', quiz_progress: 'تقدم الاختبار', quiz_download: 'تحميل النتائج', quiz_retry: 'إعادة الاختبار', quiz_back: 'رجوع', notes_title: 'ملاحظات التعلم', notes_add: 'إضافة ملاحظة', notes_empty: 'لا توجد ملاحظات بعد. ابدأ بالكتابة!', forum_title: 'منتدى النقاش', forum_add: 'إنشاء منشور', forum_empty: 'لا توجد منشورات بعد. كن الأول!', lb_title: 'لوحة المتصدرين', lb_rank: 'الترتيب', lb_name: 'الاسم', lb_level: 'المستوى', lb_points: 'النقاط', lb_lessons: 'الدروس', cert_title: 'شهادة رقمية', cert_download: 'تحميل الشهادة', cert_msg: 'أكمل جميع الدروس للحصول على شهادتك!', modal_note_title: 'إضافة ملاحظة', modal_label_title: 'العنوان', modal_note_content: 'محتوى الملاحظة', modal_note_ph_title: 'عنوان الملاحظة...', modal_note_ph_content: 'اكتب ملاحظتك...', modal_post_title: 'إنشاء منشور', modal_post_content: 'محتوى المنشور', modal_post_ph_title: 'عنوان النقاش...', modal_post_ph_content: 'اكتب سؤالك أو نقاشك...', modal_profile_title: 'الملف الشخصي', modal_profile_name: 'الاسم', modal_profile_ph: 'اسمك...', modal_profile_level: 'المستوى:', modal_profile_points: 'النقاط:', modal_profile_completed: 'الدروس المكتملة:', btn_save: 'حفظ', btn_cancel: 'إلغاء', btn_close: 'إغلاق', btn_post: 'نشر' },
@@ -785,13 +785,7 @@ let data = {
     certId: null,
     badges: [],
     notifications: [],
-    leaderboard: [
-        { name: 'Ahmad Rizki', level: 10, points: 5000, completed: 15 },
-        { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 14 },
-        { name: 'Budi Santoso', level: 8, points: 4600, completed: 13 },
-        { name: 'Dewi Lestari', level: 7, points: 4200, completed: 12 },
-        { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 10 }
-    ]
+    leaderboard: []
 };
 let quiz = { current: 0, score: 0, answered: new Set() };
 const debouncedSearch = debounce(searchMateri, 300);
@@ -876,13 +870,18 @@ function showTab(btn, id) {
     if (id === 'catatan') renderNotes();
     if (id === 'forum') renderForum();
     if (id === 'sertifikat') showCertificate();
-    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function toggleTheme() {
     data.darkMode = !data.darkMode;
     document.body.classList.toggle('dark-mode');
     save();
+    if (typeof NeuralNet !== 'undefined' && NeuralNet.readTokens) {
+        NeuralNet.readTokens();
+        if (NeuralNet.prefersReducedMotion) {
+            NeuralNet.drawStatic();
+        }
+    }
 }
 
 function applyLanguage() {
@@ -930,13 +929,15 @@ function renderLessonCard(l, options) {
     const showMeta = options && options.showMeta !== false;
     const showFav = options && options.showFav !== false;
 
-    let html = `<div class="lesson-card ${done ? 'completed' : ''}" data-id="${l.id}" tabindex="0" role="button" aria-label="${title}">`;
+    let html = `<article class="lesson-card ${done ? 'completed' : ''}" data-id="${l.id}">`;
+    html += `<button type="button" class="lesson-card-trigger" data-id="${l.id}" aria-label="${title}">`;
     html += `<div class="lesson-header"><span class="lesson-title">${title}</span>`;
     if (showMeta) html += `<span class="lesson-status ${done ? 'done' : 'new'}">${done ? escapeHTML(t('status_done')) : escapeHTML(t('status_new'))}</span>`;
     html += `</div><p class="lesson-desc">${desc}</p>`;
     if (showMeta) html += `<div class="lesson-meta"><span>${escapeHTML(t('label_level'))}: ${escapeHTML(tLevel(l.level))}</span><span>${escapeHTML(t('label_duration'))}: ${escapeHTML(tDuration(l.duration))}</span></div>`;
+    html += `</button>`;
     if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" data-id="${l.id}" type="button" aria-label="${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}">${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}</button></div>`;
-    html += `</div>`;
+    html += `</article>`;
     return html;
 }
 
@@ -1096,21 +1097,56 @@ function initQuiz() {
 function checkAnswer(qi, oi, el) {
     if (quiz.answered.has(qi)) return;
     const correct = oi === QUIZ[qi].ans;
-    el.parentElement.querySelectorAll('.option').forEach(o => {
+    const options = el.parentElement.querySelectorAll('.option');
+    options.forEach(o => {
         o.style.pointerEvents = 'none';
         o.setAttribute('aria-checked', 'false');
     });
     el.setAttribute('aria-checked', 'true');
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     if (correct) {
         el.classList.add('correct');
+        const badge = document.createElement('span');
+        badge.className = 'option-feedback correct';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = ' ✓ ' + (t('quiz_correct_badge') || 'Benar');
+        el.appendChild(badge);
+
         quiz.score++;
         notify('success', t('notify_correct'));
     } else {
         el.classList.add('wrong');
-        const correctOpt = el.parentElement.querySelectorAll('.option')[QUIZ[qi].ans];
-        if (correctOpt) correctOpt.classList.add('correct');
+        const badge = document.createElement('span');
+        badge.className = 'option-feedback wrong';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = ' ✗ ' + (t('quiz_wrong_badge') || 'Salah');
+        el.appendChild(badge);
+
+        const correctOpt = options[QUIZ[qi].ans];
+        if (correctOpt) {
+            correctOpt.classList.add('correct');
+            const corBadge = document.createElement('span');
+            corBadge.className = 'option-feedback correct';
+            corBadge.setAttribute('aria-hidden', 'true');
+            corBadge.textContent = ' ✓ ' + (t('quiz_correct_badge') || 'Benar');
+            correctOpt.appendChild(corBadge);
+        }
         notify('error', t('notify_wrong'));
     }
+
+    const liveRegion = document.getElementById('quizLiveRegion');
+    if (liveRegion) {
+        liveRegion.textContent = correct
+            ? (t('notify_correct') || 'Jawaban Benar!')
+            : (t('notify_wrong') || 'Jawaban Salah!');
+    }
+
+    if (navigator.vibrate && !reduced) {
+        navigator.vibrate(correct ? 40 : [40, 60, 40]);
+    }
+
     quiz.answered.add(qi);
     updateQuizProgress();
     const displayIdx = quizOrder.indexOf(qi);
@@ -1151,6 +1187,10 @@ function showQuizResult() {
     updateDashboard();
     addNotification('Menyelesaikan kuis dengan skor ' + Math.round(pct) + '%');
     checkBadges();
+
+    if (pct >= 80 && typeof Confetti !== 'undefined' && Confetti.fire) {
+        Confetti.fire(3000);
+    }
 }
 
 function resetQuiz() {
@@ -1200,6 +1240,8 @@ function openModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
     _lastFocused = document.activeElement;
+    modal.removeAttribute('inert');
+    modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('active');
     setTimeout(() => {
         const focusables = getFocusableElements(modal);
@@ -1211,6 +1253,8 @@ function closeModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
     modal.classList.remove('active');
+    modal.setAttribute('inert', '');
+    modal.setAttribute('aria-hidden', 'true');
     if (_lastFocused && typeof _lastFocused.focus === 'function') {
         _lastFocused.focus();
         _lastFocused = null;
@@ -1317,7 +1361,6 @@ function renderNotes() {
             </div>
         </div>
     </div>`).join('');
-    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function deleteNote(id) {
@@ -1411,7 +1454,6 @@ function renderForum() {
         html += `</div>`;
         return html;
     }).join('');
-    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function deletePost(id) {
@@ -1424,34 +1466,52 @@ function deletePost(id) {
 function renderLeaderboard() {
     const b = document.getElementById('leaderboardBody');
     if (!b) return;
-    b.innerHTML = data.leaderboard.map((u, i) => `<tr><td class="rank rank-${i + 1}">${i < 3 ? ['#1', '#2', '#3'][i] : i + 1}</td><td>${escapeHTML(u.name)}</td><td>Level ${u.level}</td><td><strong>${u.points.toLocaleString('id-ID')}</strong></td><td>${u.completed} ${escapeHTML(t('lb_materi_suffix'))}</td></tr>`).join('');
+    const userPoints = data.points || 0;
+    const userCompleted = (data.completed || []).length;
+    const userName = data.name || 'Pengguna';
+    const userLevel = data.level || (Math.floor(userPoints / 500) + 1);
+
+    if (userPoints > 0 || userCompleted > 0) {
+        b.innerHTML = `<tr><td class="rank rank-1">#1</td><td><strong>${escapeHTML(userName)}</strong> <span style="font-size:0.85rem;opacity:0.75">(${escapeHTML(t('lb_you'))})</span></td><td>Level ${userLevel}</td><td><strong>${userPoints.toLocaleString('id-ID')}</strong></td><td>${userCompleted} ${escapeHTML(t('lb_materi_suffix'))}</td></tr>`;
+    } else {
+        b.innerHTML = `<tr><td colspan="5" class="empty-state" style="text-align:center;padding:2rem;"><p>${escapeHTML(t('lb_empty'))}</p><small style="opacity:0.75">${escapeHTML(t('lb_local_note'))}</small></td></tr>`;
+    }
 }
 
 function animateCounter(el, target, suffix, duration) {
     if (!el) return;
     suffix = suffix || '';
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        el.textContent = target.toLocaleString('id-ID') + suffix;
+    const formatted = target.toLocaleString('id-ID') + suffix;
+    el.setAttribute('aria-label', formatted);
+
+    const prevVal = el.dataset.currentValue !== undefined ? parseInt(el.dataset.currentValue, 10) : null;
+    if (prevVal === target) {
+        el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
         return;
     }
-    duration = duration || 700;
-    const raw = el.textContent ? el.textContent.replace(/[^0-9]/g, '') : '0';
-    const start = parseInt(raw, 10) || 0;
-    if (start === target) {
-        el.textContent = target.toLocaleString('id-ID') + suffix;
+    el.dataset.currentValue = target;
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || prevVal === null) {
+        el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
         return;
     }
+
+    const start = prevVal || 0;
+    duration = duration || 650;
     const startTime = performance.now();
     el.classList.add('counting');
+
     function step(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = Math.round(start + (target - start) * eased);
-        el.textContent = current.toLocaleString('id-ID') + suffix;
+        el.innerHTML = `<span aria-hidden="true">${current.toLocaleString('id-ID')}${suffix}</span>`;
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
+            el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
             el.classList.remove('counting');
         }
     }
@@ -1850,24 +1910,23 @@ const BADGE_DEFS = [
 function checkBadges() {
     if (!data.badges) data.badges = [];
     const previousBadges = [...data.badges];
-    let newBadge = false;
+    let newlyUnlocked = [];
     BADGE_DEFS.forEach(b => {
         if (!data.badges.includes(b.id) && b.check()) {
             data.badges.push(b.id);
-            newBadge = true;
+            newlyUnlocked.push(b.id);
             const badgeTitle = t(b.nameKey);
             notify('success', '🏅 ' + badgeTitle + '!');
             addNotification('Pencapaian diraih: ' + badgeTitle);
         }
     });
-    if (newBadge) {
+    if (newlyUnlocked.length > 0) {
         save();
         renderBadges();
         if (typeof Confetti !== 'undefined' && Confetti.fire) {
             Confetti.fire(3000);
         }
         setTimeout(() => {
-            const newlyUnlocked = data.badges.filter(id => !previousBadges.includes(id));
             newlyUnlocked.forEach(id => {
                 const idx = BADGE_DEFS.findIndex(b => b.id === id);
                 if (idx !== -1) {
@@ -2006,20 +2065,10 @@ function setupEventDelegation() {
                 toggleFav(e, id);
                 return;
             }
-            const card = e.target.closest('.lesson-card');
-            if (card) {
-                const id = Number(card.dataset.id);
-                viewLesson(id);
-            }
-        });
-        container.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                const card = e.target.closest('.lesson-card');
-                if (card && e.target === card) {
-                    e.preventDefault();
-                    const id = Number(card.dataset.id);
-                    viewLesson(id);
-                }
+            const trigger = e.target.closest('.lesson-card-trigger, .lesson-card');
+            if (trigger) {
+                const id = Number(trigger.dataset.id);
+                if (id) viewLesson(id);
             }
         });
     };
@@ -2096,8 +2145,24 @@ window.addEventListener('click', e => {
 
 /* =================================================================
    PHASE 2 — Visual & Particle Systems
-   Interactive Neural Canvas, Confetti, Scroll Reveal, Card Ripples
+   Interactive Neural Canvas, Confetti, and Single-Moment Scroll Reveal
    ================================================================= */
+
+// Global Reduced-Motion Listener
+const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+let isReducedMotion = motionQuery ? motionQuery.matches : false;
+if (motionQuery && typeof motionQuery.addEventListener === 'function') {
+    motionQuery.addEventListener('change', (e) => {
+        isReducedMotion = e.matches;
+        if (typeof NeuralNet !== 'undefined') {
+            NeuralNet.prefersReducedMotion = isReducedMotion;
+            NeuralNet.checkPlayback();
+        }
+        if (typeof Confetti !== 'undefined' && isReducedMotion) {
+            Confetti.stop();
+        }
+    });
+}
 
 // --- 1. Interactive Neural Network Canvas Hero ---
 const NeuralNet = {
@@ -2108,16 +2173,41 @@ const NeuralNet = {
     mouseY: -9999,
     animId: null,
     prefersReducedMotion: false,
+    headerVisible: true,
+    tabVisible: true,
+    tokens: {
+        node: 'rgba(255, 255, 255, 0.75)',
+        nodeHover: '#38bdf8',
+        line: 'rgba(255, 255, 255, 0.20)',
+        lineHover: 'rgba(56, 189, 248, 0.55)',
+        glow: 'rgba(56, 189, 248, 0.30)'
+    },
+
+    readTokens() {
+        if (!this.canvas) return;
+        const s = getComputedStyle(document.body);
+        this.tokens = {
+            node: s.getPropertyValue('--neural-node').trim() || 'rgba(255, 255, 255, 0.75)',
+            nodeHover: s.getPropertyValue('--neural-node-hover').trim() || '#38bdf8',
+            line: s.getPropertyValue('--neural-line').trim() || 'rgba(255, 255, 255, 0.20)',
+            lineHover: s.getPropertyValue('--neural-line-hover').trim() || 'rgba(56, 189, 248, 0.55)',
+            glow: s.getPropertyValue('--neural-glow').trim() || 'rgba(56, 189, 248, 0.30)'
+        };
+    },
 
     init() {
         this.canvas = document.getElementById('neuralCanvas');
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
-        this.prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.prefersReducedMotion = isReducedMotion;
+        this.readTokens();
         this.resize();
         this.createNodes();
 
-        window.addEventListener('resize', debounce(() => this.resize(), 200));
+        window.addEventListener('resize', debounce(() => {
+            this.resize();
+            if (this.prefersReducedMotion) this.drawStatic();
+        }, 200));
 
         const header = this.canvas.closest('.header');
         if (header) {
@@ -2131,12 +2221,54 @@ const NeuralNet = {
                 this.mouseX = -9999;
                 this.mouseY = -9999;
             });
+
+            // IntersectionObserver: stop animation when header is offscreen
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        this.headerVisible = entry.isIntersecting;
+                        this.checkPlayback();
+                    });
+                }, { threshold: 0.05 });
+                observer.observe(header);
+            }
         }
 
-        if (!this.prefersReducedMotion) {
-            this.animate();
-        } else {
+        // Visibilitychange: stop animation when tab is inactive
+        document.addEventListener('visibilitychange', () => {
+            this.tabVisible = !document.hidden;
+            this.checkPlayback();
+        });
+
+        if (this.prefersReducedMotion) {
             this.drawStatic();
+        } else {
+            this.start();
+        }
+    },
+
+    checkPlayback() {
+        if (this.prefersReducedMotion) {
+            this.stop();
+            this.drawStatic();
+            return;
+        }
+        if (this.headerVisible && this.tabVisible) {
+            this.start();
+        } else {
+            this.stop();
+        }
+    },
+
+    start() {
+        if (this.animId || this.prefersReducedMotion) return;
+        this.animate();
+    },
+
+    stop() {
+        if (this.animId) {
+            cancelAnimationFrame(this.animId);
+            this.animId = null;
         }
     },
 
@@ -2146,6 +2278,7 @@ const NeuralNet = {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         this.canvas.width = rect.width * dpr;
         this.canvas.height = rect.height * dpr;
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
         this.ctx.scale(dpr, dpr);
         this.canvas.style.width = rect.width + 'px';
         this.canvas.style.height = rect.height + 'px';
@@ -2175,6 +2308,7 @@ const NeuralNet = {
 
     drawStatic() {
         if (!this.ctx || !this.canvas) return;
+        this.readTokens();
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const w = this.canvas.width / dpr;
         const h = this.canvas.height / dpr;
@@ -2187,11 +2321,10 @@ const NeuralNet = {
                 const dy = this.nodes[i].y - this.nodes[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < 130) {
-                    const alpha = (1 - dist / 130) * 0.15;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
                     this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
-                    this.ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+                    this.ctx.strokeStyle = this.tokens.line;
                     this.ctx.lineWidth = 1;
                     this.ctx.stroke();
                 }
@@ -2202,17 +2335,16 @@ const NeuralNet = {
         this.nodes.forEach(n => {
             this.ctx.beginPath();
             this.ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(255,255,255,${n.baseAlpha * 0.6})`;
+            this.ctx.fillStyle = this.tokens.node;
             this.ctx.fill();
         });
     },
 
     animate() {
-        if (!this.ctx || !this.canvas) return;
+        if (!this.ctx || !this.canvas || this.prefersReducedMotion) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const w = this.canvas.width / dpr;
         const h = this.canvas.height / dpr;
-        const now = performance.now() * 0.001;
 
         this.ctx.clearRect(0, 0, w, h);
 
@@ -2247,23 +2379,16 @@ const NeuralNet = {
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 const maxDist = 140;
                 if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.22;
                     const midX = (this.nodes[i].x + this.nodes[j].x) / 2;
                     const midY = (this.nodes[i].y + this.nodes[j].y) / 2;
                     const mouseDist = Math.sqrt((this.mouseX - midX) ** 2 + (this.mouseY - midY) ** 2);
-                    const mouseBoost = mouseDist < 110 ? (1 - mouseDist / 110) * 0.35 : 0;
+                    const isHover = mouseDist < 110;
 
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
                     this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
-
-                    if (mouseBoost > 0) {
-                        this.ctx.strokeStyle = `rgba(34,211,238,${alpha + mouseBoost})`;
-                        this.ctx.lineWidth = 1.4;
-                    } else {
-                        this.ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
-                        this.ctx.lineWidth = 1;
-                    }
+                    this.ctx.strokeStyle = isHover ? this.tokens.lineHover : this.tokens.line;
+                    this.ctx.lineWidth = isHover ? 1.5 : 1;
                     this.ctx.stroke();
                 }
             }
@@ -2271,23 +2396,22 @@ const NeuralNet = {
 
         // Draw nodes
         this.nodes.forEach(n => {
-            const pulse = Math.sin(now * 1.5 + n.phase) * 0.15;
-            const alpha = n.baseAlpha + pulse;
             const dx = this.mouseX - n.x;
             const dy = this.mouseY - n.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            const glowRadius = dist < 90 ? n.r + (1 - dist / 90) * 5 : n.r;
+            const isHover = dist < 90;
+            const glowRadius = isHover ? n.r + (1 - dist / 90) * 5 : n.r;
 
-            if (dist < 90) {
+            if (isHover) {
                 this.ctx.beginPath();
                 this.ctx.arc(n.x, n.y, glowRadius + 3, 0, Math.PI * 2);
-                this.ctx.fillStyle = `rgba(34,211,238,${(1 - dist / 90) * 0.2})`;
+                this.ctx.fillStyle = this.tokens.glow;
                 this.ctx.fill();
             }
 
             this.ctx.beginPath();
             this.ctx.arc(n.x, n.y, glowRadius, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(255,255,255,${Math.max(0.1, alpha)})`;
+            this.ctx.fillStyle = isHover ? this.tokens.nodeHover : this.tokens.node;
             this.ctx.fill();
         });
 
@@ -2295,7 +2419,7 @@ const NeuralNet = {
     },
 
     destroy() {
-        if (this.animId) cancelAnimationFrame(this.animId);
+        this.stop();
     }
 };
 
@@ -2318,18 +2442,19 @@ const Confetti = {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         this.canvas.width = window.innerWidth * dpr;
         this.canvas.height = window.innerHeight * dpr;
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
         this.ctx.scale(dpr, dpr);
     },
 
     fire(duration) {
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (isReducedMotion || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
         duration = duration || 2600;
         this.resize();
         if (this.canvas) this.canvas.classList.add('active');
         this.active = true;
         this.particles = [];
 
-        const colors = ['#6d5dfc', '#a855f7', '#22d3ee', '#fbbf24', '#f43f5e', '#10b981', '#ffffff'];
+        const colors = ['#6d5dfc', '#a855f7', '#38bdf8', '#fbbf24', '#f43f5e', '#10b981', '#ffffff'];
         const count = 75;
 
         for (let i = 0; i < count; i++) {
@@ -2391,7 +2516,10 @@ const Confetti = {
 
     stop() {
         this.active = false;
-        if (this.animId) cancelAnimationFrame(this.animId);
+        if (this.animId) {
+            cancelAnimationFrame(this.animId);
+            this.animId = null;
+        }
         if (this.canvas) {
             this.canvas.classList.remove('active');
             if (this.ctx) this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
@@ -2399,19 +2527,22 @@ const Confetti = {
     }
 };
 
-// --- 3. Scroll Reveal Observer ---
+// --- 3. Scroll Reveal Observer (Limited to Lesson Cards on Initial Load Only) ---
+let _scrollRevealRan = false;
 function setupScrollReveal() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer').forEach(el => {
-            el.classList.add('revealed');
-        });
+    if (_scrollRevealRan) return;
+    _scrollRevealRan = true;
+
+    const cards = document.querySelectorAll('#lessonsContainer .lesson-card');
+    if (!cards.length) return;
+
+    if (isReducedMotion || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        cards.forEach(el => el.classList.add('revealed'));
         return;
     }
 
     if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer').forEach(el => {
-            el.classList.add('revealed');
-        });
+        cards.forEach(el => el.classList.add('revealed'));
         return;
     }
 
@@ -2422,45 +2553,20 @@ function setupScrollReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
-    const selectors = '.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer';
-    document.querySelectorAll(selectors).forEach(el => {
-        if (!el.classList.contains('scroll-reveal')) {
-            el.classList.add('scroll-reveal');
-        }
-        if (!el.classList.contains('revealed')) {
-            observer.observe(el);
-        }
+    cards.forEach((el, index) => {
+        el.classList.add('scroll-reveal');
+        el.style.transitionDelay = `${Math.min(index * 40, 400)}ms`;
+        observer.observe(el);
     });
 }
 
-// --- 4. Lesson Card Ripple Effect ---
-function setupCardRipple() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    document.addEventListener('click', (e) => {
-        const card = e.target.closest('.lesson-card');
-        if (!card) return;
-
-        const rect = card.getBoundingClientRect();
-        const ripple = document.createElement('span');
-        ripple.className = 'card-ripple';
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-        card.appendChild(ripple);
-        ripple.addEventListener('animationend', () => ripple.remove());
-    });
-}
-
-// --- 5. Visual Systems Initialization ---
+// --- 4. Visual Systems Initialization ---
 function initVisualEffects() {
     NeuralNet.init();
     Confetti.init();
     setupScrollReveal();
-    setupCardRipple();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
