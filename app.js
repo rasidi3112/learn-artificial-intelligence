@@ -810,6 +810,15 @@ function init() {
     }
     updateNotifBadge();
 
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('theme') === 'dark') {
+            data.darkMode = true;
+        } else if (urlParams.get('theme') === 'light') {
+            data.darkMode = false;
+        }
+    } catch (_) {}
+
     if (data.darkMode) {
         document.body.classList.add('dark-mode');
     }

@@ -10,7 +10,7 @@
     top: -100%;
     left: 16px;
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     padding: 12px 24px;
     border-radius: 0 0 8px 8px;
     z-index: 9999;
@@ -29,10 +29,11 @@
     --primary-dark: #4338ca;
     --primary-light: #6366f1;
     --secondary: #7c3aed;
-    --accent: #0284c7;
-    --success: #059669;
+    --accent: #0369a1;
+    --success: #047857;
     --danger: #dc2626;
     --warning: #b45309;
+    --primary-contrast: #ffffff;
 
     /* Backgrounds & Surfaces */
     --bg-light: #f8fafc;
@@ -70,7 +71,7 @@
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     /* Neural Network Field Tokens */
     --neural-node: rgba(255, 255, 255, 0.75);
@@ -89,6 +90,16 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6,
+.header-title h1,
+.section-title,
+.stat-label,
+.nav-tab,
+.modal h2,
+.modal h3 {
+    font-family: var(--font-heading);
+}
+
 body.dark-mode {
     background: var(--bg-dark);
     color: var(--text-dark-primary);
@@ -102,6 +113,7 @@ body.dark-mode {
     --success: #34d399;
     --danger: #f87171;
     --warning: #fbbf24;
+    --primary-contrast: #0f172a;
 
     /* Dark Mode Neural Tokens */
     --neural-node: rgba(241, 245, 249, 0.75);
@@ -109,6 +121,28 @@ body.dark-mode {
     --neural-line: rgba(148, 163, 184, 0.22);
     --neural-line-hover: rgba(56, 189, 248, 0.65);
     --neural-glow: rgba(56, 189, 248, 0.35);
+}
+
+body.dark-mode .header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .stat-card {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .stat-card.alt1 {
+    background: linear-gradient(135deg, #831843 0%, #9f1239 100%);
+}
+
+body.dark-mode .stat-card.alt2 {
+    background: linear-gradient(135deg, #164e63 0%, #075985 100%);
+}
+
+body.dark-mode .stat-card.alt3 {
+    background: linear-gradient(135deg, #064e3b 0%, #134e4a 100%);
 }
 
 /* Accessibility: Screen-reader-only utility */
@@ -340,9 +374,15 @@ body.dark-mode .nav-tab:hover {
 
 .nav-tab.active {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     transform: translateY(-1px);
+}
+
+body.dark-mode .nav-tab.active {
+    background: var(--primary);
+    color: var(--primary-contrast);
+    font-weight: 700;
 }
 
 /* Cards */
@@ -395,15 +435,15 @@ body.dark-mode .card {
 }
 
 .stat-card.alt1 {
-    background: linear-gradient(135deg, #ec4899, #f43f5e);
+    background: linear-gradient(135deg, #be185d, #e11d48);
 }
 
 .stat-card.alt2 {
-    background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+    background: linear-gradient(135deg, #0e7490, #0369a1);
 }
 
 .stat-card.alt3 {
-    background: linear-gradient(135deg, #10b981, #14b8a6);
+    background: linear-gradient(135deg, #047857, #0f766e);
 }
 
 .stat-label {
@@ -602,12 +642,16 @@ body.dark-mode .search-input {
 .btn-primary {
     padding: 14px 28px;
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     border: none;
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+body.dark-mode .btn-primary {
+    font-weight: 700;
 }
 
 .btn-primary:hover {
@@ -681,7 +725,7 @@ body.dark-mode .quiz-header {
 
 .quiz-counter {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     padding: 8px 20px;
     border-radius: 20px;
     font-weight: 600;
@@ -3011,7 +3055,7 @@ body.dark-mode .lesson-section-title {
 
 .lesson-section-num {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     width: 28px;
     height: 28px;
     border-radius: 50%;
