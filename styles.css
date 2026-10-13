@@ -76,6 +76,13 @@ body.dark-mode {
     flex-wrap: wrap;
     gap: 20px;
     box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.header > *:not(#neuralCanvas) {
+    position: relative;
+    z-index: 1;
 }
 
 .header-title h1 {
@@ -568,17 +575,17 @@ body.dark-mode .btn-secondary {
 /* Tab Content */
 .tab-content {
     display: none;
-    animation: fadeIn 0.3s ease;
 }
 
 .tab-content.active {
     display: block;
+    animation: tabFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes fadeIn {
+@keyframes tabFadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(14px);
     }
 
     to {
@@ -924,21 +931,29 @@ body.dark-mode .leaderboard-table tbody tr:hover {
 
 /* Modal */
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0s 0.35s;
 }
 
 .modal.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.35s ease, visibility 0s;
 }
 
 .modal-content {
@@ -948,23 +963,22 @@ body.dark-mode .leaderboard-table tbody tr:hover {
     max-width: 500px;
     width: 90%;
     position: relative;
-    animation: slideUp 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(24px) scale(0.97);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
 body.dark-mode .modal-content {
     background: var(--card-dark);
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .modal-close {
@@ -1054,27 +1068,42 @@ body.dark-mode .form-textarea {
     background: var(--card-light);
     box-shadow: var(--shadow-lg);
     z-index: 2000;
-    animation: slideIn 0.3s ease;
+    animation: notifSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     max-width: 400px;
-    transition: opacity 0.3s ease;
 }
 
 .notification:nth-child(2) { top: 90px; }
 .notification:nth-child(3) { top: 160px; }
 
+.notification.fade-out {
+    animation: notifSlideOut 0.3s ease forwards;
+}
+
 body.dark-mode .notification {
     background: var(--card-dark);
 }
 
-@keyframes slideIn {
+@keyframes notifSlideIn {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(80px) scale(0.96);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes notifSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(80px) scale(0.96);
     }
 }
 
@@ -3005,16 +3034,207 @@ body.dark-mode .lesson-modal-footer {
     text-align: left;
 }
 
+/* =================================================================
+   PHASE 2 — Animations & Visual Systems
+   Neural canvas hero, confetti, celebrations, ripple, scroll-reveal
+   ================================================================= */
+
+/* --- Neural Network Canvas in Header --- */
+#neuralCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* --- Confetti Celebration Canvas --- */
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+#confettiCanvas.active {
+    opacity: 1;
+}
+
+/* --- Animated Progress Bar Glow Pulse --- */
+.progress-fill {
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.progress-fill.animate-in {
+    animation: progressPulse 0.8s ease-out;
+}
+
+@keyframes progressPulse {
+    0% { box-shadow: 0 0 16px rgba(109, 93, 252, 0.4); }
+    50% { box-shadow: 0 0 32px rgba(109, 93, 252, 0.7), 0 0 50px rgba(168, 85, 247, 0.35); }
+    100% { box-shadow: 0 0 16px rgba(109, 93, 252, 0.4); }
+}
+
+/* --- Badge Unlock Celebration --- */
+.badge-card.just-unlocked {
+    animation: badgeUnlock 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes badgeUnlock {
+    0% {
+        transform: scale(0.6) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.15) rotate(3deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.badge-card.just-unlocked::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 20px;
+    background: conic-gradient(
+        from 0deg,
+        #fbbf24, #f59e0b, #d97706, #f59e0b, #fbbf24
+    );
+    z-index: -1;
+    animation: badgeRingBurst 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes badgeRingBurst {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    30% {
+        opacity: 0.9;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+/* --- Stat Counter Bump --- */
+.stat-value.counting {
+    animation: statBump 0.5s ease-out;
+}
+
+@keyframes statBump {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* --- Scroll Reveal: cards animate in when scrolled into view --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-reveal:nth-child(2) { transition-delay: 0.05s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.10s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.15s; }
+.scroll-reveal:nth-child(5) { transition-delay: 0.20s; }
+.scroll-reveal:nth-child(6) { transition-delay: 0.25s; }
+
+/* --- Quiz Option Feedback Animation --- */
+.option.correct {
+    animation: optionCorrect 0.5s ease;
+}
+
+.option.wrong {
+    animation: optionWrong 0.4s ease;
+}
+
+@keyframes optionCorrect {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.03); box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+    100% { transform: scale(1); }
+}
+
+@keyframes optionWrong {
+    0%, 100% { transform: translateX(0); }
+    15% { transform: translateX(-6px); }
+    30% { transform: translateX(6px); }
+    45% { transform: translateX(-4px); }
+    60% { transform: translateX(4px); }
+    75% { transform: translateX(-2px); }
+}
+
+/* --- Lesson Card Hover Ripple --- */
+.lesson-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card .card-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(109, 93, 252, 0.15);
+    transform: scale(0);
+    animation: cardRipple 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes cardRipple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* --- Footer Reveal --- */
+.footer {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =================================================================
+   ACCESSIBILITY: Reduced Motion Overrides (must stay at the end)
+   ================================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: auto;
+        scroll-behavior: auto !important;
     }
 
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+    }
+
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

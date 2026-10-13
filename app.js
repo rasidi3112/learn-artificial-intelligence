@@ -845,6 +845,7 @@ function init() {
     setupControls();
     setupTabs();
     setupEventDelegation();
+    initVisualEffects();
 }
 
 function save() {
@@ -875,6 +876,7 @@ function showTab(btn, id) {
     if (id === 'catatan') renderNotes();
     if (id === 'forum') renderForum();
     if (id === 'sertifikat') showCertificate();
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function toggleTheme() {
@@ -947,6 +949,7 @@ function renderLessons() {
     const c = document.getElementById('lessonsContainer');
     if (c) c.innerHTML = LESSONS.map(l => renderLessonCard(l, { showMeta: true, showFav: true })).join('');
     renderFavorites();
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function viewLesson(id) {
@@ -1314,6 +1317,7 @@ function renderNotes() {
             </div>
         </div>
     </div>`).join('');
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function deleteNote(id) {
@@ -1407,6 +1411,7 @@ function renderForum() {
         html += `</div>`;
         return html;
     }).join('');
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function deletePost(id) {
@@ -1425,17 +1430,30 @@ function renderLeaderboard() {
 function animateCounter(el, target, suffix, duration) {
     if (!el) return;
     suffix = suffix || '';
-    duration = duration || 800;
-    const start = parseInt(el.textContent) || 0;
-    if (start === target) { el.textContent = target + suffix; return; }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = target.toLocaleString('id-ID') + suffix;
+        return;
+    }
+    duration = duration || 700;
+    const raw = el.textContent ? el.textContent.replace(/[^0-9]/g, '') : '0';
+    const start = parseInt(raw, 10) || 0;
+    if (start === target) {
+        el.textContent = target.toLocaleString('id-ID') + suffix;
+        return;
+    }
     const startTime = performance.now();
+    el.classList.add('counting');
     function step(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = Math.round(start + (target - start) * eased);
         el.textContent = current.toLocaleString('id-ID') + suffix;
-        if (progress < 1) requestAnimationFrame(step);
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            el.classList.remove('counting');
+        }
     }
     requestAnimationFrame(step);
 }
@@ -1444,15 +1462,26 @@ function updateDashboard() {
     animateCounter(document.getElementById('materiSelesai'), data.completed.length);
     const avg = data.scores.length ? Math.round(data.scores.reduce((a, b) => a + b.score, 0) / data.scores.length) : 0;
     animateCounter(document.getElementById('skorRata'), avg, '%');
-    animateCounter(document.getElementById('streakBelajar'), data.streak);
-    animateCounter(document.getElementById('poinTotal'), data.points);
-    const p = (data.completed.length / LESSONS.length) * 100;
+    animateCounter(document.getElementById('streakBelajar'), data.streak || 0);
+    animateCounter(document.getElementById('poinTotal'), data.points || 0);
+    const p = Math.round((data.completed.length / LESSONS.length) * 100);
     const progressBar = document.getElementById('progressBar');
     const progressPercent = document.getElementById('progressPercent');
-    if (progressBar) progressBar.style.width = p + '%';
-    if (progressPercent) progressPercent.textContent = Math.round(p) + '%';
+    if (progressBar) {
+        const targetWidth = p + '%';
+        if (progressBar.style.width !== targetWidth) {
+            progressBar.style.width = targetWidth;
+            progressBar.classList.add('animate-in');
+            setTimeout(() => progressBar.classList.remove('animate-in'), 800);
+        }
+        const progressBarParent = progressBar.closest('.progress-bar');
+        if (progressBarParent) {
+            progressBarParent.setAttribute('aria-valuenow', p);
+        }
+    }
+    if (progressPercent) progressPercent.textContent = p + '%';
     const levelBadge = document.getElementById('levelBadge');
-    if (levelBadge) levelBadge.textContent = 'Level ' + data.level;
+    if (levelBadge) levelBadge.textContent = 'Level ' + (data.level || 1);
 }
 
 function showUserProfile() {
@@ -1636,8 +1665,9 @@ function notify(type, msg) {
     n.setAttribute('aria-live', 'polite');
     document.body.appendChild(n);
     setTimeout(() => {
-        n.style.opacity = '0';
-        setTimeout(() => n.remove(), 300);
+        n.classList.add('fade-out');
+        n.addEventListener('animationend', () => n.remove(), { once: true });
+        setTimeout(() => { if (n.parentNode) n.remove(); }, 350);
     }, 3000);
 }
 
@@ -1819,6 +1849,7 @@ const BADGE_DEFS = [
 
 function checkBadges() {
     if (!data.badges) data.badges = [];
+    const previousBadges = [...data.badges];
     let newBadge = false;
     BADGE_DEFS.forEach(b => {
         if (!data.badges.includes(b.id) && b.check()) {
@@ -1829,7 +1860,30 @@ function checkBadges() {
             addNotification('Pencapaian diraih: ' + badgeTitle);
         }
     });
-    if (newBadge) { save(); renderBadges(); }
+    if (newBadge) {
+        save();
+        renderBadges();
+        if (typeof Confetti !== 'undefined' && Confetti.fire) {
+            Confetti.fire(3000);
+        }
+        setTimeout(() => {
+            const newlyUnlocked = data.badges.filter(id => !previousBadges.includes(id));
+            newlyUnlocked.forEach(id => {
+                const idx = BADGE_DEFS.findIndex(b => b.id === id);
+                if (idx !== -1) {
+                    const container = document.getElementById('badgesContainer');
+                    if (container && container.children[idx]) {
+                        container.children[idx].classList.add('just-unlocked');
+                        setTimeout(() => {
+                            if (container.children[idx]) {
+                                container.children[idx].classList.remove('just-unlocked');
+                            }
+                        }, 2000);
+                    }
+                }
+            });
+        }, 50);
+    }
 }
 
 function renderBadges() {
@@ -1844,6 +1898,7 @@ function renderBadges() {
             <div class="badge-desc">${unlocked ? escapeHTML(t(b.descKey)) : escapeHTML(t('badge_locked'))}</div>
         </div>`;
     }).join('');
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function setupControls() {
@@ -2038,6 +2093,375 @@ window.addEventListener('click', e => {
         closeModal(e.target.id);
     }
 });
+
+/* =================================================================
+   PHASE 2 — Visual & Particle Systems
+   Interactive Neural Canvas, Confetti, Scroll Reveal, Card Ripples
+   ================================================================= */
+
+// --- 1. Interactive Neural Network Canvas Hero ---
+const NeuralNet = {
+    canvas: null,
+    ctx: null,
+    nodes: [],
+    mouseX: -9999,
+    mouseY: -9999,
+    animId: null,
+    prefersReducedMotion: false,
+
+    init() {
+        this.canvas = document.getElementById('neuralCanvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        this.prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.resize();
+        this.createNodes();
+
+        window.addEventListener('resize', debounce(() => this.resize(), 200));
+
+        const header = this.canvas.closest('.header');
+        if (header) {
+            header.style.pointerEvents = 'auto';
+            header.addEventListener('mousemove', (e) => {
+                const rect = this.canvas.getBoundingClientRect();
+                this.mouseX = e.clientX - rect.left;
+                this.mouseY = e.clientY - rect.top;
+            });
+            header.addEventListener('mouseleave', () => {
+                this.mouseX = -9999;
+                this.mouseY = -9999;
+            });
+        }
+
+        if (!this.prefersReducedMotion) {
+            this.animate();
+        } else {
+            this.drawStatic();
+        }
+    },
+
+    resize() {
+        if (!this.canvas || !this.ctx) return;
+        const rect = this.canvas.parentElement.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = rect.width * dpr;
+        this.canvas.height = rect.height * dpr;
+        this.ctx.scale(dpr, dpr);
+        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.height = rect.height + 'px';
+        this.createNodes();
+    },
+
+    createNodes() {
+        if (!this.canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+        const area = w * h;
+        const count = Math.min(Math.max(Math.floor(area / 5200), 12), 48);
+        this.nodes = [];
+        for (let i = 0; i < count; i++) {
+            this.nodes.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: 2 + Math.random() * 2.5,
+                baseAlpha: 0.3 + Math.random() * 0.4,
+                phase: Math.random() * Math.PI * 2
+            });
+        }
+    },
+
+    drawStatic() {
+        if (!this.ctx || !this.canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+        this.ctx.clearRect(0, 0, w, h);
+
+        // Draw static connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130) {
+                    const alpha = (1 - dist / 130) * 0.15;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                    this.ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        // Draw static nodes
+        this.nodes.forEach(n => {
+            this.ctx.beginPath();
+            this.ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            this.ctx.fillStyle = `rgba(255,255,255,${n.baseAlpha * 0.6})`;
+            this.ctx.fill();
+        });
+    },
+
+    animate() {
+        if (!this.ctx || !this.canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+        const now = performance.now() * 0.001;
+
+        this.ctx.clearRect(0, 0, w, h);
+
+        // Update positions with edge-bounce and gentle mouse pull
+        this.nodes.forEach(n => {
+            n.x += n.vx;
+            n.y += n.vy;
+
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+            n.x = Math.max(0, Math.min(w, n.x));
+            n.y = Math.max(0, Math.min(h, n.y));
+
+            const dx = this.mouseX - n.x;
+            const dy = this.mouseY - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150 && dist > 1) {
+                const force = (150 - dist) / 150 * 0.007;
+                n.vx += dx / dist * force;
+                n.vy += dy / dist * force;
+            }
+
+            n.vx *= 0.995;
+            n.vy *= 0.995;
+        });
+
+        // Draw synaptic connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const maxDist = 140;
+                if (dist < maxDist) {
+                    const alpha = (1 - dist / maxDist) * 0.22;
+                    const midX = (this.nodes[i].x + this.nodes[j].x) / 2;
+                    const midY = (this.nodes[i].y + this.nodes[j].y) / 2;
+                    const mouseDist = Math.sqrt((this.mouseX - midX) ** 2 + (this.mouseY - midY) ** 2);
+                    const mouseBoost = mouseDist < 110 ? (1 - mouseDist / 110) * 0.35 : 0;
+
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+
+                    if (mouseBoost > 0) {
+                        this.ctx.strokeStyle = `rgba(34,211,238,${alpha + mouseBoost})`;
+                        this.ctx.lineWidth = 1.4;
+                    } else {
+                        this.ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+                        this.ctx.lineWidth = 1;
+                    }
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        // Draw nodes
+        this.nodes.forEach(n => {
+            const pulse = Math.sin(now * 1.5 + n.phase) * 0.15;
+            const alpha = n.baseAlpha + pulse;
+            const dx = this.mouseX - n.x;
+            const dy = this.mouseY - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const glowRadius = dist < 90 ? n.r + (1 - dist / 90) * 5 : n.r;
+
+            if (dist < 90) {
+                this.ctx.beginPath();
+                this.ctx.arc(n.x, n.y, glowRadius + 3, 0, Math.PI * 2);
+                this.ctx.fillStyle = `rgba(34,211,238,${(1 - dist / 90) * 0.2})`;
+                this.ctx.fill();
+            }
+
+            this.ctx.beginPath();
+            this.ctx.arc(n.x, n.y, glowRadius, 0, Math.PI * 2);
+            this.ctx.fillStyle = `rgba(255,255,255,${Math.max(0.1, alpha)})`;
+            this.ctx.fill();
+        });
+
+        this.animId = requestAnimationFrame(() => this.animate());
+    },
+
+    destroy() {
+        if (this.animId) cancelAnimationFrame(this.animId);
+    }
+};
+
+// --- 2. Confetti Particle System ---
+const Confetti = {
+    canvas: null,
+    ctx: null,
+    particles: [],
+    animId: null,
+    active: false,
+
+    init() {
+        this.canvas = document.getElementById('confettiCanvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+    },
+
+    resize() {
+        if (!this.canvas || !this.ctx) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = window.innerWidth * dpr;
+        this.canvas.height = window.innerHeight * dpr;
+        this.ctx.scale(dpr, dpr);
+    },
+
+    fire(duration) {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        duration = duration || 2600;
+        this.resize();
+        if (this.canvas) this.canvas.classList.add('active');
+        this.active = true;
+        this.particles = [];
+
+        const colors = ['#6d5dfc', '#a855f7', '#22d3ee', '#fbbf24', '#f43f5e', '#10b981', '#ffffff'];
+        const count = 75;
+
+        for (let i = 0; i < count; i++) {
+            this.particles.push({
+                x: window.innerWidth * 0.5 + (Math.random() - 0.5) * window.innerWidth * 0.6,
+                y: -20 - Math.random() * 40,
+                vx: (Math.random() - 0.5) * 6,
+                vy: Math.random() * 3 + 2,
+                w: 6 + Math.random() * 6,
+                h: 4 + Math.random() * 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rotation: Math.random() * 360,
+                rotSpeed: (Math.random() - 0.5) * 12,
+                gravity: 0.12 + Math.random() * 0.06,
+                wobble: Math.random() * Math.PI * 2,
+                wobbleSpeed: 0.04 + Math.random() * 0.04,
+                opacity: 1
+            });
+        }
+
+        this.animate();
+        setTimeout(() => this.stop(), duration);
+    },
+
+    animate() {
+        if (!this.active || !this.ctx) return;
+        this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        let alive = false;
+        this.particles.forEach(p => {
+            if (p.opacity <= 0) return;
+            alive = true;
+
+            p.vy += p.gravity;
+            p.x += p.vx + Math.sin(p.wobble) * 0.8;
+            p.y += p.vy;
+            p.rotation += p.rotSpeed;
+            p.wobble += p.wobbleSpeed;
+
+            if (p.y > window.innerHeight * 0.8) {
+                p.opacity -= 0.025;
+            }
+
+            this.ctx.save();
+            this.ctx.globalAlpha = Math.max(0, p.opacity);
+            this.ctx.translate(p.x, p.y);
+            this.ctx.rotate(p.rotation * Math.PI / 180);
+            this.ctx.fillStyle = p.color;
+            this.ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            this.ctx.restore();
+        });
+
+        if (alive) {
+            this.animId = requestAnimationFrame(() => this.animate());
+        } else {
+            this.stop();
+        }
+    },
+
+    stop() {
+        this.active = false;
+        if (this.animId) cancelAnimationFrame(this.animId);
+        if (this.canvas) {
+            this.canvas.classList.remove('active');
+            if (this.ctx) this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+    }
+};
+
+// --- 3. Scroll Reveal Observer ---
+function setupScrollReveal() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer').forEach(el => {
+            el.classList.add('revealed');
+        });
+        return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer').forEach(el => {
+            el.classList.add('revealed');
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    const selectors = '.stat-card, .lesson-card, .note-card, .post-card, .badge-card, .footer';
+    document.querySelectorAll(selectors).forEach(el => {
+        if (!el.classList.contains('scroll-reveal')) {
+            el.classList.add('scroll-reveal');
+        }
+        if (!el.classList.contains('revealed')) {
+            observer.observe(el);
+        }
+    });
+}
+
+// --- 4. Lesson Card Ripple Effect ---
+function setupCardRipple() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('.lesson-card');
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.className = 'card-ripple';
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        card.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+    });
+}
+
+// --- 5. Visual Systems Initialization ---
+function initVisualEffects() {
+    NeuralNet.init();
+    Confetti.init();
+    setupScrollReveal();
+    setupCardRipple();
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     init();
