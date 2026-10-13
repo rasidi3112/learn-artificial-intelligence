@@ -10,7 +10,7 @@
     top: -100%;
     left: 16px;
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     padding: 12px 24px;
     border-radius: 0 0 8px 8px;
     z-index: 9999;
@@ -24,38 +24,138 @@
 }
 
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary: #8b5cf6;
-    --success: #10b981;
-    --danger: #ef4444;
-    --warning: #f59e0b;
+    /* Brand Colors (WCAG AA Compliant) */
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --primary-light: #6366f1;
+    --secondary: #7c3aed;
+    --accent: #0369a1;
+    --success: #047857;
+    --danger: #dc2626;
+    --warning: #b45309;
+    --primary-contrast: #ffffff;
+
+    /* Backgrounds & Surfaces */
     --bg-light: #f8fafc;
     --bg-dark: #0f172a;
     --card-light: #ffffff;
     --card-dark: #1e293b;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-dark-primary: #f1f5f9;
+
+    /* Text Colors */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-dark-primary: #f8fafc;
     --text-dark-secondary: #94a3b8;
+
+    /* Borders */
     --border-light: #e2e8f0;
     --border-dark: #334155;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+    --shadow-lg: 0 12px 24px -4px rgb(0 0 0 / 0.12), 0 4px 8px -2px rgb(0 0 0 / 0.06);
+
+    /* Spacing Scale */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Radius Scale */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Neural Network Field Tokens */
+    --neural-node: rgba(255, 255, 255, 0.75);
+    --neural-node-hover: #38bdf8;
+    --neural-line: rgba(255, 255, 255, 0.20);
+    --neural-line-hover: rgba(56, 189, 248, 0.55);
+    --neural-glow: rgba(56, 189, 248, 0.30);
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     background: var(--bg-light);
     color: var(--text-primary);
     min-height: 100vh;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.header-title h1,
+.section-title,
+.stat-label,
+.nav-tab,
+.modal h2,
+.modal h3 {
+    font-family: var(--font-heading);
 }
 
 body.dark-mode {
     background: var(--bg-dark);
     color: var(--text-dark-primary);
+
+    /* Brand & Status Overrides (WCAG AA Compliant on Dark Surfaces) */
+    --primary: #818cf8;
+    --primary-dark: #6366f1;
+    --primary-light: #a5b4fc;
+    --secondary: #a78bfa;
+    --accent: #38bdf8;
+    --success: #34d399;
+    --danger: #f87171;
+    --warning: #fbbf24;
+    --primary-contrast: #0f172a;
+
+    /* Dark Mode Neural Tokens */
+    --neural-node: rgba(241, 245, 249, 0.75);
+    --neural-node-hover: #38bdf8;
+    --neural-line: rgba(148, 163, 184, 0.22);
+    --neural-line-hover: rgba(56, 189, 248, 0.65);
+    --neural-glow: rgba(56, 189, 248, 0.35);
+}
+
+body.dark-mode .header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .stat-card {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .stat-card.alt1 {
+    background: linear-gradient(135deg, #831843 0%, #9f1239 100%);
+}
+
+body.dark-mode .stat-card.alt2 {
+    background: linear-gradient(135deg, #164e63 0%, #075985 100%);
+}
+
+body.dark-mode .stat-card.alt3 {
+    background: linear-gradient(135deg, #064e3b 0%, #134e4a 100%);
+}
+
+/* Accessibility: Screen-reader-only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .container {
@@ -76,6 +176,13 @@ body.dark-mode {
     flex-wrap: wrap;
     gap: 20px;
     box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.header > *:not(#neuralCanvas) {
+    position: relative;
+    z-index: 1;
 }
 
 .header-title h1 {
@@ -267,9 +374,15 @@ body.dark-mode .nav-tab:hover {
 
 .nav-tab.active {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     transform: translateY(-1px);
+}
+
+body.dark-mode .nav-tab.active {
+    background: var(--primary);
+    color: var(--primary-contrast);
+    font-weight: 700;
 }
 
 /* Cards */
@@ -279,7 +392,7 @@ body.dark-mode .nav-tab:hover {
     padding: 24px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-light);
-    transition: all 0.3s;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 body.dark-mode .card {
@@ -287,7 +400,7 @@ body.dark-mode .card {
     border-color: var(--border-dark);
 }
 
-.card:hover {
+.card-interactive:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
 }
@@ -322,15 +435,15 @@ body.dark-mode .card {
 }
 
 .stat-card.alt1 {
-    background: linear-gradient(135deg, #ec4899, #f43f5e);
+    background: linear-gradient(135deg, #be185d, #e11d48);
 }
 
 .stat-card.alt2 {
-    background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+    background: linear-gradient(135deg, #0e7490, #0369a1);
 }
 
 .stat-card.alt3 {
-    background: linear-gradient(135deg, #10b981, #14b8a6);
+    background: linear-gradient(135deg, #047857, #0f766e);
 }
 
 .stat-label {
@@ -529,12 +642,16 @@ body.dark-mode .search-input {
 .btn-primary {
     padding: 14px 28px;
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     border: none;
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+body.dark-mode .btn-primary {
+    font-weight: 700;
 }
 
 .btn-primary:hover {
@@ -568,17 +685,17 @@ body.dark-mode .btn-secondary {
 /* Tab Content */
 .tab-content {
     display: none;
-    animation: fadeIn 0.3s ease;
 }
 
 .tab-content.active {
     display: block;
+    animation: tabFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes fadeIn {
+@keyframes tabFadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(14px);
     }
 
     to {
@@ -608,7 +725,7 @@ body.dark-mode .quiz-header {
 
 .quiz-counter {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     padding: 8px 20px;
     border-radius: 20px;
     font-weight: 600;
@@ -924,21 +1041,29 @@ body.dark-mode .leaderboard-table tbody tr:hover {
 
 /* Modal */
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0s 0.35s;
 }
 
 .modal.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.35s ease, visibility 0s;
 }
 
 .modal-content {
@@ -948,23 +1073,22 @@ body.dark-mode .leaderboard-table tbody tr:hover {
     max-width: 500px;
     width: 90%;
     position: relative;
-    animation: slideUp 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(24px) scale(0.97);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
 body.dark-mode .modal-content {
     background: var(--card-dark);
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .modal-close {
@@ -1054,27 +1178,42 @@ body.dark-mode .form-textarea {
     background: var(--card-light);
     box-shadow: var(--shadow-lg);
     z-index: 2000;
-    animation: slideIn 0.3s ease;
+    animation: notifSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     max-width: 400px;
-    transition: opacity 0.3s ease;
 }
 
 .notification:nth-child(2) { top: 90px; }
 .notification:nth-child(3) { top: 160px; }
 
+.notification.fade-out {
+    animation: notifSlideOut 0.3s ease forwards;
+}
+
 body.dark-mode .notification {
     background: var(--card-dark);
 }
 
-@keyframes slideIn {
+@keyframes notifSlideIn {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(80px) scale(0.96);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes notifSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(80px) scale(0.96);
     }
 }
 
@@ -2818,16 +2957,423 @@ button,
     }
 }
 
+/* Accessible focus rings */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Demo Notice Badge */
+.demo-notice {
+    display: inline-block;
+    padding: 8px 14px;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: 8px;
+    color: #b45309;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+body.dark-mode .demo-notice {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #fcd34d;
+}
+
+/* Lesson Modal Clean Styling */
+.lesson-modal-header {
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+body.dark-mode .lesson-modal-header {
+    border-bottom-color: var(--border-dark);
+}
+
+.lesson-modal-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.lesson-modal-desc {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+body.dark-mode .lesson-modal-desc {
+    color: var(--text-dark-secondary);
+}
+
+.lesson-meta-pills {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.lesson-pill {
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+body.dark-mode .lesson-pill {
+    background: var(--bg-dark);
+    color: var(--text-dark-secondary);
+}
+
+.lesson-pill.completed {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.lesson-section {
+    margin-bottom: 24px;
+}
+
+.lesson-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.dark-mode .lesson-section-title {
+    color: var(--text-dark-primary);
+}
+
+.lesson-section-num {
+    background: var(--primary);
+    color: var(--primary-contrast);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.lesson-section-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding-left: 38px;
+    white-space: pre-wrap;
+}
+
+body.dark-mode .lesson-section-content {
+    color: var(--text-dark-secondary);
+}
+
+.lesson-modal-footer {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 2px solid var(--border-light);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+body.dark-mode .lesson-modal-footer {
+    border-top-color: var(--border-dark);
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-icon {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+[dir="rtl"] .lang-select {
+    padding-right: 0;
+    padding-left: 18px;
+    background-position: left center;
+}
+
+[dir="rtl"] .notif-badge {
+    right: auto;
+    left: -5px;
+}
+
+[dir="rtl"] .lesson-header,
+[dir="rtl"] .lesson-meta,
+[dir="rtl"] .quiz-header,
+[dir="rtl"] .progress-header,
+[dir="rtl"] .section-header,
+[dir="rtl"] .note-footer,
+[dir="rtl"] .post-header,
+[dir="rtl"] .post-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lesson-section-title {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lesson-section-content {
+    padding-left: 0;
+    padding-right: 38px;
+}
+
+[dir="rtl"] .search-box {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .certificate-footer span:last-child {
+    text-align: left;
+}
+
+/* =================================================================
+   PHASE 2 — Animations & Visual Systems
+   Neural canvas hero, confetti, celebrations, ripple, scroll-reveal
+   ================================================================= */
+
+/* --- Neural Network Canvas in Header --- */
+#neuralCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* --- Confetti Celebration Canvas --- */
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+#confettiCanvas.active {
+    opacity: 1;
+}
+
+/* --- Animated Progress Bar Glow Pulse --- */
+.progress-fill {
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.progress-fill.animate-in {
+    animation: progressPulse 0.8s ease-out;
+}
+
+@keyframes progressPulse {
+    0% { box-shadow: 0 0 16px rgba(109, 93, 252, 0.4); }
+    50% { box-shadow: 0 0 32px rgba(109, 93, 252, 0.7), 0 0 50px rgba(168, 85, 247, 0.35); }
+    100% { box-shadow: 0 0 16px rgba(109, 93, 252, 0.4); }
+}
+
+/* --- Badge Unlock Celebration --- */
+.badge-card.just-unlocked {
+    animation: badgeUnlock 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes badgeUnlock {
+    0% {
+        transform: scale(0.6) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.15) rotate(3deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.badge-card.just-unlocked::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 20px;
+    background: conic-gradient(
+        from 0deg,
+        #fbbf24, #f59e0b, #d97706, #f59e0b, #fbbf24
+    );
+    z-index: -1;
+    animation: badgeRingBurst 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes badgeRingBurst {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    30% {
+        opacity: 0.9;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+/* --- Stat Counter Bump --- */
+.stat-value.counting {
+    animation: statBump 0.5s ease-out;
+}
+
+@keyframes statBump {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* --- Accessible Lesson Card Trigger Button --- */
+.lesson-card-trigger {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+}
+
+.lesson-card-trigger:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+[dir="rtl"] .lesson-card-trigger {
+    text-align: right;
+}
+
+/* --- Scroll Reveal: cards animate in ONLY when JS is enabled and on initial load --- */
+html.js .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.js .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media print {
+    html.js .scroll-reveal,
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* --- Non-Color Quiz Feedback Badges --- */
+.option-feedback {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+
+.option-feedback.correct {
+    background: rgba(5, 150, 105, 0.15);
+    color: var(--success);
+}
+
+.option-feedback.wrong {
+    background: rgba(220, 38, 38, 0.15);
+    color: var(--danger);
+}
+
+[dir="rtl"] .option-feedback {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+/* --- Quiz Option Feedback Animation --- */
+.option.correct {
+    animation: optionCorrect 0.5s ease;
+}
+
+.option.wrong {
+    animation: optionWrong 0.4s ease;
+}
+
+@keyframes optionCorrect {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.03); box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+    100% { transform: scale(1); }
+}
+
+@keyframes optionWrong {
+    0%, 100% { transform: translateX(0); }
+    15% { transform: translateX(-6px); }
+    30% { transform: translateX(6px); }
+    45% { transform: translateX(-4px); }
+    60% { transform: translateX(4px); }
+    75% { transform: translateX(-2px); }
+}
+
+/* =================================================================
+   ACCESSIBILITY: Reduced Motion Overrides (must stay at the end)
+   ================================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: auto;
+        scroll-behavior: auto !important;
     }
 
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation: none !important;
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+    }
+
+    html.js .scroll-reveal,
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .option.wrong,
+    .option.correct,
+    .stat-value.counting {
+        animation: none !important;
+        transform: none !important;
     }
 }

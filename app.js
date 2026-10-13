@@ -18,8 +18,8 @@ function debounce(fn, delay) {
 }
 
 const translations = {
-    id: { app_title: 'Belajar AI', app_desc: 'Platform Pembelajaran AI Premium untuk Pemula', tab_materi: 'Materi', tab_kuis: 'Kuis', tab_catatan: 'Catatan', tab_forum: 'Forum', tab_leaderboard: 'Leaderboard', tab_sertifikat: 'Sertifikat', dashboard_title: 'Dashboard Pembelajaran', stat_materi: 'Materi Selesai', stat_skor: 'Skor Rata-Rata', stat_streak: 'Streak Belajar', stat_poin: 'Total Poin', progress_title: 'Progress Pembelajaran', search_placeholder: 'Cari materi pembelajaran...', btn_cari: 'Cari', list_materi_title: 'Daftar Materi Pembelajaran', fav_materi_title: 'Materi Favorit', fav_empty: 'Belum ada materi favorit.', footer_quote: '"Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana kecerdasan bisa membuat manusia lebih bijak."', footer_dev: 'Dikembangkan oleh', footer_desc: 'Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.', footer_copy: '© 2025 Belajar AI. Semua hak dilindungi.' },
-    en: { app_title: 'Learn AI', app_desc: 'Premium AI Learning Platform for Beginners', tab_materi: 'Lessons', tab_kuis: 'Quiz', tab_catatan: 'Notes', tab_forum: 'Forum', tab_leaderboard: 'Leaderboard', tab_sertifikat: 'Certificate', dashboard_title: 'Learning Dashboard', stat_materi: 'Completed Lessons', stat_skor: 'Average Score', stat_streak: 'Learning Streak', stat_poin: 'Total Points', progress_title: 'Learning Progress', search_placeholder: 'Search for lessons...', btn_cari: 'Search', list_materi_title: 'List of Learning Materials', fav_materi_title: 'Favorite Lessons', fav_empty: 'No favorite lessons yet.', footer_quote: '"Learning AI is not about becoming a robot, but understanding how intelligence can make humans wiser."', footer_dev: 'Developed by', footer_desc: 'This project was developed for educational and learning purposes.', footer_copy: '© 2025 Learn AI. All rights reserved.' },
+    id: { app_title: 'Belajar AI', app_desc: 'Platform Pembelajaran AI Premium untuk Pemula', tab_materi: 'Materi', tab_kuis: 'Kuis', tab_catatan: 'Catatan', tab_forum: 'Forum', tab_leaderboard: 'Leaderboard', tab_sertifikat: 'Sertifikat', dashboard_title: 'Dashboard Pembelajaran', stat_materi: 'Materi Selesai', stat_skor: 'Skor Rata-Rata', stat_streak: 'Streak Belajar', stat_poin: 'Total Poin', progress_title: 'Progress Pembelajaran', search_placeholder: 'Cari materi pembelajaran...', btn_cari: 'Cari', list_materi_title: 'Daftar Materi Pembelajaran', fav_materi_title: 'Materi Favorit', fav_empty: 'Belum ada materi favorit.', footer_quote: '"Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana kecerdasan bisa membuat manusia lebih bijak."', footer_dev: 'Dikembangkan oleh', footer_desc: 'Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.', footer_copy: '© 2025 Belajar AI. Semua hak dilindungi.', forum_demo_notice: '📌 Mode lokal: data forum hanya tersimpan di perangkat ini.', lb_demo_notice: '📌 Data contoh — papan peringkat ini belum terhubung ke server.', footer_rights: 'Semua hak dilindungi.' },
+    en: { app_title: 'Learn AI', app_desc: 'Premium AI Learning Platform for Beginners', tab_materi: 'Lessons', tab_kuis: 'Quiz', tab_catatan: 'Notes', tab_forum: 'Forum', tab_leaderboard: 'Leaderboard', tab_sertifikat: 'Certificate', dashboard_title: 'Learning Dashboard', stat_materi: 'Completed Lessons', stat_skor: 'Average Score', stat_streak: 'Learning Streak', stat_poin: 'Total Points', progress_title: 'Learning Progress', search_placeholder: 'Search for lessons...', btn_cari: 'Search', list_materi_title: 'List of Learning Materials', fav_materi_title: 'Favorite Lessons', fav_empty: 'No favorite lessons yet.', footer_quote: '"Learning AI is not about becoming a robot, but understanding how intelligence can make humans wiser."', footer_dev: 'Developed by', footer_desc: 'This project was developed for educational and learning purposes.', footer_copy: '© 2025 Learn AI. All rights reserved.', forum_demo_notice: '📌 Local mode: forum data is stored only on this device.', lb_demo_notice: '📌 Sample data — this leaderboard is not yet connected to a server.', footer_rights: 'All rights reserved.' },
     zh: { app_title: '学习 AI', app_desc: '面向初学者的高级 AI 学习平台', tab_materi: '课程', tab_kuis: '测验', tab_catatan: '笔记', tab_forum: '论坛', tab_leaderboard: '排行榜', tab_sertifikat: '证书', dashboard_title: '学习仪表板', stat_materi: '已完成课程', stat_skor: '平均分', stat_streak: '学习连续天数', stat_poin: '总积分', progress_title: '学习进度', search_placeholder: '搜索课程...', btn_cari: '搜索', list_materi_title: '学习资料列表', fav_materi_title: '收藏夹', fav_empty: '暂无收藏的课程。', footer_quote: '"学习人工智能不是为了成为机器人，而是为了理解智能如何让人类变得更明智。"', footer_dev: '开发者：', footer_desc: '本项目为教育和学习目的而开发。', footer_copy: '© 2025 学习 AI。保留所有权利。' },
     es: { app_title: 'Aprender IA', app_desc: 'Plataforma Premium de Aprendizaje de IA para Principiantes', tab_materi: 'Lecciones', tab_kuis: 'Prueba', tab_catatan: 'Notas', tab_forum: 'Foro', tab_leaderboard: 'Clasificación', tab_sertifikat: 'Certificado', dashboard_title: 'Panel de Aprendizaje', stat_materi: 'Lecciones Completadas', stat_skor: 'Puntuación Promedio', stat_streak: 'Racha de Aprendizaje', stat_poin: 'Puntos Totales', progress_title: 'Progreso de Aprendizaje', search_placeholder: 'Buscar lecciones...', btn_cari: 'Buscar', list_materi_title: 'Lista de Materiales de Aprendizaje', fav_materi_title: 'Lecciones Favoritas', fav_empty: 'No hay lecciones favoritas todavía.', footer_quote: '"Aprender IA no se trata de convertirse en un robot, sino de entender cómo la inteligencia puede hacer a los humanos más sabios."', footer_dev: 'Desarrollado por', footer_desc: 'Este proyecto fue desarrollado con fines educativos y de aprendizaje.', footer_copy: '© 2025 Aprender IA. Todos los derechos reservados.' },
     ar: { app_title: 'تعلم الذكاء الاصطناعي', app_desc: 'منصة تعلم الذكاء الاصطناعي المميزة للمبتدئين', tab_materi: 'الدروس', tab_kuis: 'اختبار', tab_catatan: 'ملاحظات', tab_forum: 'المنتدى', tab_leaderboard: 'المتصدرين', tab_sertifikat: 'شهادة', dashboard_title: 'لوحة التعلم', stat_materi: 'الدروس المكتملة', stat_skor: 'متوسط النتيجة', stat_streak: 'سلسلة التعلم', stat_poin: 'إجمالي النقاط', progress_title: 'تقدم التعلم', search_placeholder: 'ابحث عن الدروس...', btn_cari: 'بحث', list_materi_title: 'قائمة المواد التعليمية', fav_materi_title: 'الدروس المفضلة', fav_empty: 'لا توجد دروس مفضلة بعد.', footer_quote: '"تعلم الذكاء الاصطناعي لا يعني أن تصبح روبوتًا ، بل إن فهم كيف يمكن للذكاء أن يجعل البشر أكثر حكمة."', footer_dev: 'طوره بواسطة', footer_desc: 'تم تطوير هذا المشروع لأغراض تعليمية.', footer_copy: '© 2025 تعلم الذكاء الاصطناعي. كل الحقوق محفوظة.' },
@@ -37,8 +37,8 @@ const translations = {
 
 // Extra translation keys for Quiz, Notes, Forum, Leaderboard, Certificate, Modals, Buttons
 const extraKeys = {
-    id: { quiz_title: 'Uji Pemahaman Anda', quiz_progress: 'Progress Kuis', quiz_download: 'Download Hasil', quiz_retry: 'Ulangi Kuis', quiz_back: 'Kembali', notes_title: 'Catatan Pembelajaran', notes_add: 'Tambah Catatan', notes_empty: 'Belum ada catatan. Mulai buat catatan Anda!', forum_title: 'Forum Diskusi', forum_add: 'Buat Postingan', forum_empty: 'Belum ada postingan. Jadilah yang pertama!', lb_title: 'Papan Peringkat', lb_rank: 'Peringkat', lb_name: 'Nama', lb_level: 'Level', lb_points: 'Poin', lb_lessons: 'Materi', cert_title: 'Sertifikat Digital', cert_download: 'Download Sertifikat', cert_msg: 'Selesaikan semua materi untuk mendapatkan sertifikat!', modal_note_title: 'Tambah Catatan', modal_label_title: 'Judul', modal_note_content: 'Isi Catatan', modal_note_ph_title: 'Judul catatan...', modal_note_ph_content: 'Tulis catatan Anda...', modal_post_title: 'Buat Postingan', modal_post_content: 'Isi Postingan', modal_post_ph_title: 'Judul diskusi...', modal_post_ph_content: 'Tulis pertanyaan atau diskusi...', modal_profile_title: 'Profil Pengguna', modal_profile_name: 'Nama', modal_profile_ph: 'Nama Anda...', modal_profile_level: 'Level:', modal_profile_points: 'Poin:', modal_profile_completed: 'Materi Selesai:', btn_save: 'Simpan', btn_cancel: 'Batal', btn_close: 'Tutup', btn_post: 'Posting' },
-    en: { quiz_title: 'Test Your Understanding', quiz_progress: 'Quiz Progress', quiz_download: 'Download Results', quiz_retry: 'Retry Quiz', quiz_back: 'Back', notes_title: 'Learning Notes', notes_add: 'Add Note', notes_empty: 'No notes yet. Start writing your notes!', forum_title: 'Discussion Forum', forum_add: 'Create Post', forum_empty: 'No posts yet. Be the first!', lb_title: 'Leaderboard', lb_rank: 'Rank', lb_name: 'Name', lb_level: 'Level', lb_points: 'Points', lb_lessons: 'Lessons', cert_title: 'Digital Certificate', cert_download: 'Download Certificate', cert_msg: 'Complete all lessons to get your certificate!', modal_note_title: 'Add Note', modal_label_title: 'Title', modal_note_content: 'Note Content', modal_note_ph_title: 'Note title...', modal_note_ph_content: 'Write your note...', modal_post_title: 'Create Post', modal_post_content: 'Post Content', modal_post_ph_title: 'Discussion title...', modal_post_ph_content: 'Write your question or discussion...', modal_profile_title: 'User Profile', modal_profile_name: 'Name', modal_profile_ph: 'Your name...', modal_profile_level: 'Level:', modal_profile_points: 'Points:', modal_profile_completed: 'Completed Lessons:', btn_save: 'Save', btn_cancel: 'Cancel', btn_close: 'Close', btn_post: 'Post' },
+    id: { quiz_title: 'Uji Pemahaman Anda', quiz_progress: 'Progress Kuis', quiz_download: 'Download Hasil', quiz_retry: 'Ulangi Kuis', quiz_back: 'Kembali', quiz_correct_badge: 'Benar', quiz_wrong_badge: 'Salah', notes_title: 'Catatan Pembelajaran', notes_add: 'Tambah Catatan', notes_empty: 'Belum ada catatan. Mulai buat catatan Anda!', forum_title: 'Forum Diskusi', forum_add: 'Buat Postingan', forum_empty: 'Belum ada postingan. Jadilah yang pertama!', lb_title: 'Papan Peringkat', lb_rank: 'Peringkat', lb_name: 'Nama', lb_level: 'Level', lb_points: 'Poin', lb_lessons: 'Materi', lb_you: 'Anda', lb_empty: 'Belum ada data kompetisi lokal. Selesaikan materi dan kuis untuk mengumpulkan poin!', lb_local_note: 'Papan peringkat ini berbasis progres mandiri di perangkat Anda.', cert_title: 'Sertifikat Digital', cert_download: 'Download Sertifikat', cert_msg: 'Selesaikan semua materi untuk mendapatkan sertifikat!', modal_note_title: 'Tambah Catatan', modal_label_title: 'Judul', modal_note_content: 'Isi Catatan', modal_note_ph_title: 'Judul catatan...', modal_note_ph_content: 'Tulis catatan Anda...', modal_post_title: 'Buat Postingan', modal_post_content: 'Isi Postingan', modal_post_ph_title: 'Judul diskusi...', modal_post_ph_content: 'Tulis pertanyaan atau diskusi...', modal_profile_title: 'Profil Pengguna', modal_profile_name: 'Nama', modal_profile_ph: 'Nama Anda...', modal_profile_level: 'Level:', modal_profile_points: 'Poin:', modal_profile_completed: 'Materi Selesai:', btn_save: 'Simpan', btn_cancel: 'Batal', btn_close: 'Tutup', btn_post: 'Posting' },
+    en: { quiz_title: 'Test Your Understanding', quiz_progress: 'Quiz Progress', quiz_download: 'Download Results', quiz_retry: 'Retry Quiz', quiz_back: 'Back', quiz_correct_badge: 'Correct', quiz_wrong_badge: 'Incorrect', notes_title: 'Learning Notes', notes_add: 'Add Note', notes_empty: 'No notes yet. Start writing your notes!', forum_title: 'Discussion Forum', forum_add: 'Create Post', forum_empty: 'No posts yet. Be the first!', lb_title: 'Leaderboard', lb_rank: 'Rank', lb_name: 'Name', lb_level: 'Level', lb_points: 'Points', lb_lessons: 'Lessons', lb_you: 'You', lb_empty: 'No local competition data yet. Complete lessons and quizzes to earn points!', lb_local_note: 'This leaderboard is based on local self-paced progress.', cert_title: 'Digital Certificate', cert_download: 'Download Certificate', cert_msg: 'Complete all lessons to get your certificate!', modal_note_title: 'Add Note', modal_label_title: 'Title', modal_note_content: 'Note Content', modal_note_ph_title: 'Note title...', modal_note_ph_content: 'Write your note...', modal_post_title: 'Create Post', modal_post_content: 'Post Content', modal_post_ph_title: 'Discussion title...', modal_post_ph_content: 'Write your question or discussion...', modal_profile_title: 'User Profile', modal_profile_name: 'Name', modal_profile_ph: 'Your name...', modal_profile_level: 'Level:', modal_profile_points: 'Points:', modal_profile_completed: 'Completed Lessons:', btn_save: 'Save', btn_cancel: 'Cancel', btn_close: 'Close', btn_post: 'Post' },
     zh: { quiz_title: '测试你的理解', quiz_progress: '测验进度', quiz_download: '下载结果', quiz_retry: '重试测验', quiz_back: '返回', notes_title: '学习笔记', notes_add: '添加笔记', notes_empty: '还没有笔记。开始写笔记吧！', forum_title: '讨论区', forum_add: '创建帖子', forum_empty: '还没有帖子。成为第一个！', lb_title: '排行榜', lb_rank: '排名', lb_name: '姓名', lb_level: '等级', lb_points: '积分', lb_lessons: '课程', cert_title: '数字证书', cert_download: '下载证书', cert_msg: '完成所有课程即可获得证书！', modal_note_title: '添加笔记', modal_label_title: '标题', modal_note_content: '笔记内容', modal_note_ph_title: '笔记标题...', modal_note_ph_content: '写下你的笔记...', modal_post_title: '创建帖子', modal_post_content: '帖子内容', modal_post_ph_title: '讨论标题...', modal_post_ph_content: '写下你的问题或讨论...', modal_profile_title: '用户资料', modal_profile_name: '姓名', modal_profile_ph: '你的名字...', modal_profile_level: '等级：', modal_profile_points: '积分：', modal_profile_completed: '已完成课程：', btn_save: '保存', btn_cancel: '取消', btn_close: '关闭', btn_post: '发布' },
     es: { quiz_title: 'Pon a Prueba tu Comprensión', quiz_progress: 'Progreso del Quiz', quiz_download: 'Descargar Resultados', quiz_retry: 'Reintentar Quiz', quiz_back: 'Volver', notes_title: 'Notas de Aprendizaje', notes_add: 'Agregar Nota', notes_empty: 'No hay notas aún. ¡Comienza a escribir!', forum_title: 'Foro de Discusión', forum_add: 'Crear Publicación', forum_empty: 'No hay publicaciones. ¡Sé el primero!', lb_title: 'Tabla de Clasificación', lb_rank: 'Rango', lb_name: 'Nombre', lb_level: 'Nivel', lb_points: 'Puntos', lb_lessons: 'Lecciones', cert_title: 'Certificado Digital', cert_download: 'Descargar Certificado', cert_msg: '¡Completa todas las lecciones para obtener tu certificado!', modal_note_title: 'Agregar Nota', modal_label_title: 'Título', modal_note_content: 'Contenido de la Nota', modal_note_ph_title: 'Título de la nota...', modal_note_ph_content: 'Escribe tu nota...', modal_post_title: 'Crear Publicación', modal_post_content: 'Contenido', modal_post_ph_title: 'Título de la discusión...', modal_post_ph_content: 'Escribe tu pregunta o discusión...', modal_profile_title: 'Perfil de Usuario', modal_profile_name: 'Nombre', modal_profile_ph: 'Tu nombre...', modal_profile_level: 'Nivel:', modal_profile_points: 'Puntos:', modal_profile_completed: 'Lecciones Completadas:', btn_save: 'Guardar', btn_cancel: 'Cancelar', btn_close: 'Cerrar', btn_post: 'Publicar' },
     ar: { quiz_title: 'اختبر فهمك', quiz_progress: 'تقدم الاختبار', quiz_download: 'تحميل النتائج', quiz_retry: 'إعادة الاختبار', quiz_back: 'رجوع', notes_title: 'ملاحظات التعلم', notes_add: 'إضافة ملاحظة', notes_empty: 'لا توجد ملاحظات بعد. ابدأ بالكتابة!', forum_title: 'منتدى النقاش', forum_add: 'إنشاء منشور', forum_empty: 'لا توجد منشورات بعد. كن الأول!', lb_title: 'لوحة المتصدرين', lb_rank: 'الترتيب', lb_name: 'الاسم', lb_level: 'المستوى', lb_points: 'النقاط', lb_lessons: 'الدروس', cert_title: 'شهادة رقمية', cert_download: 'تحميل الشهادة', cert_msg: 'أكمل جميع الدروس للحصول على شهادتك!', modal_note_title: 'إضافة ملاحظة', modal_label_title: 'العنوان', modal_note_content: 'محتوى الملاحظة', modal_note_ph_title: 'عنوان الملاحظة...', modal_note_ph_content: 'اكتب ملاحظتك...', modal_post_title: 'إنشاء منشور', modal_post_content: 'محتوى المنشور', modal_post_ph_title: 'عنوان النقاش...', modal_post_ph_content: 'اكتب سؤالك أو نقاشك...', modal_profile_title: 'الملف الشخصي', modal_profile_name: 'الاسم', modal_profile_ph: 'اسمك...', modal_profile_level: 'المستوى:', modal_profile_points: 'النقاط:', modal_profile_completed: 'الدروس المكتملة:', btn_save: 'حفظ', btn_cancel: 'إلغاء', btn_close: 'إغلاق', btn_post: 'نشر' },
@@ -770,48 +770,112 @@ const QUIZ = [
     { q: 'Kolom “alasan pembatalan” sebaiknya tidak dipakai untuk prediksi churn bila muncul setelah pelanggan berhenti karena?', opts: ['Data leakage', 'Regularization', 'Token limit', 'Image segmentation'], ans: 0 }
 ];
 
-let data = { name: 'Pengguna Baru', level: 3, points: 750, completed: [1, 2, 3, 4, 5], favorites: [], notes: [], forum: [], scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }], darkMode: false, streak: 5, lang: 'id', certId: null, badges: [], leaderboard: [{ name: 'Ahmad Rizki', level: 10, points: 5000, completed: 25 }, { name: 'Siti Nurhaliza', level: 9, points: 4800, completed: 24 }, { name: 'Budi Santoso', level: 8, points: 4600, completed: 23 }, { name: 'Dewi Lestari', level: 7, points: 4200, completed: 21 }, { name: 'Rudi Hermawan', level: 6, points: 3800, completed: 19 }] };
+let data = {
+    name: 'Pengguna Baru',
+    level: 3,
+    points: 750,
+    completed: [1, 2, 3, 4, 5],
+    favorites: [],
+    notes: [],
+    forum: [],
+    scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }],
+    darkMode: false,
+    streak: 5,
+    lang: 'id',
+    certId: null,
+    badges: [],
+    notifications: [],
+    leaderboard: []
+};
 let quiz = { current: 0, score: 0, answered: new Set() };
 const debouncedSearch = debounce(searchMateri, 300);
 
 function init() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) data = JSON.parse(saved);
-    if (data.darkMode) document.body.classList.add('dark-mode');
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && typeof parsed === 'object') {
+                Object.assign(data, parsed);
+            }
+        }
+    } catch (err) {
+        console.warn('localStorage error, using session state:', err);
+    }
 
-    // Set language selector to saved preference
+    if (!Array.isArray(data.notifications) || !data.notifications.length) {
+        data.notifications = [
+            { id: 1, text: 'Selamat datang di Belajar AI! Mulai eksplorasi materi pertamamu.', date: new Date().toLocaleDateString('id-ID'), read: false }
+        ];
+    }
+    updateNotifBadge();
+
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('theme') === 'dark') {
+            data.darkMode = true;
+        } else if (urlParams.get('theme') === 'light') {
+            data.darkMode = false;
+        }
+    } catch (_) {}
+
+    if (data.darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+
+    const yrEl = document.getElementById('copyrightYear');
+    if (yrEl) yrEl.textContent = new Date().getFullYear();
+
     const langSelect = document.getElementById('langSelect');
     if (langSelect && data.lang) {
         langSelect.value = data.lang;
     }
 
-    // Apply translation logic
     applyLanguage();
 
-    document.getElementById('userName').textContent = data.name;
-    document.getElementById('levelBadge').textContent = 'Level ' + data.level;
-    renderLessons(); initQuiz(); renderLeaderboard(); updateDashboard();
+    const userNameEl = document.getElementById('userName');
+    if (userNameEl) userNameEl.textContent = data.name;
 
-    // Bind debounced search + Enter key
-    const searchEl = document.getElementById('searchInput');
-    if (searchEl) {
-        searchEl.addEventListener('input', debouncedSearch);
-        searchEl.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') { e.preventDefault(); searchMateri(); }
-        });
+    const levelBadgeEl = document.getElementById('levelBadge');
+    if (levelBadgeEl) levelBadgeEl.textContent = 'Level ' + data.level;
+
+    renderLessons();
+    initQuiz();
+    renderLeaderboard();
+    updateDashboard();
+    checkBadges();
+    renderBadges();
+    setupControls();
+    setupTabs();
+    setupEventDelegation();
+    initVisualEffects();
+}
+
+function save() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (err) {
+        console.warn('localStorage save failed:', err);
     }
 }
 
-function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
-
 function showTab(btn, id) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-    // Smooth scroll to content
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+        b.setAttribute('tabindex', '-1');
+    });
+    const panel = document.getElementById(id);
+    if (panel) {
+        panel.classList.add('active');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        btn.setAttribute('tabindex', '0');
+    }
     if (id === 'catatan') renderNotes();
     if (id === 'forum') renderForum();
     if (id === 'sertifikat') showCertificate();
@@ -821,26 +885,34 @@ function toggleTheme() {
     data.darkMode = !data.darkMode;
     document.body.classList.toggle('dark-mode');
     save();
+    if (typeof NeuralNet !== 'undefined' && NeuralNet.readTokens) {
+        NeuralNet.readTokens();
+        if (NeuralNet.prefersReducedMotion) {
+            NeuralNet.drawStatic();
+        }
+    }
 }
 
 function applyLanguage() {
     const lang = data.lang || 'id';
-    const dict = translations[lang];
+    const dict = translations[lang] || translations.id;
     if (!dict) return;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
+        const text = (dict && dict[key]) || (translations.en && translations.en[key]) || (translations.id && translations.id[key]);
+        if (text) {
             const prop = el.getAttribute('data-i18n-prop');
             if (prop === 'placeholder') {
-                el.placeholder = dict[key];
+                el.placeholder = text;
             } else {
-                el.textContent = dict[key];
+                el.textContent = text;
             }
         }
     });
 
     document.documentElement.lang = lang;
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 }
 
 function changeLanguage() {
@@ -852,6 +924,7 @@ function changeLanguage() {
         applyLanguage();
         renderLessons();
         initQuiz();
+        renderBadges();
         notify('success', 'Language → ' + langName);
     }
 }
@@ -865,13 +938,15 @@ function renderLessonCard(l, options) {
     const showMeta = options && options.showMeta !== false;
     const showFav = options && options.showFav !== false;
 
-    let html = `<div class="lesson-card ${done ? 'completed' : ''}" onclick="viewLesson(${l.id})">`;
+    let html = `<article class="lesson-card ${done ? 'completed' : ''}" data-id="${l.id}">`;
+    html += `<button type="button" class="lesson-card-trigger" data-id="${l.id}" aria-label="${title}">`;
     html += `<div class="lesson-header"><span class="lesson-title">${title}</span>`;
-    if (showMeta) html += `<span class="lesson-status ${done ? 'done' : 'new'}">${done ? t('status_done') : t('status_new')}</span>`;
+    if (showMeta) html += `<span class="lesson-status ${done ? 'done' : 'new'}">${done ? escapeHTML(t('status_done')) : escapeHTML(t('status_new'))}</span>`;
     html += `</div><p class="lesson-desc">${desc}</p>`;
-    if (showMeta) html += `<div class="lesson-meta"><span>${t('label_level')}: ${tLevel(l.level)}</span><span>${t('label_duration')}: ${tDuration(l.duration)}</span></div>`;
-    if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" onclick="toggleFav(event,${l.id})">${fav ? t('btn_remove_fav') : t('btn_add_fav')}</button></div>`;
-    html += `</div>`;
+    if (showMeta) html += `<div class="lesson-meta"><span>${escapeHTML(t('label_level'))}: ${escapeHTML(tLevel(l.level))}</span><span>${escapeHTML(t('label_duration'))}: ${escapeHTML(tDuration(l.duration))}</span></div>`;
+    html += `</button>`;
+    if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" data-id="${l.id}" type="button" aria-label="${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}">${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}</button></div>`;
+    html += `</article>`;
     return html;
 }
 
@@ -882,97 +957,123 @@ function renderEmptyState(msgKey) {
 
 function renderLessons() {
     const c = document.getElementById('lessonsContainer');
-    c.innerHTML = LESSONS.map(l => renderLessonCard(l, { showMeta: true, showFav: true })).join('');
+    if (c) c.innerHTML = LESSONS.map(l => renderLessonCard(l, { showMeta: true, showFav: true })).join('');
     renderFavorites();
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
 function viewLesson(id) {
     const l = LESSONS.find(x => x.id === id);
-    if (l) {
-        if (!data.completed.includes(id)) {
-            data.completed.push(id);
-            data.points += 50;
-            save();
-            updateDashboard();
-            renderLessons();
-        }
-        const title = tLesson(l.id, 'title') || l.title;
-        const desc = tLesson(l.id, 'desc') || l.desc;
+    if (!l) return;
 
-        let html = `
-            <div class="lesson-modal-header" style="margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid var(--border-light)">
-                <h2 style="font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:8px">${title}</h2>
-                <p style="color:var(--text-secondary);margin-bottom:16px">${desc}</p>
-                <div style="display:flex;gap:20px;font-size:0.9rem;color:var(--text-secondary)">
-                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">${t('label_level')}: ${tLevel(l.level)}</span>
-                    <span style="background:var(--bg-light);padding:6px 14px;border-radius:20px">${t('label_duration')}: ${tDuration(l.duration)}</span>
-                    <span style="background:rgba(16,185,129,0.1);color:var(--success);padding:6px 14px;border-radius:20px">${t('status_done')}</span>
-                </div>
-            </div>
-        `;
+    const rawTitle = tLesson(l.id, 'title') || l.title;
+    const rawDesc = tLesson(l.id, 'desc') || l.desc;
+    const title = escapeHTML(rawTitle);
+    const desc = escapeHTML(rawDesc);
 
-        if (l.sections) {
-            html += '<div class="lesson-sections">';
-            l.sections.forEach((section, idx) => {
-                const secTitle = tSectionTitle(l.id, idx) || section.title;
-                const secContent = (typeof tSectionContent === 'function' ? tSectionContent(l.id, idx) : null) || section.content;
-                html += `
-                    <div class="lesson-section" style="margin-bottom:28px">
-                        <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:10px">
-                            <span style="background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem">${idx + 1}</span>
-                            ${secTitle}
-                        </h3>
-                        <div style="color:var(--text-secondary);line-height:1.8;padding-left:38px;white-space:pre-wrap">${secContent}</div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-        }
-
-        html += `
-            <div style="margin-top:30px;padding-top:20px;border-top:2px solid var(--border-light);display:flex;gap:12px;flex-wrap:wrap">
-                <button class="btn-primary" onclick="closeModal('lessonModal')">${t('btn_done_read')}</button>
-                <button class="btn-secondary" onclick="addNoteFromLesson('${l.title}')">${t('btn_make_note')}</button>
-            </div>
-        `;
-
-        document.getElementById('lessonModalContent').innerHTML = html;
-        openModal('lessonModal');
-        notify('success', t('notify_open') + ': ' + title);
+    if (!data.completed.includes(id)) {
+        data.completed.push(id);
+        data.points += 50;
+        save();
+        updateDashboard();
+        renderLessons();
+        checkBadges();
+        addNotification('Selesai membaca: ' + rawTitle);
     }
+
+    let html = `
+        <div class="lesson-modal-header">
+            <h2 class="lesson-modal-title" id="lessonModalTitle">${title}</h2>
+            <p class="lesson-modal-desc">${desc}</p>
+            <div class="lesson-meta-pills">
+                <span class="lesson-pill">${escapeHTML(t('label_level'))}: ${escapeHTML(tLevel(l.level))}</span>
+                <span class="lesson-pill">${escapeHTML(t('label_duration'))}: ${escapeHTML(tDuration(l.duration))}</span>
+                <span class="lesson-pill completed">${escapeHTML(t('status_done'))}</span>
+            </div>
+        </div>
+    `;
+
+    if (l.sections) {
+        html += '<div class="lesson-sections">';
+        l.sections.forEach((section, idx) => {
+            const rawSecTitle = tSectionTitle(l.id, idx) || section.title;
+            const rawSecContent = (typeof tSectionContent === 'function' ? tSectionContent(l.id, idx) : null) || section.content;
+            const secTitle = escapeHTML(rawSecTitle);
+            const secContent = escapeHTML(rawSecContent);
+            html += `
+                <div class="lesson-section">
+                    <h3 class="lesson-section-title">
+                        <span class="lesson-section-num">${idx + 1}</span>
+                        ${secTitle}
+                    </h3>
+                    <div class="lesson-section-content">${secContent}</div>
+                </div>
+            `;
+        });
+        html += '</div>';
+    }
+
+    html += `
+        <div class="lesson-modal-footer">
+            <button class="btn-primary" data-modal-close="lessonModal" type="button">${escapeHTML(t('btn_done_read'))}</button>
+            <button class="btn-secondary" id="lessonMakeNoteBtn" type="button">${escapeHTML(t('btn_make_note'))}</button>
+        </div>
+    `;
+
+    const contentEl = document.getElementById('lessonModalContent');
+    if (contentEl) {
+        contentEl.innerHTML = html;
+        const noteBtn = document.getElementById('lessonMakeNoteBtn');
+        if (noteBtn) {
+            noteBtn.addEventListener('click', () => addNoteFromLesson(rawTitle));
+        }
+        contentEl.querySelectorAll('[data-modal-close]').forEach(b => {
+            b.addEventListener('click', () => closeModal('lessonModal'));
+        });
+    }
+
+    openModal('lessonModal');
+    notify('success', t('notify_open') + ': ' + rawTitle);
 }
 
 function addNoteFromLesson(title) {
     closeModal('lessonModal');
-    document.getElementById('noteTitleInput').value = t('tab_catatan') + ': ' + title;
+    const noteTitleInput = document.getElementById('noteTitleInput');
+    if (noteTitleInput) noteTitleInput.value = t('tab_catatan') + ': ' + title;
     openNoteModal();
 }
 
-
-
 function toggleFav(e, id) {
-    e.stopPropagation();
+    if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
     const i = data.favorites.indexOf(id);
-    if (i > -1) data.favorites.splice(i, 1); else data.favorites.push(id);
-    save(); renderLessons();
+    if (i > -1) {
+        data.favorites.splice(i, 1);
+    } else {
+        data.favorites.push(id);
+    }
+    save();
+    renderLessons();
 }
 
 function renderFavorites() {
     const c = document.getElementById('favoritesContainer');
+    if (!c) return;
     const favs = LESSONS.filter(l => data.favorites.includes(l.id));
     if (!favs.length) { c.innerHTML = renderEmptyState('no_fav'); return; }
     c.innerHTML = favs.map(l => renderLessonCard(l, { showMeta: false, showFav: true })).join('');
 }
 
 function searchMateri() {
-    const q = document.getElementById('searchInput').value.toLowerCase();
-    if (!q.trim()) { renderLessons(); return; }
+    const searchEl = document.getElementById('searchInput');
+    const q = (searchEl ? searchEl.value : '').toLowerCase().trim();
+    if (!q) { renderLessons(); return; }
     const results = LESSONS.filter(l => {
         const title = tLesson(l.id, 'title') || l.title;
         const desc = tLesson(l.id, 'desc') || l.desc;
         return title.toLowerCase().includes(q) || desc.toLowerCase().includes(q) || l.title.toLowerCase().includes(q) || l.desc.toLowerCase().includes(q);
     });
     const c = document.getElementById('lessonsContainer');
+    if (!c) return;
     if (!results.length) { c.innerHTML = renderEmptyState('no_search'); return; }
     c.innerHTML = results.map(l => renderLessonCard(l, { showMeta: true, showFav: false })).join('');
 }
@@ -987,16 +1088,17 @@ function shuffleArray(arr) {
     return a;
 }
 
-let quizOrder = []; // stores shuffled indices
+let quizOrder = [];
 
 function initQuiz() {
     const c = document.getElementById('quizContent');
+    if (!c) return;
     quizOrder = shuffleArray(QUIZ.map((_, i) => i));
     c.innerHTML = quizOrder.map((qi, displayIdx) => {
         const q = QUIZ[qi];
         return `<div class="quiz-item ${displayIdx === 0 ? 'active' : ''}" id="q${displayIdx}" style="${displayIdx === 0 ? '' : 'display:none'}">
-        <div class="quiz-header"><div class="question">${displayIdx + 1}. ${q.q}</div><span class="quiz-counter">${t('quiz_q')} ${displayIdx + 1}/${QUIZ.length}</span></div>
-        <div class="options" role="radiogroup">${q.opts.map((o, j) => `<div class="option" role="radio" aria-checked="false" tabindex="0" onclick="checkAnswer(${qi},${j},this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();checkAnswer(${qi},${j},this)}">${o}</div>`).join('')}</div>
+        <div class="quiz-header"><div class="question">${displayIdx + 1}. ${escapeHTML(q.q)}</div><span class="quiz-counter">${escapeHTML(t('quiz_q'))} ${displayIdx + 1}/${QUIZ.length}</span></div>
+        <div class="options" role="radiogroup">${q.opts.map((o, j) => `<div class="option" role="radio" aria-checked="false" tabindex="0" data-qi="${qi}" data-oi="${j}">${escapeHTML(o)}</div>`).join('')}</div>
     </div>`;
     }).join('');
 }
@@ -1004,100 +1106,238 @@ function initQuiz() {
 function checkAnswer(qi, oi, el) {
     if (quiz.answered.has(qi)) return;
     const correct = oi === QUIZ[qi].ans;
-    el.parentElement.querySelectorAll('.option').forEach(o => { o.style.pointerEvents = 'none'; o.setAttribute('aria-checked', 'false'); });
+    const options = el.parentElement.querySelectorAll('.option');
+    options.forEach(o => {
+        o.style.pointerEvents = 'none';
+        o.setAttribute('aria-checked', 'false');
+    });
     el.setAttribute('aria-checked', 'true');
-    if (correct) { el.classList.add('correct'); quiz.score++; notify('success', t('notify_correct')); }
-    else { el.classList.add('wrong'); el.parentElement.querySelectorAll('.option')[QUIZ[qi].ans].classList.add('correct'); notify('error', t('notify_wrong')); }
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (correct) {
+        el.classList.add('correct');
+        const badge = document.createElement('span');
+        badge.className = 'option-feedback correct';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = ' ✓ ' + (t('quiz_correct_badge') || 'Benar');
+        el.appendChild(badge);
+
+        quiz.score++;
+        notify('success', t('notify_correct'));
+    } else {
+        el.classList.add('wrong');
+        const badge = document.createElement('span');
+        badge.className = 'option-feedback wrong';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = ' ✗ ' + (t('quiz_wrong_badge') || 'Salah');
+        el.appendChild(badge);
+
+        const correctOpt = options[QUIZ[qi].ans];
+        if (correctOpt) {
+            correctOpt.classList.add('correct');
+            const corBadge = document.createElement('span');
+            corBadge.className = 'option-feedback correct';
+            corBadge.setAttribute('aria-hidden', 'true');
+            corBadge.textContent = ' ✓ ' + (t('quiz_correct_badge') || 'Benar');
+            correctOpt.appendChild(corBadge);
+        }
+        notify('error', t('notify_wrong'));
+    }
+
+    const liveRegion = document.getElementById('quizLiveRegion');
+    if (liveRegion) {
+        liveRegion.textContent = correct
+            ? (t('notify_correct') || 'Jawaban Benar!')
+            : (t('notify_wrong') || 'Jawaban Salah!');
+    }
+
+    if (navigator.vibrate && !reduced) {
+        navigator.vibrate(correct ? 40 : [40, 60, 40]);
+    }
+
     quiz.answered.add(qi);
     updateQuizProgress();
-    // Find the display index for this question
     const displayIdx = quizOrder.indexOf(qi);
     setTimeout(() => {
-        if (displayIdx < QUIZ.length - 1) { document.getElementById('q' + displayIdx).style.display = 'none'; document.getElementById('q' + (displayIdx + 1)).style.display = 'block'; }
-        else showQuizResult();
+        if (displayIdx < QUIZ.length - 1) {
+            const curEl = document.getElementById('q' + displayIdx);
+            const nextEl = document.getElementById('q' + (displayIdx + 1));
+            if (curEl) curEl.style.display = 'none';
+            if (nextEl) nextEl.style.display = 'block';
+        } else {
+            showQuizResult();
+        }
     }, 1200);
 }
 
 function updateQuizProgress() {
     const p = (quiz.answered.size / QUIZ.length) * 100;
-    document.getElementById('quizProgressBar').style.width = p + '%';
-    document.getElementById('quizProgressPercent').textContent = Math.round(p) + '%';
+    const bar = document.getElementById('quizProgressBar');
+    const txt = document.getElementById('quizProgressPercent');
+    if (bar) bar.style.width = p + '%';
+    if (txt) txt.textContent = Math.round(p) + '%';
 }
 
 function showQuizResult() {
     document.querySelectorAll('.quiz-item').forEach(q => q.style.display = 'none');
-    const r = document.getElementById('quizResult'); r.style.display = 'block';
+    const r = document.getElementById('quizResult');
+    if (r) r.style.display = 'block';
     const pct = (quiz.score / QUIZ.length) * 100;
-    document.getElementById('scoreDisplay').textContent = quiz.score + '/' + QUIZ.length;
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    if (scoreDisplay) scoreDisplay.textContent = quiz.score + '/' + QUIZ.length;
     let msg = pct === 100 ? t('quiz_result_perfect') : pct >= 80 ? t('quiz_result_great') : pct >= 60 ? t('quiz_result_good') : t('quiz_result_retry');
-    document.getElementById('resultMessage').textContent = msg;
+    const msgEl = document.getElementById('resultMessage');
+    if (msgEl) msgEl.textContent = msg;
     data.points += pct === 100 ? 500 : pct >= 80 ? 400 : pct >= 60 ? 300 : 100;
     data.scores.push({ date: new Date().toLocaleDateString('id-ID'), score: pct });
     data.level = Math.floor(data.points / 500) + 1;
-    save(); updateDashboard();
+    save();
+    updateDashboard();
+    addNotification('Menyelesaikan kuis dengan skor ' + Math.round(pct) + '%');
+    checkBadges();
+
+    if (pct >= 80 && typeof Confetti !== 'undefined' && Confetti.fire) {
+        Confetti.fire(3000);
+    }
 }
 
 function resetQuiz() {
     quiz = { current: 0, score: 0, answered: new Set() };
-    document.getElementById('quizResult').style.display = 'none';
-    initQuiz(); updateQuizProgress();
+    const r = document.getElementById('quizResult');
+    if (r) r.style.display = 'none';
+    initQuiz();
+    updateQuizProgress();
 }
 
 function downloadResult() {
     const txt = `${t('report_title')}\n\n${t('report_name')}: ${data.name}\n${t('report_date')}: ${new Date().toLocaleDateString('id-ID')}\n${t('report_score')}: ${quiz.score}/${QUIZ.length}\n${t('report_percent')}: ${Math.round((quiz.score / QUIZ.length) * 100)}%`;
     const blob = new Blob([txt], { type: 'text/plain' });
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'hasil-kuis.txt'; a.click();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'hasil-kuis.txt';
+    a.click();
 }
 
 let _lastFocused = null;
 
-function openNoteModal() { openModal('noteModal'); }
-function openPostModal() { openModal('postModal'); }
+function getFocusableElements(container) {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll(
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+}
+
+function openNoteModal() {
+    _editingNoteId = null;
+    const titleInput = document.getElementById('noteTitleInput');
+    const textInput = document.getElementById('noteTextInput');
+    if (titleInput) titleInput.value = '';
+    if (textInput) textInput.value = '';
+    openModal('noteModal');
+}
+
+function openPostModal() {
+    const titleInput = document.getElementById('postTitleInput');
+    const textInput = document.getElementById('postTextInput');
+    if (titleInput) titleInput.value = '';
+    if (textInput) textInput.value = '';
+    openModal('postModal');
+}
 
 function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
     _lastFocused = document.activeElement;
-    document.getElementById(id).classList.add('active');
-    // Focus the first focusable element inside the modal
+    modal.removeAttribute('inert');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('active');
     setTimeout(() => {
-        const modal = document.getElementById(id);
-        const focusable = modal.querySelector('input, textarea, button:not(.modal-close), select');
-        if (focusable) focusable.focus();
-    }, 100);
+        const focusables = getFocusableElements(modal);
+        if (focusables.length) focusables[0].focus();
+    }, 50);
 }
 
 function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
-    // Return focus to the element that opened the modal
-    if (_lastFocused) { _lastFocused.focus(); _lastFocused = null; }
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('inert', '');
+    modal.setAttribute('aria-hidden', 'true');
+    if (_lastFocused && typeof _lastFocused.focus === 'function') {
+        _lastFocused.focus();
+        _lastFocused = null;
+    }
 }
 
-// Close modals on Escape key
+// Trap focus inside modal & close on Escape
 document.addEventListener('keydown', function (e) {
+    const activeModal = document.querySelector('.modal.active');
+    if (!activeModal) return;
+
     if (e.key === 'Escape') {
-        ['noteModal', 'postModal', 'userModal', 'lessonModal'].forEach(id => {
-            const modal = document.getElementById(id);
-            if (modal && modal.classList.contains('active')) closeModal(id);
-        });
+        closeModal(activeModal.id);
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const focusables = getFocusableElements(activeModal);
+        if (!focusables.length) {
+            e.preventDefault();
+            return;
+        }
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === first || !activeModal.contains(document.activeElement)) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (document.activeElement === last || !activeModal.contains(document.activeElement)) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
     }
 });
 
 let _editingNoteId = null;
 
 function addNote() {
-    const title = document.getElementById('noteTitleInput').value, content = document.getElementById('noteTextInput').value;
-    if (!title || !content) { notify('warning', t('notify_fill_fields')); return; }
+    const titleInput = document.getElementById('noteTitleInput');
+    const textInput = document.getElementById('noteTextInput');
+    const title = titleInput ? titleInput.value.trim() : '';
+    const content = textInput ? textInput.value.trim() : '';
+
+    if (!title || !content) {
+        notify('warning', t('notify_fill_fields'));
+        return;
+    }
+
     if (_editingNoteId) {
-        // Edit existing note
         const note = data.notes.find(n => n.id === _editingNoteId);
-        if (note) { note.title = title; note.text = content; note.date = new Date().toLocaleDateString('id-ID'); }
+        if (note) {
+            note.title = title;
+            note.text = content;
+            note.date = new Date().toLocaleDateString('id-ID');
+        }
         _editingNoteId = null;
-        save(); renderNotes(); closeModal('noteModal');
-        document.getElementById('noteTitleInput').value = ''; document.getElementById('noteTextInput').value = '';
+        save();
+        renderNotes();
+        closeModal('noteModal');
         notify('success', t('notify_note_updated'));
     } else {
-        data.notes.push({ id: Date.now(), title: title, text: content, date: new Date().toLocaleDateString('id-ID') });
-        save(); renderNotes(); closeModal('noteModal');
-        document.getElementById('noteTitleInput').value = ''; document.getElementById('noteTextInput').value = '';
+        data.notes.push({
+            id: Date.now(),
+            title: title,
+            text: content,
+            date: new Date().toLocaleDateString('id-ID')
+        });
+        save();
+        renderNotes();
+        closeModal('noteModal');
         notify('success', t('notify_note_added'));
         checkBadges();
     }
@@ -1107,33 +1347,72 @@ function editNote(id) {
     const note = data.notes.find(n => n.id === id);
     if (!note) return;
     _editingNoteId = id;
-    document.getElementById('noteTitleInput').value = note.title;
-    document.getElementById('noteTextInput').value = note.text;
+    const titleInput = document.getElementById('noteTitleInput');
+    const textInput = document.getElementById('noteTextInput');
+    if (titleInput) titleInput.value = note.title;
+    if (textInput) textInput.value = note.text;
     openModal('noteModal');
 }
 
 function renderNotes() {
     const c = document.getElementById('notesContainer');
+    if (!c) return;
     if (!data.notes.length) { c.innerHTML = renderEmptyState('notes_no_data'); return; }
     const colors = ['', 'pink', 'blue', 'green'];
-    c.innerHTML = data.notes.map((n, i) => `<div class="note-card ${colors[i % 4]}"><div class="note-title">${escapeHTML(n.title)}</div><div class="note-text">${escapeHTML(n.text)}</div><div class="note-footer"><span class="note-date">${escapeHTML(n.date)}</span><div class="note-actions-group"><button class="note-edit" onclick="editNote(${n.id})">${t('btn_edit')}</button><button class="note-delete" onclick="deleteNote(${n.id})">${t('btn_delete')}</button></div></div></div>`).join('');
+    c.innerHTML = data.notes.map((n, i) => `<div class="note-card ${colors[i % 4]}">
+        <div class="note-title">${escapeHTML(n.title)}</div>
+        <div class="note-text">${escapeHTML(n.text)}</div>
+        <div class="note-footer">
+            <span class="note-date">${escapeHTML(n.date)}</span>
+            <div class="note-actions-group">
+                <button class="note-edit" data-id="${n.id}" type="button">${escapeHTML(t('btn_edit'))}</button>
+                <button class="note-delete" data-id="${n.id}" type="button">${escapeHTML(t('btn_delete'))}</button>
+            </div>
+        </div>
+    </div>`).join('');
 }
 
-function deleteNote(id) { data.notes = data.notes.filter(n => n.id !== id); save(); renderNotes(); notify('success', t('notify_note_deleted')); }
+function deleteNote(id) {
+    data.notes = data.notes.filter(n => n.id !== id);
+    save();
+    renderNotes();
+    notify('success', t('notify_note_deleted'));
+}
 
 function addPost() {
-    const title = document.getElementById('postTitleInput').value, content = document.getElementById('postTextInput').value;
-    if (!title || !content) { notify('warning', t('notify_fill_fields')); return; }
-    data.forum.push({ id: Date.now(), author: data.name, title: title, text: content, date: new Date().toLocaleDateString('id-ID'), likes: 0, replies: [] });
-    save(); renderForum(); closeModal('postModal');
-    document.getElementById('postTitleInput').value = ''; document.getElementById('postTextInput').value = '';
+    const titleInput = document.getElementById('postTitleInput');
+    const textInput = document.getElementById('postTextInput');
+    const title = titleInput ? titleInput.value.trim() : '';
+    const content = textInput ? textInput.value.trim() : '';
+
+    if (!title || !content) {
+        notify('warning', t('notify_fill_fields'));
+        return;
+    }
+
+    data.forum.push({
+        id: Date.now(),
+        author: data.name,
+        title: title,
+        text: content,
+        date: new Date().toLocaleDateString('id-ID'),
+        likes: 0,
+        replies: []
+    });
+    save();
+    renderForum();
+    closeModal('postModal');
     notify('success', t('notify_post_created'));
     checkBadges();
 }
 
 function likePost(id) {
     const post = data.forum.find(p => p.id === id);
-    if (post) { post.likes = (post.likes || 0) + 1; save(); renderForum(); }
+    if (post) {
+        post.likes = (post.likes || 0) + 1;
+        save();
+        renderForum();
+    }
 }
 
 function replyToPost(id) {
@@ -1142,8 +1421,14 @@ function replyToPost(id) {
     const post = data.forum.find(p => p.id === id);
     if (post) {
         if (!post.replies) post.replies = [];
-        post.replies.push({ id: Date.now(), author: data.name, text: text.trim(), date: new Date().toLocaleDateString('id-ID') });
-        save(); renderForum();
+        post.replies.push({
+            id: Date.now(),
+            author: data.name,
+            text: text.trim(),
+            date: new Date().toLocaleDateString('id-ID')
+        });
+        save();
+        renderForum();
         notify('success', t('notify_reply_added'));
     }
 }
@@ -1155,6 +1440,7 @@ function toggleReplies(id) {
 
 function renderForum() {
     const c = document.getElementById('forumContainer');
+    if (!c) return;
     if (!data.forum.length) { c.innerHTML = renderEmptyState('forum_no_data'); return; }
     c.innerHTML = data.forum.slice().reverse().map(p => {
         const likes = p.likes || 0;
@@ -1164,10 +1450,10 @@ function renderForum() {
         html += `<div class="post-title">${escapeHTML(p.title)}</div>`;
         html += `<div class="post-content">${escapeHTML(p.text)}</div>`;
         html += `<div class="post-actions">`;
-        html += `<span class="post-action" onclick="likePost(${p.id})">❤ ${t('btn_like')} (${likes})</span>`;
-        html += `<span class="post-action" onclick="replyToPost(${p.id})">${t('btn_reply')}</span>`;
-        if (replies.length) html += `<span class="post-action" onclick="toggleReplies(${p.id})">${t('btn_show_replies')} (${replies.length})</span>`;
-        html += `<span class="post-action" onclick="deletePost(${p.id})">${t('btn_delete')}</span>`;
+        html += `<button class="post-action post-action-like" data-id="${p.id}" type="button">❤ ${escapeHTML(t('btn_like'))} (${likes})</button>`;
+        html += `<button class="post-action post-action-reply" data-id="${p.id}" type="button">${escapeHTML(t('btn_reply'))}</button>`;
+        if (replies.length) html += `<button class="post-action post-action-toggle" data-id="${p.id}" type="button">${escapeHTML(t('btn_show_replies'))} (${replies.length})</button>`;
+        html += `<button class="post-action post-action-delete" data-id="${p.id}" type="button">${escapeHTML(t('btn_delete'))}</button>`;
         html += `</div>`;
         if (replies.length) {
             html += `<div class="post-replies" id="replies-${p.id}">`;
@@ -1179,28 +1465,64 @@ function renderForum() {
     }).join('');
 }
 
-function deletePost(id) { data.forum = data.forum.filter(p => p.id !== id); save(); renderForum(); notify('success', t('notify_post_deleted')); }
+function deletePost(id) {
+    data.forum = data.forum.filter(p => p.id !== id);
+    save();
+    renderForum();
+    notify('success', t('notify_post_deleted'));
+}
 
 function renderLeaderboard() {
     const b = document.getElementById('leaderboardBody');
-    b.innerHTML = data.leaderboard.map((u, i) => `<tr><td class="rank rank-${i + 1}">${i < 3 ? ['#1', '#2', '#3'][i] : i + 1}</td><td>${escapeHTML(u.name)}</td><td>Level ${u.level}</td><td><strong>${u.points.toLocaleString('id-ID')}</strong></td><td>${u.completed} ${t('lb_materi_suffix')}</td></tr>`).join('');
+    if (!b) return;
+    const userPoints = data.points || 0;
+    const userCompleted = (data.completed || []).length;
+    const userName = data.name || 'Pengguna';
+    const userLevel = data.level || (Math.floor(userPoints / 500) + 1);
+
+    if (userPoints > 0 || userCompleted > 0) {
+        b.innerHTML = `<tr><td class="rank rank-1">#1</td><td><strong>${escapeHTML(userName)}</strong> <span style="font-size:0.85rem;opacity:0.75">(${escapeHTML(t('lb_you'))})</span></td><td>Level ${userLevel}</td><td><strong>${userPoints.toLocaleString('id-ID')}</strong></td><td>${userCompleted} ${escapeHTML(t('lb_materi_suffix'))}</td></tr>`;
+    } else {
+        b.innerHTML = `<tr><td colspan="5" class="empty-state" style="text-align:center;padding:2rem;"><p>${escapeHTML(t('lb_empty'))}</p><small style="opacity:0.75">${escapeHTML(t('lb_local_note'))}</small></td></tr>`;
+    }
 }
 
-// Animated counter helper
 function animateCounter(el, target, suffix, duration) {
+    if (!el) return;
     suffix = suffix || '';
-    duration = duration || 800;
-    const start = parseInt(el.textContent) || 0;
-    if (start === target) { el.textContent = target + suffix; return; }
+    const formatted = target.toLocaleString('id-ID') + suffix;
+    el.setAttribute('aria-label', formatted);
+
+    const prevVal = el.dataset.currentValue !== undefined ? parseInt(el.dataset.currentValue, 10) : null;
+    if (prevVal === target) {
+        el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
+        return;
+    }
+    el.dataset.currentValue = target;
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || prevVal === null) {
+        el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
+        return;
+    }
+
+    const start = prevVal || 0;
+    duration = duration || 650;
     const startTime = performance.now();
+    el.classList.add('counting');
+
     function step(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        // Ease-out cubic
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = Math.round(start + (target - start) * eased);
-        el.textContent = current.toLocaleString('id-ID') + suffix;
-        if (progress < 1) requestAnimationFrame(step);
+        el.innerHTML = `<span aria-hidden="true">${current.toLocaleString('id-ID')}${suffix}</span>`;
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            el.innerHTML = `<span aria-hidden="true">${formatted}</span>`;
+            el.classList.remove('counting');
+        }
     }
     requestAnimationFrame(step);
 }
@@ -1209,33 +1531,63 @@ function updateDashboard() {
     animateCounter(document.getElementById('materiSelesai'), data.completed.length);
     const avg = data.scores.length ? Math.round(data.scores.reduce((a, b) => a + b.score, 0) / data.scores.length) : 0;
     animateCounter(document.getElementById('skorRata'), avg, '%');
-    animateCounter(document.getElementById('streakBelajar'), data.streak);
-    animateCounter(document.getElementById('poinTotal'), data.points);
-    const p = (data.completed.length / LESSONS.length) * 100;
-    document.getElementById('progressBar').style.width = p + '%';
-    document.getElementById('progressPercent').textContent = Math.round(p) + '%';
-    document.getElementById('levelBadge').textContent = 'Level ' + data.level;
+    animateCounter(document.getElementById('streakBelajar'), data.streak || 0);
+    animateCounter(document.getElementById('poinTotal'), data.points || 0);
+    const p = Math.round((data.completed.length / LESSONS.length) * 100);
+    const progressBar = document.getElementById('progressBar');
+    const progressPercent = document.getElementById('progressPercent');
+    if (progressBar) {
+        const targetWidth = p + '%';
+        if (progressBar.style.width !== targetWidth) {
+            progressBar.style.width = targetWidth;
+            progressBar.classList.add('animate-in');
+            setTimeout(() => progressBar.classList.remove('animate-in'), 800);
+        }
+        const progressBarParent = progressBar.closest('.progress-bar');
+        if (progressBarParent) {
+            progressBarParent.setAttribute('aria-valuenow', p);
+        }
+    }
+    if (progressPercent) progressPercent.textContent = p + '%';
+    const levelBadge = document.getElementById('levelBadge');
+    if (levelBadge) levelBadge.textContent = 'Level ' + (data.level || 1);
 }
 
 function showUserProfile() {
-    document.getElementById('userNameInput').value = data.name;
-    document.getElementById('profileLevel').textContent = data.level;
-    document.getElementById('profilePoints').textContent = data.points.toLocaleString('id-ID');
-    document.getElementById('profileCompleted').textContent = data.completed.length;
+    const nameInput = document.getElementById('userNameInput');
+    const levelEl = document.getElementById('profileLevel');
+    const pointsEl = document.getElementById('profilePoints');
+    const completedEl = document.getElementById('profileCompleted');
+
+    if (nameInput) nameInput.value = data.name;
+    if (levelEl) levelEl.textContent = data.level;
+    if (pointsEl) pointsEl.textContent = data.points.toLocaleString('id-ID');
+    if (completedEl) completedEl.textContent = data.completed.length;
     openModal('userModal');
 }
 
 function saveProfile() {
-    const n = document.getElementById('userNameInput').value.trim();
-    if (n) { data.name = n; save(); document.getElementById('userName').textContent = n; closeModal('userModal'); notify('success', t('notify_profile_saved')); }
+    const nameInput = document.getElementById('userNameInput');
+    const n = nameInput ? nameInput.value.trim() : '';
+    if (n) {
+        data.name = n;
+        save();
+        const userName = document.getElementById('userName');
+        if (userName) userName.textContent = n;
+        closeModal('userModal');
+        notify('success', t('notify_profile_saved'));
+    }
 }
 
 function showCertificate() {
     const c = document.getElementById('certContainer');
+    if (!c) return;
     if (data.completed.length === LESSONS.length) {
-        document.getElementById('certBtn').style.display = 'inline-block';
-        document.getElementById('certMsg').style.display = 'none';
-        // Stable certificate ID — generated once and persisted
+        const certBtn = document.getElementById('certBtn');
+        const certMsg = document.getElementById('certMsg');
+        if (certBtn) certBtn.style.display = 'inline-block';
+        if (certMsg) certMsg.style.display = 'none';
+
         if (!data.certId) {
             data.certId = 'CERT/' + new Date().getFullYear() + '/AI/' + Date.now().toString(36).toUpperCase();
             save();
@@ -1244,7 +1596,6 @@ function showCertificate() {
         const issueDate = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
         const issueDateID = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
-        // Tanda tangan dengan font tulisan tangan
         const signatureSVG = `<div style="font-family:'Brush Script MT',cursive;font-size:42px;color:#1a1a1a;font-style:italic;transform:rotate(-5deg);">Rasidi</div>`;
 
         c.innerHTML = `
@@ -1286,14 +1637,14 @@ function showCertificate() {
                                     <div class="certificate-script">${signatureSVG.replace('<div style="', '<div class="certificate-signature-script" style="')}</div>
                                     <div class="certificate-signature-line"></div>
                                     <strong>Ahmad Rasidi</strong>
-                                    <span>Founder &amp; Lead Instructor</span>
+                                    <span>Founder &amp; Creator</span>
                                 </div>
 
                                 <div class="certificate-seal">
                                     <div class="certificate-seal-ring">
-                                        <span>VERIFIED</span>
+                                        <span>COMPLETED</span>
                                         <strong>AI</strong>
-                                        <small>CERTIFIED</small>
+                                        <small>SELF-ISSUED</small>
                                     </div>
                                 </div>
 
@@ -1309,8 +1660,8 @@ function showCertificate() {
                             </div>
 
                             <div class="certificate-footer">
-                                <span>This certificate is issued by Belajar AI Platform and is valid without physical signature.</span>
-                                <span>Verify: belajar-ai.id/verify/${certId.replace(/\//g, '-')}</span>
+                                <span>Sertifikat penyelesaian mandiri ini diterbitkan oleh platform Belajar AI berdasarkan progres pengguna.</span>
+                                <span>ID Sertifikat: ${certId} · Terbitan Mandiri (Self-issued)</span>
                             </div>
                         </div>
                     </div>
@@ -1318,6 +1669,22 @@ function showCertificate() {
             </div>
         `;
     }
+}
+
+function loadHtml2Pdf() {
+    return new Promise((resolve, reject) => {
+        if (window.html2pdf) {
+            resolve(window.html2pdf);
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        script.integrity = 'sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==';
+        script.crossOrigin = 'anonymous';
+        script.onload = () => resolve(window.html2pdf);
+        script.onerror = () => reject(new Error('Gagal memuat library html2pdf'));
+        document.head.appendChild(script);
+    });
 }
 
 function downloadCertificate() {
@@ -1329,42 +1696,89 @@ function downloadCertificate() {
 
     notify('success', t('notify_pdf_prep'));
 
-    const opt = {
-        margin: 5,
-        filename: 'Sertifikat-Belajar-AI-' + data.name.replace(/\s+/g, '-') + '.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: {
-            scale: 2.5,
-            useCORS: true,
-            backgroundColor: '#f7f2e8',
-            letterRendering: true,
-            windowWidth: 1200
-        },
-        pagebreak: { mode: ['avoid-all', 'css'] },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
-    };
+    loadHtml2Pdf().then(() => {
+        const opt = {
+            margin: 5,
+            filename: 'Sertifikat-Belajar-AI-' + data.name.replace(/\s+/g, '-') + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: {
+                scale: 2.5,
+                useCORS: true,
+                backgroundColor: '#f7f2e8',
+                letterRendering: true,
+                windowWidth: 1200
+            },
+            pagebreak: { mode: ['avoid-all', 'css'] },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+        };
 
-    html2pdf().set(opt).from(element).save().then(() => {
-        notify('success', t('notify_pdf_done'));
+        window.html2pdf().set(opt).from(element).save().then(() => {
+            notify('success', t('notify_pdf_done'));
+        }).catch(err => {
+            notify('error', t('notify_pdf_fail') + ': ' + (err.message || ''));
+        });
     }).catch(err => {
-        notify('error', t('notify_pdf_fail') + ': ' + err.message);
+        notify('error', t('notify_pdf_fail') + ': ' + (err.message || ''));
     });
 }
 
 function notify(type, msg) {
-    // Limit max visible notifications
     const existing = document.querySelectorAll('.notification');
     if (existing.length >= MAX_NOTIFICATIONS) {
         existing[0].remove();
     }
-    const n = document.createElement('div'); n.className = 'notification ' + type; n.textContent = msg;
+    const n = document.createElement('div');
+    n.className = 'notification ' + type;
+    n.textContent = msg;
+    n.setAttribute('role', 'status');
+    n.setAttribute('aria-live', 'polite');
     document.body.appendChild(n);
-    setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 300); }, 3000);
+    setTimeout(() => {
+        n.classList.add('fade-out');
+        n.addEventListener('animationend', () => n.remove(), { once: true });
+        setTimeout(() => { if (n.parentNode) n.remove(); }, 350);
+    }, 3000);
 }
 
-function showNotifications() { notify('success', t('notify_notif_count')); }
+function updateNotifBadge() {
+    const badge = document.getElementById('notifCount');
+    if (!badge) return;
+    const unread = (data.notifications || []).filter(n => !n.read).length;
+    if (unread > 0) {
+        badge.textContent = unread > 9 ? '9+' : unread;
+        badge.style.display = 'flex';
+    } else {
+        badge.style.display = 'none';
+    }
+}
 
-// === Phase 6: Data Export/Import ===
+function addNotification(text) {
+    if (!data.notifications) data.notifications = [];
+    data.notifications.unshift({
+        id: Date.now(),
+        text: text,
+        date: new Date().toLocaleDateString('id-ID'),
+        read: false
+    });
+    if (data.notifications.length > 20) data.notifications.pop();
+    updateNotifBadge();
+    save();
+}
+
+function showNotifications() {
+    const list = data.notifications || [];
+    if (!list.length) {
+        notify('info', 'Belum ada notifikasi baru.');
+        return;
+    }
+    const unread = list.filter(n => !n.read).length;
+    const latest = list[0].text;
+    notify('info', (unread > 0 ? `(${unread} baru) ` : '') + latest);
+    list.forEach(n => n.read = true);
+    updateNotifBadge();
+    save();
+}
+
 function exportData() {
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -1378,7 +1792,7 @@ function exportData() {
 function importData() {
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = '.json';
+    input.accept = '.json,application/json';
     input.onchange = function (e) {
         const file = e.target.files[0];
         if (!file) return;
@@ -1386,18 +1800,105 @@ function importData() {
         reader.onload = function (ev) {
             try {
                 const imported = JSON.parse(ev.target.result);
-                if (!imported.name || !imported.completed) throw new Error('Invalid');
-                // Merge imported data preserving schema
-                Object.assign(data, imported);
-                if (!data.badges) data.badges = [];
-                if (!data.certId) data.certId = null;
+                if (!imported || typeof imported !== 'object') throw new Error('Invalid format');
+
+                const sanitized = {};
+
+                if (typeof imported.name === 'string' && imported.name.trim()) {
+                    sanitized.name = imported.name.trim().slice(0, 60);
+                } else {
+                    sanitized.name = data.name || 'Pengguna Baru';
+                }
+
+                sanitized.level = Number.isInteger(imported.level) && imported.level > 0 ? imported.level : 1;
+                sanitized.points = Number.isInteger(imported.points) && imported.points >= 0 ? imported.points : 0;
+
+                if (Array.isArray(imported.completed)) {
+                    sanitized.completed = imported.completed.filter(n => Number.isInteger(n) && n >= 1 && n <= 15);
+                } else {
+                    sanitized.completed = [];
+                }
+
+                if (Array.isArray(imported.favorites)) {
+                    sanitized.favorites = imported.favorites.filter(n => Number.isInteger(n) && n >= 1 && n <= 15);
+                } else {
+                    sanitized.favorites = [];
+                }
+
+                if (Array.isArray(imported.notes)) {
+                    sanitized.notes = imported.notes.slice(0, 100).map(n => ({
+                        id: typeof n.id === 'number' ? n.id : Date.now() + Math.random(),
+                        title: String(n.title || '').slice(0, 120),
+                        text: String(n.text || '').slice(0, 5000),
+                        date: String(n.date || new Date().toLocaleDateString('id-ID')).slice(0, 30)
+                    }));
+                } else {
+                    sanitized.notes = [];
+                }
+
+                if (Array.isArray(imported.forum)) {
+                    sanitized.forum = imported.forum.slice(0, 100).map(p => ({
+                        id: typeof p.id === 'number' ? p.id : Date.now() + Math.random(),
+                        author: String(p.author || sanitized.name).slice(0, 60),
+                        title: String(p.title || '').slice(0, 120),
+                        text: String(p.text || '').slice(0, 5000),
+                        date: String(p.date || new Date().toLocaleDateString('id-ID')).slice(0, 30),
+                        likes: Number.isInteger(p.likes) && p.likes >= 0 ? p.likes : 0,
+                        replies: Array.isArray(p.replies) ? p.replies.slice(0, 50).map(r => ({
+                            id: typeof r.id === 'number' ? r.id : Date.now() + Math.random(),
+                            author: String(r.author || '').slice(0, 60),
+                            text: String(r.text || '').slice(0, 1000),
+                            date: String(r.date || new Date().toLocaleDateString('id-ID')).slice(0, 30)
+                        })) : []
+                    }));
+                } else {
+                    sanitized.forum = [];
+                }
+
+                if (Array.isArray(imported.scores)) {
+                    sanitized.scores = imported.scores.slice(0, 100).map(s => ({
+                        date: String(s.date || '').slice(0, 30),
+                        score: typeof s.score === 'number' ? Math.max(0, Math.min(100, s.score)) : 0
+                    }));
+                } else {
+                    sanitized.scores = [];
+                }
+
+                sanitized.darkMode = Boolean(imported.darkMode);
+                sanitized.streak = Number.isInteger(imported.streak) && imported.streak >= 0 ? imported.streak : 0;
+                const allowedLangs = ['id', 'en', 'zh', 'es', 'ar', 'hi', 'pt', 'fr', 'de', 'ja', 'ko', 'ru', 'tr', 'it', 'vi'];
+                sanitized.lang = allowedLangs.includes(imported.lang) ? imported.lang : 'id';
+
+                const validBadgeIds = BADGE_DEFS.map(b => b.id);
+                sanitized.badges = Array.isArray(imported.badges) ? imported.badges.filter(id => validBadgeIds.includes(id)) : [];
+                sanitized.certId = typeof imported.certId === 'string' && imported.certId.startsWith('CERT/') ? imported.certId : null;
+                sanitized.leaderboard = data.leaderboard;
+                sanitized.notifications = Array.isArray(imported.notifications) ? imported.notifications.slice(0, 20) : [];
+
+                data = sanitized;
                 save();
+
+                if (data.darkMode) {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+                const langSelect = document.getElementById('langSelect');
+                if (langSelect) langSelect.value = data.lang;
                 applyLanguage();
-                renderLessons(); initQuiz(); renderLeaderboard(); updateDashboard(); renderBadges();
-                document.getElementById('userName').textContent = data.name;
-                document.getElementById('levelBadge').textContent = 'Level ' + data.level;
+                renderLessons();
+                initQuiz();
+                renderLeaderboard();
+                updateDashboard();
+                renderBadges();
+                updateNotifBadge();
+                const userNameEl = document.getElementById('userName');
+                if (userNameEl) userNameEl.textContent = data.name;
+                const levelBadgeEl = document.getElementById('levelBadge');
+                if (levelBadgeEl) levelBadgeEl.textContent = 'Level ' + data.level;
                 notify('success', t('notify_import_done'));
             } catch (err) {
+                console.error('Import failed:', err);
                 notify('error', t('notify_import_fail'));
             }
         };
@@ -1406,7 +1907,6 @@ function importData() {
     input.click();
 }
 
-// === Phase 6: Achievement Badges ===
 const BADGE_DEFS = [
     { id: 'first_lesson', icon: '🎓', nameKey: 'badge_first_lesson', descKey: 'badge_first_lesson_desc', check: () => data.completed.length >= 1 },
     { id: 'all_lessons', icon: '🏆', nameKey: 'badge_all_lessons', descKey: 'badge_all_lessons_desc', check: () => data.completed.length >= LESSONS.length },
@@ -1418,15 +1918,40 @@ const BADGE_DEFS = [
 
 function checkBadges() {
     if (!data.badges) data.badges = [];
-    let newBadge = false;
+    const previousBadges = [...data.badges];
+    let newlyUnlocked = [];
     BADGE_DEFS.forEach(b => {
         if (!data.badges.includes(b.id) && b.check()) {
             data.badges.push(b.id);
-            newBadge = true;
-            notify('success', '🏅 ' + t(b.nameKey) + '!');
+            newlyUnlocked.push(b.id);
+            const badgeTitle = t(b.nameKey);
+            notify('success', '🏅 ' + badgeTitle + '!');
+            addNotification('Pencapaian diraih: ' + badgeTitle);
         }
     });
-    if (newBadge) { save(); renderBadges(); }
+    if (newlyUnlocked.length > 0) {
+        save();
+        renderBadges();
+        if (typeof Confetti !== 'undefined' && Confetti.fire) {
+            Confetti.fire(3000);
+        }
+        setTimeout(() => {
+            newlyUnlocked.forEach(id => {
+                const idx = BADGE_DEFS.findIndex(b => b.id === id);
+                if (idx !== -1) {
+                    const container = document.getElementById('badgesContainer');
+                    if (container && container.children[idx]) {
+                        container.children[idx].classList.add('just-unlocked');
+                        setTimeout(() => {
+                            if (container.children[idx]) {
+                                container.children[idx].classList.remove('just-unlocked');
+                            }
+                        }, 2000);
+                    }
+                }
+            });
+        }, 50);
+    }
 }
 
 function renderBadges() {
@@ -1437,15 +1962,622 @@ function renderBadges() {
         const unlocked = data.badges.includes(b.id);
         return `<div class="badge-card ${unlocked ? 'unlocked' : 'locked'}">
             <div class="badge-icon">${b.icon}</div>
-            <div class="badge-name">${t(b.nameKey)}</div>
-            <div class="badge-desc">${unlocked ? t(b.descKey) : t('badge_locked')}</div>
+            <div class="badge-name">${escapeHTML(t(b.nameKey))}</div>
+            <div class="badge-desc">${unlocked ? escapeHTML(t(b.descKey)) : escapeHTML(t('badge_locked'))}</div>
         </div>`;
     }).join('');
+    if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
-window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(e.target.id); };
+function setupControls() {
+    const userBadgeBtn = document.getElementById('userBadgeBtn');
+    if (userBadgeBtn) userBadgeBtn.addEventListener('click', showUserProfile);
+
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect) langSelect.addEventListener('change', changeLanguage);
+
+    const notifBtn = document.getElementById('notifBtn');
+    if (notifBtn) notifBtn.addEventListener('click', showNotifications);
+
+    const themeBtn = document.getElementById('themeBtn');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+    const searchEl = document.getElementById('searchInput');
+    if (searchEl) {
+        searchEl.addEventListener('input', debouncedSearch);
+        searchEl.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); searchMateri(); }
+        });
+    }
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchBtn) searchBtn.addEventListener('click', searchMateri);
+
+    const downloadResultBtn = document.getElementById('downloadResultBtn');
+    if (downloadResultBtn) downloadResultBtn.addEventListener('click', downloadResult);
+
+    const resetQuizBtn = document.getElementById('resetQuizBtn');
+    if (resetQuizBtn) resetQuizBtn.addEventListener('click', resetQuiz);
+
+    const quizBackBtn = document.getElementById('quizBackBtn');
+    if (quizBackBtn) quizBackBtn.addEventListener('click', resetQuiz);
+
+    const addNoteBtn = document.getElementById('addNoteBtn');
+    if (addNoteBtn) addNoteBtn.addEventListener('click', openNoteModal);
+
+    const saveNoteBtn = document.getElementById('saveNoteBtn');
+    if (saveNoteBtn) saveNoteBtn.addEventListener('click', addNote);
+
+    const addPostBtn = document.getElementById('addPostBtn');
+    if (addPostBtn) addPostBtn.addEventListener('click', openPostModal);
+
+    const savePostBtn = document.getElementById('savePostBtn');
+    if (savePostBtn) savePostBtn.addEventListener('click', addPost);
+
+    const saveProfileBtn = document.getElementById('saveProfileBtn');
+    if (saveProfileBtn) saveProfileBtn.addEventListener('click', saveProfile);
+
+    const exportDataBtn = document.getElementById('exportDataBtn');
+    if (exportDataBtn) exportDataBtn.addEventListener('click', exportData);
+
+    const importDataBtn = document.getElementById('importDataBtn');
+    if (importDataBtn) importDataBtn.addEventListener('click', importData);
+
+    const certBtn = document.getElementById('certBtn');
+    if (certBtn) certBtn.addEventListener('click', downloadCertificate);
+
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal-close');
+            if (modalId) closeModal(modalId);
+        });
+    });
+}
+
+function setupTabs() {
+    const tabs = Array.from(document.querySelectorAll('.nav-tab'));
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('aria-controls');
+            showTab(tab, targetId);
+        });
+
+        tab.addEventListener('keydown', (e) => {
+            let targetIndex = -1;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                targetIndex = (index + 1) % tabs.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                targetIndex = (index - 1 + tabs.length) % tabs.length;
+            } else if (e.key === 'Home') {
+                targetIndex = 0;
+            } else if (e.key === 'End') {
+                targetIndex = tabs.length - 1;
+            }
+
+            if (targetIndex !== -1) {
+                e.preventDefault();
+                tabs[targetIndex].focus();
+                const targetId = tabs[targetIndex].getAttribute('aria-controls');
+                showTab(tabs[targetIndex], targetId);
+            }
+        });
+    });
+}
+
+function setupEventDelegation() {
+    const bindLessonContainer = (container) => {
+        if (!container) return;
+        container.addEventListener('click', (e) => {
+            const favBtn = e.target.closest('.btn-fav');
+            if (favBtn) {
+                e.stopPropagation();
+                const id = Number(favBtn.dataset.id);
+                toggleFav(e, id);
+                return;
+            }
+            const trigger = e.target.closest('.lesson-card-trigger, .lesson-card');
+            if (trigger) {
+                const id = Number(trigger.dataset.id);
+                if (id) viewLesson(id);
+            }
+        });
+    };
+
+    bindLessonContainer(document.getElementById('lessonsContainer'));
+    bindLessonContainer(document.getElementById('favoritesContainer'));
+
+    const quizContainer = document.getElementById('quizContent');
+    if (quizContainer) {
+        const handleQuizChoice = (target) => {
+            const opt = target.closest('.option');
+            if (!opt) return;
+            const qi = Number(opt.dataset.qi);
+            const oi = Number(opt.dataset.oi);
+            checkAnswer(qi, oi, opt);
+        };
+        quizContainer.addEventListener('click', (e) => handleQuizChoice(e.target));
+        quizContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleQuizChoice(e.target);
+            }
+        });
+    }
+
+    const notesContainer = document.getElementById('notesContainer');
+    if (notesContainer) {
+        notesContainer.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.note-edit');
+            if (editBtn) {
+                editNote(Number(editBtn.dataset.id));
+                return;
+            }
+            const delBtn = e.target.closest('.note-delete');
+            if (delBtn) {
+                deleteNote(Number(delBtn.dataset.id));
+                return;
+            }
+        });
+    }
+
+    const forumContainer = document.getElementById('forumContainer');
+    if (forumContainer) {
+        forumContainer.addEventListener('click', (e) => {
+            const likeBtn = e.target.closest('.post-action-like');
+            if (likeBtn) {
+                likePost(Number(likeBtn.dataset.id));
+                return;
+            }
+            const replyBtn = e.target.closest('.post-action-reply');
+            if (replyBtn) {
+                replyToPost(Number(replyBtn.dataset.id));
+                return;
+            }
+            const toggleBtn = e.target.closest('.post-action-toggle');
+            if (toggleBtn) {
+                toggleReplies(Number(toggleBtn.dataset.id));
+                return;
+            }
+            const delBtn = e.target.closest('.post-action-delete');
+            if (delBtn) {
+                deletePost(Number(delBtn.dataset.id));
+                return;
+            }
+        });
+    }
+}
+
+window.addEventListener('click', e => {
+    if (e.target.classList.contains('modal')) {
+        closeModal(e.target.id);
+    }
+});
+
+/* =================================================================
+   PHASE 2 — Visual & Particle Systems
+   Interactive Neural Canvas, Confetti, and Single-Moment Scroll Reveal
+   ================================================================= */
+
+// Global Reduced-Motion Listener
+const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+let isReducedMotion = motionQuery ? motionQuery.matches : false;
+if (motionQuery && typeof motionQuery.addEventListener === 'function') {
+    motionQuery.addEventListener('change', (e) => {
+        isReducedMotion = e.matches;
+        if (typeof NeuralNet !== 'undefined') {
+            NeuralNet.prefersReducedMotion = isReducedMotion;
+            NeuralNet.checkPlayback();
+        }
+        if (typeof Confetti !== 'undefined' && isReducedMotion) {
+            Confetti.stop();
+        }
+    });
+}
+
+// --- 1. Interactive Neural Network Canvas Hero ---
+const NeuralNet = {
+    canvas: null,
+    ctx: null,
+    nodes: [],
+    mouseX: -9999,
+    mouseY: -9999,
+    animId: null,
+    prefersReducedMotion: false,
+    headerVisible: true,
+    tabVisible: true,
+    tokens: {
+        node: 'rgba(255, 255, 255, 0.75)',
+        nodeHover: '#38bdf8',
+        line: 'rgba(255, 255, 255, 0.20)',
+        lineHover: 'rgba(56, 189, 248, 0.55)',
+        glow: 'rgba(56, 189, 248, 0.30)'
+    },
+
+    readTokens() {
+        if (!this.canvas) return;
+        const s = getComputedStyle(document.body);
+        this.tokens = {
+            node: s.getPropertyValue('--neural-node').trim() || 'rgba(255, 255, 255, 0.75)',
+            nodeHover: s.getPropertyValue('--neural-node-hover').trim() || '#38bdf8',
+            line: s.getPropertyValue('--neural-line').trim() || 'rgba(255, 255, 255, 0.20)',
+            lineHover: s.getPropertyValue('--neural-line-hover').trim() || 'rgba(56, 189, 248, 0.55)',
+            glow: s.getPropertyValue('--neural-glow').trim() || 'rgba(56, 189, 248, 0.30)'
+        };
+    },
+
+    init() {
+        this.canvas = document.getElementById('neuralCanvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        this.prefersReducedMotion = isReducedMotion;
+        this.readTokens();
+        this.resize();
+        this.createNodes();
+
+        window.addEventListener('resize', debounce(() => {
+            this.resize();
+            if (this.prefersReducedMotion) this.drawStatic();
+        }, 200));
+
+        const header = this.canvas.closest('.header');
+        if (header) {
+            header.style.pointerEvents = 'auto';
+            header.addEventListener('mousemove', (e) => {
+                const rect = this.canvas.getBoundingClientRect();
+                this.mouseX = e.clientX - rect.left;
+                this.mouseY = e.clientY - rect.top;
+            });
+            header.addEventListener('mouseleave', () => {
+                this.mouseX = -9999;
+                this.mouseY = -9999;
+            });
+
+            // IntersectionObserver: stop animation when header is offscreen
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        this.headerVisible = entry.isIntersecting;
+                        this.checkPlayback();
+                    });
+                }, { threshold: 0.05 });
+                observer.observe(header);
+            }
+        }
+
+        // Visibilitychange: stop animation when tab is inactive
+        document.addEventListener('visibilitychange', () => {
+            this.tabVisible = !document.hidden;
+            this.checkPlayback();
+        });
+
+        if (this.prefersReducedMotion) {
+            this.drawStatic();
+        } else {
+            this.start();
+        }
+    },
+
+    checkPlayback() {
+        if (this.prefersReducedMotion) {
+            this.stop();
+            this.drawStatic();
+            return;
+        }
+        if (this.headerVisible && this.tabVisible) {
+            this.start();
+        } else {
+            this.stop();
+        }
+    },
+
+    start() {
+        if (this.animId || this.prefersReducedMotion) return;
+        this.animate();
+    },
+
+    stop() {
+        if (this.animId) {
+            cancelAnimationFrame(this.animId);
+            this.animId = null;
+        }
+    },
+
+    resize() {
+        if (!this.canvas || !this.ctx) return;
+        const rect = this.canvas.parentElement.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = rect.width * dpr;
+        this.canvas.height = rect.height * dpr;
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(dpr, dpr);
+        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.height = rect.height + 'px';
+        this.createNodes();
+    },
+
+    createNodes() {
+        if (!this.canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+        const area = w * h;
+        const count = Math.min(Math.max(Math.floor(area / 5200), 12), 48);
+        this.nodes = [];
+        for (let i = 0; i < count; i++) {
+            this.nodes.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: 2 + Math.random() * 2.5,
+                baseAlpha: 0.3 + Math.random() * 0.4,
+                phase: Math.random() * Math.PI * 2
+            });
+        }
+    },
+
+    drawStatic() {
+        if (!this.ctx || !this.canvas) return;
+        this.readTokens();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+        this.ctx.clearRect(0, 0, w, h);
+
+        // Draw static connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                    this.ctx.strokeStyle = this.tokens.line;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        // Draw static nodes
+        this.nodes.forEach(n => {
+            this.ctx.beginPath();
+            this.ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            this.ctx.fillStyle = this.tokens.node;
+            this.ctx.fill();
+        });
+    },
+
+    animate() {
+        if (!this.ctx || !this.canvas || this.prefersReducedMotion) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = this.canvas.width / dpr;
+        const h = this.canvas.height / dpr;
+
+        this.ctx.clearRect(0, 0, w, h);
+
+        // Update positions with edge-bounce and gentle mouse pull
+        this.nodes.forEach(n => {
+            n.x += n.vx;
+            n.y += n.vy;
+
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+            n.x = Math.max(0, Math.min(w, n.x));
+            n.y = Math.max(0, Math.min(h, n.y));
+
+            const dx = this.mouseX - n.x;
+            const dy = this.mouseY - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150 && dist > 1) {
+                const force = (150 - dist) / 150 * 0.007;
+                n.vx += dx / dist * force;
+                n.vy += dy / dist * force;
+            }
+
+            n.vx *= 0.995;
+            n.vy *= 0.995;
+        });
+
+        // Draw synaptic connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const maxDist = 140;
+                if (dist < maxDist) {
+                    const midX = (this.nodes[i].x + this.nodes[j].x) / 2;
+                    const midY = (this.nodes[i].y + this.nodes[j].y) / 2;
+                    const mouseDist = Math.sqrt((this.mouseX - midX) ** 2 + (this.mouseY - midY) ** 2);
+                    const isHover = mouseDist < 110;
+
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                    this.ctx.strokeStyle = isHover ? this.tokens.lineHover : this.tokens.line;
+                    this.ctx.lineWidth = isHover ? 1.5 : 1;
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        // Draw nodes
+        this.nodes.forEach(n => {
+            const dx = this.mouseX - n.x;
+            const dy = this.mouseY - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const isHover = dist < 90;
+            const glowRadius = isHover ? n.r + (1 - dist / 90) * 5 : n.r;
+
+            if (isHover) {
+                this.ctx.beginPath();
+                this.ctx.arc(n.x, n.y, glowRadius + 3, 0, Math.PI * 2);
+                this.ctx.fillStyle = this.tokens.glow;
+                this.ctx.fill();
+            }
+
+            this.ctx.beginPath();
+            this.ctx.arc(n.x, n.y, glowRadius, 0, Math.PI * 2);
+            this.ctx.fillStyle = isHover ? this.tokens.nodeHover : this.tokens.node;
+            this.ctx.fill();
+        });
+
+        this.animId = requestAnimationFrame(() => this.animate());
+    },
+
+    destroy() {
+        this.stop();
+    }
+};
+
+// --- 2. Confetti Particle System ---
+const Confetti = {
+    canvas: null,
+    ctx: null,
+    particles: [],
+    animId: null,
+    active: false,
+
+    init() {
+        this.canvas = document.getElementById('confettiCanvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+    },
+
+    resize() {
+        if (!this.canvas || !this.ctx) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = window.innerWidth * dpr;
+        this.canvas.height = window.innerHeight * dpr;
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(dpr, dpr);
+    },
+
+    fire(duration) {
+        if (isReducedMotion || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+        duration = duration || 2600;
+        this.resize();
+        if (this.canvas) this.canvas.classList.add('active');
+        this.active = true;
+        this.particles = [];
+
+        const colors = ['#6d5dfc', '#a855f7', '#38bdf8', '#fbbf24', '#f43f5e', '#10b981', '#ffffff'];
+        const count = 75;
+
+        for (let i = 0; i < count; i++) {
+            this.particles.push({
+                x: window.innerWidth * 0.5 + (Math.random() - 0.5) * window.innerWidth * 0.6,
+                y: -20 - Math.random() * 40,
+                vx: (Math.random() - 0.5) * 6,
+                vy: Math.random() * 3 + 2,
+                w: 6 + Math.random() * 6,
+                h: 4 + Math.random() * 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rotation: Math.random() * 360,
+                rotSpeed: (Math.random() - 0.5) * 12,
+                gravity: 0.12 + Math.random() * 0.06,
+                wobble: Math.random() * Math.PI * 2,
+                wobbleSpeed: 0.04 + Math.random() * 0.04,
+                opacity: 1
+            });
+        }
+
+        this.animate();
+        setTimeout(() => this.stop(), duration);
+    },
+
+    animate() {
+        if (!this.active || !this.ctx) return;
+        this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        let alive = false;
+        this.particles.forEach(p => {
+            if (p.opacity <= 0) return;
+            alive = true;
+
+            p.vy += p.gravity;
+            p.x += p.vx + Math.sin(p.wobble) * 0.8;
+            p.y += p.vy;
+            p.rotation += p.rotSpeed;
+            p.wobble += p.wobbleSpeed;
+
+            if (p.y > window.innerHeight * 0.8) {
+                p.opacity -= 0.025;
+            }
+
+            this.ctx.save();
+            this.ctx.globalAlpha = Math.max(0, p.opacity);
+            this.ctx.translate(p.x, p.y);
+            this.ctx.rotate(p.rotation * Math.PI / 180);
+            this.ctx.fillStyle = p.color;
+            this.ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            this.ctx.restore();
+        });
+
+        if (alive) {
+            this.animId = requestAnimationFrame(() => this.animate());
+        } else {
+            this.stop();
+        }
+    },
+
+    stop() {
+        this.active = false;
+        if (this.animId) {
+            cancelAnimationFrame(this.animId);
+            this.animId = null;
+        }
+        if (this.canvas) {
+            this.canvas.classList.remove('active');
+            if (this.ctx) this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+    }
+};
+
+// --- 3. Scroll Reveal Observer (Limited to Lesson Cards on Initial Load Only) ---
+let _scrollRevealRan = false;
+function setupScrollReveal() {
+    if (_scrollRevealRan) return;
+    _scrollRevealRan = true;
+
+    const cards = document.querySelectorAll('#lessonsContainer .lesson-card');
+    if (!cards.length) return;
+
+    if (isReducedMotion || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        cards.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        cards.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+    cards.forEach((el, index) => {
+        el.classList.add('scroll-reveal');
+        el.style.transitionDelay = `${Math.min(index * 40, 400)}ms`;
+        observer.observe(el);
+    });
+}
+
+// --- 4. Visual Systems Initialization ---
+function initVisualEffects() {
+    NeuralNet.init();
+    Confetti.init();
+    setupScrollReveal();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     init();
-    checkBadges();
-    renderBadges();
 });
