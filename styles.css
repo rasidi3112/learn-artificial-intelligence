@@ -49,7 +49,7 @@ body {
     background: var(--bg-light);
     color: var(--text-primary);
     min-height: 100vh;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -279,7 +279,7 @@ body.dark-mode .nav-tab:hover {
     padding: 24px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-light);
-    transition: all 0.3s;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 body.dark-mode .card {
@@ -287,7 +287,7 @@ body.dark-mode .card {
     border-color: var(--border-dark);
 }
 
-.card:hover {
+.card-interactive:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
 }
@@ -2816,6 +2816,193 @@ button,
         margin-right: -4px;
         margin-left: -4px;
     }
+}
+
+/* Accessible focus rings */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Demo Notice Badge */
+.demo-notice {
+    display: inline-block;
+    padding: 8px 14px;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: 8px;
+    color: #b45309;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+body.dark-mode .demo-notice {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #fcd34d;
+}
+
+/* Lesson Modal Clean Styling */
+.lesson-modal-header {
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+body.dark-mode .lesson-modal-header {
+    border-bottom-color: var(--border-dark);
+}
+
+.lesson-modal-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.lesson-modal-desc {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+body.dark-mode .lesson-modal-desc {
+    color: var(--text-dark-secondary);
+}
+
+.lesson-meta-pills {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.lesson-pill {
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+body.dark-mode .lesson-pill {
+    background: var(--bg-dark);
+    color: var(--text-dark-secondary);
+}
+
+.lesson-pill.completed {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.lesson-section {
+    margin-bottom: 24px;
+}
+
+.lesson-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.dark-mode .lesson-section-title {
+    color: var(--text-dark-primary);
+}
+
+.lesson-section-num {
+    background: var(--primary);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.lesson-section-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding-left: 38px;
+    white-space: pre-wrap;
+}
+
+body.dark-mode .lesson-section-content {
+    color: var(--text-dark-secondary);
+}
+
+.lesson-modal-footer {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 2px solid var(--border-light);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+body.dark-mode .lesson-modal-footer {
+    border-top-color: var(--border-dark);
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-icon {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+[dir="rtl"] .lang-select {
+    padding-right: 0;
+    padding-left: 18px;
+    background-position: left center;
+}
+
+[dir="rtl"] .notif-badge {
+    right: auto;
+    left: -5px;
+}
+
+[dir="rtl"] .lesson-header,
+[dir="rtl"] .lesson-meta,
+[dir="rtl"] .quiz-header,
+[dir="rtl"] .progress-header,
+[dir="rtl"] .section-header,
+[dir="rtl"] .note-footer,
+[dir="rtl"] .post-header,
+[dir="rtl"] .post-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lesson-section-title {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lesson-section-content {
+    padding-left: 0;
+    padding-right: 38px;
+}
+
+[dir="rtl"] .search-box {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .certificate-footer span:last-child {
+    text-align: left;
 }
 
 @media (prefers-reduced-motion: reduce) {

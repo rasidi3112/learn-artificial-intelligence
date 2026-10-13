@@ -11,19 +11,35 @@
     <meta name="author" content="Ahmad Rasidi">
     <title>Belajar AI — Platform Pembelajaran AI Premium</title>
 
-    <!-- Google Fonts -->
+    <!-- SEO & Social -->
+    <meta property="og:title" content="Belajar AI — Platform Pembelajaran AI Premium">
+    <meta property="og:description" content="Platform Pembelajaran AI Premium untuk Pemula - Pelajari Artificial Intelligence dari dasar hingga lanjutan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Belajar AI — Platform Pembelajaran AI Premium">
+    <meta name="twitter:description" content="Platform Pembelajaran AI Premium untuk Pemula">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self';">
+
+    <!-- Google Fonts — single combined request -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- External Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
@@ -35,45 +51,45 @@
                 <p data-i18n="app_desc">Platform Pembelajaran AI Premium untuk Pemula</p>
             </div>
             <div class="header-controls">
-                <div class="user-badge" onclick="showUserProfile()">
+                <button class="user-badge" id="userBadgeBtn" type="button" aria-label="Profil Pengguna">
                     <span id="userName">Pengguna</span>
                     <span class="level-tag" id="levelBadge">Level 1</span>
-                </div>
+                </button>
 
                 <div class="lang-selector">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" class="lang-icon">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" class="lang-icon" aria-hidden="true">
                         <path
                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.9 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.66-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z">
                         </path>
                     </svg>
-                    <select id="langSelect" onchange="changeLanguage()" class="lang-select">
-                        <option value="id">Indonesian</option>
+                    <select id="langSelect" class="lang-select" aria-label="Select language">
+                        <option value="id">Bahasa Indonesia</option>
                         <option value="en">English</option>
-                        <option value="zh">Mandarin Chinese</option>
-                        <option value="es">Spanish</option>
-                        <option value="ar">Arabic</option>
-                        <option value="hi">Hindi</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="ja">Japanese</option>
-                        <option value="ko">Korean</option>
-                        <option value="ru">Russian</option>
-                        <option value="tr">Turkish</option>
-                        <option value="it">Italian</option>
-                        <option value="vi">Vietnamese</option>
+                        <option value="zh">中文</option>
+                        <option value="es">Español</option>
+                        <option value="ar">العربية</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="pt">Português</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="ru">Русский</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="it">Italiano</option>
+                        <option value="vi">Tiếng Việt</option>
                     </select>
                 </div>
 
-                <button class="icon-btn" onclick="showNotifications()" style="position:relative">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <button class="icon-btn" id="notifBtn" type="button" aria-label="Notifications" style="position:relative">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
                     </svg>
-                    <span class="notif-badge" id="notifCount">3</span>
+                    <span class="notif-badge" id="notifCount" style="display:none">0</span>
                 </button>
-                <button class="icon-btn" onclick="toggleTheme()" id="themeBtn">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" id="themeIcon">
+                <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark/light theme">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" id="themeIcon" aria-hidden="true">
                         <path
                             d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
                     </svg>
@@ -82,13 +98,13 @@
         </header>
 
         <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
-            <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="materi" data-i18n="tab_materi" onclick="showTab(this,'materi')">Materi</button>
-            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="quiz" data-i18n="tab_kuis" onclick="showTab(this,'quiz')">Kuis</button>
-            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="catatan" data-i18n="tab_catatan" onclick="showTab(this,'catatan')">Catatan</button>
-            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="forum" data-i18n="tab_forum" onclick="showTab(this,'forum')">Forum</button>
-            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="leaderboard" data-i18n="tab_leaderboard"
-                onclick="showTab(this,'leaderboard')">Leaderboard</button>
-            <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sertifikat" data-i18n="tab_sertifikat" onclick="showTab(this,'sertifikat')">Sertifikat</button>
+            <button class="nav-tab active" role="tab" id="tab-materi" aria-selected="true" aria-controls="materi" data-i18n="tab_materi" tabindex="0">Materi</button>
+            <button class="nav-tab" role="tab" id="tab-quiz" aria-selected="false" aria-controls="quiz" data-i18n="tab_kuis" tabindex="-1">Kuis</button>
+            <button class="nav-tab" role="tab" id="tab-catatan" aria-selected="false" aria-controls="catatan" data-i18n="tab_catatan" tabindex="-1">Catatan</button>
+            <button class="nav-tab" role="tab" id="tab-forum" aria-selected="false" aria-controls="forum" data-i18n="tab_forum" tabindex="-1">Forum</button>
+            <button class="nav-tab" role="tab" id="tab-leaderboard" aria-selected="false" aria-controls="leaderboard" data-i18n="tab_leaderboard"
+                tabindex="-1">Leaderboard</button>
+            <button class="nav-tab" role="tab" id="tab-sertifikat" aria-selected="false" aria-controls="sertifikat" data-i18n="tab_sertifikat" tabindex="-1">Sertifikat</button>
         </nav>
 
         <main>
@@ -118,7 +134,7 @@
                     <div class="progress-header">
                         <h3 data-i18n="progress_title">Progress Pembelajaran</h3><span id="progressPercent">0%</span>
                     </div>
-                    <div class="progress-bar">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-fill" id="progressBar" style="width:0%"></div>
                     </div>
                 </div>
@@ -131,7 +147,7 @@
                 <div class="search-box">
                     <input type="text" class="search-input" id="searchInput" data-i18n-prop="placeholder"
                         data-i18n="search_placeholder" placeholder="Cari materi pembelajaran...">
-                    <button class="btn-primary" data-i18n="btn_cari" onclick="searchMateri()">Cari</button>
+                    <button class="btn-primary" data-i18n="btn_cari" id="searchBtn">Cari</button>
                 </div>
 
                 <h2 class="section-title" data-i18n="list_materi_title">Daftar Materi Pembelajaran</h2>
@@ -155,7 +171,7 @@
                         <div class="progress-header">
                             <h3 data-i18n="quiz_progress">Progress Kuis</h3><span id="quizProgressPercent">0%</span>
                         </div>
-                        <div class="progress-bar">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                             <div class="progress-fill" id="quizProgressBar" style="width:0%"></div>
                         </div>
                     </div>
@@ -164,12 +180,11 @@
                         <div class="result-score" id="scoreDisplay">0/5</div>
                         <div class="result-msg" id="resultMessage">Selamat!</div>
                         <div class="result-btns">
-                            <button class="btn-primary" data-i18n="quiz_download" onclick="downloadResult()">Download
+                            <button class="btn-primary" data-i18n="quiz_download" id="downloadResultBtn">Download
                                 Hasil</button>
-                            <button class="btn-primary" data-i18n="quiz_retry" onclick="resetQuiz()">Ulangi
+                            <button class="btn-primary" data-i18n="quiz_retry" id="resetQuizBtn">Ulangi
                                 Kuis</button>
-                            <button class="btn-secondary" data-i18n="quiz_back"
-                                onclick="showTab(document.querySelector('.nav-tab'),'materi')">Kembali</button>
+                            <button class="btn-secondary" data-i18n="quiz_back" id="quizBackBtn">Kembali</button>
                         </div>
                     </div>
                 </div>
@@ -179,7 +194,7 @@
             <div id="catatan" class="tab-content" role="tabpanel" aria-labelledby="tab-catatan">
                 <div class="section-header">
                     <h2 class="section-title" style="margin:0" data-i18n="notes_title">Catatan Pembelajaran</h2><button
-                        class="btn-primary" data-i18n="notes_add" onclick="openNoteModal()">Tambah Catatan</button>
+                        class="btn-primary" data-i18n="notes_add" id="addNoteBtn">Tambah Catatan</button>
                 </div>
                 <div class="notes-grid" id="notesContainer">
                     <div class="empty-state">
@@ -192,8 +207,9 @@
             <div id="forum" class="tab-content" role="tabpanel" aria-labelledby="tab-forum">
                 <div class="section-header">
                     <h2 class="section-title" style="margin:0" data-i18n="forum_title">Forum Diskusi</h2><button
-                        class="btn-primary" data-i18n="forum_add" onclick="openPostModal()">Buat Postingan</button>
+                        class="btn-primary" data-i18n="forum_add" id="addPostBtn">Buat Postingan</button>
                 </div>
+                <p class="demo-notice" data-i18n="forum_demo_notice">📌 Mode lokal: data forum hanya tersimpan di perangkat ini.</p>
                 <div class="forum-list" id="forumContainer">
                     <div class="empty-state">
                         <p data-i18n="forum_empty">Belum ada postingan. Jadilah yang pertama!</p>
@@ -205,6 +221,7 @@
             <div id="leaderboard" class="tab-content" role="tabpanel" aria-labelledby="tab-leaderboard">
                 <div class="card">
                     <h2 class="section-title" data-i18n="lb_title">Papan Peringkat</h2>
+                    <p class="demo-notice" data-i18n="lb_demo_notice">📌 Data contoh — papan peringkat ini belum terhubung ke server.</p>
                     <div style="overflow-x:auto">
                         <table class="leaderboard-table">
                             <thead>
@@ -226,7 +243,7 @@
             <div id="sertifikat" class="tab-content" role="tabpanel" aria-labelledby="tab-sertifikat">
                 <div class="card" style="text-align:center">
                     <h2 class="section-title" data-i18n="cert_title">Sertifikat Digital</h2>
-                    <button class="btn-primary" id="certBtn" data-i18n="cert_download" onclick="downloadCertificate()"
+                    <button class="btn-primary" id="certBtn" data-i18n="cert_download"
                         style="display:none">Download Sertifikat</button>
                     <p id="certMsg" data-i18n="cert_msg" style="color:var(--text-secondary);margin:20px 0">Selesaikan
                         semua materi untuk mendapatkan sertifikat!</p>
@@ -242,7 +259,7 @@
             <div class="footer-info">
                 <p><span data-i18n="footer_dev">Dikembangkan oleh</span> <strong>Ahmad Rasidi</strong></p>
                 <p data-i18n="footer_desc">Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.</p>
-                <p style="margin-top:12px;opacity:0.7" data-i18n="footer_copy">© 2025 Belajar AI. Semua hak dilindungi.
+                <p style="margin-top:12px;opacity:0.7">© <span id="copyrightYear">2025</span> Belajar AI. <span data-i18n="footer_rights">Semua hak dilindungi.</span>
                 </p>
             </div>
         </footer>
@@ -251,42 +268,42 @@
     <!-- MODALS -->
     <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('noteModal')" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="noteModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="noteModalTitle" data-i18n="modal_note_title">Tambah Catatan</h3>
-            <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
+            <div class="form-group"><label class="form-label" for="noteTitleInput" data-i18n="modal_label_title">Judul</label><input
                     type="text" class="form-input" id="noteTitleInput" data-i18n="modal_note_ph_title"
                     data-i18n-prop="placeholder" placeholder="Judul catatan..."></div>
-            <div class="form-group"><label class="form-label" data-i18n="modal_note_content">Isi
+            <div class="form-group"><label class="form-label" for="noteTextInput" data-i18n="modal_note_content">Isi
                     Catatan</label><textarea class="form-textarea" id="noteTextInput" data-i18n="modal_note_ph_content"
                     data-i18n-prop="placeholder" placeholder="Tulis catatan Anda..."></textarea></div>
             <div class="modal-btns"><button class="btn-primary" data-i18n="btn_save"
-                    onclick="addNote()">Simpan</button><button class="btn-secondary" data-i18n="btn_cancel"
-                    onclick="closeModal('noteModal')">Batal</button></div>
+                    id="saveNoteBtn">Simpan</button><button class="btn-secondary" data-i18n="btn_cancel"
+                    data-modal-close="noteModal">Batal</button></div>
         </div>
     </div>
 
     <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('postModal')" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="postModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="postModalTitle" data-i18n="modal_post_title">Buat Postingan</h3>
-            <div class="form-group"><label class="form-label" data-i18n="modal_label_title">Judul</label><input
+            <div class="form-group"><label class="form-label" for="postTitleInput" data-i18n="modal_label_title">Judul</label><input
                     type="text" class="form-input" id="postTitleInput" data-i18n="modal_post_ph_title"
                     data-i18n-prop="placeholder" placeholder="Judul diskusi..."></div>
-            <div class="form-group"><label class="form-label" data-i18n="modal_post_content">Isi
+            <div class="form-group"><label class="form-label" for="postTextInput" data-i18n="modal_post_content">Isi
                     Postingan</label><textarea class="form-textarea" id="postTextInput"
                     data-i18n="modal_post_ph_content" data-i18n-prop="placeholder"
                     placeholder="Tulis pertanyaan atau diskusi..."></textarea></div>
             <div class="modal-btns"><button class="btn-primary" data-i18n="btn_post"
-                    onclick="addPost()">Posting</button><button class="btn-secondary" data-i18n="btn_cancel"
-                    onclick="closeModal('postModal')">Batal</button></div>
+                    id="savePostBtn">Posting</button><button class="btn-secondary" data-i18n="btn_cancel"
+                    data-modal-close="postModal">Batal</button></div>
         </div>
     </div>
 
     <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('userModal')" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="userModal" aria-label="Close">×</button>
             <h3 class="modal-title" id="userModalTitle" data-i18n="modal_profile_title">Profil Pengguna</h3>
-            <div class="form-group"><label class="form-label" data-i18n="modal_profile_name">Nama</label><input
+            <div class="form-group"><label class="form-label" for="userNameInput" data-i18n="modal_profile_name">Nama</label><input
                     type="text" class="form-input" id="userNameInput" data-i18n="modal_profile_ph"
                     data-i18n-prop="placeholder" placeholder="Nama Anda..."></div>
             <div class="card" style="margin:20px 0;padding:16px;background:var(--bg-light)">
@@ -296,17 +313,17 @@
                         id="profileCompleted">0</span></p>
             </div>
             <div class="modal-btns">
-                <button class="btn-primary" data-i18n="btn_save" onclick="saveProfile()">Simpan</button>
-                <button class="btn-secondary" onclick="exportData()" data-i18n="btn_export">Ekspor Data</button>
-                <button class="btn-secondary" onclick="importData()" data-i18n="btn_import">Impor Data</button>
-                <button class="btn-secondary" data-i18n="btn_close" onclick="closeModal('userModal')">Tutup</button>
+                <button class="btn-primary" data-i18n="btn_save" id="saveProfileBtn">Simpan</button>
+                <button class="btn-secondary" id="exportDataBtn" data-i18n="btn_export">Ekspor Data</button>
+                <button class="btn-secondary" id="importDataBtn" data-i18n="btn_import">Impor Data</button>
+                <button class="btn-secondary" data-i18n="btn_close" data-modal-close="userModal">Tutup</button>
             </div>
         </div>
     </div>
 
     <div id="lessonModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle">
         <div class="modal-content" style="max-width:900px;max-height:90vh;overflow-y:auto">
-            <button class="modal-close" onclick="closeModal('lessonModal')" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="lessonModal" aria-label="Close">×</button>
             <div id="lessonModalContent"></div>
         </div>
     </div>
