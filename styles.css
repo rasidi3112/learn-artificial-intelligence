@@ -57,9 +57,9 @@ body.dark-mode {
     color-scheme: dark;
 }
 
-/* Scripts without mono coverage: keep Latin digits in mono, take everything else from the sans stack */
+/* Scripts without mono coverage: mixing fonts inside a word breaks Arabic joining, so use the sans stack only */
 html:is(:lang(ar), :lang(hi), :lang(zh), :lang(ja), :lang(ko)) {
-    --mono: 'IBM Plex Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', sans-serif;
+    --mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', sans-serif;
 }
 
 html:is(:lang(ar), :lang(hi), :lang(zh), :lang(ja), :lang(ko)) :is(.kicker, .stat-label, .hero-facts dt, .lesson-pill, .lesson-kicker, .quiz-counter, .form-label, .leaderboard-table th, .lesson-status, .option-feedback) {
