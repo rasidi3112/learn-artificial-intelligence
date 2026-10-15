@@ -1,194 +1,151 @@
-#  Belajar AI
-**Platform Pembelajaran AI Premium untuk Pemula**
+<div align="center">
 
-Selamat datang di **Belajar AI** — platform pembelajaran interaktif untuk memahami dasar hingga lanjutan *Artificial Intelligence (AI)* secara menyenangkan, terstruktur, dan modern.
+# Learn AI · Belajar AI
 
-Platform ini dirancang khusus untuk **pemula yang ingin memulai perjalanan di dunia AI**, dengan fitur-fitur lengkap seperti progress tracker, kuis interaktif, achievement badges, leaderboard, dan sertifikat digital.
+**A free, open course on artificial intelligence: fifteen modules, a 33-question quiz and fifteen languages, in one static website.**
 
-> "Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana kecerdasan bisa membuat manusia lebih bijak."
-> — *Ahmad Rasidi*
+No sign-up, no tracking, no build step. Open the link and start reading.
+
+[**Open the course →**](https://rasidi3112.github.io/learn-artificial-intelligence/)
+&nbsp;·&nbsp; [Bahasa Indonesia](README.id.md)
+&nbsp;·&nbsp; [Report an issue](https://github.com/rasidi3112/learn-artificial-intelligence/issues)
+
+![License: MIT](https://img.shields.io/badge/license-MIT-171614?style=flat-square)
+![Languages](https://img.shields.io/badge/languages-15-a3341c?style=flat-square)
+![Dependencies](https://img.shields.io/badge/dependencies-0-171614?style=flat-square)
+![Build step](https://img.shields.io/badge/build_step-none-171614?style=flat-square)
+
+<br>
+
+<img src="docs/screenshots/hero-light.png" alt="Learn AI home page: the headline 'Understand how machines learn — from first principles to real systems' next to a diagram of a single artificial neuron" width="100%">
+
+</div>
 
 ---
 
-##  Cara Menjalankan
+## Why this exists
+
+Most "learn AI" material falls into one of two camps. Some of it is hype that never explains how anything works. The rest is a university course that assumes calculus and a Python setup on day one.
+
+Learn AI sits in between. It is short, plain reading that builds up from what a neuron computes to how real systems are evaluated, deployed and governed. Every module ends with the trade-offs practitioners actually argue about.
+
+It is written for students, career switchers, teachers and anyone who wants to stop nodding along when people talk about LLMs.
+
+## What's inside
+
+| | |
+|---|---|
+| **15 modules** | 330 minutes of reading, from "What is AI?" to robotics, edge AI and AutoML |
+| **33-question quiz** | Shuffled every attempt, with instant feedback and a downloadable result |
+| **15 languages** | Interface, lessons and quiz, including right-to-left Arabic |
+| **Reading view** | Long-form typography that is comfortable for a 25-minute module |
+| **Progress tracking** | Points, levels, favourites and six achievements |
+| **Notes** | Write notes while reading, then edit or delete them later |
+| **Certificate** | A self-issued PDF certificate once every module is complete |
+| **Your data, your device** | Everything is stored in `localStorage`, with JSON export and import |
+| **Light and dark** | Follows your system theme, with a manual toggle |
+
+<table>
+<tr>
+<td width="50%"><img src="docs/screenshots/reading.png" alt="Reading view of module 03, Deep Learning and Neural Networks, with a drop cap and numbered sections"></td>
+<td width="50%"><img src="docs/screenshots/contents.png" alt="Learning dashboard with progress stats above a numbered list of modules"></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/quiz.png" alt="Quiz question about LLM sampling temperature with four lettered options"></td>
+<td><img src="docs/screenshots/hero-dark.png" alt="The home page in dark mode"></td>
+</tr>
+</table>
+
+<p align="center">
+<img src="docs/screenshots/mobile-ar.png" alt="Mobile view in Arabic, right-to-left, dark mode" width="280">
+&nbsp;&nbsp;
+<img src="docs/screenshots/mobile-ja.png" alt="Mobile view of the home page in Japanese" width="280">
+</p>
+
+## Curriculum
+
+| # | Module | Level | Time |
+|---|--------|-------|------|
+| 01 | What is Artificial Intelligence? | Beginner | 15 min |
+| 02 | Machine Learning Basics | Intermediate | 20 min |
+| 03 | Deep Learning & Neural Networks | Advanced | 25 min |
+| 04 | Natural Language Processing | Intermediate | 18 min |
+| 05 | Computer Vision | Advanced | 22 min |
+| 06 | Basic Prompt Engineering | Beginner | 15 min |
+| 07 | Ethics and Bias in AI | Intermediate | 20 min |
+| 08 | Career Guide in AI | Beginner | 15 min |
+| 09 | Reinforcement Learning | Advanced | 28 min |
+| 10 | Generative AI & Large Language Models | Intermediate | 26 min |
+| 11 | AI in Healthcare | Intermediate | 25 min |
+| 12 | AI for Business & Industry | Intermediate | 24 min |
+| 13 | Robotics & AI | Advanced | 30 min |
+| 14 | Edge AI & IoT | Advanced | 27 min |
+| 15 | AutoML & No-Code AI | Beginner | 20 min |
+
+**Languages:** Bahasa Indonesia · English · 中文 · Español · العربية · हिन्दी · Português · Français · Deutsch · 日本語 · 한국어 · Русский · Türkçe · Italiano · Tiếng Việt
+
+## Run it locally
+
+There is nothing to install. It's plain HTML, CSS and JavaScript.
 
 ```bash
-# Clone repository
 git clone https://github.com/rasidi3112/learn-artificial-intelligence.git
-
-# Buka di browser
-open index.html
+cd learn-artificial-intelligence
+python3 -m http.server 8000
 ```
 
-Atau buka langsung file `index.html` di browser (Chrome, Edge, Safari, Firefox).
+Then open <http://localhost:8000>. Opening `index.html` directly also works.
 
-> **Tidak perlu install apapun.** Tidak perlu `npm install`, tidak perlu server. Cukup buka file HTML.
+To deploy, publish the folder as-is to GitHub Pages or Netlify. `netlify.toml` is included, and `./prepare-drop.sh` packages a clean zip for Netlify Drop.
 
----
+## Use it in a classroom
 
-##  Daftar Materi Pembelajaran
+- **No accounts:** students open a link and start. Nothing to provision and nothing to leak.
+- **Mixed-language classes:** each student can pick their own language on the same page.
+- **Homework evidence:** students can download their quiz result or export their progress as a JSON file.
+- **Offline-friendly hosting:** it is a static folder, so it runs on a school intranet or a laptop with no internet connection. Fonts and PDF export need a connection.
 
-| # | Materi | Level | Durasi |
-|---|--------|-------|--------|
-| 1 | **Apa itu Kecerdasan Buatan?** — Konsep dasar AI, sejarah, dan penerapannya dalam kehidupan sehari-hari | Pemula | 15 menit |
-| 2 | **Machine Learning Dasar** — Konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi | Menengah | 20 menit |
-| 3 | **Deep Learning & Jaringan Neural** — Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf | Lanjut | 25 menit |
-| 4 | **Natural Language Processing (NLP)** — Bagaimana AI memahami dan memproses bahasa manusia | Menengah | 18 menit |
-| 5 | **Computer Vision** — Teknologi AI untuk mengenali dan memproses gambar dan video | Lanjut | 22 menit |
-| 6 | **Prompt Engineering Dasar** — Seni berinteraksi dengan AI generatif seperti ChatGPT untuk hasil maksimal | Pemula | 15 menit |
-| 7 | **Etika dan Bias dalam AI** — Pentingnya keamanan, privasi, dan keadilan dalam menggunakan AI | Menengah | 20 menit |
-| 8 | **Panduan Karir di Bidang AI** — Peluang pekerjaan, tren masa depan, dan cara memulai karir di industri AI | Pemula | 15 menit |
-| 9 | **Reinforcement Learning** — Cara agen mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan | Lanjut | 28 menit |
-| 10 | **Generative AI & Large Language Models** — Model yang menghasilkan teks, gambar, kode, dan cara menggunakannya dengan data terkontrol | Menengah | 26 menit |
-| 11 | **AI in Healthcare** — Penggunaan AI medis, validasi klinis, dan batas keselamatan sebelum deployment | Menengah | 25 menit |
-| 12 | **AI untuk Bisnis & Industri** — Menghubungkan masalah bisnis dengan data, model, KPI, dan tata kelola | Menengah | 24 menit |
-| 13 | **Robotika & AI** — Persepsi, perencanaan, kontrol, dan pembelajaran untuk robot di dunia fisik | Lanjut | 30 menit |
-| 14 | **Edge AI & IoT** — Inferensi AI dekat sensor dengan batas daya, memori, konektivitas, dan keamanan | Lanjut | 27 menit |
-| 15 | **AutoML & No-Code AI** — Otomatisasi pembangunan model sambil menguji data, metrik, dan keputusan | Pemula | 20 menit |
+## How it's built
 
----
-
-##  Fitur Lengkap
-
-###  Pembelajaran & Tracking
-| Fitur | Deskripsi |
-|-------|-----------|
-| **Dashboard Analitik** | Statistik belajar real-time dengan animated counters |
-| **Progress Bar** | Tracking kemajuan pembelajaran secara visual |
-| **Sistem Level & Poin** | Gamifikasi — naik level seiring aktivitas belajar |
-| **Streak Belajar** | Motivasi belajar harian berturut-turut |
-
-###  Kuis Interaktif
-| Fitur | Deskripsi |
-|-------|-----------|
-| **33 Soal Kuis** | Uji pemahaman dari semua materi |
-| **Urutan Acak** | Soal diacak setiap percobaan (Fisher-Yates shuffle) |
-| **Navigasi Keyboard** | Jawab soal dengan Enter/Space |
-| **Download Hasil** | Unduh laporan kuis sebagai file teks |
-
-###  Achievement Badges
-| Badge | Kondisi Unlock |
-|-------|----------------|
-| 🎓 Pelajar Pertama | Selesaikan 1 pelajaran |
-| 🏆 Master AI | Selesaikan semua 15 pelajaran |
-| 💯 Jenius Kuis | Raih skor sempurna (100%) |
-| 📝 Pencatat | Buat 5 catatan |
-| 💬 Sosial | Buat 3 postingan forum |
-| 🔥 Konsisten | Raih streak 5 hari |
-
-### 📒 Catatan & Forum
-| Fitur | Deskripsi |
-|-------|-----------|
-| **Catatan Pribadi** | Buat, edit, dan hapus catatan selama belajar |
-| **Forum Diskusi** | Buat postingan, balas, dan like postingan pengguna lain |
-| **Reply System** | Balas postingan dengan collapsible thread |
-
-###  Keamanan & Data
-| Fitur | Deskripsi |
-|-------|-----------|
-| **XSS Protection** | Sanitasi input untuk mencegah serangan script injection |
-| **Ekspor Data** | Download seluruh data user sebagai file JSON |
-| **Impor Data** | Restore data dari file JSON backup |
-| **Local Storage** | Data tersimpan aman di browser tanpa server |
-
-###  Tampilan & Aksesibilitas
-| Fitur | Deskripsi |
-|-------|-----------|
-| **Dark/Light Mode** | Tema tampilan sesuai preferensi |
-| **15 Bahasa** | Indonesia, English, 中文, Español, العربية, हिन्दी, Português, Français, Deutsch, 日本語, 한국어, Русский, Türkçe, Italiano, Tiếng Việt |
-| **Responsive Design** | Optimal di desktop & mobile |
-| **ARIA Accessibility** | Tab navigation, keyboard support, screen reader friendly |
-| **Skip-to-Content** | Navigasi cepat untuk pengguna keyboard |
-| **Sertifikat Digital** | Sertifikat PDF otomatis setelah menyelesaikan semua materi |
-
----
-
-##  Teknologi
-
-| Kategori | Teknologi |
-|----------|-----------|
-| **Struktur** | HTML5 (Semantic) |
-| **Styling** | CSS3 (Custom Properties, Grid, Flexbox, Animations) |
-| **Logika** | JavaScript ES6+ (Vanilla, tanpa framework) |
-| **Font** | Google Fonts (Inter, Playfair Display) |
-| **PDF** | html2pdf.js |
-| **Penyimpanan** | Local Storage API (`belajarAI_v2`) |
-
-> **Catatan:** Proyek ini sepenuhnya client-side. Tidak menggunakan React, Vue, atau framework apapun. Murni vanilla HTML/CSS/JS.
-
----
-
-##  Struktur Proyek
+| | |
+|---|---|
+| **Stack** | Vanilla HTML, CSS and JavaScript. No framework, bundler or package.json |
+| **Type** | Newsreader for reading, IBM Plex Sans for the interface, IBM Plex Mono for metadata |
+| **Storage** | `localStorage` under the key `belajarAI_v2` |
+| **Security** | Strict Content Security Policy, with all user input escaped before rendering |
+| **Accessibility** | Keyboard-navigable tabs and quiz, focus-trapped dialogs, live regions, reduced-motion support |
+| **PDF** | html2pdf.js, loaded from cdnjs only when you download a certificate |
 
 ```
-learn-artificial-intelligence/
-├── index.html              # Halaman utama (318 baris)
-├── app.js                  # Logika aplikasi (1487 baris)
-├── content-translations.js # Konten materi & terjemahan (810 baris)
-├── styles.css              # Styling & animasi (1942 baris)
-└── README.md               # Dokumentasi ini
+├── index.html               Page structure
+├── styles.css               Design system: tokens, layout, light/dark, RTL
+├── app.js                   App logic, Indonesian source content, quiz
+├── content-translations.js  Lesson text in 14 languages
+├── quiz-translations.js     Quiz questions in 14 languages
+├── i18n-extra.js            Interface strings and translation fixes
+└── docs/screenshots/        Images used in this README
 ```
 
----
+## Contributing
 
-##  Data yang Tersimpan
+Contributions are welcome. These help the most:
 
-Semua data pengguna tersimpan secara lokal di browser menggunakan **Local Storage** (key: `belajarAI_v2`):
+- **Review a translation** in a language you speak natively. Lesson text is in `content-translations.js`, and the quiz is in `quiz-translations.js`.
+- **Add or improve a module.** Accurate, concrete examples beat long ones.
+- **Fix a bug.** One known gap: the learning streak is displayed but not yet counted day to day, so the 5-day achievement can't be earned yet.
 
-- Nama pengguna & profil
-- Level, poin, dan streak
-- Materi yang diselesaikan
-- Materi favorit
-- Skor kuis
-- Catatan pribadi
-- Postingan & reply forum
-- Achievement badges
-- ID sertifikat
-- Preferensi bahasa & tema
+Fork the repo, create a branch, and open a pull request with a short note on what you changed and why.
 
-*Privasi terjaga sepenuhnya — tidak ada data yang dikirim ke server.*
+## Roadmap
 
----
+- [ ] Daily learning-streak tracking
+- [ ] Offline mode with a service worker
+- [ ] Shareable result card after the quiz
+- [ ] More modules: AI security, data engineering for ML, evaluation of LLM apps
+- [ ] Optional sync across devices
 
-##  Tujuan Proyek
+## License
 
-- Mempermudah pemula memahami konsep AI dengan cara yang menarik
-- Menyediakan sistem pembelajaran berbasis progress & gamifikasi
-- Menjadi pondasi untuk pengembangan sistem pembelajaran AI yang lebih pintar
+[MIT](LICENSE). Use it, translate it, teach with it.
 
----
-
-##  Rencana Pengembangan
-
-- [ ] Integrasi AI Chat Tutor
-- [ ] Sistem rekomendasi materi berbasis machine learning
-- [ ] Progress sync antar perangkat
-- [ ] Mode offline learning (Service Worker)
-- [ ] Sistem mentor & pembelajaran kolaboratif
-- [ ] Penambahan konten materi baru (Reinforcement Learning, Generative AI & LLM, AI in Healthcare, AI untuk Bisnis, Robotika, Edge AI & IoT, AI Keamanan Siber, AutoML & No-Code AI)
-
----
-
-##  Kontribusi
-
-Ingin bantu kembangkan proyek ini?
-
-1. **Fork** repositori ini
-2. Buat **branch baru** (`git checkout -b fitur-baru`)
-3. **Commit** perubahan (`git commit -m 'Tambah fitur baru'`)
-4. **Push** ke branch (`git push origin fitur-baru`)
-5. Ajukan **Pull Request**
-
-Kontribusi Anda sangat berarti bagi ekosistem pembelajaran AI Indonesia 🇮🇩
-
----
-
-##  Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-Silakan gunakan, ubah, dan kembangkan untuk kepentingan edukasi.
-
----
-
-**Dikembangkan oleh [Ahmad Rasidi](https://github.com/rasidi3112)**
-© 2025 Belajar AI. Semua hak dilindungi.
+Made by [Ahmad Rasidi](https://github.com/rasidi3112). If this helped you understand AI a little better, a ⭐ helps other learners find it.
