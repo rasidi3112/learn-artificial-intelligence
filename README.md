@@ -132,13 +132,13 @@ Contributions are welcome. These help the most:
 
 - **Review a translation** in a language you speak natively. Lesson text is in `content-translations.js`, and the quiz is in `quiz-translations.js`.
 - **Add or improve a module.** Accurate, concrete examples beat long ones.
-- **Fix a bug.** One known gap: the learning streak is displayed but not yet counted day to day, so the 5-day achievement can't be earned yet.
+- **Fix a bug.** Include the steps to reproduce it in your pull request.
 
 Fork the repo, create a branch, and open a pull request with a short note on what you changed and why.
 
 ## Roadmap
 
-- [ ] Daily learning-streak tracking
+- [x] Daily learning-streak tracking
 - [ ] Offline mode with a service worker
 - [ ] Shareable result card after the quiz
 - [ ] More modules: AI security, data engineering for ML, evaluation of LLM apps

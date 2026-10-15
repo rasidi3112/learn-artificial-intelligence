@@ -102,7 +102,7 @@ Kontribusi sangat diterima. Yang paling membantu:
 
 - **Periksa terjemahan** dalam bahasa yang Anda kuasai. Teks materi ada di `content-translations.js`, kuis di `quiz-translations.js`.
 - **Tambah atau perbaiki modul.** Contoh yang akurat dan konkret lebih baik daripada penjelasan panjang.
-- **Perbaiki bug.** Satu kekurangan yang sudah diketahui: streak belajar sudah tampil tapi belum dihitung per hari, jadi pencapaian 5 hari belum bisa diraih.
+- **Perbaiki bug.** Sertakan langkah untuk mereproduksinya di pull request Anda.
 
 Fork repo ini, buat branch, lalu ajukan pull request dengan catatan singkat tentang apa yang diubah dan alasannya.
 

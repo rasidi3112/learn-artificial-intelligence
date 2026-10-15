@@ -791,6 +791,7 @@ let data = {
     scores: [],
     darkMode: null,
     streak: 0,
+    lastActiveDate: null,
     lang: 'id',
     certId: null,
     badges: [],
@@ -991,9 +992,27 @@ function renderLessons() {
     if (typeof setupScrollReveal === 'function') setupScrollReveal();
 }
 
+function localDateKey(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+// Counts consecutive local calendar days with activity; a skipped day restarts at 1.
+function recordActivity() {
+    const now = new Date();
+    const today = localDateKey(now);
+    if (data.lastActiveDate === today) return;
+    const yesterday = localDateKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1));
+    data.streak = data.lastActiveDate === yesterday ? (data.streak || 0) + 1 : 1;
+    data.lastActiveDate = today;
+    save();
+    updateDashboard();
+    checkBadges();
+}
+
 function viewLesson(id) {
     const l = LESSONS.find(x => x.id === id);
     if (!l) return;
+    recordActivity();
 
     const rawTitle = tLesson(l.id, 'title') || l.title;
     const rawDesc = tLesson(l.id, 'desc') || l.desc;
@@ -1225,6 +1244,7 @@ function showQuizResult() {
     save();
     updateDashboard();
     addNotification(tf('notif_quiz_done', { n: Math.round(pct) }));
+    recordActivity();
     checkBadges();
 
     if (pct >= 80 && typeof Confetti !== 'undefined' && Confetti.fire) {
@@ -1898,6 +1918,8 @@ function importData() {
 
                 sanitized.darkMode = Boolean(imported.darkMode);
                 sanitized.streak = Number.isInteger(imported.streak) && imported.streak >= 0 ? imported.streak : 0;
+                const lastActive = typeof imported.lastActiveDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(imported.lastActiveDate) ? imported.lastActiveDate : null;
+                sanitized.lastActiveDate = lastActive && localDateKey(new Date(lastActive + 'T00:00:00')) === lastActive ? lastActive : null;
                 const allowedLangs = ['id', 'en', 'zh', 'es', 'ar', 'hi', 'pt', 'fr', 'de', 'ja', 'ko', 'ru', 'tr', 'it', 'vi'];
                 sanitized.lang = allowedLangs.includes(imported.lang) ? imported.lang : 'id';
 
