@@ -1749,8 +1749,10 @@ function downloadCertificate() {
     notify('success', t('notify_pdf_prep'));
 
     loadHtml2Pdf().then(() => {
+        // margin 0: A4 landscape is 1123px wide, just enough for the 1120px certificate.
+        // scrollX/scrollY 0: html2canvas otherwise offsets by the page scroll and renders a blank page.
         const opt = {
-            margin: 5,
+            margin: 0,
             filename: 'Sertifikat-Belajar-AI-' + displayName().replace(/\s+/g, '-') + '.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: {
@@ -1758,7 +1760,8 @@ function downloadCertificate() {
                 useCORS: true,
                 backgroundColor: '#f7f2e8',
                 letterRendering: true,
-                windowWidth: 1200
+                scrollX: 0,
+                scrollY: 0
             },
             pagebreak: { mode: ['avoid-all', 'css'] },
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
