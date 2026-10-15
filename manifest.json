@@ -1,14 +1,14 @@
 {
-  "name": "Belajar AI — Platform Pembelajaran AI Premium",
+  "name": "Belajar AI — Kursus terbuka kecerdasan buatan",
   "short_name": "Belajar AI",
-  "description": "Platform pembelajaran AI interaktif untuk pemula dari dasar hingga lanjutan.",
+  "description": "Kursus terbuka kecerdasan buatan: 15 modul, dari dasar machine learning hingga sistem nyata.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#6366f1",
+  "background_color": "#f7f5f0",
+  "theme_color": "#171614",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23171614'/><text x='50' y='71' font-family='Georgia,serif' font-size='64' font-style='italic' text-anchor='middle' fill='%23f7f5f0'>a</text><rect x='66' y='20' width='10' height='10' fill='%23c4472a'/></svg>",
       "sizes": "any",
       "type": "image/svg+xml"
     }

@@ -5,73 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Platform Pembelajaran AI Premium untuk Pemula - Pelajari Artificial Intelligence dari dasar hingga lanjutan.">
+        content="Belajar AI — kursus terbuka kecerdasan buatan: 15 modul dari dasar machine learning hingga robotika, edge AI, dan tata kelola. Tersedia dalam 15 bahasa.">
     <meta name="keywords"
         content="Belajar AI, Artificial Intelligence, Machine Learning, Deep Learning, NLP, Computer Vision">
     <meta name="author" content="Ahmad Rasidi">
-    <title>Belajar AI — Platform Pembelajaran AI Premium</title>
+    <title>Belajar AI — Kursus terbuka kecerdasan buatan</title>
 
     <!-- SEO & Social -->
-    <meta property="og:title" content="Belajar AI — Platform Pembelajaran AI Premium">
+    <meta property="og:title" content="Belajar AI — Kursus terbuka kecerdasan buatan">
     <meta property="og:description"
-        content="Platform Pembelajaran AI Premium untuk Pemula - Pelajari Artificial Intelligence dari dasar hingga lanjutan.">
+        content="15 modul ringkas tentang kecerdasan buatan, dari prinsip pertama hingga sistem nyata. Tersedia dalam 15 bahasa.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/">
     <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Belajar AI — Platform Pembelajaran AI Premium">
-    <meta name="twitter:description" content="Platform Pembelajaran AI Premium untuk Pemula">
+    <meta name="twitter:title" content="Belajar AI — Kursus terbuka kecerdasan buatan">
+    <meta name="twitter:description" content="15 modul ringkas tentang kecerdasan buatan, tersedia dalam 15 bahasa.">
     <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
 
-    <!-- Favicon -->
+    <!-- Favicon: serif monogram -->
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23171614'/><text x='50' y='71' font-family='Georgia,serif' font-size='64' font-style='italic' text-anchor='middle' fill='%23f7f5f0'>a</text><rect x='66' y='20' width='10' height='10' fill='%23c4472a'/></svg>">
 
     <!-- CSP -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self';">
 
-    <!-- Google Fonts — single combined request -->
+    <!-- Fonts: Newsreader (reading & display), IBM Plex Sans (interface), IBM Plex Mono (metadata) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- Detect JavaScript support for progressive enhancement -->
-    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
-    <a href="#materi" class="skip-link">Skip to content</a>
-    <div class="container">
-        <header class="header">
-            <canvas id="neuralCanvas" aria-hidden="true"></canvas>
-            <div class="header-title">
-                <h1 data-i18n="app_title">Belajar AI</h1>
-                <p data-i18n="app_desc">Platform Pembelajaran AI Premium untuk Pemula</p>
-            </div>
-            <div class="header-controls">
-                <button class="user-badge" id="userBadgeBtn" type="button" aria-label="Profil Pengguna">
-                    <span id="userName">Pengguna</span>
-                    <span class="level-tag" id="levelBadge">Level 1</span>
-                </button>
+    <a href="#materi" class="skip-link" data-i18n="skip_link">Lewati ke konten</a>
 
+    <header class="masthead">
+        <div class="masthead-inner">
+            <a class="wordmark" href="#" aria-label="Belajar AI">
+                <span class="wordmark-mark" aria-hidden="true">a</span>
+                <span class="wordmark-name" data-i18n="app_title">Belajar AI</span>
+            </a>
+
+            <div class="header-controls">
                 <div class="lang-selector">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" class="lang-icon"
-                        aria-hidden="true">
-                        <path
-                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.9 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.66-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z">
-                        </path>
+                    <svg width="16" height="16" viewBox="0 0 24 24" class="lang-icon" aria-hidden="true" fill="none"
+                        stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
                     </svg>
-                    <select id="langSelect" class="lang-select" aria-label="Select language">
+                    <select id="langSelect" class="lang-select" aria-label="Pilih bahasa" data-i18n-aria="aria_language">
                         <option value="id">Bahasa Indonesia</option>
                         <option value="en">English</option>
                         <option value="zh">中文</option>
@@ -90,25 +80,99 @@
                     </select>
                 </div>
 
-                <button class="icon-btn" id="notifBtn" type="button" aria-label="Notifications"
-                    style="position:relative">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                <button class="icon-btn" id="notifBtn" type="button" aria-label="Notifikasi"
+                    data-i18n-aria="aria_notifications">
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                        <path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z" />
+                        <path d="M10 20.5a2 2 0 0 0 4 0" />
                     </svg>
                     <span class="notif-badge" id="notifCount" style="display:none">0</span>
                 </button>
-                <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark/light theme">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" id="themeIcon"
-                        aria-hidden="true">
-                        <path
-                            d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
+                <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang/gelap"
+                    data-i18n-aria="aria_theme">
+                    <svg width="18" height="18" viewBox="0 0 24 24" id="themeIcon" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" />
                     </svg>
                 </button>
+                <button class="user-badge" id="userBadgeBtn" type="button" aria-label="Profil pengguna"
+                    data-i18n-aria="aria_profile">
+                    <span id="userName">Pelajar</span>
+                    <span class="level-tag" id="levelBadge">Level 1</span>
+                </button>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <nav aria-label="Main navigation">
+    <div class="container">
+        <section class="hero" aria-labelledby="heroTitle">
+            <div class="hero-text">
+                <p class="kicker" data-i18n="hero_kicker">Kursus terbuka kecerdasan buatan</p>
+                <h1 class="hero-title" id="heroTitle" data-i18n="hero_title">Pahami cara mesin belajar — dari prinsip
+                    pertama hingga sistem nyata.</h1>
+                <p class="hero-lede" data-i18n="hero_lede">Lima belas modul ringkas, dari sejarah AI dan machine
+                    learning hingga robotika, edge AI, dan tata kelola. Baca dengan tempo Anda sendiri, uji pemahaman,
+                    dan simpan catatan — semuanya tersimpan di perangkat Anda.</p>
+                <div class="hero-actions">
+                    <button type="button" class="btn-primary" data-goto="materi" data-i18n="hero_cta">Mulai
+                        membaca</button>
+                    <button type="button" class="btn-link" data-goto="quiz"><span data-i18n="hero_cta_quiz">Kerjakan
+                            kuis</span> <span aria-hidden="true" class="arrow">→</span></button>
+                </div>
+            </div>
+
+            <figure class="hero-figure">
+                <svg class="neuron" viewBox="0 0 420 250" role="img" aria-labelledby="figCaption">
+                    <g class="neuron-lines" fill="none" stroke="currentColor" stroke-width="1">
+                        <path class="draw" d="M56 54 L192 118" />
+                        <path class="draw" d="M56 125 L190 125" />
+                        <path class="draw" d="M56 196 L192 132" />
+                        <path class="draw" d="M250 125 L276 125" />
+                        <path class="draw out" d="M344 125 L392 125" />
+                        <path class="out" d="M386 120 L393 125 L386 130" />
+                    </g>
+                    <g fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="40" cy="54" r="16" />
+                        <circle cx="40" cy="125" r="16" />
+                        <circle cx="40" cy="196" r="16" />
+                        <circle class="sum" cx="220" cy="125" r="30" />
+                        <rect x="276" y="95" width="68" height="60" />
+                        <path class="draw curve" d="M284 145 C300 145 302 144 310 125 S322 105 336 105" />
+                        <path d="M284 125 H336" stroke-dasharray="2 3" opacity=".45" />
+                    </g>
+                    <g class="neuron-labels">
+                        <text x="40" y="59" text-anchor="middle">x<tspan dy="3" font-size="10">1</tspan></text>
+                        <text x="40" y="130" text-anchor="middle">x<tspan dy="3" font-size="10">2</tspan></text>
+                        <text x="40" y="201" text-anchor="middle">x<tspan dy="3" font-size="10">3</tspan></text>
+                        <text x="118" y="76" text-anchor="middle">w<tspan dy="3" font-size="10">1</tspan></text>
+                        <text x="118" y="118" text-anchor="middle">w<tspan dy="3" font-size="10">2</tspan></text>
+                        <text x="118" y="184" text-anchor="middle">w<tspan dy="3" font-size="10">3</tspan></text>
+                        <text x="220" y="133" text-anchor="middle" class="sigma">Σ</text>
+                        <text x="404" y="130" text-anchor="middle" class="out-label">ŷ</text>
+                        <text x="220" y="80" text-anchor="middle" class="tiny">+ b</text>
+                    </g>
+                    <g class="neuron-axis">
+                        <text x="40" y="238" text-anchor="middle">INPUT</text>
+                        <text x="118" y="238" text-anchor="middle">WEIGHTS</text>
+                        <text x="220" y="238" text-anchor="middle">SUM</text>
+                        <text x="310" y="238" text-anchor="middle">ACTIVATION</text>
+                        <text x="398" y="238" text-anchor="middle">OUT</text>
+                    </g>
+                </svg>
+                <figcaption id="figCaption" data-i18n="fig_caption">Gbr. 1 — Satu neuron buatan: input berbobot
+                    dijumlahkan, lalu diteruskan lewat fungsi aktivasi.</figcaption>
+            </figure>
+
+            <dl class="hero-facts">
+                <div><dt data-i18n="meta_lessons">modul</dt><dd>15</dd></div>
+                <div><dt data-i18n="meta_questions">soal kuis</dt><dd>33</dd></div>
+                <div><dt data-i18n="meta_minutes">menit bacaan</dt><dd>330</dd></div>
+                <div><dt data-i18n="meta_languages">bahasa</dt><dd>15</dd></div>
+            </dl>
+        </section>
+
+        <nav class="nav-wrap" aria-label="Main navigation">
             <div class="nav-tabs" role="tablist" aria-label="Navigation tabs">
                 <button class="nav-tab active" role="tab" id="tab-materi" aria-selected="true" aria-controls="materi"
                     data-i18n="tab_materi" tabindex="0">Materi</button>
@@ -118,81 +182,98 @@
                     data-i18n="tab_catatan" tabindex="-1">Catatan</button>
                 <button class="nav-tab" role="tab" id="tab-forum" aria-selected="false" aria-controls="forum"
                     data-i18n="tab_forum" tabindex="-1">Forum</button>
-                <button class="nav-tab" role="tab" id="tab-leaderboard" aria-selected="false" aria-controls="leaderboard"
-                    data-i18n="tab_leaderboard" tabindex="-1">Leaderboard</button>
-                <button class="nav-tab" role="tab" id="tab-sertifikat" aria-selected="false" aria-controls="sertifikat"
-                    data-i18n="tab_sertifikat" tabindex="-1">Sertifikat</button>
+                <button class="nav-tab" role="tab" id="tab-leaderboard" aria-selected="false"
+                    aria-controls="leaderboard" data-i18n="tab_leaderboard" tabindex="-1">Leaderboard</button>
+                <button class="nav-tab" role="tab" id="tab-sertifikat" aria-selected="false"
+                    aria-controls="sertifikat" data-i18n="tab_sertifikat" tabindex="-1">Sertifikat</button>
             </div>
         </nav>
 
         <main>
             <!-- MATERI TAB -->
             <div id="materi" class="tab-content active" role="tabpanel" aria-labelledby="tab-materi">
-                <h2 class="section-title" data-i18n="dashboard_title">Dashboard Pembelajaran</h2>
-                <div class="dashboard-grid">
-                    <div class="stat-card">
-                        <div class="stat-label" data-i18n="stat_materi">Materi Selesai</div>
-                        <div class="stat-value" id="materiSelesai" role="status">0</div>
+                <section class="block progress-panel" aria-labelledby="dashboardTitle">
+                    <div class="block-head">
+                        <h2 class="section-title" id="dashboardTitle" data-i18n="dashboard_title">Dashboard
+                            Pembelajaran</h2>
+                        <p class="block-note" id="progressCaption"></p>
                     </div>
-                    <div class="stat-card alt1">
-                        <div class="stat-label" data-i18n="stat_skor">Skor Rata-Rata</div>
-                        <div class="stat-value" id="skorRata" role="status">0%</div>
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-label" data-i18n="stat_materi">Materi Selesai</div>
+                            <div class="stat-value" id="materiSelesai" role="status">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label" data-i18n="stat_skor">Skor Rata-Rata</div>
+                            <div class="stat-value" id="skorRata" role="status">0%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label" data-i18n="stat_streak">Streak Belajar</div>
+                            <div class="stat-value" id="streakBelajar" role="status">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label" data-i18n="stat_poin">Total Poin</div>
+                            <div class="stat-value" id="poinTotal" role="status">0</div>
+                        </div>
                     </div>
-                    <div class="stat-card alt2">
-                        <div class="stat-label" data-i18n="stat_streak">Streak Belajar</div>
-                        <div class="stat-value" id="streakBelajar" role="status">0</div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <h3 id="progressTitle" data-i18n="progress_title">Progress Pembelajaran</h3><span
+                                id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress-bar" role="progressbar" aria-labelledby="progressTitle"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-fill" id="progressBar" style="width:0%"></div>
+                        </div>
                     </div>
-                    <div class="stat-card alt3">
-                        <div class="stat-label" data-i18n="stat_poin">Total Poin</div>
-                        <div class="stat-value" id="poinTotal" role="status">0</div>
-                    </div>
-                </div>
+                </section>
 
-                <div class="progress-section card">
-                    <div class="progress-header">
-                        <h3 id="progressTitle" data-i18n="progress_title">Progress Pembelajaran</h3><span id="progressPercent">0%</span>
+                <section class="block" aria-labelledby="contentsTitle">
+                    <div class="block-head">
+                        <h2 class="section-title" id="contentsTitle" data-i18n="list_materi_title">Daftar Materi
+                            Pembelajaran</h2>
+                        <div class="search-box" role="search">
+                            <input type="search" class="search-input" id="searchInput" data-i18n-prop="placeholder"
+                                data-i18n="search_placeholder" placeholder="Cari materi pembelajaran..."
+                                aria-label="Cari materi" data-i18n-aria="search_placeholder">
+                            <button class="btn-secondary" data-i18n="btn_cari" id="searchBtn">Cari</button>
+                        </div>
                     </div>
-                    <div class="progress-bar" role="progressbar" aria-labelledby="progressTitle" aria-valuenow="0" aria-valuemin="0"
-                        aria-valuemax="100">
-                        <div class="progress-fill" id="progressBar" style="width:0%"></div>
-                    </div>
-                </div>
+                    <div class="lessons-grid" id="lessonsContainer"></div>
+                </section>
 
-                <div class="achievements-section card" style="margin-top:24px">
-                    <h3 class="section-title" style="font-size:1.1rem;margin-bottom:16px"
-                        data-i18n="achievements_title">Pencapaian</h3>
+                <section class="block" aria-labelledby="favTitle">
+                    <div class="block-head">
+                        <h2 class="section-title" id="favTitle" data-i18n="fav_materi_title">Materi Favorit</h2>
+                    </div>
+                    <div class="lessons-grid compact" id="favoritesContainer">
+                        <div class="empty-state">
+                            <p data-i18n="fav_empty">Belum ada materi favorit.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="block achievements-section" aria-labelledby="achTitle">
+                    <div class="block-head">
+                        <h2 class="section-title" id="achTitle" data-i18n="achievements_title">Pencapaian</h2>
+                    </div>
                     <div class="badges-grid" id="badgesContainer"></div>
-                </div>
-
-                <div class="search-box">
-                    <input type="text" class="search-input" id="searchInput" data-i18n-prop="placeholder"
-                        data-i18n="search_placeholder" placeholder="Cari materi pembelajaran...">
-                    <button class="btn-primary" data-i18n="btn_cari" id="searchBtn">Cari</button>
-                </div>
-
-                <h2 class="section-title" data-i18n="list_materi_title">Daftar Materi Pembelajaran</h2>
-                <div class="lessons-grid" id="lessonsContainer"></div>
-
-                <div class="section-header" style="margin-top:40px">
-                    <h2 class="section-title" style="margin:0" data-i18n="fav_materi_title">Materi Favorit</h2>
-                </div>
-                <div class="lessons-grid" id="favoritesContainer">
-                    <div class="empty-state">
-                        <p data-i18n="fav_empty">Belum ada materi favorit.</p>
-                    </div>
-                </div>
+                </section>
             </div>
 
             <!-- QUIZ TAB -->
             <div id="quiz" class="tab-content" role="tabpanel" aria-labelledby="tab-quiz">
-                <div class="card quiz-card">
-                    <h2 class="section-title" data-i18n="quiz_title">Uji Pemahaman Anda</h2>
+                <section class="block quiz-card">
+                    <div class="block-head">
+                        <h2 class="section-title" data-i18n="quiz_title">Uji Pemahaman Anda</h2>
+                    </div>
                     <div class="progress-section">
                         <div class="progress-header">
-                            <h3 id="quizProgressTitle" data-i18n="quiz_progress">Progress Kuis</h3><span id="quizProgressPercent">0%</span>
+                            <h3 id="quizProgressTitle" data-i18n="quiz_progress">Progress Kuis</h3><span
+                                id="quizProgressPercent">0%</span>
                         </div>
-                        <div class="progress-bar" role="progressbar" aria-labelledby="quizProgressTitle" aria-valuenow="0" aria-valuemin="0"
-                            aria-valuemax="100">
+                        <div class="progress-bar" role="progressbar" aria-labelledby="quizProgressTitle"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                             <div class="progress-fill" id="quizProgressBar" style="width:0%"></div>
                         </div>
                     </div>
@@ -201,53 +282,58 @@
                     <div id="quizContent"></div>
                     <div id="quizResult" class="result-box" style="display:none">
                         <div class="result-score" id="scoreDisplay">0/5</div>
-                        <div class="result-msg" id="resultMessage">Selamat!</div>
+                        <div class="result-msg" id="resultMessage"></div>
                         <div class="result-btns">
-                            <button class="btn-primary" data-i18n="quiz_download" id="downloadResultBtn">Download
+                            <button class="btn-primary" data-i18n="quiz_retry" id="resetQuizBtn">Ulangi Kuis</button>
+                            <button class="btn-secondary" data-i18n="quiz_download" id="downloadResultBtn">Download
                                 Hasil</button>
-                            <button class="btn-primary" data-i18n="quiz_retry" id="resetQuizBtn">Ulangi
-                                Kuis</button>
-                            <button class="btn-secondary" data-i18n="quiz_back" id="quizBackBtn">Kembali</button>
+                            <button class="btn-link" data-i18n="quiz_back" id="quizBackBtn">Kembali</button>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
 
             <!-- CATATAN TAB -->
             <div id="catatan" class="tab-content" role="tabpanel" aria-labelledby="tab-catatan">
-                <div class="section-header">
-                    <h2 class="section-title" style="margin:0" data-i18n="notes_title">Catatan Pembelajaran</h2><button
-                        class="btn-primary" data-i18n="notes_add" id="addNoteBtn">Tambah Catatan</button>
-                </div>
-                <div class="notes-grid" id="notesContainer">
-                    <div class="empty-state">
-                        <p data-i18n="notes_empty">Belum ada catatan. Mulai buat catatan Anda!</p>
+                <section class="block">
+                    <div class="block-head">
+                        <h2 class="section-title" data-i18n="notes_title">Catatan Pembelajaran</h2>
+                        <button class="btn-primary" data-i18n="notes_add" id="addNoteBtn">Tambah Catatan</button>
                     </div>
-                </div>
+                    <div class="notes-grid" id="notesContainer">
+                        <div class="empty-state">
+                            <p data-i18n="notes_empty">Belum ada catatan. Mulai buat catatan Anda!</p>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- FORUM TAB -->
             <div id="forum" class="tab-content" role="tabpanel" aria-labelledby="tab-forum">
-                <div class="section-header">
-                    <h2 class="section-title" style="margin:0" data-i18n="forum_title">Forum Diskusi</h2><button
-                        class="btn-primary" data-i18n="forum_add" id="addPostBtn">Buat Postingan</button>
-                </div>
-                <p class="demo-notice" data-i18n="forum_demo_notice">📌 Mode lokal: data forum hanya tersimpan di
-                    perangkat ini.</p>
-                <div class="forum-list" id="forumContainer">
-                    <div class="empty-state">
-                        <p data-i18n="forum_empty">Belum ada postingan. Jadilah yang pertama!</p>
+                <section class="block">
+                    <div class="block-head">
+                        <h2 class="section-title" data-i18n="forum_title">Forum Diskusi</h2>
+                        <button class="btn-primary" data-i18n="forum_add" id="addPostBtn">Buat Postingan</button>
                     </div>
-                </div>
+                    <p class="demo-notice" data-i18n="forum_demo_notice">Mode lokal — data forum hanya tersimpan di
+                        perangkat ini.</p>
+                    <div class="forum-list" id="forumContainer">
+                        <div class="empty-state">
+                            <p data-i18n="forum_empty">Belum ada postingan. Jadilah yang pertama!</p>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- LEADERBOARD TAB -->
             <div id="leaderboard" class="tab-content" role="tabpanel" aria-labelledby="tab-leaderboard">
-                <div class="card">
-                    <h2 class="section-title" data-i18n="lb_title">Papan Peringkat</h2>
-                    <p class="demo-notice" data-i18n="lb_demo_notice">📌 Data contoh — papan peringkat ini belum
-                        terhubung ke server.</p>
-                    <div style="overflow-x:auto">
+                <section class="block">
+                    <div class="block-head">
+                        <h2 class="section-title" data-i18n="lb_title">Papan Peringkat</h2>
+                    </div>
+                    <p class="demo-notice" data-i18n="lb_demo_notice">Papan peringkat ini berbasis progres di
+                        perangkat Anda dan belum terhubung ke server.</p>
+                    <div class="table-wrap">
                         <table class="leaderboard-table">
                             <thead>
                                 <tr>
@@ -261,63 +347,75 @@
                             <tbody id="leaderboardBody"></tbody>
                         </table>
                     </div>
-                </div>
+                </section>
             </div>
 
             <!-- SERTIFIKAT TAB -->
             <div id="sertifikat" class="tab-content" role="tabpanel" aria-labelledby="tab-sertifikat">
-                <div class="card" style="text-align:center">
-                    <h2 class="section-title" data-i18n="cert_title">Sertifikat Digital</h2>
-                    <button class="btn-primary" id="certBtn" data-i18n="cert_download" style="display:none">Download
-                        Sertifikat</button>
-                    <p id="certMsg" data-i18n="cert_msg" style="color:var(--text-secondary);margin:20px 0">Selesaikan
-                        semua materi untuk mendapatkan sertifikat!</p>
+                <section class="block cert-block">
+                    <div class="block-head">
+                        <h2 class="section-title" data-i18n="cert_title">Sertifikat Digital</h2>
+                        <button class="btn-primary" id="certBtn" data-i18n="cert_download"
+                            style="display:none">Download Sertifikat</button>
+                    </div>
+                    <p id="certMsg" class="cert-msg" data-i18n="cert_msg">Selesaikan semua materi untuk mendapatkan
+                        sertifikat!</p>
                     <div id="certContainer"></div>
-                </div>
+                </section>
             </div>
         </main>
+    </div>
 
-        <footer class="footer">
-            <p class="footer-quote" data-i18n="footer_quote">"Belajar AI bukan tentang menjadi robot, tapi memahami
-                bagaimana kecerdasan bisa membuat manusia lebih bijak."</p>
-            <p class="footer-author">- Ahmad Rasidi</p>
+    <footer class="footer">
+        <div class="footer-inner">
+            <blockquote class="footer-quote">
+                <p data-i18n="footer_quote">"Belajar AI bukan tentang menjadi robot, tapi memahami bagaimana
+                    kecerdasan bisa membuat manusia lebih bijak."</p>
+                <cite class="footer-author">— Ahmad Rasidi</cite>
+            </blockquote>
             <div class="footer-info">
                 <p><span data-i18n="footer_dev">Dikembangkan oleh</span> <strong>Ahmad Rasidi</strong></p>
                 <p data-i18n="footer_desc">Proyek ini dikembangkan untuk tujuan pendidikan dan pembelajaran.</p>
-                <p style="margin-top:12px;opacity:0.7">© <span id="copyrightYear">2025</span> Belajar AI. <span
-                        data-i18n="footer_rights">Semua hak dilindungi.</span>
-                </p>
+                <p class="footer-small">© <span id="copyrightYear">2025</span> Belajar AI. <span
+                        data-i18n="footer_rights">Semua hak dilindungi.</span></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <!-- MODALS -->
-    <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle" inert aria-hidden="true">
+    <div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle" inert
+        aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close" data-modal-close="noteModal" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="noteModal" aria-label="Tutup"
+                data-i18n-aria="aria_close">×</button>
             <h3 class="modal-title" id="noteModalTitle" data-i18n="modal_note_title">Tambah Catatan</h3>
             <div class="form-group"><label class="form-label" for="noteTitleInput"
-                    data-i18n="modal_label_title">Judul</label><input type="text" class="form-input" id="noteTitleInput"
-                    data-i18n="modal_note_ph_title" data-i18n-prop="placeholder" placeholder="Judul catatan..."></div>
-            <div class="form-group"><label class="form-label" for="noteTextInput" data-i18n="modal_note_content">Isi
-                    Catatan</label><textarea class="form-textarea" id="noteTextInput" data-i18n="modal_note_ph_content"
-                    data-i18n-prop="placeholder" placeholder="Tulis catatan Anda..."></textarea></div>
+                    data-i18n="modal_label_title">Judul</label><input type="text" class="form-input"
+                    id="noteTitleInput" data-i18n="modal_note_ph_title" data-i18n-prop="placeholder"
+                    placeholder="Judul catatan..."></div>
+            <div class="form-group"><label class="form-label" for="noteTextInput"
+                    data-i18n="modal_note_content">Isi Catatan</label><textarea class="form-textarea"
+                    id="noteTextInput" data-i18n="modal_note_ph_content" data-i18n-prop="placeholder"
+                    placeholder="Tulis catatan Anda..."></textarea></div>
             <div class="modal-btns"><button class="btn-primary" data-i18n="btn_save"
                     id="saveNoteBtn">Simpan</button><button class="btn-secondary" data-i18n="btn_cancel"
                     data-modal-close="noteModal">Batal</button></div>
         </div>
     </div>
 
-    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle" inert aria-hidden="true">
+    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle" inert
+        aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close" data-modal-close="postModal" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="postModal" aria-label="Tutup"
+                data-i18n-aria="aria_close">×</button>
             <h3 class="modal-title" id="postModalTitle" data-i18n="modal_post_title">Buat Postingan</h3>
             <div class="form-group"><label class="form-label" for="postTitleInput"
-                    data-i18n="modal_label_title">Judul</label><input type="text" class="form-input" id="postTitleInput"
-                    data-i18n="modal_post_ph_title" data-i18n-prop="placeholder" placeholder="Judul diskusi..."></div>
-            <div class="form-group"><label class="form-label" for="postTextInput" data-i18n="modal_post_content">Isi
-                    Postingan</label><textarea class="form-textarea" id="postTextInput"
-                    data-i18n="modal_post_ph_content" data-i18n-prop="placeholder"
+                    data-i18n="modal_label_title">Judul</label><input type="text" class="form-input"
+                    id="postTitleInput" data-i18n="modal_post_ph_title" data-i18n-prop="placeholder"
+                    placeholder="Judul diskusi..."></div>
+            <div class="form-group"><label class="form-label" for="postTextInput"
+                    data-i18n="modal_post_content">Isi Postingan</label><textarea class="form-textarea"
+                    id="postTextInput" data-i18n="modal_post_ph_content" data-i18n-prop="placeholder"
                     placeholder="Tulis pertanyaan atau diskusi..."></textarea></div>
             <div class="modal-btns"><button class="btn-primary" data-i18n="btn_post"
                     id="savePostBtn">Posting</button><button class="btn-secondary" data-i18n="btn_cancel"
@@ -325,31 +423,36 @@
         </div>
     </div>
 
-    <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle" inert aria-hidden="true">
+    <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle" inert
+        aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close" data-modal-close="userModal" aria-label="Close">×</button>
+            <button class="modal-close" data-modal-close="userModal" aria-label="Tutup"
+                data-i18n-aria="aria_close">×</button>
             <h3 class="modal-title" id="userModalTitle" data-i18n="modal_profile_title">Profil Pengguna</h3>
             <div class="form-group"><label class="form-label" for="userNameInput"
-                    data-i18n="modal_profile_name">Nama</label><input type="text" class="form-input" id="userNameInput"
-                    data-i18n="modal_profile_ph" data-i18n-prop="placeholder" placeholder="Nama Anda..."></div>
-            <div class="card" style="margin:20px 0;padding:16px;background:var(--bg-light)">
-                <p><strong data-i18n="modal_profile_level">Level:</strong> <span id="profileLevel">1</span></p>
-                <p><strong data-i18n="modal_profile_points">Poin:</strong> <span id="profilePoints">0</span></p>
-                <p><strong data-i18n="modal_profile_completed">Materi Selesai:</strong> <span
-                        id="profileCompleted">0</span></p>
-            </div>
+                    data-i18n="modal_profile_name">Nama</label><input type="text" class="form-input"
+                    id="userNameInput" data-i18n="modal_profile_ph" data-i18n-prop="placeholder"
+                    placeholder="Nama Anda..."></div>
+            <dl class="profile-facts">
+                <div><dt data-i18n="modal_profile_level">Level:</dt><dd id="profileLevel">1</dd></div>
+                <div><dt data-i18n="modal_profile_points">Poin:</dt><dd id="profilePoints">0</dd></div>
+                <div><dt data-i18n="modal_profile_completed">Materi Selesai:</dt><dd id="profileCompleted">0</dd>
+                </div>
+            </dl>
             <div class="modal-btns">
                 <button class="btn-primary" data-i18n="btn_save" id="saveProfileBtn">Simpan</button>
                 <button class="btn-secondary" id="exportDataBtn" data-i18n="btn_export">Ekspor Data</button>
                 <button class="btn-secondary" id="importDataBtn" data-i18n="btn_import">Impor Data</button>
-                <button class="btn-secondary" data-i18n="btn_close" data-modal-close="userModal">Tutup</button>
+                <button class="btn-link" data-i18n="btn_close" data-modal-close="userModal">Tutup</button>
             </div>
         </div>
     </div>
 
-    <div id="lessonModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle" inert aria-hidden="true">
-        <div class="modal-content" style="max-width:900px;max-height:90vh;overflow-y:auto">
-            <button class="modal-close" data-modal-close="lessonModal" aria-label="Close">×</button>
+    <div id="lessonModal" class="modal modal-reader" role="dialog" aria-modal="true"
+        aria-labelledby="lessonModalTitle" inert aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal-close="lessonModal" aria-label="Tutup"
+                data-i18n-aria="aria_close">×</button>
             <div id="lessonModalContent"></div>
         </div>
     </div>
@@ -359,7 +462,9 @@
 
     <!-- JavaScript -->
     <script src="content-translations.js"></script>
+    <script src="quiz-translations.js"></script>
     <script src="app.js"></script>
+    <script src="i18n-extra.js"></script>
 </body>
 
 </html>

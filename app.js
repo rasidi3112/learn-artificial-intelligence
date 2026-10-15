@@ -123,6 +123,16 @@ function tDuration(duration) {
     return duration;
 }
 
+// Locale for dates and numbers, following the selected interface language
+function locale() {
+    return (data && data.lang) || 'id';
+}
+
+// The learner's name, or a localized placeholder when none is set
+function displayName() {
+    return (data && data.name) || t('user_default');
+}
+
 // Section title translations: { lessonId: [sectionTitle1, sectionTitle2, ...] }
 const sectionTranslations = {
     en: { 1: ['Introduction', 'History of AI', 'Types of AI', 'AI Applications in Daily Life', 'Main Components of AI', 'Conclusion'], 2: ['What is Machine Learning?', 'Supervised Learning', 'Unsupervised Learning', 'Reinforcement Learning', 'Machine Learning Process', 'Evaluation Metrics'], 3: ['What is Deep Learning?', 'Neural Network Structure', 'How Neural Networks Work', 'Deep Learning Architectures', 'Deep Learning Frameworks', 'Deep Learning Challenges'], 4: ['Introduction to NLP', 'Text Preprocessing', 'Text Representation', 'NLP Applications', 'Large Language Models (LLM)', 'NLP Challenges'], 5: ['Introduction to Computer Vision', 'Image Processing Pipeline', 'Computer Vision Tasks', 'CV Architectures', 'Practical Applications', 'Challenges'], 6: ['What is Prompt Engineering?', 'Prompt Techniques', 'Tips for Effective Prompts', 'Practical Use Cases'], 7: ['Why AI Ethics?', 'Bias in AI', 'Privacy & Security', 'Responsible AI Principles'], 8: ['AI Career Landscape', 'Key Roles in AI', 'Essential Skills', 'Getting Started'] },
@@ -771,16 +781,16 @@ const QUIZ = [
 ];
 
 let data = {
-    name: 'Pengguna Baru',
-    level: 3,
-    points: 750,
-    completed: [1, 2, 3, 4, 5],
+    name: '',
+    level: 1,
+    points: 0,
+    completed: [],
     favorites: [],
     notes: [],
     forum: [],
-    scores: [{ date: new Date().toLocaleDateString('id-ID'), score: 100 }],
-    darkMode: false,
-    streak: 5,
+    scores: [],
+    darkMode: null,
+    streak: 0,
     lang: 'id',
     certId: null,
     badges: [],
@@ -805,7 +815,7 @@ function init() {
 
     if (!Array.isArray(data.notifications) || !data.notifications.length) {
         data.notifications = [
-            { id: 1, text: 'Selamat datang di Belajar AI! Mulai eksplorasi materi pertamamu.', date: new Date().toLocaleDateString('id-ID'), read: false }
+            { id: 1, text: t('notif_welcome'), date: new Date().toLocaleDateString(locale()), read: false }
         ];
     }
     updateNotifBadge();
@@ -819,6 +829,9 @@ function init() {
         }
     } catch (_) {}
 
+    if (data.darkMode === null && window.matchMedia) {
+        data.darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
     if (data.darkMode) {
         document.body.classList.add('dark-mode');
     }
@@ -834,7 +847,7 @@ function init() {
     applyLanguage();
 
     const userNameEl = document.getElementById('userName');
-    if (userNameEl) userNameEl.textContent = data.name;
+    if (userNameEl) userNameEl.textContent = displayName();
 
     const levelBadgeEl = document.getElementById('levelBadge');
     if (levelBadgeEl) levelBadgeEl.textContent = 'Level ' + data.level;
@@ -911,6 +924,14 @@ function applyLanguage() {
         }
     });
 
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+
+    const nameEl = document.getElementById('userName');
+    if (nameEl) nameEl.textContent = displayName();
+
+    document.title = t('app_title') + ' — ' + t('app_desc');
     document.documentElement.lang = lang;
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 }
@@ -923,9 +944,14 @@ function changeLanguage() {
         save();
         applyLanguage();
         renderLessons();
-        initQuiz();
+        resetQuiz();
         renderBadges();
-        notify('success', 'Language → ' + langName);
+        renderNotes();
+        renderForum();
+        renderLeaderboard();
+        updateDashboard();
+        showCertificate();
+        notify('success', langName);
     }
 }
 
@@ -938,14 +964,17 @@ function renderLessonCard(l, options) {
     const showMeta = options && options.showMeta !== false;
     const showFav = options && options.showFav !== false;
 
+    const favLabel = fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'));
+
     let html = `<article class="lesson-card ${done ? 'completed' : ''}" data-id="${l.id}">`;
-    html += `<button type="button" class="lesson-card-trigger" data-id="${l.id}" aria-label="${title}">`;
-    html += `<div class="lesson-header"><span class="lesson-title">${title}</span>`;
-    if (showMeta) html += `<span class="lesson-status ${done ? 'done' : 'new'}">${done ? escapeHTML(t('status_done')) : escapeHTML(t('status_new'))}</span>`;
-    html += `</div><p class="lesson-desc">${desc}</p>`;
-    if (showMeta) html += `<div class="lesson-meta"><span>${escapeHTML(t('label_level'))}: ${escapeHTML(tLevel(l.level))}</span><span>${escapeHTML(t('label_duration'))}: ${escapeHTML(tDuration(l.duration))}</span></div>`;
-    html += `</button>`;
-    if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" data-id="${l.id}" type="button" aria-label="${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}">${fav ? escapeHTML(t('btn_remove_fav')) : escapeHTML(t('btn_add_fav'))}</button></div>`;
+    html += `<button type="button" class="lesson-card-trigger" data-id="${l.id}">`;
+    html += `<span class="lesson-num" aria-hidden="true">${String(l.id).padStart(2, '0')}</span>`;
+    html += `<span class="lesson-body"><span class="lesson-header"><span class="lesson-title">${title}</span>`;
+    if (showMeta && done) html += `<span class="lesson-status done">${escapeHTML(t('status_done'))}</span>`;
+    html += `</span><span class="lesson-desc">${desc}</span>`;
+    if (showMeta) html += `<span class="lesson-meta"><span>${escapeHTML(tLevel(l.level))}</span><span>${escapeHTML(tDuration(l.duration))}</span></span>`;
+    html += `</span></button>`;
+    if (showFav) html += `<div class="lesson-actions"><button class="btn-fav ${fav ? 'active' : ''}" data-id="${l.id}" type="button" aria-pressed="${fav}" aria-label="${favLabel}" title="${favLabel}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z" fill="${fav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button></div>`;
     html += `</article>`;
     return html;
 }
@@ -978,16 +1007,17 @@ function viewLesson(id) {
         updateDashboard();
         renderLessons();
         checkBadges();
-        addNotification('Selesai membaca: ' + rawTitle);
+        addNotification(t('notif_lesson_done') + ': ' + rawTitle);
     }
 
     let html = `
         <div class="lesson-modal-header">
+            <p class="lesson-kicker">${escapeHTML(t('label_lesson'))} ${String(l.id).padStart(2, '0')} / ${LESSONS.length}</p>
             <h2 class="lesson-modal-title" id="lessonModalTitle">${title}</h2>
             <p class="lesson-modal-desc">${desc}</p>
             <div class="lesson-meta-pills">
-                <span class="lesson-pill">${escapeHTML(t('label_level'))}: ${escapeHTML(tLevel(l.level))}</span>
-                <span class="lesson-pill">${escapeHTML(t('label_duration'))}: ${escapeHTML(tDuration(l.duration))}</span>
+                <span class="lesson-pill">${escapeHTML(tLevel(l.level))}</span>
+                <span class="lesson-pill">${escapeHTML(tDuration(l.duration))}</span>
                 <span class="lesson-pill completed">${escapeHTML(t('status_done'))}</span>
             </div>
         </div>
@@ -1003,7 +1033,7 @@ function viewLesson(id) {
             html += `
                 <div class="lesson-section">
                     <h3 class="lesson-section-title">
-                        <span class="lesson-section-num">${idx + 1}</span>
+                        <span class="lesson-section-num">${String(idx + 1).padStart(2, '0')}</span>
                         ${secTitle}
                     </h3>
                     <div class="lesson-section-content">${secContent}</div>
@@ -1095,10 +1125,10 @@ function initQuiz() {
     if (!c) return;
     quizOrder = shuffleArray(QUIZ.map((_, i) => i));
     c.innerHTML = quizOrder.map((qi, displayIdx) => {
-        const q = QUIZ[qi];
+        const q = tQuiz(qi);
         return `<div class="quiz-item ${displayIdx === 0 ? 'active' : ''}" id="q${displayIdx}" style="${displayIdx === 0 ? '' : 'display:none'}">
-        <div class="quiz-header"><div class="question">${displayIdx + 1}. ${escapeHTML(q.q)}</div><span class="quiz-counter">${escapeHTML(t('quiz_q'))} ${displayIdx + 1}/${QUIZ.length}</span></div>
-        <div class="options" role="radiogroup">${q.opts.map((o, j) => `<div class="option" role="radio" aria-checked="false" tabindex="0" data-qi="${qi}" data-oi="${j}">${escapeHTML(o)}</div>`).join('')}</div>
+        <div class="quiz-header"><span class="quiz-counter">${escapeHTML(t('quiz_q'))} ${String(displayIdx + 1).padStart(2, '0')} / ${QUIZ.length}</span><div class="question" id="qt${displayIdx}">${escapeHTML(q.q)}</div></div>
+        <div class="options" role="radiogroup" aria-labelledby="qt${displayIdx}">${q.opts.map((o, j) => `<div class="option" role="radio" aria-checked="false" tabindex="0" data-qi="${qi}" data-oi="${j}"><span class="option-key" aria-hidden="true">${'ABCD'[j]}</span><span class="option-text">${escapeHTML(o)}</span></div>`).join('')}</div>
     </div>`;
     }).join('');
 }
@@ -1190,11 +1220,11 @@ function showQuizResult() {
     const msgEl = document.getElementById('resultMessage');
     if (msgEl) msgEl.textContent = msg;
     data.points += pct === 100 ? 500 : pct >= 80 ? 400 : pct >= 60 ? 300 : 100;
-    data.scores.push({ date: new Date().toLocaleDateString('id-ID'), score: pct });
+    data.scores.push({ date: new Date().toLocaleDateString(locale()), score: pct });
     data.level = Math.floor(data.points / 500) + 1;
     save();
     updateDashboard();
-    addNotification('Menyelesaikan kuis dengan skor ' + Math.round(pct) + '%');
+    addNotification(tf('notif_quiz_done', { n: Math.round(pct) }));
     checkBadges();
 
     if (pct >= 80 && typeof Confetti !== 'undefined' && Confetti.fire) {
@@ -1211,7 +1241,7 @@ function resetQuiz() {
 }
 
 function downloadResult() {
-    const txt = `${t('report_title')}\n\n${t('report_name')}: ${data.name}\n${t('report_date')}: ${new Date().toLocaleDateString('id-ID')}\n${t('report_score')}: ${quiz.score}/${QUIZ.length}\n${t('report_percent')}: ${Math.round((quiz.score / QUIZ.length) * 100)}%`;
+    const txt = `${t('report_title')}\n\n${t('report_name')}: ${displayName()}\n${t('report_date')}: ${new Date().toLocaleDateString(locale())}\n${t('report_score')}: ${quiz.score}/${QUIZ.length}\n${t('report_percent')}: ${Math.round((quiz.score / QUIZ.length) * 100)}%`;
     const blob = new Blob([txt], { type: 'text/plain' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -1321,7 +1351,7 @@ function addNote() {
         if (note) {
             note.title = title;
             note.text = content;
-            note.date = new Date().toLocaleDateString('id-ID');
+            note.date = new Date().toLocaleDateString(locale());
         }
         _editingNoteId = null;
         save();
@@ -1333,7 +1363,7 @@ function addNote() {
             id: Date.now(),
             title: title,
             text: content,
-            date: new Date().toLocaleDateString('id-ID')
+            date: new Date().toLocaleDateString(locale())
         });
         save();
         renderNotes();
@@ -1360,8 +1390,8 @@ function renderNotes() {
     if (!data.notes.length) { c.innerHTML = renderEmptyState('notes_no_data'); return; }
     const colors = ['', 'pink', 'blue', 'green'];
     c.innerHTML = data.notes.map((n, i) => `<div class="note-card ${colors[i % 4]}">
-        <div class="note-title">${escapeHTML(n.title)}</div>
-        <div class="note-text">${escapeHTML(n.text)}</div>
+        <div class="note-title" dir="auto">${escapeHTML(n.title)}</div>
+        <div class="note-text" dir="auto">${escapeHTML(n.text)}</div>
         <div class="note-footer">
             <span class="note-date">${escapeHTML(n.date)}</span>
             <div class="note-actions-group">
@@ -1392,10 +1422,10 @@ function addPost() {
 
     data.forum.push({
         id: Date.now(),
-        author: data.name,
+        author: displayName(),
         title: title,
         text: content,
-        date: new Date().toLocaleDateString('id-ID'),
+        date: new Date().toLocaleDateString(locale()),
         likes: 0,
         replies: []
     });
@@ -1423,9 +1453,9 @@ function replyToPost(id) {
         if (!post.replies) post.replies = [];
         post.replies.push({
             id: Date.now(),
-            author: data.name,
+            author: displayName(),
             text: text.trim(),
-            date: new Date().toLocaleDateString('id-ID')
+            date: new Date().toLocaleDateString(locale())
         });
         save();
         renderForum();
@@ -1447,8 +1477,8 @@ function renderForum() {
         const replies = p.replies || [];
         let html = `<div class="post-card">`;
         html += `<div class="post-header"><span class="post-author">${escapeHTML(p.author)}</span><span class="post-time">${escapeHTML(p.date)}</span></div>`;
-        html += `<div class="post-title">${escapeHTML(p.title)}</div>`;
-        html += `<div class="post-content">${escapeHTML(p.text)}</div>`;
+        html += `<div class="post-title" dir="auto">${escapeHTML(p.title)}</div>`;
+        html += `<div class="post-content" dir="auto">${escapeHTML(p.text)}</div>`;
         html += `<div class="post-actions">`;
         html += `<button class="post-action post-action-like" data-id="${p.id}" type="button">❤ ${escapeHTML(t('btn_like'))} (${likes})</button>`;
         html += `<button class="post-action post-action-reply" data-id="${p.id}" type="button">${escapeHTML(t('btn_reply'))}</button>`;
@@ -1457,7 +1487,7 @@ function renderForum() {
         html += `</div>`;
         if (replies.length) {
             html += `<div class="post-replies" id="replies-${p.id}">`;
-            html += replies.map(r => `<div class="reply-card"><span class="reply-author">${escapeHTML(r.author)}</span><span class="reply-date">${escapeHTML(r.date)}</span><p class="reply-text">${escapeHTML(r.text)}</p></div>`).join('');
+            html += replies.map(r => `<div class="reply-card"><span class="reply-author">${escapeHTML(r.author)}</span><span class="reply-date">${escapeHTML(r.date)}</span><p class="reply-text" dir="auto">${escapeHTML(r.text)}</p></div>`).join('');
             html += `</div>`;
         }
         html += `</div>`;
@@ -1477,11 +1507,11 @@ function renderLeaderboard() {
     if (!b) return;
     const userPoints = data.points || 0;
     const userCompleted = (data.completed || []).length;
-    const userName = data.name || 'Pengguna';
+    const userName = displayName();
     const userLevel = data.level || (Math.floor(userPoints / 500) + 1);
 
     if (userPoints > 0 || userCompleted > 0) {
-        b.innerHTML = `<tr><td class="rank rank-1">#1</td><td><strong>${escapeHTML(userName)}</strong> <span style="font-size:0.85rem;opacity:0.75">(${escapeHTML(t('lb_you'))})</span></td><td>Level ${userLevel}</td><td><strong>${userPoints.toLocaleString('id-ID')}</strong></td><td>${userCompleted} ${escapeHTML(t('lb_materi_suffix'))}</td></tr>`;
+        b.innerHTML = `<tr><td class="rank rank-1">#1</td><td><strong>${escapeHTML(userName)}</strong> <span style="font-size:0.85rem;opacity:0.75">(${escapeHTML(t('lb_you'))})</span></td><td>Level ${userLevel}</td><td><strong>${userPoints.toLocaleString(locale())}</strong></td><td>${userCompleted} ${escapeHTML(t('lb_materi_suffix'))}</td></tr>`;
     } else {
         b.innerHTML = `<tr><td colspan="5" class="empty-state" style="text-align:center;padding:2rem;"><p>${escapeHTML(t('lb_empty'))}</p><small style="opacity:0.75">${escapeHTML(t('lb_local_note'))}</small></td></tr>`;
     }
@@ -1490,7 +1520,7 @@ function renderLeaderboard() {
 function animateCounter(el, target, suffix, duration) {
     if (!el) return;
     suffix = suffix || '';
-    const formatted = target.toLocaleString('id-ID') + suffix;
+    const formatted = target.toLocaleString(locale()) + suffix;
     el.setAttribute('aria-label', formatted);
 
     const prevVal = el.dataset.currentValue !== undefined ? parseInt(el.dataset.currentValue, 10) : null;
@@ -1516,7 +1546,7 @@ function animateCounter(el, target, suffix, duration) {
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = Math.round(start + (target - start) * eased);
-        el.innerHTML = `<span aria-hidden="true">${current.toLocaleString('id-ID')}${suffix}</span>`;
+        el.innerHTML = `<span aria-hidden="true">${current.toLocaleString(locale())}${suffix}</span>`;
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
@@ -1549,6 +1579,8 @@ function updateDashboard() {
         }
     }
     if (progressPercent) progressPercent.textContent = p + '%';
+    const progressCaption = document.getElementById('progressCaption');
+    if (progressCaption) progressCaption.textContent = tf('progress_of', { a: data.completed.length, b: LESSONS.length });
     const levelBadge = document.getElementById('levelBadge');
     if (levelBadge) levelBadge.textContent = 'Level ' + (data.level || 1);
 }
@@ -1561,7 +1593,7 @@ function showUserProfile() {
 
     if (nameInput) nameInput.value = data.name;
     if (levelEl) levelEl.textContent = data.level;
-    if (pointsEl) pointsEl.textContent = data.points.toLocaleString('id-ID');
+    if (pointsEl) pointsEl.textContent = data.points.toLocaleString(locale());
     if (completedEl) completedEl.textContent = data.completed.length;
     openModal('userModal');
 }
@@ -1622,7 +1654,7 @@ function showCertificate() {
 
                             <div class="certificate-recipient">
                                 <p class="certificate-eyebrow">This certificate is proudly presented to</p>
-                                <h2>${escapeHTML(data.name)}</h2>
+                                <h2>${escapeHTML(displayName())}</h2>
                                 <div class="certificate-name-line"></div>
                                 <p class="certificate-description">
                                     for successfully completing the comprehensive learning program in
@@ -1699,7 +1731,7 @@ function downloadCertificate() {
     loadHtml2Pdf().then(() => {
         const opt = {
             margin: 5,
-            filename: 'Sertifikat-Belajar-AI-' + data.name.replace(/\s+/g, '-') + '.pdf',
+            filename: 'Sertifikat-Belajar-AI-' + displayName().replace(/\s+/g, '-') + '.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: {
                 scale: 2.5,
@@ -1757,7 +1789,7 @@ function addNotification(text) {
     data.notifications.unshift({
         id: Date.now(),
         text: text,
-        date: new Date().toLocaleDateString('id-ID'),
+        date: new Date().toLocaleDateString(locale()),
         read: false
     });
     if (data.notifications.length > 20) data.notifications.pop();
@@ -1768,12 +1800,12 @@ function addNotification(text) {
 function showNotifications() {
     const list = data.notifications || [];
     if (!list.length) {
-        notify('info', 'Belum ada notifikasi baru.');
+        notify('info', t('notif_none'));
         return;
     }
     const unread = list.filter(n => !n.read).length;
     const latest = list[0].text;
-    notify('info', (unread > 0 ? `(${unread} baru) ` : '') + latest);
+    notify('info', (unread > 0 ? `(${unread} ${t('notif_new')}) ` : '') + latest);
     list.forEach(n => n.read = true);
     updateNotifBadge();
     save();
@@ -1807,7 +1839,7 @@ function importData() {
                 if (typeof imported.name === 'string' && imported.name.trim()) {
                     sanitized.name = imported.name.trim().slice(0, 60);
                 } else {
-                    sanitized.name = data.name || 'Pengguna Baru';
+                    sanitized.name = data.name || '';
                 }
 
                 sanitized.level = Number.isInteger(imported.level) && imported.level > 0 ? imported.level : 1;
@@ -1830,7 +1862,7 @@ function importData() {
                         id: typeof n.id === 'number' ? n.id : Date.now() + Math.random(),
                         title: String(n.title || '').slice(0, 120),
                         text: String(n.text || '').slice(0, 5000),
-                        date: String(n.date || new Date().toLocaleDateString('id-ID')).slice(0, 30)
+                        date: String(n.date || new Date().toLocaleDateString(locale())).slice(0, 30)
                     }));
                 } else {
                     sanitized.notes = [];
@@ -1842,13 +1874,13 @@ function importData() {
                         author: String(p.author || sanitized.name).slice(0, 60),
                         title: String(p.title || '').slice(0, 120),
                         text: String(p.text || '').slice(0, 5000),
-                        date: String(p.date || new Date().toLocaleDateString('id-ID')).slice(0, 30),
+                        date: String(p.date || new Date().toLocaleDateString(locale())).slice(0, 30),
                         likes: Number.isInteger(p.likes) && p.likes >= 0 ? p.likes : 0,
                         replies: Array.isArray(p.replies) ? p.replies.slice(0, 50).map(r => ({
                             id: typeof r.id === 'number' ? r.id : Date.now() + Math.random(),
                             author: String(r.author || '').slice(0, 60),
                             text: String(r.text || '').slice(0, 1000),
-                            date: String(r.date || new Date().toLocaleDateString('id-ID')).slice(0, 30)
+                            date: String(r.date || new Date().toLocaleDateString(locale())).slice(0, 30)
                         })) : []
                     }));
                 } else {
@@ -1893,7 +1925,7 @@ function importData() {
                 renderBadges();
                 updateNotifBadge();
                 const userNameEl = document.getElementById('userName');
-                if (userNameEl) userNameEl.textContent = data.name;
+                if (userNameEl) userNameEl.textContent = displayName();
                 const levelBadgeEl = document.getElementById('levelBadge');
                 if (levelBadgeEl) levelBadgeEl.textContent = 'Level ' + data.level;
                 notify('success', t('notify_import_done'));
@@ -1908,12 +1940,12 @@ function importData() {
 }
 
 const BADGE_DEFS = [
-    { id: 'first_lesson', icon: '🎓', nameKey: 'badge_first_lesson', descKey: 'badge_first_lesson_desc', check: () => data.completed.length >= 1 },
-    { id: 'all_lessons', icon: '🏆', nameKey: 'badge_all_lessons', descKey: 'badge_all_lessons_desc', check: () => data.completed.length >= LESSONS.length },
-    { id: 'perfect_quiz', icon: '💯', nameKey: 'badge_perfect_quiz', descKey: 'badge_perfect_quiz_desc', check: () => data.scores.some(s => s.score === 100) },
-    { id: 'note_taker', icon: '📝', nameKey: 'badge_note_taker', descKey: 'badge_note_taker_desc', check: () => data.notes.length >= 5 },
-    { id: 'social', icon: '💬', nameKey: 'badge_social', descKey: 'badge_social_desc', check: () => data.forum.length >= 3 },
-    { id: 'streak', icon: '🔥', nameKey: 'badge_streak', descKey: 'badge_streak_desc', check: () => data.streak >= 5 }
+    { id: 'first_lesson', icon: 'I', nameKey: 'badge_first_lesson', descKey: 'badge_first_lesson_desc', check: () => data.completed.length >= 1 },
+    { id: 'all_lessons', icon: 'II', nameKey: 'badge_all_lessons', descKey: 'badge_all_lessons_desc', check: () => data.completed.length >= LESSONS.length },
+    { id: 'perfect_quiz', icon: 'III', nameKey: 'badge_perfect_quiz', descKey: 'badge_perfect_quiz_desc', check: () => data.scores.some(s => s.score === 100) },
+    { id: 'note_taker', icon: 'IV', nameKey: 'badge_note_taker', descKey: 'badge_note_taker_desc', check: () => data.notes.length >= 5 },
+    { id: 'social', icon: 'V', nameKey: 'badge_social', descKey: 'badge_social_desc', check: () => data.forum.length >= 3 },
+    { id: 'streak', icon: 'VI', nameKey: 'badge_streak', descKey: 'badge_streak_desc', check: () => data.streak >= 5 }
 ];
 
 function checkBadges() {
@@ -1925,8 +1957,8 @@ function checkBadges() {
             data.badges.push(b.id);
             newlyUnlocked.push(b.id);
             const badgeTitle = t(b.nameKey);
-            notify('success', '🏅 ' + badgeTitle + '!');
-            addNotification('Pencapaian diraih: ' + badgeTitle);
+            notify('success', t('notif_badge') + ': ' + badgeTitle);
+            addNotification(t('notif_badge') + ': ' + badgeTitle);
         }
     });
     if (newlyUnlocked.length > 0) {
@@ -2029,6 +2061,13 @@ function setupControls() {
         btn.addEventListener('click', () => {
             const modalId = btn.getAttribute('data-modal-close');
             if (modalId) closeModal(modalId);
+        });
+    });
+
+    document.querySelectorAll('[data-goto]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-goto');
+            showTab(document.getElementById('tab-' + id), id);
         });
     });
 }
@@ -2463,7 +2502,7 @@ const Confetti = {
         this.active = true;
         this.particles = [];
 
-        const colors = ['#6d5dfc', '#a855f7', '#38bdf8', '#fbbf24', '#f43f5e', '#10b981', '#ffffff'];
+        const colors = ['#a3341c', '#171614', '#c49a2c', '#2f6b45', '#d9d2c3'];
         const count = 75;
 
         for (let i = 0; i < count; i++) {
