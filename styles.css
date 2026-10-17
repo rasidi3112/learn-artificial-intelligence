@@ -2444,3 +2444,342 @@ body.dark-mode .note-card.blue {
         display: none;
     }
 }
+
+/* ==========================================================================
+   Motion & depth (driven by motion.js)
+   A 3D neural network behind the hero, a tilting Fig. 1 card, signal
+   pulses, section reveals and small tactile hover states. Every moving
+   part sits behind prefers-reduced-motion: no-preference.
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-net {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.neuron .pulse-dot {
+    fill: var(--accent);
+}
+
+.neuron .sum {
+    transition: fill .3s var(--ease), stroke-width .3s var(--ease);
+}
+
+.neuron .sum.firing {
+    fill: var(--accent-soft);
+    stroke-width: 2.2;
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    inset-inline: 0;
+    z-index: 60;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+[dir="rtl"] .scroll-progress {
+    transform-origin: right center;
+}
+
+/* Fig. 1 floats as a glass card above the network */
+.motion-ready .hero-figure {
+    position: relative;
+    background: color-mix(in srgb, var(--surface) 84%, transparent);
+    box-shadow: var(--shadow);
+    transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform-style: preserve-3d;
+    transition: transform .7s var(--ease), box-shadow .7s var(--ease);
+}
+
+.motion-ready .hero-figure .neuron {
+    transform: translateZ(34px);
+}
+
+.motion-ready .hero-figure figcaption {
+    transform: translateZ(16px);
+}
+
+.hero-figure::after,
+.badge-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .45), transparent 55%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s var(--ease);
+}
+
+body.dark-mode .hero-figure::after,
+body.dark-mode .badge-card::after {
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .08), transparent 55%);
+}
+
+.hero-figure.is-tilting::after,
+.badge-card.is-tilting::after {
+    opacity: 1;
+}
+
+.motion-ready .hero-figure.is-tilting {
+    box-shadow: 0 1px 0 rgba(23, 22, 20, .04), 0 30px 60px -28px rgba(23, 22, 20, .45);
+    transition: transform .12s linear, box-shadow .5s var(--ease);
+}
+
+.motion-ready body.dark-mode .hero-figure.is-tilting {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 30px 60px -26px rgba(0, 0, 0, .85);
+}
+
+/* Achievement cards tilt like tiles; unlocked medals spin like a coin */
+.hero-figure,
+.badge-card {
+    position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* Hero copy rises in with a slight 3D hinge */
+    .hero-text > * {
+        animation-name: rise3d;
+        transform-origin: 50% 0;
+    }
+
+    .kicker::before {
+        animation: grow-rule 1s .3s var(--ease) both;
+    }
+
+    .hero-net {
+        animation: fade 1.6s .2s var(--ease) both;
+    }
+
+    .neuron .pulse-dot {
+        filter: drop-shadow(0 0 3px var(--accent));
+    }
+
+    /* Wordmark flips on hover */
+    .wordmark-mark {
+        transition: transform .8s var(--ease);
+    }
+
+    .wordmark:hover .wordmark-mark {
+        transform: perspective(300px) rotateY(360deg);
+    }
+
+    /* Primary buttons: lift and a light sweep */
+    .btn-primary {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .28) 50%, transparent 70%);
+        transform: translateX(-120%);
+        transition: transform .7s var(--ease);
+    }
+
+    .btn-primary:hover::before {
+        transform: translateX(120%);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px -12px color-mix(in srgb, var(--accent) 70%, transparent);
+    }
+
+    .btn-primary:active {
+        transform: translateY(1px);
+        box-shadow: none;
+    }
+
+    /* Lessons: accent spine grows, the numeral flips over */
+    .lesson-card::before {
+        content: '';
+        position: absolute;
+        inset-block: -1px;
+        inset-inline-start: 0;
+        width: 2px;
+        background: var(--accent);
+        transform: scaleY(0);
+        transform-origin: 50% 0;
+        transition: transform .4s var(--ease);
+    }
+
+    .lesson-card:hover::before {
+        transform: scaleY(1);
+    }
+
+    .lesson-num {
+        transition: color .25s, transform .7s var(--ease);
+    }
+
+    .lesson-card:hover .lesson-num {
+        transform: perspective(400px) rotateX(360deg);
+    }
+
+    .scroll-reveal {
+        transform: perspective(900px) translateY(18px) rotateX(-14deg);
+        transform-origin: 50% 0;
+    }
+
+    .scroll-reveal.revealed {
+        transform: none;
+    }
+
+    /* Tab panels swing in */
+    .tab-content.active {
+        animation: tab-in .55s var(--ease);
+    }
+
+    /* Dialogs open with depth (the long-form reader stays flat) */
+    .modal:not(.modal-reader) .modal-content {
+        transform: perspective(1000px) translateY(28px) rotateX(12deg) scale(.96);
+        transform-origin: 50% 100%;
+        transition: transform .5s cubic-bezier(.2, .9, .3, 1.12);
+    }
+
+    .modal.active:not(.modal-reader) .modal-content {
+        transform: none;
+    }
+
+    /* Achievement tiles */
+    .badge-card {
+        transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+        transition: transform .6s var(--ease), box-shadow .6s var(--ease), background .3s;
+    }
+
+    .badge-card.is-tilting {
+        z-index: 2;
+        box-shadow: var(--shadow);
+        transition: transform .12s linear, box-shadow .4s var(--ease), background .3s;
+    }
+
+    .badge-icon {
+        transition: transform .9s var(--ease);
+    }
+
+    .badge-card.unlocked:hover .badge-icon {
+        transform: perspective(300px) rotateY(360deg);
+    }
+
+    /* Quiz: tactile option keys and answer feedback */
+    .option-key {
+        transition: all .2s, transform .3s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .option:hover .option-key {
+        transform: scale(1.1);
+    }
+
+    .option.fx-pop .option-key {
+        animation: pop .55s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .option.fx-shake {
+        animation: shake .45s var(--ease);
+    }
+
+    /* Section reveals: the heading rule draws across, then the heading rises */
+    .motion-reveal .block-head {
+        position: relative;
+        border-top-color: transparent;
+    }
+
+    .motion-reveal .block-head::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        inset-inline: 0;
+        height: 1px;
+        background: var(--ink);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 1.1s var(--ease);
+    }
+
+    [dir="rtl"] .motion-reveal .block-head::before {
+        transform-origin: right center;
+    }
+
+    .motion-reveal .block-head.in-view::before {
+        transform: scaleX(1);
+    }
+
+    .motion-reveal .block-head > * {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity .7s .2s var(--ease), transform .7s .2s var(--ease);
+    }
+
+    .motion-reveal .block-head.in-view > * {
+        opacity: 1;
+        transform: none;
+    }
+
+    .motion-reveal .hero-facts > div {
+        opacity: 0;
+        transform: perspective(600px) translateY(16px) rotateX(-20deg);
+        transform-origin: 50% 0;
+        transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .motion-reveal .hero-facts.in-view > div {
+        opacity: 1;
+        transform: none;
+    }
+
+    .motion-reveal .hero-facts > div:nth-child(2) { transition-delay: .1s; }
+    .motion-reveal .hero-facts > div:nth-child(3) { transition-delay: .2s; }
+    .motion-reveal .hero-facts > div:nth-child(4) { transition-delay: .3s; }
+}
+
+@keyframes rise3d {
+    from { opacity: 0; transform: perspective(700px) translateY(18px) rotateX(-28deg); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes grow-rule {
+    from { width: 0; }
+    to { width: 28px; }
+}
+
+@keyframes tab-in {
+    from { opacity: 0; transform: perspective(1400px) translateY(16px) rotateX(-5deg); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(3px); }
+}
+
+@media print {
+    .hero-net,
+    .scroll-progress {
+        display: none;
+    }
+}
