@@ -17,7 +17,7 @@ No sign-up, no tracking, no build step. Open the link and start reading.
 
 <br>
 
-<img src="docs/screenshots/hero-light.png" alt="Learn AI home page: the headline 'Understand how machines learn, from first principles to real systems' next to a diagram of a single artificial neuron" width="100%">
+<img src="docs/screenshots/hero-light.png" alt="Learn AI home page: the headline 'Understand how machines learn, from first principles to real systems' next to a diagram of a single artificial neuron, set over a rotating 3D neural network" width="100%">
 
 </div>
 
@@ -51,7 +51,7 @@ It is written for students, career switchers, teachers and anyone who wants to s
 <td width="50%"><img src="docs/screenshots/contents.png" alt="Learning dashboard with progress stats above a numbered list of modules"></td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/quiz.png" alt="Quiz question about LLM sampling temperature with four lettered options"></td>
+<td><img src="docs/screenshots/quiz.png" alt="Quiz question about why accuracy misleads on a fraud dataset with few positive cases, with four lettered options"></td>
 <td><img src="docs/screenshots/hero-dark.png" alt="The home page in dark mode"></td>
 </tr>
 </table>
