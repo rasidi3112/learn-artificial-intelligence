@@ -839,7 +839,7 @@ Object.assign(sectionContentTranslations.en, {
     ],
     14: [
         `Edge AI runs a model on or near the device that produces the data. A camera can reject a defective product in milliseconds and a vibration sensor can detect an anomaly while offline. ESP32, Raspberry Pi, Jetson, and Coral differ in RAM, power, and accelerators, so choose hardware from latency and field conditions.`,
-        `Quantization turns float32 weights into int8, pruning removes less useful connections, and knowledge distillation trains a smaller model from a teacher. TensorFlow Lite, TensorRT, ONNX Runtime, and OpenVINO target different devices. Measure accuracy, p50/p95 latency, memory, temperature, and power—not only file size.`,
+        `Quantization turns float32 weights into int8, pruning removes less useful connections, and knowledge distillation trains a smaller model from a teacher. TensorFlow Lite, TensorRT, ONNX Runtime, and OpenVINO target different devices. Measure accuracy, p50/p95 latency, memory, temperature, and power, not only file size.`,
         `In a factory, an accelerometer can send a vibration window to a gateway, score an anomaly locally, and publish only the score or an important clip over MQTT. Include device ID, synchronized time, firmware version, and model version. Buffer during outages, avoid duplicate actuator commands, and separate telemetry from control.`,
         `Verify signed firmware and models before execution. Use secure boot where supported, unique device credentials, TLS, and key rotation. Roll out models to a small cohort first, monitor crashes and drift, and keep rollback available. Retraining and regression tests belong in the device lifecycle, not only at launch.`
     ],
@@ -1025,7 +1025,7 @@ Object.assign(sectionContentTranslations.hi, {
     ],
     15: [
         `AutoML basic cleaning, category encoding, model selection, limited feature engineering और hyperparameter tuning automate कर सकता है। Auto-sklearn, H2O AutoML और AutoGluon pipelines compare करते हैं; Vertex AI और Azure Machine Learning managed workflows देते हैं। Teachable Machine छोटे prototypes के लिए ठीक है, गलत target को automation ठीक नहीं कर सकती।`,
-        `एक row क्या दिखाती है, prediction कब होती है और उस समय कौन से columns उपलब्ध हैं—पहले तय करें। 30-day churn में बाद में मिलने वाला cancellation reason leakage है। Temporal data को time के अनुसार split करें और missing values, duplicate customers, class imbalance तथा units जाँचें।`,
+        `एक row क्या दिखाती है, prediction कब होती है और उस समय कौन से columns उपलब्ध हैं, यह पहले तय करें। 30-day churn में बाद में मिलने वाला cancellation reason leakage है। Temporal data को time के अनुसार split करें और missing values, duplicate customers, class imbalance तथा units जाँचें।`,
         `यदि fraud केवल 2% है तो accuracy misleading हो सकती है। Problem के अनुसार precision-recall, ROC-AUC, F1, MAE या business cost चुनें। Operational threshold पर confusion matrix देखें और rules या logistic regression जैसे baseline से तुलना करें।`,
         `Dataset, configuration, metrics और prediction examples save करें ताकि परिणाम reproduce हों। SHAP या feature importance से reasonable signals जाँचें; correlation causation नहीं है। Production data पर exported model retest करें, drift monitor करें और high-risk decisions में human review रखें। No-code में भी owner जरूरी है।`
     ]

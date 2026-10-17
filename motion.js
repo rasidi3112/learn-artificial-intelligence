@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Belajar AI — motion & depth
+   Belajar AI: motion & depth
    A rotating 3D neural network behind the hero, signal pulses through the
    Fig. 1 neuron, pointer tilt on cards, count-up figures, section reveals
    and a reading-progress rule. No dependencies; everything respects
@@ -412,7 +412,7 @@
     };
 
     /* ------------------------------------------------------------------
-       3. Pointer tilt (figure, badges) — delegated, so re-rendered cards work
+       3. Pointer tilt (figure, badges), delegated so re-rendered cards work
        ------------------------------------------------------------------ */
     const Tilt = {
         selector: '.hero-figure, .badge-card',
@@ -522,7 +522,7 @@
     }
 
     /* ------------------------------------------------------------------
-       7. Quiz feedback — pop on correct, shake on wrong
+       7. Quiz feedback: pop on correct, shake on wrong
        ------------------------------------------------------------------ */
     function quizFeedback() {
         const quiz = document.getElementById('quizContent');

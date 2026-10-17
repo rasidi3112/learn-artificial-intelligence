@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Belajar AI — editorial stylesheet
+   Belajar AI: editorial stylesheet
    Paper and ink, one accent colour, hairline rules. Serif for reading,
    sans for interface, mono for metadata.
    ========================================================================== */
@@ -23,9 +23,9 @@
     --focus: #1f5fbf;
     --shadow: 0 1px 0 rgba(23, 22, 20, 0.04), 0 12px 32px -18px rgba(23, 22, 20, 0.28);
 
-    --serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Noto Serif', serif;
-    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', sans-serif;
-    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Noto Serif', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', sans-serif;
+    --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
     --measure: 68ch;
     --gutter: clamp(16px, 4vw, 40px);
@@ -64,6 +64,11 @@ html:is(:lang(ar), :lang(hi), :lang(zh), :lang(ja), :lang(ko)) {
 
 html:is(:lang(ar), :lang(hi), :lang(zh), :lang(ja), :lang(ko)) :is(.kicker, .stat-label, .hero-facts dt, .lesson-pill, .lesson-kicker, .quiz-counter, .form-label, .leaderboard-table th, .lesson-status, .option-feedback) {
     letter-spacing: 0;
+}
+
+/* Fraunces: a softened display cut for headings and figures, the plain text cut for reading */
+:is(.section-title, .modal-title, .stat-value, .hero-facts dd, .lesson-num, .result-score, .profile-facts dd) {
+    font-variation-settings: 'SOFT' 50;
 }
 
 /* ---------- Base ---------- */
@@ -337,6 +342,7 @@ button {
     font-family: var(--mono);
     font-size: .7rem;
     letter-spacing: .02em;
+    white-space: nowrap;
 }
 
 .user-badge:hover .level-tag {
@@ -385,9 +391,9 @@ button {
     font-family: var(--serif);
     font-size: clamp(2.4rem, 5.6vw, 4.6rem);
     font-weight: 400;
-    font-variation-settings: 'opsz' 72;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 1;
     line-height: 1.02;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
 }
 
@@ -1535,7 +1541,7 @@ body.dark-mode .note-card.blue {
     color: #171614;
     background: #f7f2e8;
     box-shadow: var(--shadow);
-    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    font-family: 'Geist', Arial, sans-serif;
 }
 
 .certificate-frame {
@@ -1563,7 +1569,7 @@ body.dark-mode .note-card.blue {
     top: 46%;
     left: 50%;
     color: rgba(23, 22, 20, 0.035);
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 300px;
     font-style: italic;
     line-height: 1;
@@ -1596,21 +1602,21 @@ body.dark-mode .note-card.blue {
     place-items: center;
     background: #171614;
     color: #fbf8f1;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 15px;
     font-style: italic;
     letter-spacing: 1px;
 }
 
 .certificate-brand-name {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 20px;
 }
 
 .certificate-brand-subtitle {
     margin-top: 2px;
     color: #6a665d;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1622,14 +1628,14 @@ body.dark-mode .note-card.blue {
 
 .certificate-kicker {
     color: #a3341c;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 10px;
     letter-spacing: 4px;
 }
 
 .certificate-heading h1 {
     margin: 6px 0 0;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 58px;
     font-weight: 400;
     letter-spacing: -0.5px;
@@ -1639,7 +1645,7 @@ body.dark-mode .note-card.blue {
 .certificate-heading-subtitle {
     margin-top: 2px;
     color: #6a665d;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 20px;
     font-style: italic;
 }
@@ -1669,7 +1675,7 @@ body.dark-mode .note-card.blue {
 
 .certificate-eyebrow {
     color: #6a665d;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 15px;
     font-style: italic;
 }
@@ -1678,7 +1684,7 @@ body.dark-mode .note-card.blue {
     max-width: 760px;
     margin: 6px auto 6px;
     overflow-wrap: anywhere;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 46px;
     font-weight: 400;
     line-height: 1.1;
@@ -1699,14 +1705,14 @@ body.dark-mode .note-card.blue {
 
 .certificate-recipient h3 {
     margin: 6px 0 1px;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 25px;
     font-weight: 500;
 }
 
 .certificate-description-id {
     color: #6a665d;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 14px;
     font-style: italic;
 }
@@ -1714,7 +1720,7 @@ body.dark-mode .note-card.blue {
 .certificate-topics {
     margin-top: 12px;
     color: #6a665d;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 9.5px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1788,14 +1794,14 @@ body.dark-mode .note-card.blue {
 
 .certificate-seal-ring span,
 .certificate-seal-ring small {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 7px;
     letter-spacing: 1.2px;
 }
 
 .certificate-seal-ring strong {
     margin: 2px 0;
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 22px;
     font-style: italic;
     font-weight: 400;
@@ -1804,7 +1810,7 @@ body.dark-mode .note-card.blue {
 .certificate-meta-label,
 .certificate-id span {
     color: #6a665d;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 8px;
     letter-spacing: 1.5px;
 }
@@ -1832,7 +1838,7 @@ body.dark-mode .note-card.blue {
     display: block;
     margin-top: 3px;
     overflow-wrap: anywhere;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 9px;
     font-weight: 400;
 }
@@ -2203,13 +2209,22 @@ body.dark-mode .note-card.blue {
 }
 
 .footer-author {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-top: 14px;
     color: var(--muted);
     font-family: var(--mono);
     font-size: .78rem;
     font-style: normal;
     letter-spacing: .04em;
+}
+
+.footer-author::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: currentColor;
 }
 
 .footer-info {

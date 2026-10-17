@@ -280,7 +280,7 @@ const quizTranslations = {
         ['Warum ist Edge-Inferenz bei kamerabasierter Produktprüfung nützlich?', ['Sie braucht immer mehr Bandbreite', 'Sie senkt die Latenz und vermeidet das Senden von Rohvideo', 'Sie macht Sensoren überflüssig', 'Sie macht jedes Modell genauer']],
         'Welche Technik wandelt float32-Gewichte für Edge-Geräte üblicherweise in int8 um?',
         ['Warum kann Genauigkeit bei einem Betrugsdatensatz mit sehr wenigen positiven Fällen täuschen?', ['Computer können sie nicht berechnen', 'Das Modell kann bei der Mehrheitsklasse richtig liegen und trotzdem Betrug übersehen', 'Betrug braucht keine Daten', 'Klassen sind immer ausgeglichen']],
-        'Eine Spalte „Kündigungsgrund“, die erst nach dem Abgang des Kunden entsteht, sollte nicht zur Churn-Vorhersage dienen – wegen…'
+        'Eine Spalte „Kündigungsgrund“, die erst nach dem Abgang des Kunden entsteht, sollte nicht zur Churn-Vorhersage dienen, und zwar wegen…'
     ],
     ja: [
         'AIは何の略ですか？',
@@ -490,7 +490,7 @@ const quizTranslations = {
         ['Vì sao suy luận tại biên hữu ích cho kiểm tra sản phẩm bằng camera?', ['Luôn cần nhiều băng thông hơn', 'Giảm độ trễ và tránh gửi video thô', 'Không còn cần cảm biến', 'Làm mọi mô hình chính xác hơn']],
         'Kỹ thuật nào thường chuyển trọng số float32 sang int8 cho thiết bị biên?',
         ['Vì sao accuracy có thể gây hiểu nhầm trên tập dữ liệu gian lận có rất ít ca dương tính?', ['Máy tính không tính được accuracy', 'Mô hình có thể đúng ở lớp đa số nhưng bỏ sót gian lận', 'Gian lận không cần dữ liệu', 'Các lớp luôn cân bằng']],
-        'Vì sao không nên dùng cột “lý do hủy” — chỉ xuất hiện sau khi khách rời đi — để dự đoán khách hàng rời bỏ?'
+        'Vì sao không nên dùng cột “lý do hủy” (chỉ xuất hiện sau khi khách rời đi) để dự đoán khách hàng rời bỏ?'
     ]
 };
 
