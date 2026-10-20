@@ -1,0 +1,489 @@
+/* ==========================================================================
+   Neural network playground
+   Builds on learn/pages.css (palette, type, masthead). Class 0 is blue,
+   class 1 is orange; both hues hold in light and dark mode.
+   ========================================================================== */
+
+.playground {
+    --pg-c0: #2e6fb7;
+    --pg-c1: #d4612a;
+    max-width: calc(1120px + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 32px var(--gutter) 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .playground {
+        --pg-c0: #6ea6ea;
+        --pg-c1: #f08a52;
+    }
+}
+
+.playground .lesson-head,
+.playground > section:not(.pg-wide),
+.playground .pg-text {
+    max-width: var(--measure);
+}
+
+.pg-section {
+    margin-bottom: 56px;
+}
+
+.pg-text {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    line-height: 1.7;
+}
+
+.pg-noscript {
+    padding: 12px 16px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+/* ---------- Shared controls ---------- */
+
+.pg-btn {
+    min-height: 40px;
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--ink);
+    font: 500 .9rem var(--sans);
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.pg-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.pg-primary {
+    min-width: 96px;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.pg-primary:hover,
+.pg-primary[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.pg-quiet {
+    min-height: 32px;
+    padding: 4px 12px;
+    border-color: var(--rule);
+    font-size: .8rem;
+}
+
+.pg-mini {
+    display: inline-grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 500 1rem/1 var(--mono);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pg-mini:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.pg-mini:disabled {
+    opacity: .35;
+    cursor: default;
+}
+
+.playground button:focus-visible,
+.playground input:focus-visible,
+.playground select:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.playground input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+}
+
+.playground select {
+    min-height: 34px;
+    padding: 4px 8px;
+    background: var(--paper);
+    color: var(--ink);
+    font: .9rem var(--sans);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+}
+
+.playground fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.playground legend,
+.pg-field > span,
+.pg-col-head,
+.pg-layers {
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.pg-field {
+    display: grid;
+    gap: 2px;
+}
+
+.pg-choice {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .875rem;
+    cursor: pointer;
+}
+
+.pg-controls .pg-choice {
+    padding: 4px 10px 4px 6px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+}
+
+.pg-controls .pg-choice:has(:checked) {
+    border-color: var(--ink);
+}
+
+.pg-choice input {
+    margin: 0;
+    accent-color: var(--accent);
+}
+
+.playground output,
+.pg-stats dd {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.pg-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 0;
+}
+
+.pg-stats dt {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.pg-stats dd {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.pg-canvas {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1;
+    height: auto;
+    border: 1px solid var(--rule);
+}
+
+/* ---------- Part 1: one neuron ---------- */
+
+.pg-neuron {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 24px 32px;
+    align-items: start;
+}
+
+.pg-panel {
+    display: grid;
+    gap: 14px;
+}
+
+.pg-formula {
+    direction: ltr;
+    margin: 0;
+    padding: 10px 12px;
+    background: var(--paper-sunk);
+    font-family: var(--mono);
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+}
+
+.pg-slider {
+    display: grid;
+    gap: 2px;
+    font-size: .9rem;
+}
+
+.pg-slider > span {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ---------- Part 2: the network ---------- */
+
+.pg-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 14px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+}
+
+.pg-toolbar .pg-inline {
+    margin-inline-start: auto;
+}
+
+.pg-lab {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) minmax(240px, 320px);
+    gap: 28px;
+    align-items: start;
+}
+
+.pg-controls {
+    display: grid;
+    gap: 18px;
+}
+
+.pg-controls,
+.pg-network,
+.pg-output {
+    min-width: 0;
+}
+
+.pg-layers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pg-layers b {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.pg-graph {
+    /* diagrams read input to output, left to right, in every language */
+    direction: ltr;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    min-height: 240px;
+    padding: 4px 0;
+    overflow-x: auto;
+}
+
+.pg-links {
+    position: absolute;
+    inset: 0 auto auto 0;
+    pointer-events: none;
+    fill: none;
+    stroke-linecap: round;
+    opacity: .7;
+}
+
+.pg-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    min-width: 64px;
+}
+
+.pg-col-head {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 26px;
+    white-space: nowrap;
+}
+
+.pg-count {
+    min-width: 2ch;
+    color: var(--ink);
+    text-align: center;
+}
+
+.pg-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pg-node canvas {
+    width: 38px;
+    height: 38px;
+    background: var(--paper);
+    border: 1px solid var(--ink-2);
+}
+
+.pg-node-label {
+    min-width: 6ch;
+    color: var(--ink-2);
+    font-family: var(--mono);
+    font-size: .75rem;
+    text-align: end;
+    white-space: nowrap;
+}
+
+.pg-col-input {
+    align-items: flex-end;
+}
+
+.pg-col-input .pg-col-head {
+    white-space: normal;
+    text-align: end;
+}
+
+.pg-output {
+    display: grid;
+    gap: 10px;
+}
+
+.pg-output .pg-col-head {
+    margin: 0;
+}
+
+.pg-loss {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: 56px;
+}
+
+.pg-legend {
+    font-family: var(--sans);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 6px;
+    margin: 0;
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.pg-legend span + span,
+.pg-legend .pg-swatch-1,
+.pg-legend .pg-key-test {
+    margin-inline-start: 10px;
+}
+
+.pg-swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.pg-swatch-0 {
+    background: var(--pg-c0);
+}
+
+.pg-swatch-1 {
+    background: var(--pg-c1);
+}
+
+.pg-key {
+    display: inline-block;
+    width: 18px;
+    border-top: 2px solid var(--ink);
+}
+
+.pg-key-test {
+    border-top: 2px dashed var(--muted);
+}
+
+.pg-status {
+    color: var(--muted);
+    font-size: .8rem;
+    overflow-wrap: anywhere;
+}
+
+/* Letter-spacing and a Latin mono face break Arabic joining */
+[lang="ar"] .playground legend,
+[lang="ar"] .pg-field > span,
+[lang="ar"] .pg-col-head,
+[lang="ar"] .pg-layers,
+[lang="ar"] .pg-stats dt {
+    font-family: var(--sans);
+    letter-spacing: 0;
+}
+
+/* The playground is wider than a lesson, so its footer follows suit. */
+.playground + .footer {
+    max-width: calc(1120px + 2 * var(--gutter));
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 960px) {
+    .pg-lab {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .pg-network {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .pg-neuron,
+    .pg-lab {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pg-network {
+        grid-row: auto;
+    }
+
+    .pg-toolbar .pg-inline {
+        margin-inline-start: 0;
+    }
+
+    .pg-graph {
+        gap: 12px;
+    }
+
+    .pg-col {
+        min-width: 48px;
+    }
+
+    .pg-node canvas {
+        width: 30px;
+        height: 30px;
+    }
+}

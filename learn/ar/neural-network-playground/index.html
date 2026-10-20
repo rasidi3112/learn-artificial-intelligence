@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر الشبكات العصبية: درّب شبكة عصبية في متصفحك · تعلم الذكاء الاصطناعي</title>
+    <meta name="description" content="درّب شبكة عصبية حقيقية مباشرة في متصفحك. حرّك الأوزان، وأضف طبقات، وشاهد حدود القرار وهي تتغير. لا حاجة إلى أي تثبيت، ولا تغادر أي بيانات جهازك.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/neural-network-playground/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/neural-network-playground/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/neural-network-playground/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/neural-network-playground/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/neural-network-playground/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/neural-network-playground/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/neural-network-playground/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/neural-network-playground/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/neural-network-playground/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="مختبر الشبكات العصبية: درّب شبكة عصبية في متصفحك · تعلم الذكاء الاصطناعي">
+    <meta property="og:description" content="درّب شبكة عصبية حقيقية مباشرة في متصفحك. حرّك الأوزان، وأضف طبقات، وشاهد حدود القرار وهي تتغير. لا حاجة إلى أي تثبيت، ولا تغادر أي بيانات جهازك.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ar">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <link rel="stylesheet" href="../../../playground/playground.css">
+    <link rel="modulepreload" href="../../../playground/nn.mjs">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "WebApplication",
+        "LearningResource"
+      ],
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/",
+      "name": "مختبر الشبكات العصبية",
+      "description": "درّب شبكة عصبية حقيقية مباشرة في متصفحك. حرّك الأوزان، وأضف طبقات، وشاهد حدود القرار وهي تتغير. لا حاجة إلى أي تثبيت، ولا تغادر أي بيانات جهازك.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/",
+      "inLanguage": "ar",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "learningResourceType": "Interactive simulation",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "تعلم الذكاء الاصطناعي",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "تعلم الذكاء الاصطناعي",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "مختبر الشبكات العصبية",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ar/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>تعلم الذكاء الاصطناعي</span>
+        </a>
+        <details class="lang-menu">
+            <summary>اللغة: العربية</summary>
+            <ul>
+                <li><a href="../../../learn/id/neural-network-playground/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/neural-network-playground/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/neural-network-playground/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/neural-network-playground/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/neural-network-playground/" hreflang="ar" lang="ar" aria-current="true">العربية</a></li>
+                <li><a href="../../../learn/hi/neural-network-playground/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/neural-network-playground/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/neural-network-playground/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/neural-network-playground/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/neural-network-playground/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/neural-network-playground/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/neural-network-playground/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/neural-network-playground/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/neural-network-playground/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/neural-network-playground/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="playground" id="playground" data-play="تشغيل" data-pause="إيقاف مؤقت" data-copied="تم نسخ الرابط"
+        data-neurons="خلايا" data-features="خصائص الإدخال" data-add-neuron="إضافة خلية" data-remove-neuron="حذف خلية">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">كل الوحدات</a> <span aria-hidden="true">/</span> <span>مختبر الشبكات العصبية</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">مختبر تفاعلي</p>
+            <h1>مختبر الشبكات العصبية</h1>
+            <p class="lede">درّب شبكة عصبية حقيقية مباشرة في متصفحك. حرّك الأوزان، وأضف طبقات، وشاهد حدود القرار وهي تتغير. لا حاجة إلى أي تثبيت، ولا تغادر أي بيانات جهازك.</p>
+        </header>
+        <noscript><p class="pg-noscript">يحتاج هذا المختبر إلى JavaScript.</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> خلية عصبية واحدة</h2>
+            <p class="pg-text">تضرب الخلية العصبية كل مدخل في وزن، وتضيف انحيازًا، ثم تضغط المجموع بدالة تنشيط. حرّك المنزلقات: الأوزان تدير خط الحدود، والانحياز يزيحه. النقاط في الجانب البرتقالي تُصنَّف على أنها الفئة 1، والنقاط في الجانب الأزرق على أنها الفئة 0.</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="حدود القرار لخلية عصبية واحدة"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+                        <label class="pg-slider" for="w1">
+                            <span>الوزن w₁ <output id="w1Out" for="w1">0.5</output></span>
+                            <input type="range" id="w1" min="-6" max="6" step="0.1" value="0.5">
+                        </label>
+                        <label class="pg-slider" for="w2">
+                            <span>الوزن w₂ <output id="w2Out" for="w2">2.0</output></span>
+                            <input type="range" id="w2" min="-6" max="6" step="0.1" value="2.0">
+                        </label>
+                        <label class="pg-slider" for="b">
+                            <span>الانحياز b <output id="bOut" for="b">-0.8</output></span>
+                            <input type="range" id="b" min="-6" max="6" step="0.1" value="-0.8">
+                        </label>
+                    <dl class="pg-stats">
+                        <div><dt>الدقة</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>الخسارة</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">دع الانحدار التدرجي يجده</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> شبكة صغيرة</h2>
+            <p class="pg-text">لا تستطيع خلية واحدة إلا رسم خط مستقيم. تجمع الطبقات المخفية خطوطًا كثيرة لتصنع منحنيات وحلقات ولوالب. اختر مجموعة بيانات، واضغط تشغيل، وشاهد الشبكة وهي تتعلم. يُظهر كل مربع صغير النمط الذي تعلمته خلية واحدة.</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">تشغيل</button>
+                <button type="button" class="pg-btn" id="netStep">خطوة واحدة</button>
+                <button type="button" class="pg-btn" id="netReset">إعادة</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>الحقبة</dt><dd id="epoch">000</dd></div>
+                    <div><dt>خسارة التدريب</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>خسارة الاختبار</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>البيانات</legend>
+                        <label class="pg-choice pg-ds pg-ds-circle"><input type="radio" name="dataset" value="circle" checked><span>دائرة</span></label>
+                        <label class="pg-choice pg-ds pg-ds-xor"><input type="radio" name="dataset" value="xor"><span>XOR</span></label>
+                        <label class="pg-choice pg-ds pg-ds-gauss"><input type="radio" name="dataset" value="gauss"><span>مجموعتان</span></label>
+                        <label class="pg-choice pg-ds pg-ds-spiral"><input type="radio" name="dataset" value="spiral"><span>لولب</span></label>
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>الضوضاء <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>معدل التعلم</span>
+                        <select id="learningRate"><option value="0.001">0.001</option><option value="0.003">0.003</option><option value="0.01">0.01</option><option value="0.03" selected>0.03</option><option value="0.1">0.1</option><option value="0.3">0.3</option><option value="1">1</option><option value="3">3</option></select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>دالة التنشيط</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>خصائص الإدخال</legend>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x" checked><span>x</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y" checked><span>y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x2"><span>x²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y2"><span>y²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="xy"><span>x·y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="sinx"><span>sin(x)</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="siny"><span>sin(y)</span></label>
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>الطبقات المخفية: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="حذف طبقة">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="إضافة طبقة">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">المخرج</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="مخرج الشبكة عبر فضاء الإدخال كله"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>خسارة التدريب <span class="pg-key pg-key-test"></span>خسارة الاختبار</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>الفئة 0 <span class="pg-swatch pg-swatch-1"></span>الفئة 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>إظهار بيانات الاختبار</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">نسخ رابط هذا الإعداد</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> جرّب ما يلي</h2>
+            <ol>
+                <li>XOR بلا طبقة مخفية: تتوقف الخسارة عن الانخفاض، لأنه لا يوجد خط مستقيم يفصل الزوايا الأربع.</li>
+                <li>أضف طبقة مخفية فيها 4 خلايا وشغّل مرة أخرى. الآن تستطيع الشبكة أن تثني الحدود.</li>
+                <li>الدائرة باستخدام الخاصيتين x² وy² فقط: تكفي خلية واحدة حين تكون المدخلات مناسبة.</li>
+                <li>اللولب هو الأصعب. جرّب 3 طبقات في كل منها 8 خلايا أو أضف خصائص sin، وخفّض معدل التعلم إذا قفزت الخسارة.</li>
+                <li>ارفع معدل التعلم إلى 3 وشاهد التدريب يصبح غير مستقر.</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> ماذا يحدث</h2>
+            <p>في كل حقبة تتنبأ الشبكة بكل نقاط التدريب، وتقيس خطأها بخسارة الإنتروبيا المتقاطعة، ثم تستخدم الانتشار العكسي لحساب مساهمة كل وزن في ذلك الخطأ. بعد ذلك يحرّك الانحدار التدرجي كل وزن قليلًا في الاتجاه الذي يخفض الخسارة. تُقاس خسارة الاختبار على نقاط لم تتدرب عليها الشبكة قط: إذا ارتفعت بينما تنخفض خسارة التدريب، فالشبكة تعاني من الإفراط في التخصيص.</p>
+            <p><a href="../deep-learning-neural-networks/">اقرأ الدرس: التعلم العميق والشبكات العصبية</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>طوره بواسطة Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+    <script type="module" src="../../../playground/playground.mjs"></script>
+</body>
+
+</html>

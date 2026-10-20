@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Playground: train a neural network in your browser · Learn AI</title>
+    <meta name="description" content="Train a real neural network right in your browser. Drag the weights, add layers, and watch the decision boundary move. Nothing to install, and no data leaves your device.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/neural-network-playground/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/neural-network-playground/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/neural-network-playground/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/neural-network-playground/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/neural-network-playground/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/neural-network-playground/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/neural-network-playground/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/neural-network-playground/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/neural-network-playground/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Neural Network Playground: train a neural network in your browser · Learn AI">
+    <meta property="og:description" content="Train a real neural network right in your browser. Drag the weights, add layers, and watch the decision boundary move. Nothing to install, and no data leaves your device.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="en">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <link rel="stylesheet" href="../../../playground/playground.css">
+    <link rel="modulepreload" href="../../../playground/nn.mjs">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "WebApplication",
+        "LearningResource"
+      ],
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/",
+      "name": "Neural Network Playground",
+      "description": "Train a real neural network right in your browser. Drag the weights, add layers, and watch the decision boundary move. Nothing to install, and no data leaves your device.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/",
+      "inLanguage": "en",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "learningResourceType": "Interactive simulation",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Learn AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Learn AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Neural Network Playground",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/en/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Learn AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Language: English</summary>
+            <ul>
+                <li><a href="../../../learn/id/neural-network-playground/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/neural-network-playground/" hreflang="en" lang="en" aria-current="true">English</a></li>
+                <li><a href="../../../learn/zh/neural-network-playground/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/neural-network-playground/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/neural-network-playground/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/neural-network-playground/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/neural-network-playground/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/neural-network-playground/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/neural-network-playground/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/neural-network-playground/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/neural-network-playground/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/neural-network-playground/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/neural-network-playground/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/neural-network-playground/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/neural-network-playground/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="playground" id="playground" data-play="Play" data-pause="Pause" data-copied="Link copied"
+        data-neurons="neurons" data-features="Input features" data-add-neuron="Add neuron" data-remove-neuron="Remove neuron">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">All modules</a> <span aria-hidden="true">/</span> <span>Neural Network Playground</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">Interactive playground</p>
+            <h1>Neural Network Playground</h1>
+            <p class="lede">Train a real neural network right in your browser. Drag the weights, add layers, and watch the decision boundary move. Nothing to install, and no data leaves your device.</p>
+        </header>
+        <noscript><p class="pg-noscript">This playground needs JavaScript.</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> One neuron</h2>
+            <p class="pg-text">A neuron multiplies each input by a weight, adds a bias, and squashes the sum with an activation function. Drag the sliders: the weights turn the boundary line, the bias shifts it. Points on the orange side are predicted as class 1, points on the blue side as class 0.</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Decision boundary of one neuron"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+                        <label class="pg-slider" for="w1">
+                            <span>Weight w₁ <output id="w1Out" for="w1">0.5</output></span>
+                            <input type="range" id="w1" min="-6" max="6" step="0.1" value="0.5">
+                        </label>
+                        <label class="pg-slider" for="w2">
+                            <span>Weight w₂ <output id="w2Out" for="w2">2.0</output></span>
+                            <input type="range" id="w2" min="-6" max="6" step="0.1" value="2.0">
+                        </label>
+                        <label class="pg-slider" for="b">
+                            <span>Bias b <output id="bOut" for="b">-0.8</output></span>
+                            <input type="range" id="b" min="-6" max="6" step="0.1" value="-0.8">
+                        </label>
+                    <dl class="pg-stats">
+                        <div><dt>Accuracy</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>Loss</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">Let gradient descent find it</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> A small network</h2>
+            <p class="pg-text">One neuron can only draw a straight line. Hidden layers combine many lines into curves, rings and spirals. Pick a dataset, press play, and watch the network learn. Each small square shows the pattern one neuron has learned.</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">Play</button>
+                <button type="button" class="pg-btn" id="netStep">Step</button>
+                <button type="button" class="pg-btn" id="netReset">Reset</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>Epoch</dt><dd id="epoch">000</dd></div>
+                    <div><dt>Training loss</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>Test loss</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>Data</legend>
+                        <label class="pg-choice pg-ds pg-ds-circle"><input type="radio" name="dataset" value="circle" checked><span>Circle</span></label>
+                        <label class="pg-choice pg-ds pg-ds-xor"><input type="radio" name="dataset" value="xor"><span>XOR</span></label>
+                        <label class="pg-choice pg-ds pg-ds-gauss"><input type="radio" name="dataset" value="gauss"><span>Two clusters</span></label>
+                        <label class="pg-choice pg-ds pg-ds-spiral"><input type="radio" name="dataset" value="spiral"><span>Spiral</span></label>
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>Noise <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>Learning rate</span>
+                        <select id="learningRate"><option value="0.001">0.001</option><option value="0.003">0.003</option><option value="0.01">0.01</option><option value="0.03" selected>0.03</option><option value="0.1">0.1</option><option value="0.3">0.3</option><option value="1">1</option><option value="3">3</option></select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>Activation</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>Input features</legend>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x" checked><span>x</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y" checked><span>y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x2"><span>x²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y2"><span>y²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="xy"><span>x·y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="sinx"><span>sin(x)</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="siny"><span>sin(y)</span></label>
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>Hidden layers: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="Remove layer">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="Add layer">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">Output</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Network output across the input space"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>Training loss <span class="pg-key pg-key-test"></span>Test loss</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>Class 0 <span class="pg-swatch pg-swatch-1"></span>Class 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>Show test data</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">Copy link to this setup</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> Things to try</h2>
+            <ol>
+                <li>XOR with no hidden layer: the loss gets stuck, because no straight line can separate the four corners.</li>
+                <li>Add one hidden layer with 4 neurons and play again. Now the network can bend the boundary.</li>
+                <li>Circle with only the x² and y² features: a single neuron is enough once the inputs are right.</li>
+                <li>Spiral is the hardest. Try 3 layers of 8 neurons or add the sin features, and lower the learning rate if the loss jumps around.</li>
+                <li>Raise the learning rate to 3 and watch training become unstable.</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> What is happening</h2>
+            <p>Each epoch, the network predicts every training point, measures its error with cross-entropy loss, and uses backpropagation to work out how much each weight contributed to that error. Gradient descent then nudges every weight a little in the direction that lowers the loss. Test loss is measured on points the network never trains on: if it climbs while training loss falls, the network is overfitting.</p>
+            <p><a href="../deep-learning-neural-networks/">Read the lesson: Deep Learning &amp; Neural Networks</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Developed by Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+    <script type="module" src="../../../playground/playground.mjs"></script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Песочница нейронных сетей: обучите нейросеть прямо в браузере · Изучение ИИ</title>
+    <meta name="description" content="Обучите настоящую нейронную сеть прямо в браузере. Двигайте веса, добавляйте слои и смотрите, как меняется граница решений. Ничего не нужно устанавливать, и никакие данные не покидают ваше устройство.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/neural-network-playground/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/neural-network-playground/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/neural-network-playground/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/neural-network-playground/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/neural-network-playground/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/neural-network-playground/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/neural-network-playground/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/neural-network-playground/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/neural-network-playground/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Песочница нейронных сетей: обучите нейросеть прямо в браузере · Изучение ИИ">
+    <meta property="og:description" content="Обучите настоящую нейронную сеть прямо в браузере. Двигайте веса, добавляйте слои и смотрите, как меняется граница решений. Ничего не нужно устанавливать, и никакие данные не покидают ваше устройство.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ru">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <link rel="stylesheet" href="../../../playground/playground.css">
+    <link rel="modulepreload" href="../../../playground/nn.mjs">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "WebApplication",
+        "LearningResource"
+      ],
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/",
+      "name": "Песочница нейронных сетей",
+      "description": "Обучите настоящую нейронную сеть прямо в браузере. Двигайте веса, добавляйте слои и смотрите, как меняется граница решений. Ничего не нужно устанавливать, и никакие данные не покидают ваше устройство.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/",
+      "inLanguage": "ru",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "learningResourceType": "Interactive simulation",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Изучение ИИ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Изучение ИИ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Песочница нейронных сетей",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ru/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Изучение ИИ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Язык: Русский</summary>
+            <ul>
+                <li><a href="../../../learn/id/neural-network-playground/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/neural-network-playground/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/neural-network-playground/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/neural-network-playground/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/neural-network-playground/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/neural-network-playground/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/neural-network-playground/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/neural-network-playground/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/neural-network-playground/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/neural-network-playground/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/neural-network-playground/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/neural-network-playground/" hreflang="ru" lang="ru" aria-current="true">Русский</a></li>
+                <li><a href="../../../learn/tr/neural-network-playground/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/neural-network-playground/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/neural-network-playground/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="playground" id="playground" data-play="Старт" data-pause="Пауза" data-copied="Ссылка скопирована"
+        data-neurons="нейронов" data-features="Входные признаки" data-add-neuron="Добавить нейрон" data-remove-neuron="Убрать нейрон">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Все модули</a> <span aria-hidden="true">/</span> <span>Песочница нейронных сетей</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">Интерактивная песочница</p>
+            <h1>Песочница нейронных сетей</h1>
+            <p class="lede">Обучите настоящую нейронную сеть прямо в браузере. Двигайте веса, добавляйте слои и смотрите, как меняется граница решений. Ничего не нужно устанавливать, и никакие данные не покидают ваше устройство.</p>
+        </header>
+        <noscript><p class="pg-noscript">Для этой песочницы нужен JavaScript.</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> Один нейрон</h2>
+            <p class="pg-text">Нейрон умножает каждый вход на вес, добавляет смещение и сжимает сумму функцией активации. Двигайте ползунки: веса поворачивают линию границы, смещение сдвигает её. Точки на оранжевой стороне относятся к классу 1, на синей стороне к классу 0.</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Граница решений одного нейрона"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+                        <label class="pg-slider" for="w1">
+                            <span>Вес w₁ <output id="w1Out" for="w1">0.5</output></span>
+                            <input type="range" id="w1" min="-6" max="6" step="0.1" value="0.5">
+                        </label>
+                        <label class="pg-slider" for="w2">
+                            <span>Вес w₂ <output id="w2Out" for="w2">2.0</output></span>
+                            <input type="range" id="w2" min="-6" max="6" step="0.1" value="2.0">
+                        </label>
+                        <label class="pg-slider" for="b">
+                            <span>Смещение b <output id="bOut" for="b">-0.8</output></span>
+                            <input type="range" id="b" min="-6" max="6" step="0.1" value="-0.8">
+                        </label>
+                    <dl class="pg-stats">
+                        <div><dt>Точность</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>Потери</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">Пусть градиентный спуск найдёт</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> Небольшая сеть</h2>
+            <p class="pg-text">Один нейрон может провести только прямую линию. Скрытые слои складывают много прямых в кривые, кольца и спирали. Выберите набор данных, нажмите «Старт» и смотрите, как сеть учится. Каждый маленький квадрат показывает шаблон, который выучил один нейрон.</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">Старт</button>
+                <button type="button" class="pg-btn" id="netStep">Один шаг</button>
+                <button type="button" class="pg-btn" id="netReset">Сброс</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>Эпоха</dt><dd id="epoch">000</dd></div>
+                    <div><dt>Потери на обучении</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>Потери на тесте</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>Данные</legend>
+                        <label class="pg-choice pg-ds pg-ds-circle"><input type="radio" name="dataset" value="circle" checked><span>Круг</span></label>
+                        <label class="pg-choice pg-ds pg-ds-xor"><input type="radio" name="dataset" value="xor"><span>XOR</span></label>
+                        <label class="pg-choice pg-ds pg-ds-gauss"><input type="radio" name="dataset" value="gauss"><span>Две группы</span></label>
+                        <label class="pg-choice pg-ds pg-ds-spiral"><input type="radio" name="dataset" value="spiral"><span>Спираль</span></label>
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>Шум <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>Скорость обучения</span>
+                        <select id="learningRate"><option value="0.001">0.001</option><option value="0.003">0.003</option><option value="0.01">0.01</option><option value="0.03" selected>0.03</option><option value="0.1">0.1</option><option value="0.3">0.3</option><option value="1">1</option><option value="3">3</option></select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>Активация</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>Входные признаки</legend>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x" checked><span>x</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y" checked><span>y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x2"><span>x²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y2"><span>y²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="xy"><span>x·y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="sinx"><span>sin(x)</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="siny"><span>sin(y)</span></label>
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>Скрытые слои: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="Убрать слой">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="Добавить слой">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">Выход</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Выход сети на всём пространстве входов"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>Потери на обучении <span class="pg-key pg-key-test"></span>Потери на тесте</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>Класс 0 <span class="pg-swatch pg-swatch-1"></span>Класс 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>Показать тестовые данные</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">Скопировать ссылку на эти настройки</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> Что попробовать</h2>
+            <ol>
+                <li>XOR без скрытого слоя: потери застревают, потому что ни одна прямая не разделяет четыре угла.</li>
+                <li>Добавьте скрытый слой из 4 нейронов и запустите снова. Теперь сеть может изгибать границу.</li>
+                <li>Круг только с признаками x² и y²: одного нейрона достаточно, если входы выбраны правильно.</li>
+                <li>Спираль самая трудная. Попробуйте 3 слоя по 8 нейронов или добавьте признаки sin, а если потери скачут, снизьте скорость обучения.</li>
+                <li>Поднимите скорость обучения до 3 и посмотрите, как обучение становится нестабильным.</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> Что происходит</h2>
+            <p>В каждой эпохе сеть предсказывает все обучающие точки, измеряет ошибку функцией потерь перекрёстной энтропии и с помощью обратного распространения вычисляет вклад каждого веса в эту ошибку. Затем градиентный спуск немного сдвигает каждый вес в сторону уменьшения потерь. Потери на тесте считаются на точках, на которых сеть никогда не обучается: если они растут, пока потери на обучении падают, сеть переобучается.</p>
+            <p><a href="../deep-learning-neural-networks/">Читать урок: Глубокое Обучение и Нейронные Сети</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Разработчик: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+    <script type="module" src="../../../playground/playground.mjs"></script>
+</body>
+
+</html>
