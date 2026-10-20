@@ -46,7 +46,7 @@ It is written for students, career switchers, teachers and anyone who wants to s
 | **Your data, your device** | Everything is stored in `localStorage`, with JSON export and import |
 | **Light and dark** | Follows your system theme, with a manual toggle |
 
-<p align="center"><img src="docs/screenshots/playground.png" alt="The neural network playground learning a spiral with three hidden layers"></p>
+<p align="center"><a href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/"><img src="docs/screenshots/playground-demo.gif" alt="The neural network playground training a three-layer network on a spiral: neuron maps, weights and the decision boundary update live" width="900"></a></p>
 
 <table>
 <tr>
