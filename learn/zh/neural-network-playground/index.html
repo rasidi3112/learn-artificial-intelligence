@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神经网络实验场：在浏览器中训练神经网络 · 学习 AI</title>
+    <meta name="description" content="直接在浏览器中训练一个真正的神经网络。拖动权重、添加层，观察决策边界如何变化。无需安装，数据也不会离开你的设备。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/neural-network-playground/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/neural-network-playground/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/neural-network-playground/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/neural-network-playground/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/neural-network-playground/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/neural-network-playground/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/neural-network-playground/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/neural-network-playground/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/neural-network-playground/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="神经网络实验场：在浏览器中训练神经网络 · 学习 AI">
+    <meta property="og:description" content="直接在浏览器中训练一个真正的神经网络。拖动权重、添加层，观察决策边界如何变化。无需安装，数据也不会离开你的设备。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="zh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <link rel="stylesheet" href="../../../playground/playground.css">
+    <link rel="modulepreload" href="../../../playground/nn.mjs">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "WebApplication",
+        "LearningResource"
+      ],
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/",
+      "name": "神经网络实验场",
+      "description": "直接在浏览器中训练一个真正的神经网络。拖动权重、添加层，观察决策边界如何变化。无需安装，数据也不会离开你的设备。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/",
+      "inLanguage": "zh",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "learningResourceType": "Interactive simulation",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "学习 AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "学习 AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "神经网络实验场",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/zh/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>学习 AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>语言: 中文</summary>
+            <ul>
+                <li><a href="../../../learn/id/neural-network-playground/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/neural-network-playground/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/neural-network-playground/" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+                <li><a href="../../../learn/es/neural-network-playground/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/neural-network-playground/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/neural-network-playground/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/neural-network-playground/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/neural-network-playground/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/neural-network-playground/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/neural-network-playground/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/neural-network-playground/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/neural-network-playground/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/neural-network-playground/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/neural-network-playground/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/neural-network-playground/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="playground" id="playground" data-play="播放" data-pause="暂停" data-copied="链接已复制"
+        data-neurons="个神经元" data-features="输入特征" data-add-neuron="添加神经元" data-remove-neuron="移除神经元">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">全部模块</a> <span aria-hidden="true">/</span> <span>神经网络实验场</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">互动实验场</p>
+            <h1>神经网络实验场</h1>
+            <p class="lede">直接在浏览器中训练一个真正的神经网络。拖动权重、添加层，观察决策边界如何变化。无需安装，数据也不会离开你的设备。</p>
+        </header>
+        <noscript><p class="pg-noscript">此实验场需要 JavaScript。</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> 一个神经元</h2>
+            <p class="pg-text">神经元把每个输入乘以权重，加上偏置，再用激活函数压缩结果。拖动滑块：权重让边界线旋转，偏置让它平移。橙色一侧的点被预测为类别 1，蓝色一侧的点被预测为类别 0。</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="单个神经元的决策边界"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+                        <label class="pg-slider" for="w1">
+                            <span>权重 w₁ <output id="w1Out" for="w1">0.5</output></span>
+                            <input type="range" id="w1" min="-6" max="6" step="0.1" value="0.5">
+                        </label>
+                        <label class="pg-slider" for="w2">
+                            <span>权重 w₂ <output id="w2Out" for="w2">2.0</output></span>
+                            <input type="range" id="w2" min="-6" max="6" step="0.1" value="2.0">
+                        </label>
+                        <label class="pg-slider" for="b">
+                            <span>偏置 b <output id="bOut" for="b">-0.8</output></span>
+                            <input type="range" id="b" min="-6" max="6" step="0.1" value="-0.8">
+                        </label>
+                    <dl class="pg-stats">
+                        <div><dt>准确率</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>损失</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">让梯度下降来寻找</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> 一个小型网络</h2>
+            <p class="pg-text">一个神经元只能画出一条直线。隐藏层把许多直线组合成曲线、圆环和螺旋。选择一个数据集，按下播放，看网络如何学习。每个小方块显示一个神经元学到的模式。</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">播放</button>
+                <button type="button" class="pg-btn" id="netStep">单步</button>
+                <button type="button" class="pg-btn" id="netReset">重置</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>轮次</dt><dd id="epoch">000</dd></div>
+                    <div><dt>训练损失</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>测试损失</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>数据</legend>
+                        <label class="pg-choice pg-ds pg-ds-circle"><input type="radio" name="dataset" value="circle" checked><span>圆形</span></label>
+                        <label class="pg-choice pg-ds pg-ds-xor"><input type="radio" name="dataset" value="xor"><span>异或</span></label>
+                        <label class="pg-choice pg-ds pg-ds-gauss"><input type="radio" name="dataset" value="gauss"><span>两个簇</span></label>
+                        <label class="pg-choice pg-ds pg-ds-spiral"><input type="radio" name="dataset" value="spiral"><span>螺旋</span></label>
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>噪声 <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>学习率</span>
+                        <select id="learningRate"><option value="0.001">0.001</option><option value="0.003">0.003</option><option value="0.01">0.01</option><option value="0.03" selected>0.03</option><option value="0.1">0.1</option><option value="0.3">0.3</option><option value="1">1</option><option value="3">3</option></select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>激活函数</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>输入特征</legend>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x" checked><span>x</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y" checked><span>y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x2"><span>x²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y2"><span>y²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="xy"><span>x·y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="sinx"><span>sin(x)</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="siny"><span>sin(y)</span></label>
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>隐藏层: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="移除层">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="添加层">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">输出</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="网络在整个输入空间上的输出"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>训练损失 <span class="pg-key pg-key-test"></span>测试损失</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>类别 0 <span class="pg-swatch pg-swatch-1"></span>类别 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>显示测试数据</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">复制此设置的链接</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> 可以尝试</h2>
+            <ol>
+                <li>不加隐藏层训练异或：损失会卡住，因为没有一条直线能分开四个角。</li>
+                <li>添加一个含 4 个神经元的隐藏层后再播放。现在网络可以把边界弯曲。</li>
+                <li>圆形数据只用 x² 和 y² 特征：输入选对了，一个神经元就足够。</li>
+                <li>螺旋最难。试试 3 层、每层 8 个神经元，或加入 sin 特征；如果损失来回跳动，就降低学习率。</li>
+                <li>把学习率调到 3，观察训练如何变得不稳定。</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> 发生了什么</h2>
+            <p>每一轮中，网络预测所有训练点，用交叉熵损失衡量误差，再用反向传播算出每个权重对误差的贡献。随后梯度下降把每个权重朝降低损失的方向微调一点。测试损失在网络从未训练过的点上计算：如果训练损失下降而测试损失上升，说明网络正在过拟合。</p>
+            <p><a href="../deep-learning-neural-networks/">阅读课程: 深度学习与神经网络</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>开发者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+    <script type="module" src="../../../playground/playground.mjs"></script>
+</body>
+
+</html>

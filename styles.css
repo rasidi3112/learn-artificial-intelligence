@@ -731,6 +731,7 @@ main {
 }
 
 .btn-link {
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 6px;

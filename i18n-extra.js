@@ -12,7 +12,7 @@ const uiKeys = {
         hero_kicker: 'Kursus terbuka kecerdasan buatan',
         hero_title: 'Pahami cara mesin belajar, dari prinsip pertama hingga sistem nyata.',
         hero_lede: 'Lima belas modul ringkas, dari sejarah AI dan machine learning hingga robotika, edge AI, dan tata kelola. Baca dengan tempo Anda sendiri, uji pemahaman, dan simpan catatan. Semuanya tersimpan di perangkat Anda.',
-        hero_cta: 'Mulai membaca', hero_cta_quiz: 'Kerjakan kuis',
+        hero_cta: 'Mulai membaca', hero_cta_quiz: 'Kerjakan kuis', hero_cta_playground: 'Coba playground neural network',
         meta_lessons: 'modul', meta_questions: 'soal kuis', meta_languages: 'bahasa', meta_minutes: 'menit bacaan',
         fig_caption: 'Gbr. 1. Satu neuron buatan: input berbobot dijumlahkan, lalu diteruskan lewat fungsi aktivasi.',
         label_lesson: 'Modul', progress_of: '{a} dari {b} modul selesai',
@@ -26,7 +26,7 @@ const uiKeys = {
         hero_kicker: 'An open course in artificial intelligence',
         hero_title: 'Understand how machines learn, from first principles to real systems.',
         hero_lede: 'Fifteen concise modules, from the history of AI and machine learning to robotics, edge AI and governance. Read at your own pace, test what you know, and keep notes. Everything stays on your device.',
-        hero_cta: 'Start reading', hero_cta_quiz: 'Take the quiz',
+        hero_cta: 'Start reading', hero_cta_quiz: 'Take the quiz', hero_cta_playground: 'Try the neural network playground',
         meta_lessons: 'modules', meta_questions: 'quiz questions', meta_languages: 'languages', meta_minutes: 'minutes of reading',
         fig_caption: 'Fig. 1. A single artificial neuron: weighted inputs are summed, then passed through an activation function.',
         label_lesson: 'Module', progress_of: '{a} of {b} modules complete',
@@ -41,7 +41,7 @@ const uiKeys = {
         notify_export_done: '数据导出成功！', notify_import_done: '数据导入成功！', notify_import_fail: '数据格式无效！', badge_locked: '未解锁',
         hero_kicker: '人工智能公开课', hero_title: '理解机器如何学习：从基本原理到真实系统。',
         hero_lede: '十五个精炼模块，从人工智能与机器学习的历史，到机器人、边缘 AI 与治理。按自己的节奏阅读、检验所学、记录笔记，所有数据都保存在你的设备上。',
-        hero_cta: '开始阅读', hero_cta_quiz: '参加测验', meta_lessons: '个模块', meta_questions: '道测验题', meta_languages: '种语言', meta_minutes: '分钟阅读',
+        hero_cta: '开始阅读', hero_cta_quiz: '参加测验', hero_cta_playground: '试试神经网络实验场', meta_lessons: '个模块', meta_questions: '道测验题', meta_languages: '种语言', meta_minutes: '分钟阅读',
         fig_caption: '图 1　单个人工神经元：加权输入求和后，经过激活函数输出。', label_lesson: '模块', progress_of: '已完成 {a} / {b} 个模块',
         notif_welcome: '欢迎来到学习 AI！从第一个模块开始吧。', notif_lesson_done: '已读完', notif_quiz_done: '测验完成，得分 {n}%', notif_badge: '获得成就', notif_none: '暂无新通知。', notif_new: '条新',
         user_default: '学习者', aria_profile: '用户资料', aria_notifications: '通知', aria_theme: '切换浅色/深色主题', aria_language: '选择语言', aria_close: '关闭', skip_link: '跳到正文'
@@ -54,7 +54,7 @@ const uiKeys = {
         notify_export_done: '¡Datos exportados!', notify_import_done: '¡Datos importados!', notify_import_fail: '¡Formato de datos no válido!', badge_locked: 'Bloqueado',
         hero_kicker: 'Un curso abierto de inteligencia artificial', hero_title: 'Entiende cómo aprenden las máquinas: de los primeros principios a sistemas reales.',
         hero_lede: 'Quince módulos concisos, desde la historia de la IA y el aprendizaje automático hasta la robótica, la IA en el borde y la gobernanza. Lee a tu ritmo, pon a prueba lo que sabes y toma notas: todo se queda en tu dispositivo.',
-        hero_cta: 'Empezar a leer', hero_cta_quiz: 'Hacer el cuestionario', meta_lessons: 'módulos', meta_questions: 'preguntas', meta_languages: 'idiomas', meta_minutes: 'minutos de lectura',
+        hero_cta: 'Empezar a leer', hero_cta_quiz: 'Hacer el cuestionario', hero_cta_playground: 'Probar el laboratorio de redes neuronales', meta_lessons: 'módulos', meta_questions: 'preguntas', meta_languages: 'idiomas', meta_minutes: 'minutos de lectura',
         fig_caption: 'Fig. 1. Una neurona artificial: las entradas ponderadas se suman y pasan por una función de activación.', label_lesson: 'Módulo', progress_of: '{a} de {b} módulos completados',
         notif_welcome: '¡Bienvenido a Aprender IA! Empieza por el primer módulo.', notif_lesson_done: 'Lectura terminada', notif_quiz_done: 'Cuestionario completado con {n}%', notif_badge: 'Logro desbloqueado', notif_none: 'No hay notificaciones nuevas.', notif_new: 'nuevas',
         user_default: 'Estudiante', aria_profile: 'Perfil de usuario', aria_notifications: 'Notificaciones', aria_theme: 'Cambiar tema claro/oscuro', aria_language: 'Seleccionar idioma', aria_close: 'Cerrar', skip_link: 'Saltar al contenido'
@@ -67,7 +67,7 @@ const uiKeys = {
         notify_export_done: 'تم تصدير البيانات بنجاح!', notify_import_done: 'تم استيراد البيانات بنجاح!', notify_import_fail: 'تنسيق البيانات غير صالح!', badge_locked: 'مقفل',
         hero_kicker: 'مقرر مفتوح في الذكاء الاصطناعي', hero_title: 'افهم كيف تتعلم الآلات، من المبادئ الأولى إلى الأنظمة الحقيقية.',
         hero_lede: 'خمس عشرة وحدة موجزة، من تاريخ الذكاء الاصطناعي والتعلم الآلي إلى الروبوتات والذكاء الاصطناعي الطرفي والحوكمة. اقرأ بالسرعة التي تناسبك، واختبر ما تعلمته، ودوّن ملاحظاتك. كل شيء يبقى على جهازك.',
-        hero_cta: 'ابدأ القراءة', hero_cta_quiz: 'ابدأ الاختبار', meta_lessons: 'وحدة', meta_questions: 'سؤالًا', meta_languages: 'لغة', meta_minutes: 'دقيقة قراءة',
+        hero_cta: 'ابدأ القراءة', hero_cta_quiz: 'ابدأ الاختبار', hero_cta_playground: 'جرّب مختبر الشبكات العصبية', meta_lessons: 'وحدة', meta_questions: 'سؤالًا', meta_languages: 'لغة', meta_minutes: 'دقيقة قراءة',
         fig_caption: 'الشكل 1. خلية عصبية اصطناعية واحدة: تُجمع المدخلات الموزونة ثم تمر عبر دالة التفعيل.', label_lesson: 'الوحدة', progress_of: 'اكتملت {a} من {b} وحدة',
         notif_welcome: 'مرحبًا بك! ابدأ بالوحدة الأولى.', notif_lesson_done: 'انتهيت من قراءة', notif_quiz_done: 'اكتمل الاختبار بنتيجة {n}%', notif_badge: 'تم فتح إنجاز', notif_none: 'لا توجد إشعارات جديدة.', notif_new: 'جديدة',
         user_default: 'متعلم', aria_profile: 'الملف الشخصي', aria_notifications: 'الإشعارات', aria_theme: 'تبديل الوضع الفاتح/الداكن', aria_language: 'اختر اللغة', aria_close: 'إغلاق', skip_link: 'انتقل إلى المحتوى'
@@ -80,7 +80,7 @@ const uiKeys = {
         notify_export_done: 'डेटा सफलतापूर्वक निर्यात हुआ!', notify_import_done: 'डेटा सफलतापूर्वक आयात हुआ!', notify_import_fail: 'अमान्य डेटा प्रारूप!', badge_locked: 'लॉक',
         hero_kicker: 'कृत्रिम बुद्धिमत्ता का एक खुला पाठ्यक्रम', hero_title: 'समझिए मशीनें कैसे सीखती हैं, बुनियादी सिद्धांतों से वास्तविक प्रणालियों तक।',
         hero_lede: 'पंद्रह संक्षिप्त मॉड्यूल: AI और मशीन लर्निंग के इतिहास से लेकर रोबोटिक्स, एज AI और गवर्नेंस तक। अपनी गति से पढ़ें, अपनी समझ परखें और नोट्स रखें। सब कुछ आपके डिवाइस पर ही रहता है।',
-        hero_cta: 'पढ़ना शुरू करें', hero_cta_quiz: 'क्विज़ दें', meta_lessons: 'मॉड्यूल', meta_questions: 'क्विज़ प्रश्न', meta_languages: 'भाषाएँ', meta_minutes: 'मिनट का पाठ',
+        hero_cta: 'पढ़ना शुरू करें', hero_cta_quiz: 'क्विज़ दें', hero_cta_playground: 'न्यूरल नेटवर्क प्लेग्राउंड आज़माएँ', meta_lessons: 'मॉड्यूल', meta_questions: 'क्विज़ प्रश्न', meta_languages: 'भाषाएँ', meta_minutes: 'मिनट का पाठ',
         fig_caption: 'चित्र 1. एक कृत्रिम न्यूरॉन: भारित इनपुट जोड़े जाते हैं, फिर एक्टिवेशन फ़ंक्शन से गुज़रते हैं।', label_lesson: 'मॉड्यूल', progress_of: '{b} में से {a} मॉड्यूल पूरे',
         notif_welcome: 'स्वागत है! पहले मॉड्यूल से शुरुआत करें।', notif_lesson_done: 'पढ़ना पूरा हुआ', notif_quiz_done: 'क्विज़ {n}% अंक के साथ पूरा हुआ', notif_badge: 'उपलब्धि अनलॉक हुई', notif_none: 'कोई नई सूचना नहीं।', notif_new: 'नई',
         user_default: 'शिक्षार्थी', aria_profile: 'उपयोगकर्ता प्रोफ़ाइल', aria_notifications: 'सूचनाएँ', aria_theme: 'लाइट/डार्क थीम बदलें', aria_language: 'भाषा चुनें', aria_close: 'बंद करें', skip_link: 'सामग्री पर जाएँ'
@@ -93,7 +93,7 @@ const uiKeys = {
         notify_export_done: 'Dados exportados!', notify_import_done: 'Dados importados!', notify_import_fail: 'Formato de dados inválido!', badge_locked: 'Bloqueado',
         hero_kicker: 'Um curso aberto de inteligência artificial', hero_title: 'Entenda como as máquinas aprendem, dos primeiros princípios a sistemas reais.',
         hero_lede: 'Quinze módulos concisos, da história da IA e do aprendizado de máquina à robótica, IA de borda e governança. Leia no seu ritmo, teste o que aprendeu e faça anotações. Tudo fica no seu dispositivo.',
-        hero_cta: 'Começar a ler', hero_cta_quiz: 'Fazer o quiz', meta_lessons: 'módulos', meta_questions: 'perguntas', meta_languages: 'idiomas', meta_minutes: 'minutos de leitura',
+        hero_cta: 'Começar a ler', hero_cta_quiz: 'Fazer o quiz', hero_cta_playground: 'Experimentar o laboratório de redes neurais', meta_lessons: 'módulos', meta_questions: 'perguntas', meta_languages: 'idiomas', meta_minutes: 'minutos de leitura',
         fig_caption: 'Fig. 1. Um neurônio artificial: as entradas ponderadas são somadas e passam por uma função de ativação.', label_lesson: 'Módulo', progress_of: '{a} de {b} módulos concluídos',
         notif_welcome: 'Bem-vindo ao Aprender IA! Comece pelo primeiro módulo.', notif_lesson_done: 'Leitura concluída', notif_quiz_done: 'Quiz concluído com {n}%', notif_badge: 'Conquista desbloqueada', notif_none: 'Nenhuma notificação nova.', notif_new: 'novas',
         user_default: 'Estudante', aria_profile: 'Perfil do usuário', aria_notifications: 'Notificações', aria_theme: 'Alternar tema claro/escuro', aria_language: 'Selecionar idioma', aria_close: 'Fechar', skip_link: 'Pular para o conteúdo'
@@ -106,7 +106,7 @@ const uiKeys = {
         notify_export_done: 'Données exportées !', notify_import_done: 'Données importées !', notify_import_fail: 'Format de données invalide !', badge_locked: 'Verrouillé',
         hero_kicker: "Un cours ouvert d'intelligence artificielle", hero_title: 'Comprendre comment les machines apprennent, des premiers principes aux systèmes réels.',
         hero_lede: "Quinze modules concis, de l'histoire de l'IA et de l'apprentissage automatique à la robotique, l'IA embarquée et la gouvernance. Lisez à votre rythme, testez vos connaissances et prenez des notes. Tout reste sur votre appareil.",
-        hero_cta: 'Commencer la lecture', hero_cta_quiz: 'Passer le quiz', meta_lessons: 'modules', meta_questions: 'questions', meta_languages: 'langues', meta_minutes: 'minutes de lecture',
+        hero_cta: 'Commencer la lecture', hero_cta_quiz: 'Passer le quiz', hero_cta_playground: 'Essayer le bac à sable des réseaux de neurones', meta_lessons: 'modules', meta_questions: 'questions', meta_languages: 'langues', meta_minutes: 'minutes de lecture',
         fig_caption: "Fig. 1. Un neurone artificiel : les entrées pondérées sont additionnées, puis passent par une fonction d'activation.", label_lesson: 'Module', progress_of: '{a} modules terminés sur {b}',
         notif_welcome: 'Bienvenue ! Commencez par le premier module.', notif_lesson_done: 'Lecture terminée', notif_quiz_done: 'Quiz terminé avec un score de {n} %', notif_badge: 'Succès débloqué', notif_none: 'Aucune nouvelle notification.', notif_new: 'nouvelles',
         user_default: 'Apprenant', aria_profile: 'Profil utilisateur', aria_notifications: 'Notifications', aria_theme: 'Basculer thème clair/sombre', aria_language: 'Choisir la langue', aria_close: 'Fermer', skip_link: 'Aller au contenu'
@@ -119,7 +119,7 @@ const uiKeys = {
         notify_export_done: 'Daten exportiert!', notify_import_done: 'Daten importiert!', notify_import_fail: 'Ungültiges Datenformat!', badge_locked: 'Gesperrt',
         hero_kicker: 'Ein offener Kurs über künstliche Intelligenz', hero_title: 'Verstehen, wie Maschinen lernen: von den Grundprinzipien bis zu realen Systemen.',
         hero_lede: 'Fünfzehn kompakte Module, von der Geschichte der KI und des maschinellen Lernens bis zu Robotik, Edge AI und Governance. Lesen Sie in Ihrem Tempo, prüfen Sie Ihr Wissen und machen Sie Notizen. Alles bleibt auf Ihrem Gerät.',
-        hero_cta: 'Lesen beginnen', hero_cta_quiz: 'Zum Quiz', meta_lessons: 'Module', meta_questions: 'Quizfragen', meta_languages: 'Sprachen', meta_minutes: 'Minuten Lesezeit',
+        hero_cta: 'Lesen beginnen', hero_cta_quiz: 'Zum Quiz', hero_cta_playground: 'Neuronale-Netze-Spielplatz ausprobieren', meta_lessons: 'Module', meta_questions: 'Quizfragen', meta_languages: 'Sprachen', meta_minutes: 'Minuten Lesezeit',
         fig_caption: 'Abb. 1. Ein künstliches Neuron: Gewichtete Eingaben werden summiert und durch eine Aktivierungsfunktion geleitet.', label_lesson: 'Modul', progress_of: '{a} von {b} Modulen abgeschlossen',
         notif_welcome: 'Willkommen! Beginnen Sie mit dem ersten Modul.', notif_lesson_done: 'Gelesen', notif_quiz_done: 'Quiz mit {n} % abgeschlossen', notif_badge: 'Erfolg freigeschaltet', notif_none: 'Keine neuen Benachrichtigungen.', notif_new: 'neu',
         user_default: 'Lernende Person', aria_profile: 'Benutzerprofil', aria_notifications: 'Benachrichtigungen', aria_theme: 'Helles/dunkles Design umschalten', aria_language: 'Sprache wählen', aria_close: 'Schließen', skip_link: 'Zum Inhalt springen'
@@ -132,7 +132,7 @@ const uiKeys = {
         notify_export_done: 'データを書き出しました！', notify_import_done: 'データを読み込みました！', notify_import_fail: 'データ形式が無効です！', badge_locked: '未解除',
         hero_kicker: '人工知能のオープンコース', hero_title: '機械はどのように学ぶのか。基本原理から実際のシステムまで。',
         hero_lede: 'AIと機械学習の歴史から、ロボティクス、エッジAI、ガバナンスまでを扱う15の簡潔なモジュール。自分のペースで読み、理解度を確かめ、ノートを残せます。データはすべてお使いの端末に保存されます。',
-        hero_cta: '読み始める', hero_cta_quiz: 'クイズに挑戦', meta_lessons: 'モジュール', meta_questions: '問のクイズ', meta_languages: '言語', meta_minutes: '分の読み物',
+        hero_cta: '読み始める', hero_cta_quiz: 'クイズに挑戦', hero_cta_playground: 'ニューラルネットワーク・プレイグラウンドを試す', meta_lessons: 'モジュール', meta_questions: '問のクイズ', meta_languages: '言語', meta_minutes: '分の読み物',
         fig_caption: '図1　1つの人工ニューロン：重み付きの入力を合計し、活性化関数を通して出力する。', label_lesson: 'モジュール', progress_of: '{b}モジュール中 {a} 完了',
         notif_welcome: 'ようこそ！最初のモジュールから始めましょう。', notif_lesson_done: '読了', notif_quiz_done: 'クイズ完了：スコア {n}%', notif_badge: '実績を解除', notif_none: '新しい通知はありません。', notif_new: '件の新着',
         user_default: '学習者', aria_profile: 'ユーザープロフィール', aria_notifications: '通知', aria_theme: 'ライト/ダークテーマ切替', aria_language: '言語を選択', aria_close: '閉じる', skip_link: '本文へスキップ'
@@ -145,7 +145,7 @@ const uiKeys = {
         notify_export_done: '데이터를 내보냈습니다!', notify_import_done: '데이터를 가져왔습니다!', notify_import_fail: '잘못된 데이터 형식입니다!', badge_locked: '잠김',
         hero_kicker: '인공지능 공개 강좌', hero_title: '기본 원리부터 실제 시스템까지, 기계가 배우는 방식을 이해하세요.',
         hero_lede: 'AI와 머신러닝의 역사부터 로보틱스, 엣지 AI, 거버넌스까지 다루는 15개의 간결한 모듈. 자신의 속도로 읽고, 이해도를 점검하고, 노트를 남기세요. 모든 데이터는 기기에만 저장됩니다.',
-        hero_cta: '읽기 시작', hero_cta_quiz: '퀴즈 풀기', meta_lessons: '모듈', meta_questions: '퀴즈 문항', meta_languages: '언어', meta_minutes: '분 분량',
+        hero_cta: '읽기 시작', hero_cta_quiz: '퀴즈 풀기', hero_cta_playground: '신경망 플레이그라운드 사용해 보기', meta_lessons: '모듈', meta_questions: '퀴즈 문항', meta_languages: '언어', meta_minutes: '분 분량',
         fig_caption: '그림 1. 하나의 인공 뉴런: 가중치가 적용된 입력을 더한 뒤 활성화 함수를 통과시킨다.', label_lesson: '모듈', progress_of: '{b}개 중 {a}개 모듈 완료',
         notif_welcome: '환영합니다! 첫 번째 모듈부터 시작해 보세요.', notif_lesson_done: '읽기 완료', notif_quiz_done: '퀴즈 완료: {n}%', notif_badge: '업적 달성', notif_none: '새 알림이 없습니다.', notif_new: '개 새 알림',
         user_default: '학습자', aria_profile: '사용자 프로필', aria_notifications: '알림', aria_theme: '라이트/다크 테마 전환', aria_language: '언어 선택', aria_close: '닫기', skip_link: '본문으로 건너뛰기'
@@ -158,7 +158,7 @@ const uiKeys = {
         notify_export_done: 'Данные экспортированы!', notify_import_done: 'Данные импортированы!', notify_import_fail: 'Неверный формат данных!', badge_locked: 'Закрыто',
         hero_kicker: 'Открытый курс по искусственному интеллекту', hero_title: 'Поймите, как учатся машины: от базовых принципов до реальных систем.',
         hero_lede: 'Пятнадцать сжатых модулей: от истории ИИ и машинного обучения до робототехники, периферийного ИИ и управления. Читайте в своём темпе, проверяйте знания и ведите заметки. Всё хранится на вашем устройстве.',
-        hero_cta: 'Начать чтение', hero_cta_quiz: 'Пройти тест', meta_lessons: 'модулей', meta_questions: 'вопросов', meta_languages: 'языков', meta_minutes: 'минут чтения',
+        hero_cta: 'Начать чтение', hero_cta_quiz: 'Пройти тест', hero_cta_playground: 'Открыть песочницу нейросетей', meta_lessons: 'модулей', meta_questions: 'вопросов', meta_languages: 'языков', meta_minutes: 'минут чтения',
         fig_caption: 'Рис. 1. Искусственный нейрон: взвешенные входы суммируются и проходят через функцию активации.', label_lesson: 'Модуль', progress_of: 'Пройдено модулей: {a} из {b}',
         notif_welcome: 'Добро пожаловать! Начните с первого модуля.', notif_lesson_done: 'Прочитано', notif_quiz_done: 'Тест пройден с результатом {n}%', notif_badge: 'Получено достижение', notif_none: 'Новых уведомлений нет.', notif_new: 'новых',
         user_default: 'Ученик', aria_profile: 'Профиль', aria_notifications: 'Уведомления', aria_theme: 'Переключить светлую/тёмную тему', aria_language: 'Выбрать язык', aria_close: 'Закрыть', skip_link: 'Перейти к содержанию'
@@ -171,7 +171,7 @@ const uiKeys = {
         notify_export_done: 'Veriler dışa aktarıldı!', notify_import_done: 'Veriler içe aktarıldı!', notify_import_fail: 'Geçersiz veri biçimi!', badge_locked: 'Kilitli',
         hero_kicker: 'Yapay zekâ üzerine açık bir kurs', hero_title: 'Makinelerin nasıl öğrendiğini anlayın: temel ilkelerden gerçek sistemlere.',
         hero_lede: 'Yapay zekâ ve makine öğreniminin tarihinden robotiğe, uç yapay zekâya ve yönetişime uzanan on beş kısa modül. Kendi hızınızda okuyun, bilginizi sınayın ve not alın. Her şey cihazınızda kalır.',
-        hero_cta: 'Okumaya başla', hero_cta_quiz: 'Sınava gir', meta_lessons: 'modül', meta_questions: 'sınav sorusu', meta_languages: 'dil', meta_minutes: 'dakika okuma',
+        hero_cta: 'Okumaya başla', hero_cta_quiz: 'Sınava gir', hero_cta_playground: 'Sinir ağı deneme alanını aç', meta_lessons: 'modül', meta_questions: 'sınav sorusu', meta_languages: 'dil', meta_minutes: 'dakika okuma',
         fig_caption: 'Şekil 1. Tek bir yapay nöron: ağırlıklı girdiler toplanır, ardından bir aktivasyon fonksiyonundan geçirilir.', label_lesson: 'Modül', progress_of: '{b} modülden {a} tanesi tamamlandı',
         notif_welcome: 'Hoş geldiniz! İlk modülle başlayın.', notif_lesson_done: 'Okuma tamamlandı', notif_quiz_done: 'Sınav %{n} puanla tamamlandı', notif_badge: 'Başarı kazanıldı', notif_none: 'Yeni bildirim yok.', notif_new: 'yeni',
         user_default: 'Öğrenen', aria_profile: 'Kullanıcı profili', aria_notifications: 'Bildirimler', aria_theme: 'Açık/koyu tema değiştir', aria_language: 'Dil seçin', aria_close: 'Kapat', skip_link: 'İçeriğe geç'
@@ -184,7 +184,7 @@ const uiKeys = {
         notify_export_done: 'Dati esportati!', notify_import_done: 'Dati importati!', notify_import_fail: 'Formato dati non valido!', badge_locked: 'Bloccato',
         hero_kicker: 'Un corso aperto di intelligenza artificiale', hero_title: 'Capire come imparano le macchine, dai principi primi ai sistemi reali.',
         hero_lede: "Quindici moduli concisi, dalla storia dell'IA e del machine learning alla robotica, all'edge AI e alla governance. Leggi con i tuoi tempi, verifica ciò che sai e prendi appunti. Tutto resta sul tuo dispositivo.",
-        hero_cta: 'Inizia a leggere', hero_cta_quiz: 'Fai il quiz', meta_lessons: 'moduli', meta_questions: 'domande', meta_languages: 'lingue', meta_minutes: 'minuti di lettura',
+        hero_cta: 'Inizia a leggere', hero_cta_quiz: 'Fai il quiz', hero_cta_playground: 'Prova il laboratorio di reti neurali', meta_lessons: 'moduli', meta_questions: 'domande', meta_languages: 'lingue', meta_minutes: 'minuti di lettura',
         fig_caption: 'Fig. 1. Un neurone artificiale: gli input pesati vengono sommati e passano per una funzione di attivazione.', label_lesson: 'Modulo', progress_of: '{a} di {b} moduli completati',
         notif_welcome: 'Benvenuto! Inizia dal primo modulo.', notif_lesson_done: 'Lettura completata', notif_quiz_done: 'Quiz completato con il {n}%', notif_badge: 'Traguardo sbloccato', notif_none: 'Nessuna nuova notifica.', notif_new: 'nuove',
         user_default: 'Studente', aria_profile: 'Profilo utente', aria_notifications: 'Notifiche', aria_theme: 'Cambia tema chiaro/scuro', aria_language: 'Seleziona lingua', aria_close: 'Chiudi', skip_link: 'Vai al contenuto'
@@ -197,7 +197,7 @@ const uiKeys = {
         notify_export_done: 'Đã xuất dữ liệu!', notify_import_done: 'Đã nhập dữ liệu!', notify_import_fail: 'Định dạng dữ liệu không hợp lệ!', badge_locked: 'Đã khóa',
         hero_kicker: 'Khóa học mở về trí tuệ nhân tạo', hero_title: 'Hiểu cách máy móc học, từ nguyên lý cơ bản đến hệ thống thực tế.',
         hero_lede: 'Mười lăm học phần ngắn gọn, từ lịch sử AI và học máy đến robot, AI biên và quản trị. Đọc theo nhịp của bạn, kiểm tra hiểu biết và ghi chú. Mọi dữ liệu đều nằm trên thiết bị của bạn.',
-        hero_cta: 'Bắt đầu đọc', hero_cta_quiz: 'Làm bài kiểm tra', meta_lessons: 'học phần', meta_questions: 'câu hỏi', meta_languages: 'ngôn ngữ', meta_minutes: 'phút đọc',
+        hero_cta: 'Bắt đầu đọc', hero_cta_quiz: 'Làm bài kiểm tra', hero_cta_playground: 'Dùng thử sân chơi mạng nơ-ron', meta_lessons: 'học phần', meta_questions: 'câu hỏi', meta_languages: 'ngôn ngữ', meta_minutes: 'phút đọc',
         fig_caption: 'Hình 1. Một nơ-ron nhân tạo: các đầu vào có trọng số được cộng lại, rồi đi qua hàm kích hoạt.', label_lesson: 'Học phần', progress_of: 'Đã hoàn thành {a}/{b} học phần',
         notif_welcome: 'Chào mừng bạn! Hãy bắt đầu với học phần đầu tiên.', notif_lesson_done: 'Đã đọc xong', notif_quiz_done: 'Hoàn thành bài kiểm tra với {n}%', notif_badge: 'Mở khóa thành tích', notif_none: 'Không có thông báo mới.', notif_new: 'mới',
         user_default: 'Người học', aria_profile: 'Hồ sơ người dùng', aria_notifications: 'Thông báo', aria_theme: 'Chuyển giao diện sáng/tối', aria_language: 'Chọn ngôn ngữ', aria_close: 'Đóng', skip_link: 'Chuyển đến nội dung'

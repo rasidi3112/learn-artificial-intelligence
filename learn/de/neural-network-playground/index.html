@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuronale-Netze-Spielplatz: ein neuronales Netz im Browser trainieren · KI Lernen</title>
+    <meta name="description" content="Trainieren Sie ein echtes neuronales Netz direkt im Browser. Verschieben Sie Gewichte, fügen Sie Schichten hinzu und sehen Sie, wie sich die Entscheidungsgrenze bewegt. Keine Installation, und keine Daten verlassen Ihr Gerät.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/neural-network-playground/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/neural-network-playground/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/neural-network-playground/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/neural-network-playground/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/neural-network-playground/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/neural-network-playground/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/neural-network-playground/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/neural-network-playground/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/neural-network-playground/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/neural-network-playground/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/neural-network-playground/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/neural-network-playground/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Neuronale-Netze-Spielplatz: ein neuronales Netz im Browser trainieren · KI Lernen">
+    <meta property="og:description" content="Trainieren Sie ein echtes neuronales Netz direkt im Browser. Verschieben Sie Gewichte, fügen Sie Schichten hinzu und sehen Sie, wie sich die Entscheidungsgrenze bewegt. Keine Installation, und keine Daten verlassen Ihr Gerät.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="de">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <link rel="stylesheet" href="../../../playground/playground.css">
+    <link rel="modulepreload" href="../../../playground/nn.mjs">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "WebApplication",
+        "LearningResource"
+      ],
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/",
+      "name": "Neuronale-Netze-Spielplatz",
+      "description": "Trainieren Sie ein echtes neuronales Netz direkt im Browser. Verschieben Sie Gewichte, fügen Sie Schichten hinzu und sehen Sie, wie sich die Entscheidungsgrenze bewegt. Keine Installation, und keine Daten verlassen Ihr Gerät.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/",
+      "inLanguage": "de",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "learningResourceType": "Interactive simulation",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "KI Lernen",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "KI Lernen",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Neuronale-Netze-Spielplatz",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/neural-network-playground/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/de/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>KI Lernen</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Sprache: Deutsch</summary>
+            <ul>
+                <li><a href="../../../learn/id/neural-network-playground/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/neural-network-playground/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/neural-network-playground/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/neural-network-playground/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/neural-network-playground/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/neural-network-playground/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/neural-network-playground/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/neural-network-playground/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/neural-network-playground/" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+                <li><a href="../../../learn/ja/neural-network-playground/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/neural-network-playground/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/neural-network-playground/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/neural-network-playground/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/neural-network-playground/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/neural-network-playground/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="playground" id="playground" data-play="Start" data-pause="Pause" data-copied="Link kopiert"
+        data-neurons="Neuronen" data-features="Eingabemerkmale" data-add-neuron="Neuron hinzufügen" data-remove-neuron="Neuron entfernen">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Alle Module</a> <span aria-hidden="true">/</span> <span>Neuronale-Netze-Spielplatz</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">Interaktiver Spielplatz</p>
+            <h1>Neuronale-Netze-Spielplatz</h1>
+            <p class="lede">Trainieren Sie ein echtes neuronales Netz direkt im Browser. Verschieben Sie Gewichte, fügen Sie Schichten hinzu und sehen Sie, wie sich die Entscheidungsgrenze bewegt. Keine Installation, und keine Daten verlassen Ihr Gerät.</p>
+        </header>
+        <noscript><p class="pg-noscript">Dieser Spielplatz benötigt JavaScript.</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> Ein Neuron</h2>
+            <p class="pg-text">Ein Neuron multipliziert jede Eingabe mit einem Gewicht, addiert einen Bias und staucht die Summe mit einer Aktivierungsfunktion. Ziehen Sie die Regler: Die Gewichte drehen die Grenzlinie, der Bias verschiebt sie. Punkte auf der orangen Seite werden als Klasse 1 vorhergesagt, Punkte auf der blauen Seite als Klasse 0.</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Entscheidungsgrenze eines Neurons"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+                        <label class="pg-slider" for="w1">
+                            <span>Gewicht w₁ <output id="w1Out" for="w1">0.5</output></span>
+                            <input type="range" id="w1" min="-6" max="6" step="0.1" value="0.5">
+                        </label>
+                        <label class="pg-slider" for="w2">
+                            <span>Gewicht w₂ <output id="w2Out" for="w2">2.0</output></span>
+                            <input type="range" id="w2" min="-6" max="6" step="0.1" value="2.0">
+                        </label>
+                        <label class="pg-slider" for="b">
+                            <span>Bias b <output id="bOut" for="b">-0.8</output></span>
+                            <input type="range" id="b" min="-6" max="6" step="0.1" value="-0.8">
+                        </label>
+                    <dl class="pg-stats">
+                        <div><dt>Genauigkeit</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>Verlust</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">Gradientenabstieg suchen lassen</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> Ein kleines Netz</h2>
+            <p class="pg-text">Ein Neuron kann nur eine gerade Linie ziehen. Verborgene Schichten kombinieren viele Linien zu Kurven, Ringen und Spiralen. Wählen Sie einen Datensatz, drücken Sie Start und sehen Sie dem Netz beim Lernen zu. Jedes kleine Quadrat zeigt das Muster, das ein Neuron gelernt hat.</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">Start</button>
+                <button type="button" class="pg-btn" id="netStep">Ein Schritt</button>
+                <button type="button" class="pg-btn" id="netReset">Zurücksetzen</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>Epoche</dt><dd id="epoch">000</dd></div>
+                    <div><dt>Trainingsverlust</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>Testverlust</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>Daten</legend>
+                        <label class="pg-choice pg-ds pg-ds-circle"><input type="radio" name="dataset" value="circle" checked><span>Kreis</span></label>
+                        <label class="pg-choice pg-ds pg-ds-xor"><input type="radio" name="dataset" value="xor"><span>XOR</span></label>
+                        <label class="pg-choice pg-ds pg-ds-gauss"><input type="radio" name="dataset" value="gauss"><span>Zwei Gruppen</span></label>
+                        <label class="pg-choice pg-ds pg-ds-spiral"><input type="radio" name="dataset" value="spiral"><span>Spirale</span></label>
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>Rauschen <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>Lernrate</span>
+                        <select id="learningRate"><option value="0.001">0.001</option><option value="0.003">0.003</option><option value="0.01">0.01</option><option value="0.03" selected>0.03</option><option value="0.1">0.1</option><option value="0.3">0.3</option><option value="1">1</option><option value="3">3</option></select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>Aktivierung</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>Eingabemerkmale</legend>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x" checked><span>x</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y" checked><span>y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="x2"><span>x²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="y2"><span>y²</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="xy"><span>x·y</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="sinx"><span>sin(x)</span></label>
+                        <label class="pg-choice"><input type="checkbox" name="feature" value="siny"><span>sin(y)</span></label>
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>Verborgene Schichten: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="Schicht entfernen">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="Schicht hinzufügen">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">Ausgabe</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="Ausgabe des Netzes über den gesamten Eingaberaum"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>Trainingsverlust <span class="pg-key pg-key-test"></span>Testverlust</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>Klasse 0 <span class="pg-swatch pg-swatch-1"></span>Klasse 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>Testdaten anzeigen</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">Link zu dieser Einstellung kopieren</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> Zum Ausprobieren</h2>
+            <ol>
+                <li>XOR ohne verborgene Schicht: Der Verlust bleibt hängen, weil keine Gerade die vier Ecken trennen kann.</li>
+                <li>Fügen Sie eine verborgene Schicht mit 4 Neuronen hinzu und starten Sie erneut. Jetzt kann das Netz die Grenze biegen.</li>
+                <li>Kreis nur mit den Merkmalen x² und y²: Ein einzelnes Neuron genügt, wenn die Eingaben stimmen.</li>
+                <li>Die Spirale ist am schwersten. Versuchen Sie 3 Schichten mit je 8 Neuronen oder fügen Sie die sin-Merkmale hinzu, und senken Sie die Lernrate, wenn der Verlust springt.</li>
+                <li>Erhöhen Sie die Lernrate auf 3 und beobachten Sie, wie das Training instabil wird.</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> Was passiert hier</h2>
+            <p>In jeder Epoche sagt das Netz alle Trainingspunkte vorher, misst seinen Fehler mit dem Kreuzentropie-Verlust und berechnet per Backpropagation, wie viel jedes Gewicht zu diesem Fehler beigetragen hat. Der Gradientenabstieg verschiebt dann jedes Gewicht ein wenig in die Richtung, die den Verlust senkt. Der Testverlust wird auf Punkten gemessen, mit denen das Netz nie trainiert: Steigt er, während der Trainingsverlust fällt, überanpasst sich das Netz.</p>
+            <p><a href="../deep-learning-neural-networks/">Zur Lektion: Deep Learning &amp; Neuronale Netze</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Entwickelt von Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+    <script type="module" src="../../../playground/playground.mjs"></script>
+</body>
+
+</html>

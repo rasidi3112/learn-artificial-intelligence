@@ -35,6 +35,7 @@ It is written for students, career switchers, teachers and anyone who wants to s
 
 | | |
 |---|---|
+| **Neural network playground** | Train a real network in the browser: drag a neuron's weights, add layers, watch the decision boundary learn a spiral ([try it](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/)) |
 | **15 modules** | 330 minutes of reading, from "What is AI?" to robotics, edge AI and AutoML |
 | **33-question quiz** | Shuffled every attempt, with instant feedback and a downloadable result |
 | **15 languages** | Interface, lessons and quiz, including right-to-left Arabic |
@@ -44,6 +45,8 @@ It is written for students, career switchers, teachers and anyone who wants to s
 | **Certificate** | A self-issued PDF certificate once every module is complete |
 | **Your data, your device** | Everything is stored in `localStorage`, with JSON export and import |
 | **Light and dark** | Follows your system theme, with a manual toggle |
+
+<p align="center"><img src="docs/screenshots/playground.png" alt="The neural network playground learning a spiral with three hidden layers"></p>
 
 <table>
 <tr>
