@@ -2,7 +2,7 @@
 
 # Belajar AI
 
-**Kursus terbuka kecerdasan buatan, gratis: 15 modul, 33 soal kuis, dan 15 bahasa, dalam satu website statis.**
+**Kursus terbuka kecerdasan buatan, gratis: 17 modul, 37 soal kuis, dan 15 bahasa, dalam satu website statis.**
 
 Tanpa daftar akun, tanpa pelacakan, tanpa proses build. Buka link-nya dan mulai membaca.
 
@@ -34,8 +34,8 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 
 | | |
 |---|---|
-| **15 modul** | 330 menit bacaan, dari "Apa itu AI?" sampai robotika, edge AI, dan AutoML |
-| **33 soal kuis** | Urutannya diacak setiap kali, dengan umpan balik langsung dan hasil yang bisa diunduh |
+| **17 modul** | 380 menit bacaan, dari "Apa itu AI?" sampai AI agents, RAG, robotika, dan edge AI |
+| **37 soal kuis** | Urutannya diacak setiap kali, dengan umpan balik langsung dan hasil yang bisa diunduh |
 | **15 bahasa** | Antarmuka, materi, dan kuis, termasuk bahasa Arab (kanan-ke-kiri) |
 | **Tampilan baca** | Tipografi yang nyaman untuk modul 25 menit |
 | **Progres belajar** | Poin, level, favorit, dan enam pencapaian |
@@ -74,6 +74,8 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 | 13 | [Robotika & AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/robotics-and-ai/) | Lanjut | 30 menit |
 | 14 | [Edge AI & IoT](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/edge-ai-and-iot/) | Lanjut | 27 menit |
 | 15 | [AutoML & No-Code AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/automl-and-no-code-ai/) | Pemula | 20 menit |
+| 16 | [AI Agents: Model yang Bertindak](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/) | Menengah | 25 menit |
+| 17 | [RAG dan Evaluasi Aplikasi LLM](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/) | Menengah | 25 menit |
 
 ## Menjalankan di komputer sendiri
 

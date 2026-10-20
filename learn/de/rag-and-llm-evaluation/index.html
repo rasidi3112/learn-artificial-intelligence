@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG und Bewertung von LLM-Anwendungen · KI Lernen</title>
+    <meta name="description" content="LLM-Antworten auf die eigenen Dokumente stützen und die Qualität von Retrieval und Antworten systematisch messen.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG und Bewertung von LLM-Anwendungen · KI Lernen">
+    <meta property="og:description" content="LLM-Antworten auf die eigenen Dokumente stützen und die Qualität von Retrieval und Antworten systematisch messen.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="de">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/",
+      "name": "RAG und Bewertung von LLM-Anwendungen",
+      "description": "LLM-Antworten auf die eigenen Dokumente stützen und die Qualität von Retrieval und Antworten systematisch messen.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/",
+      "inLanguage": "de",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Mittel",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "KI Lernen",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "KI Lernen",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG und Bewertung von LLM-Anwendungen",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/de/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>KI Lernen</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Sprache: Deutsch</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Alle Module</a> <span aria-hidden="true">/</span> <span>Modul 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 17 / 17</p>
+                <h1>RAG und Bewertung von LLM-Anwendungen</h1>
+                <p class="lede">LLM-Antworten auf die eigenen Dokumente stützen und die Qualität von Retrieval und Antworten systematisch messen.</p>
+                <p class="meta">
+                    <span>Stufe: Mittel</span>
+                    <span>Dauer: 25 Min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Warum RAG</h2>
+<p>Ein LLM kennt nur seine Trainingsdaten, hat einen Wissensstichtag und kann selbstbewusst halluzinieren. Retrieval-Augmented Generation (RAG) sucht beim Eingang einer Frage passende Dokumentabschnitte und fügt sie in den Prompt ein, damit das Modell auf Basis dieser Quellen antwortet. Wissen lässt sich ohne Neutraining aktualisieren, und jede Antwort kann Quellen nennen. Fine-Tuning eignet sich, um Stil oder Format zu ändern; RAG eignet sich für Wissen, das sich oft ändert, etwa Unternehmensrichtlinien.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Chunking, Embeddings und Vektorsuche</h2>
+<p>Dokumente werden in Chunks von etwa 200 bis 800 Tokens mit etwas Überlappung zerlegt, damit Sätze ihren Sinn behalten. Ein Embedding-Modell wandelt jeden Chunk in einen Vektor um, der in einer Vektordatenbank wie pgvector, Qdrant oder FAISS gespeichert wird. Auch die Frage wird eingebettet, und das System holt die Top-k-Chunks mit der höchsten Kosinus-Ähnlichkeit. Hybride Suche kombiniert Vektorsuche mit BM25 für exakte Begriffe wie Produktcodes, und ein Reranker sortiert die Kandidaten neu, bevor sie an das Modell gehen.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Prompt und Quellenangaben aufbauen</h2>
+<p>Fügen Sie die ausgewählten Chunks mit ID und Quelltitel in den Prompt ein und weisen Sie das Modell an, nur aus diesem Kontext zu antworten, Quellen wie [doc-3] zu nennen und „weiß ich nicht“ zu sagen, wenn die Antwort fehlt. Sehr langer Kontext kostet mehr und kann dazu führen, dass Informationen in der Mitte übersehen werden; senden Sie daher nur die relevantesten Chunks. Wenden Sie Metadaten- und Zugriffsfilter beim Retrieval an, nicht danach, damit niemand Inhalte aus Dokumenten erhält, die er nicht sehen darf.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> LLM-Anwendungen bewerten</h2>
+<p>Erstellen Sie einen Golden Dataset mit Dutzenden bis Hunderten echter Fragen samt Quelldokumenten und richtigen Antworten. Messen Sie das Retrieval mit Recall@k und MRR: Wurde der richtige Chunk überhaupt gefunden? Messen Sie Antworten mit Faithfulness (jede Aussage ist durch Quellen belegt) und Answer Relevance (die Frage wird wirklich beantwortet). LLM-as-a-Judge mit klarer Bewertungsskala beschleunigt die Bewertung, sollte aber zuerst an menschlichen Urteilen kalibriert werden. Führen Sie diese Bewertungen in CI aus, sobald sich Prompt, Modell oder Pipeline ändern, und überwachen Sie Latenz und Kosten in Produktion.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=de&amp;lesson=17">Interaktive Version mit Quiz und Fortschritt öffnen</a></p>
+        <nav class="pager" aria-label="Alle Module">
+            <a rel="prev" href="../ai-agents/"><small>Vorheriges Modul</small>KI-Agenten: Modelle, die handeln</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Entwickelt von Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 
 # Learn AI · Belajar AI
 
-**A free, open course on artificial intelligence: fifteen modules, a 33-question quiz and fifteen languages, in one static website.**
+**A free, open course on artificial intelligence: seventeen modules, a 37-question quiz and fifteen languages, in one static website.**
 
 No sign-up, no tracking, no build step. Open the link and start reading.
 
@@ -35,8 +35,8 @@ It is written for students, career switchers, teachers and anyone who wants to s
 
 | | |
 |---|---|
-| **15 modules** | 330 minutes of reading, from "What is AI?" to robotics, edge AI and AutoML |
-| **33-question quiz** | Shuffled every attempt, with instant feedback and a downloadable result |
+| **17 modules** | 380 minutes of reading, from "What is AI?" to AI agents, RAG, robotics and edge AI |
+| **37-question quiz** | Shuffled every attempt, with instant feedback and a downloadable result |
 | **15 languages** | Interface, lessons and quiz, including right-to-left Arabic |
 | **Reading view** | Long-form typography that is comfortable for a 25-minute module |
 | **Progress tracking** | Points, levels, favourites and six achievements |
@@ -81,6 +81,8 @@ It is written for students, career switchers, teachers and anyone who wants to s
 | 13 | [Robotics & AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/robotics-and-ai/) | Advanced | 30 min |
 | 14 | [Edge AI & IoT](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/edge-ai-and-iot/) | Advanced | 27 min |
 | 15 | [AutoML & No-Code AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/automl-and-no-code-ai/) | Beginner | 20 min |
+| 16 | [AI Agents: Models That Act](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/) | Intermediate | 25 min |
+| 17 | [RAG & LLM Application Evaluation](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/) | Intermediate | 25 min |
 
 Every module also has its own page in each language, readable without JavaScript: [browse all modules](https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/).
 
@@ -126,6 +128,7 @@ To deploy, publish the folder as-is to GitHub Pages or Netlify. `netlify.toml` i
 ├── content-translations.js  Lesson text in 14 languages
 ├── quiz-translations.js     Quiz questions in 14 languages
 ├── i18n-extra.js            Interface strings and translation fixes
+├── lessons-agents-rag.js    Modules 16 and 17 with all translations and quiz questions
 ├── learn/                   Generated static page per module and language
 ├── scripts/build-pages.mjs  Generator for learn/, sitemap.xml and robots.txt
 ├── tests/                   node:test checks for the generated pages

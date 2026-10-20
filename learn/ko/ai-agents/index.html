@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 에이전트: 행동하는 모델 · AI 배우기</title>
+    <meta name="description" content="LLM이 단계를 계획하고 도구를 호출하며 명확한 안전 범위 안에서 작업을 끝내는 방법을 이해합니다.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI 에이전트: 행동하는 모델 · AI 배우기">
+    <meta property="og:description" content="LLM이 단계를 계획하고 도구를 호출하며 명확한 안전 범위 안에서 작업을 끝내는 방법을 이해합니다.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ko">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/",
+      "name": "AI 에이전트: 행동하는 모델",
+      "description": "LLM이 단계를 계획하고 도구를 호출하며 명확한 안전 범위 안에서 작업을 끝내는 방법을 이해합니다.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/",
+      "inLanguage": "ko",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "중급",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI 배우기",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 배우기",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI 에이전트: 행동하는 모델",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ko/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI 배우기</span>
+        </a>
+        <details class="lang-menu">
+            <summary>언어: 한국어</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">전체 모듈</a> <span aria-hidden="true">/</span> <span>모듈 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">모듈 16 / 17</p>
+                <h1>AI 에이전트: 행동하는 모델</h1>
+                <p class="lede">LLM이 단계를 계획하고 도구를 호출하며 명확한 안전 범위 안에서 작업을 끝내는 방법을 이해합니다.</p>
+                <p class="meta">
+                    <span>레벨: 중급</span>
+                    <span>소요시간: 25 분</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 챗봇에서 에이전트로</h2>
+<p>챗봇은 메시지 하나에 답하고 멈춥니다. 에이전트는 LLM을 루프 안에서 실행합니다. 목표를 읽고, 단계를 고르고, 도구를 호출하고, 결과를 읽은 뒤 작업이 끝날 때까지 다음 단계를 정합니다. ReAct 패턴은 추론과 행동을 번갈아 수행합니다. 예를 들어 고객지원 에이전트는 주문 상태를 확인하고, 반품 정책을 읽은 뒤, 환불을 준비합니다. 단계를 미리 정할 수 없을 때만 에이전트를 쓰세요. 정해진 흐름이라면 일반 워크플로가 더 싸고 테스트하기도 쉽습니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 도구 호출과 함수 스키마</h2>
+<p>각 도구는 이름, 설명, 인자에 대한 JSON Schema로 기술합니다. 예: get_order(order_id: string). 모델은 코드를 직접 실행하지 않습니다. 구조화된 호출을 반환하면 애플리케이션이 인자를 검증해 실행하고, 그 결과를 다시 모델에 보냅니다. Model Context Protocol(MCP)은 애플리케이션이 모델에 도구와 데이터를 제공하는 방식을 표준화합니다. 명확한 도구 설명, 검증된 인자, 유용한 오류 메시지가 모델 선택보다 에이전트의 성패를 더 크게 좌우하는 경우가 많습니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 메모리, 계획, 멀티 에이전트</h2>
+<p>단기 메모리는 컨텍스트 윈도우 안의 대화 기록이고, 장기 메모리는 보통 데이터베이스나 벡터 스토어에 저장했다가 필요할 때 불러옵니다. 긴 작업에서는 에이전트가 목표를 단계별 계획으로 나누고 결과가 나올 때마다 갱신할 수 있습니다. 오케스트레이터-워커 패턴은 하위 작업을 병렬로 일하는 여러 에이전트에게 나눠 줍니다. 예를 들어 여러 출처를 동시에 조사하는 경우입니다. 에이전트가 하나 늘 때마다 토큰 비용, 지연, 실패 지점이 늘어나므로 단순한 에이전트 하나로 시작하세요.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 에이전트의 안전과 평가</h2>
+<p>웹 페이지, 이메일, 문서의 텍스트에는 에이전트에게 다른 일을 시키는 프롬프트 인젝션이 숨어 있을 수 있습니다. 도구에는 최소한의 권한만 주고, 코드는 샌드박스에서 실행하고, 단계 수와 예산에 상한을 두고, 송금이나 데이터 삭제처럼 되돌리기 어려운 작업 전에는 사람의 승인을 받으세요. 감사를 위해 모든 단계의 트레이스를 남깁니다. 에이전트는 실제 작업 모음으로 평가하고 성공률, 단계 수, 비용, 치명적 오류를 측정합니다. SWE-bench와 τ-bench 같은 벤치마크도 같은 접근을 씁니다.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ko&amp;lesson=16">퀴즈와 진행 상황이 있는 인터랙티브 버전 열기</a></p>
+        <nav class="pager" aria-label="전체 모듈">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>이전 모듈</small>AutoML과 노코드 AI</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>다음 모듈</small>RAG와 LLM 애플리케이션 평가</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>개발자: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

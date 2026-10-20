@@ -1694,7 +1694,7 @@ function showCertificate() {
                                 </p>
                                 <h3>Fundamentals of Artificial Intelligence</h3>
                                 <p class="certificate-description-id">Dasar-Dasar Kecerdasan Buatan</p>
-                                <p class="certificate-topics">15 lessons · Machine Learning · Deep Learning · NLP · Computer Vision</p>
+                                <p class="certificate-topics">${LESSONS.length} lessons · Machine Learning · Deep Learning · NLP · AI Agents</p>
                             </div>
 
                             <div class="certificate-details">

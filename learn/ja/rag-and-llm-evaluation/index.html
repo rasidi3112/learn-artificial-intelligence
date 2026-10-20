@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGとLLMアプリケーションの評価 · AIを学ぶ</title>
+    <meta name="description" content="LLMの回答を自分の文書に基づかせ、検索と回答の品質を体系的に測定します。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAGとLLMアプリケーションの評価 · AIを学ぶ">
+    <meta property="og:description" content="LLMの回答を自分の文書に基づかせ、検索と回答の品質を体系的に測定します。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/",
+      "name": "RAGとLLMアプリケーションの評価",
+      "description": "LLMの回答を自分の文書に基づかせ、検索と回答の品質を体系的に測定します。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中級",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAGとLLMアプリケーションの評価",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 17 / 17</p>
+                <h1>RAGとLLMアプリケーションの評価</h1>
+                <p class="lede">LLMの回答を自分の文書に基づかせ、検索と回答の品質を体系的に測定します。</p>
+                <p class="meta">
+                    <span>レベル: 中級</span>
+                    <span>所要時間: 25 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> なぜRAGなのか</h2>
+<p>LLMは学習データの内容しか知らず、知識の締め切り日があり、自信満々にハルシネーションを起こすこともあります。検索拡張生成（RAG）は、質問が来たときに関連する文書の断片を探してプロンプトに挿入し、モデルがその情報源に基づいて答えるようにします。再学習なしで知識を更新でき、各回答に出典を付けられます。ファインチューニングは回答のスタイルや形式を変えるのに向き、RAGは社内規程のように頻繁に変わる知識に向いています。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> チャンク分割、埋め込み、ベクトル検索</h2>
+<p>文書は、文の意味が途切れないよう少し重なりを持たせて、約200〜800トークンのチャンクに分割します。埋め込みモデルが各チャンクをベクトルに変換し、pgvector、Qdrant、FAISSなどのベクトルデータベースに保存します。質問もベクトルに変換し、コサイン類似度が最も高い上位k個のチャンクを取り出します。ハイブリッド検索は、製品コードのような完全一致の語に強いBM25とベクトル検索を組み合わせ、リランカーが候補を並べ直してからモデルに渡します。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> プロンプトと出典の組み立て</h2>
+<p>選んだチャンクをIDと出典タイトル付きでプロンプトに入れ、その文脈だけから答えること、[doc-3]のように出典を示すこと、答えがなければ「分かりません」と言うことをモデルに指示します。文脈が長すぎるとコストが増え、真ん中の情報を見落としやすくなるので、最も関連性の高いチャンクだけを送ります。メタデータやアクセス権によるフィルタは検索の後ではなく検索時に適用し、閲覧権限のない文書の内容が利用者に渡らないようにします。</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> LLMアプリケーションの評価</h2>
+<p>実際の質問を数十〜数百件集め、出典文書と正解を付けたゴールデンデータセットを作ります。検索はrecall@kとMRRで測ります。正しいチャンクがそもそも取り出せたか、という観点です。回答は、忠実性（すべての主張が出典に裏付けられているか）と回答の関連性（質問に本当に答えているか）で測ります。明確な評価基準を持つLLM-as-a-judgeは採点を速くしますが、まず人間の評価で較正しましょう。プロンプト、モデル、パイプラインを変えるたびにCIでこれらの評価を実行し、本番では遅延とコストを監視します。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=17">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../ai-agents/"><small>前のモジュール</small>AIエージェント：行動するモデル</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

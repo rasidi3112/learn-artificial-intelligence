@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG与LLM应用评估 · 学习 AI</title>
+    <meta name="description" content="让LLM的回答立足于你自己的文档，并系统地衡量检索质量和回答质量。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG与LLM应用评估 · 学习 AI">
+    <meta property="og:description" content="让LLM的回答立足于你自己的文档，并系统地衡量检索质量和回答质量。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="zh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/",
+      "name": "RAG与LLM应用评估",
+      "description": "让LLM的回答立足于你自己的文档，并系统地衡量检索质量和回答质量。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/",
+      "inLanguage": "zh",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中级",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "学习 AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "学习 AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG与LLM应用评估",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/zh/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>学习 AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>语言: 中文</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">全部模块</a> <span aria-hidden="true">/</span> <span>模块 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">模块 17 / 17</p>
+                <h1>RAG与LLM应用评估</h1>
+                <p class="lede">让LLM的回答立足于你自己的文档，并系统地衡量检索质量和回答质量。</p>
+                <p class="meta">
+                    <span>等级: 中级</span>
+                    <span>时长: 25 分钟</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 为什么需要RAG</h2>
+<p>LLM只知道训练数据里的内容，有知识截止日期，还可能自信地产生幻觉。检索增强生成（RAG）在问题到来时检索相关的文档片段，并插入提示中，让模型依据这些来源作答。知识可以随时更新而无需重新训练，每个回答都能附上引用。微调适合改变回答的风格或格式；RAG适合经常变化的知识，例如公司政策。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 分块、嵌入与向量检索</h2>
+<p>文档被切分成大约200到800个令牌的块，并保留少量重叠，以免句子失去意义。嵌入模型把每个块转换成向量，存入pgvector、Qdrant或FAISS等向量数据库。问题同样被转换成向量，系统取回余弦相似度最高的前k个块。混合检索把向量检索与BM25结合起来，以匹配产品编号等精确词语，再由重排序模型在送入LLM前重新排列候选结果。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 构建提示与引用</h2>
+<p>把选中的块连同ID和来源标题放进提示，并指示模型只根据这些上下文作答，用[doc-3]这样的形式注明来源，答案不在其中时就说“不知道”。上下文过长会增加成本，还可能让模型忽略中间的信息，所以只发送最相关的块。在检索阶段就应用元数据和访问权限过滤，而不是事后过滤，确保用户永远拿不到无权查看的文档内容。</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 评估LLM应用</h2>
+<p>建立一个黄金数据集，包含几十到几百个真实问题及其来源文档和正确答案。用recall@k和MRR衡量检索：正确的块有没有被检索出来？用忠实度（每个论断都有来源支持）和答案相关性（确实回答了问题）衡量回答。带有清晰评分标准的LLM评审可以加快评分，但要先用人工评分校准。每当提示、模型或流程变化时，在CI中运行这些评估，并在生产环境中监控延迟和成本。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=zh&amp;lesson=17">打开带测验和进度的互动版本</a></p>
+        <nav class="pager" aria-label="全部模块">
+            <a rel="prev" href="../ai-agents/"><small>上一模块</small>AI智能体：会行动的模型</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>开发者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

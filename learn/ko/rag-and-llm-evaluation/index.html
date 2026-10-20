@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG와 LLM 애플리케이션 평가 · AI 배우기</title>
+    <meta name="description" content="LLM의 답변을 내 문서에 근거하게 하고, 검색과 답변의 품질을 체계적으로 측정합니다.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG와 LLM 애플리케이션 평가 · AI 배우기">
+    <meta property="og:description" content="LLM의 답변을 내 문서에 근거하게 하고, 검색과 답변의 품질을 체계적으로 측정합니다.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ko">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/",
+      "name": "RAG와 LLM 애플리케이션 평가",
+      "description": "LLM의 답변을 내 문서에 근거하게 하고, 검색과 답변의 품질을 체계적으로 측정합니다.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/",
+      "inLanguage": "ko",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "중급",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI 배우기",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 배우기",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG와 LLM 애플리케이션 평가",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ko/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI 배우기</span>
+        </a>
+        <details class="lang-menu">
+            <summary>언어: 한국어</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">전체 모듈</a> <span aria-hidden="true">/</span> <span>모듈 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">모듈 17 / 17</p>
+                <h1>RAG와 LLM 애플리케이션 평가</h1>
+                <p class="lede">LLM의 답변을 내 문서에 근거하게 하고, 검색과 답변의 품질을 체계적으로 측정합니다.</p>
+                <p class="meta">
+                    <span>레벨: 중급</span>
+                    <span>소요시간: 25 분</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 왜 RAG인가</h2>
+<p>LLM은 학습 데이터에 있는 내용만 알고, 지식 기준일이 있으며, 자신 있게 환각을 일으킬 수 있습니다. 검색 증강 생성(RAG)은 질문이 들어오면 관련 문서 조각을 찾아 프롬프트에 넣어, 모델이 그 출처를 바탕으로 답하게 합니다. 재학습 없이 지식을 갱신할 수 있고, 모든 답변에 출처를 붙일 수 있습니다. 파인튜닝은 답변의 스타일이나 형식을 바꾸는 데 적합하고, RAG는 회사 정책처럼 자주 바뀌는 지식에 적합합니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 청킹, 임베딩, 벡터 검색</h2>
+<p>문서는 문장의 의미가 끊기지 않도록 약간 겹치게 해서 약 200~800 토큰 크기의 청크로 나눕니다. 임베딩 모델이 각 청크를 벡터로 바꾸고, pgvector, Qdrant, FAISS 같은 벡터 데이터베이스에 저장합니다. 질문도 벡터로 바꾼 뒤 코사인 유사도가 가장 높은 상위 k개 청크를 가져옵니다. 하이브리드 검색은 제품 코드처럼 정확한 용어를 위해 벡터 검색과 BM25를 결합하고, 리랭커가 후보를 다시 정렬한 뒤 모델에 보냅니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 프롬프트와 출처 구성하기</h2>
+<p>선택한 청크를 ID와 출처 제목과 함께 프롬프트에 넣고, 그 맥락만으로 답할 것, [doc-3]처럼 출처를 밝힐 것, 답이 없으면 &quot;모르겠습니다&quot;라고 말할 것을 모델에 지시합니다. 맥락이 너무 길면 비용이 늘고 중간에 있는 정보를 놓치기 쉬우므로 가장 관련성 높은 청크만 보내세요. 메타데이터와 접근 권한 필터는 검색 뒤가 아니라 검색할 때 적용해서, 사용자가 볼 권한이 없는 문서 내용을 절대 받지 않게 합니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> LLM 애플리케이션 평가하기</h2>
+<p>실제 질문 수십~수백 개와 그 출처 문서, 정답으로 골든 데이터셋을 만드세요. 검색은 recall@k와 MRR로 측정합니다. 올바른 청크가 아예 검색되었는지를 보는 것입니다. 답변은 충실성(모든 주장이 출처로 뒷받침되는가)과 답변 관련성(정말 질문에 답하는가)으로 측정합니다. 명확한 루브릭을 갖춘 LLM-as-a-judge는 채점을 빠르게 하지만, 먼저 사람의 평가로 보정하세요. 프롬프트, 모델, 파이프라인이 바뀔 때마다 CI에서 이 평가를 실행하고, 운영 환경에서는 지연 시간과 비용을 모니터링합니다.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ko&amp;lesson=17">퀴즈와 진행 상황이 있는 인터랙티브 버전 열기</a></p>
+        <nav class="pager" aria-label="전체 모듈">
+            <a rel="prev" href="../ai-agents/"><small>이전 모듈</small>AI 에이전트: 행동하는 모델</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>개발자: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG और LLM ऐप्लिकेशन का मूल्यांकन · AI सीखें</title>
+    <meta name="description" content="LLM के जवाबों को अपने दस्तावेज़ों पर आधारित करें, फिर रिट्रीवल और जवाब की गुणवत्ता को व्यवस्थित ढंग से मापें।">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG और LLM ऐप्लिकेशन का मूल्यांकन · AI सीखें">
+    <meta property="og:description" content="LLM के जवाबों को अपने दस्तावेज़ों पर आधारित करें, फिर रिट्रीवल और जवाब की गुणवत्ता को व्यवस्थित ढंग से मापें।">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="hi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/",
+      "name": "RAG और LLM ऐप्लिकेशन का मूल्यांकन",
+      "description": "LLM के जवाबों को अपने दस्तावेज़ों पर आधारित करें, फिर रिट्रीवल और जवाब की गुणवत्ता को व्यवस्थित ढंग से मापें।",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/",
+      "inLanguage": "hi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "मध्यवर्ती",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI सीखें",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI सीखें",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG और LLM ऐप्लिकेशन का मूल्यांकन",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/hi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI सीखें</span>
+        </a>
+        <details class="lang-menu">
+            <summary>भाषा: हिन्दी</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi" aria-current="true">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">सभी मॉड्यूल</a> <span aria-hidden="true">/</span> <span>मॉड्यूल 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">मॉड्यूल 17 / 17</p>
+                <h1>RAG और LLM ऐप्लिकेशन का मूल्यांकन</h1>
+                <p class="lede">LLM के जवाबों को अपने दस्तावेज़ों पर आधारित करें, फिर रिट्रीवल और जवाब की गुणवत्ता को व्यवस्थित ढंग से मापें।</p>
+                <p class="meta">
+                    <span>स्तर: मध्यवर्ती</span>
+                    <span>अवधि: 25 मिनट</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> RAG क्यों</h2>
+<p>LLM सिर्फ़ अपने ट्रेनिंग डेटा को जानता है, उसकी ज्ञान की एक कटऑफ़ तारीख होती है, और वह आत्मविश्वास से गलत बातें गढ़ सकता है। Retrieval-Augmented Generation (RAG) सवाल आने पर दस्तावेज़ों के प्रासंगिक अंश खोजता है और उन्हें प्रॉम्प्ट में जोड़ता है, ताकि मॉडल उन्हीं स्रोतों से जवाब दे। ज्ञान को दोबारा ट्रेनिंग के बिना अपडेट किया जा सकता है और हर जवाब के साथ संदर्भ दिए जा सकते हैं। फ़ाइन-ट्यूनिंग जवाब की शैली या फ़ॉर्मैट बदलने के लिए है; RAG बार-बार बदलने वाले ज्ञान, जैसे कंपनी की नीतियों, के लिए।</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> चंकिंग, एम्बेडिंग और वेक्टर सर्च</h2>
+<p>दस्तावेज़ों को लगभग 200 से 800 टोकन के चंक में बाँटा जाता है, थोड़े ओवरलैप के साथ ताकि वाक्यों का अर्थ न टूटे। एम्बेडिंग मॉडल हर चंक को वेक्टर में बदलता है, जिसे pgvector, Qdrant या FAISS जैसे वेक्टर डेटाबेस में रखा जाता है। सवाल को भी वेक्टर में बदला जाता है और सिस्टम सबसे ज़्यादा कोसाइन समानता वाले top-k चंक निकालता है। हाइब्रिड सर्च उत्पाद कोड जैसे सटीक शब्दों के लिए वेक्टर सर्च को BM25 के साथ जोड़ता है, और रीरैंकर मॉडल तक भेजने से पहले उम्मीदवारों को फिर से क्रम में लगाता है।</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> प्रॉम्प्ट और संदर्भ बनाना</h2>
+<p>चुने गए चंक को उनकी ID और स्रोत के शीर्षक के साथ प्रॉम्प्ट में रखें, और मॉडल से कहें कि वह सिर्फ़ उसी संदर्भ से जवाब दे, [doc-3] जैसे स्रोत बताए और जवाब न मिलने पर &quot;मुझे नहीं पता&quot; कहे। बहुत लंबा संदर्भ ज़्यादा महँगा होता है और मॉडल बीच की जानकारी छोड़ सकता है, इसलिए सिर्फ़ सबसे प्रासंगिक चंक भेजें। मेटाडेटा और एक्सेस-कंट्रोल फ़िल्टर रिट्रीवल के दौरान ही लगाएँ, बाद में नहीं, ताकि उपयोगकर्ता को कभी ऐसे दस्तावेज़ की सामग्री न मिले जिसे देखने की उसे अनुमति नहीं।</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> LLM ऐप्लिकेशन का मूल्यांकन</h2>
+<p>दर्जनों से सैकड़ों असली सवालों का एक गोल्डन डेटासेट बनाएँ, उनके स्रोत दस्तावेज़ों और सही जवाबों के साथ। रिट्रीवल को recall@k और MRR से मापें: क्या सही चंक निकला भी? जवाबों को faithfulness (हर दावा स्रोत से समर्थित) और answer relevance (सच में सवाल का जवाब देता है) से मापें। साफ़ रूब्रिक वाला LLM-as-a-judge मूल्यांकन तेज़ करता है, लेकिन पहले उसे मानवीय रेटिंग से कैलिब्रेट करें। जब भी प्रॉम्प्ट, मॉडल या पाइपलाइन बदले, ये मूल्यांकन CI में चलाएँ और प्रोडक्शन में देरी और लागत पर नज़र रखें।</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=hi&amp;lesson=17">क्विज़ और प्रगति के साथ इंटरैक्टिव संस्करण खोलें</a></p>
+        <nav class="pager" aria-label="सभी मॉड्यूल">
+            <a rel="prev" href="../ai-agents/"><small>पिछला मॉड्यूल</small>AI एजेंट: काम करने वाले मॉडल</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>द्वारा विकसित Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

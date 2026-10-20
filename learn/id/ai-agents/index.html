@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents: Model yang Bertindak · Belajar AI</title>
+    <meta name="description" content="Memahami cara LLM merencanakan langkah, memanggil tool, dan menyelesaikan tugas dengan batas keamanan yang jelas.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Agents: Model yang Bertindak · Belajar AI">
+    <meta property="og:description" content="Memahami cara LLM merencanakan langkah, memanggil tool, dan menyelesaikan tugas dengan batas keamanan yang jelas.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/",
+      "name": "AI Agents: Model yang Bertindak",
+      "description": "Memahami cara LLM merencanakan langkah, memanggil tool, dan menyelesaikan tugas dengan batas keamanan yang jelas.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/",
+      "inLanguage": "id",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Menengah",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Belajar AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Belajar AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Agents: Model yang Bertindak",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/id/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Belajar AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Bahasa: Bahasa Indonesia</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Semua modul</a> <span aria-hidden="true">/</span> <span>Modul 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 16 / 17</p>
+                <h1>AI Agents: Model yang Bertindak</h1>
+                <p class="lede">Memahami cara LLM merencanakan langkah, memanggil tool, dan menyelesaikan tugas dengan batas keamanan yang jelas.</p>
+                <p class="meta">
+                    <span>Tingkat: Menengah</span>
+                    <span>Durasi: 25 menit</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Dari Chatbot ke Agen</h2>
+<p>Chatbot menjawab satu pesan lalu berhenti. Agen menjalankan LLM di dalam loop: membaca tujuan, memilih langkah, memanggil tool, membaca hasilnya, lalu memutuskan langkah berikutnya sampai tugas selesai. Pola ReAct menggabungkan penalaran dan aksi secara bergantian. Contoh: agen layanan pelanggan mengecek status pesanan, membaca kebijakan retur, lalu menyiapkan refund. Gunakan agen hanya bila langkahnya tidak bisa ditentukan sejak awal; alur yang tetap lebih murah dan lebih mudah diuji sebagai workflow biasa.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Tool Calling dan Function Schema</h2>
+<p>Setiap tool dideskripsikan dengan nama, penjelasan, dan JSON Schema untuk argumennya, misalnya get_order(order_id: string). Model tidak menjalankan kode sendiri; ia mengembalikan panggilan terstruktur, aplikasi memvalidasi argumen dan mengeksekusinya, lalu hasilnya dikirim kembali ke model. Model Context Protocol (MCP) menstandarkan cara aplikasi menyediakan tool dan data untuk model. Deskripsi tool yang jelas, argumen yang divalidasi, dan pesan error yang informatif sering lebih menentukan keberhasilan agen daripada pilihan modelnya.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Memori, Perencanaan, dan Multi-Agen</h2>
+<p>Memori jangka pendek adalah riwayat percakapan di context window; memori jangka panjang biasanya disimpan di database atau vector store lalu diambil saat relevan. Untuk tugas panjang, agen dapat memecah tujuan menjadi rencana bertahap dan memperbaruinya setelah setiap hasil. Pola orchestrator-worker membagi subtugas ke beberapa agen yang bekerja paralel, misalnya riset beberapa sumber sekaligus. Setiap agen tambahan menambah biaya token, latensi, dan titik gagal, jadi mulai dari satu agen yang sederhana.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Keamanan dan Evaluasi Agen</h2>
+<p>Teks dari halaman web, email, atau dokumen bisa berisi prompt injection yang menyuruh agen melakukan hal lain. Beri tool hak akses seminimal mungkin, jalankan kode di sandbox, batasi jumlah langkah dan anggaran, dan minta persetujuan manusia sebelum tindakan yang sulit dibatalkan seperti transfer dana atau menghapus data. Simpan trace setiap langkah untuk audit. Evaluasi agen dengan kumpulan tugas nyata dan ukur tingkat keberhasilan, jumlah langkah, biaya, serta kesalahan fatal; benchmark seperti SWE-bench dan τ-bench memakai pendekatan yang sama.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=id&amp;lesson=16">Buka versi interaktif dengan kuis dan progres</a></p>
+        <nav class="pager" aria-label="Semua modul">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>Modul sebelumnya</small>AutoML &amp; No-Code AI</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>Modul berikutnya</small>RAG dan Evaluasi Aplikasi LLM</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Dikembangkan oleh Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG và Đánh giá Ứng dụng LLM · Học AI</title>
+    <meta name="description" content="Neo câu trả lời của LLM vào tài liệu của bạn, rồi đo chất lượng truy xuất và câu trả lời một cách có hệ thống.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG và Đánh giá Ứng dụng LLM · Học AI">
+    <meta property="og:description" content="Neo câu trả lời của LLM vào tài liệu của bạn, rồi đo chất lượng truy xuất và câu trả lời một cách có hệ thống.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/",
+      "name": "RAG và Đánh giá Ứng dụng LLM",
+      "description": "Neo câu trả lời của LLM vào tài liệu của bạn, rồi đo chất lượng truy xuất và câu trả lời một cách có hệ thống.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/",
+      "inLanguage": "vi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Trung cấp",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Học AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Học AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG và Đánh giá Ứng dụng LLM",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/vi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Học AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Ngôn ngữ: Tiếng Việt</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Tất cả mô-đun</a> <span aria-hidden="true">/</span> <span>Học phần 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Học phần 17 / 17</p>
+                <h1>RAG và Đánh giá Ứng dụng LLM</h1>
+                <p class="lede">Neo câu trả lời của LLM vào tài liệu của bạn, rồi đo chất lượng truy xuất và câu trả lời một cách có hệ thống.</p>
+                <p class="meta">
+                    <span>Cấp độ: Trung cấp</span>
+                    <span>Thời gian: 25 phút</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Vì sao cần RAG</h2>
+<p>LLM chỉ biết dữ liệu huấn luyện, có mốc giới hạn kiến thức và có thể bịa đặt một cách tự tin. Retrieval-Augmented Generation (RAG) tìm các đoạn tài liệu liên quan khi câu hỏi đến và chèn chúng vào prompt để mô hình trả lời dựa trên các nguồn đó. Kiến thức có thể cập nhật mà không cần huấn luyện lại, và mỗi câu trả lời có thể kèm trích dẫn. Fine-tuning phù hợp để đổi phong cách hoặc định dạng câu trả lời; RAG phù hợp với kiến thức thay đổi thường xuyên, như chính sách công ty.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Chia đoạn, Embedding và Tìm kiếm Vector</h2>
+<p>Tài liệu được chia thành các chunk khoảng 200 đến 800 token, có chồng lấn nhỏ để câu không bị mất nghĩa. Mô hình embedding biến mỗi chunk thành vector, lưu trong cơ sở dữ liệu vector như pgvector, Qdrant hoặc FAISS. Câu hỏi cũng được biến thành vector, và hệ thống lấy ra top-k chunk có độ tương đồng cosine cao nhất. Tìm kiếm lai kết hợp vector với BM25 cho các thuật ngữ chính xác như mã sản phẩm, rồi reranker sắp xếp lại các ứng viên trước khi gửi cho mô hình.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Xây dựng Prompt và Trích dẫn</h2>
+<p>Đưa các chunk đã chọn vào prompt cùng ID và tiêu đề nguồn, rồi yêu cầu mô hình chỉ trả lời từ ngữ cảnh đó, ghi nguồn như [doc-3] và nói &quot;tôi không biết&quot; nếu không có câu trả lời. Ngữ cảnh quá dài tốn kém hơn và dễ khiến mô hình bỏ sót thông tin ở giữa, nên chỉ gửi những chunk liên quan nhất. Áp dụng bộ lọc metadata và quyền truy cập ngay khi truy xuất chứ không phải sau đó, để người dùng không bao giờ nhận được nội dung tài liệu mà họ không được phép xem.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Đánh giá Ứng dụng LLM</h2>
+<p>Xây dựng một golden dataset gồm vài chục đến vài trăm câu hỏi thật, kèm tài liệu nguồn và đáp án đúng. Đo truy xuất bằng recall@k và MRR: chunk đúng có được lấy ra không? Đo câu trả lời bằng faithfulness (mọi khẳng định đều có nguồn hỗ trợ) và answer relevance (thực sự trả lời câu hỏi). LLM-as-a-judge với tiêu chí rõ ràng giúp chấm nhanh hơn, nhưng hãy hiệu chỉnh nó bằng đánh giá của con người trước. Chạy các bài đánh giá này trong CI mỗi khi prompt, mô hình hoặc pipeline thay đổi, và theo dõi độ trễ cùng chi phí trong môi trường production.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=vi&amp;lesson=17">Mở phiên bản tương tác có bài kiểm tra và tiến độ</a></p>
+        <nav class="pager" aria-label="Tất cả mô-đun">
+            <a rel="prev" href="../ai-agents/"><small>Mô-đun trước</small>AI Agent: Mô hình Biết Hành động</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Phát triển bởi Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>
