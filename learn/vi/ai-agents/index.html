@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent: Mô hình Biết Hành động · Học AI</title>
+    <meta name="description" content="Hiểu cách LLM lập kế hoạch từng bước, gọi công cụ và hoàn thành nhiệm vụ trong giới hạn an toàn rõ ràng.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Agent: Mô hình Biết Hành động · Học AI">
+    <meta property="og:description" content="Hiểu cách LLM lập kế hoạch từng bước, gọi công cụ và hoàn thành nhiệm vụ trong giới hạn an toàn rõ ràng.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/",
+      "name": "AI Agent: Mô hình Biết Hành động",
+      "description": "Hiểu cách LLM lập kế hoạch từng bước, gọi công cụ và hoàn thành nhiệm vụ trong giới hạn an toàn rõ ràng.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/",
+      "inLanguage": "vi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Trung cấp",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Học AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Học AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Agent: Mô hình Biết Hành động",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/vi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Học AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Ngôn ngữ: Tiếng Việt</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Tất cả mô-đun</a> <span aria-hidden="true">/</span> <span>Học phần 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Học phần 16 / 17</p>
+                <h1>AI Agent: Mô hình Biết Hành động</h1>
+                <p class="lede">Hiểu cách LLM lập kế hoạch từng bước, gọi công cụ và hoàn thành nhiệm vụ trong giới hạn an toàn rõ ràng.</p>
+                <p class="meta">
+                    <span>Cấp độ: Trung cấp</span>
+                    <span>Thời gian: 25 phút</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Từ Chatbot đến Agent</h2>
+<p>Chatbot trả lời một tin nhắn rồi dừng. Agent chạy LLM trong một vòng lặp: đọc mục tiêu, chọn một bước, gọi công cụ, đọc kết quả rồi quyết định bước tiếp theo cho đến khi xong việc. Mẫu ReAct xen kẽ suy luận và hành động. Ví dụ: agent hỗ trợ khách hàng kiểm tra trạng thái đơn hàng, đọc chính sách đổi trả rồi chuẩn bị hoàn tiền. Chỉ dùng agent khi không thể định sẵn các bước; luồng cố định làm thành workflow thông thường sẽ rẻ hơn và dễ kiểm thử hơn.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Gọi Công cụ và Lược đồ Hàm</h2>
+<p>Mỗi công cụ được mô tả bằng tên, lời giải thích và JSON Schema cho tham số, ví dụ get_order(order_id: string). Mô hình không tự chạy mã; nó trả về một lời gọi có cấu trúc, ứng dụng kiểm tra tham số và thực thi, rồi gửi kết quả lại cho mô hình. Model Context Protocol (MCP) chuẩn hóa cách ứng dụng cung cấp công cụ và dữ liệu cho mô hình. Mô tả công cụ rõ ràng, tham số được kiểm tra và thông báo lỗi hữu ích thường quyết định thành công của agent nhiều hơn việc chọn mô hình.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Bộ nhớ, Lập kế hoạch và Đa Agent</h2>
+<p>Bộ nhớ ngắn hạn là lịch sử hội thoại trong cửa sổ ngữ cảnh; bộ nhớ dài hạn thường lưu trong cơ sở dữ liệu hoặc vector store và được truy xuất khi cần. Với nhiệm vụ dài, agent có thể chia mục tiêu thành kế hoạch từng bước và cập nhật sau mỗi kết quả. Mẫu điều phối-thực thi giao các nhiệm vụ con cho nhiều agent chạy song song, chẳng hạn nghiên cứu nhiều nguồn cùng lúc. Mỗi agent thêm vào làm tăng chi phí token, độ trễ và điểm lỗi, vì vậy hãy bắt đầu với một agent đơn giản.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> An toàn và Đánh giá Agent</h2>
+<p>Văn bản từ trang web, email hay tài liệu có thể chứa prompt injection khiến agent làm việc khác. Hãy cấp cho công cụ quyền tối thiểu, chạy mã trong sandbox, giới hạn số bước và ngân sách, và xin con người phê duyệt trước những hành động khó đảo ngược như chuyển tiền hay xóa dữ liệu. Lưu vết từng bước để kiểm toán. Đánh giá agent trên một tập nhiệm vụ thực tế và đo tỷ lệ thành công, số bước, chi phí và lỗi nghiêm trọng; các benchmark như SWE-bench và τ-bench cũng dùng cách tiếp cận này.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=vi&amp;lesson=16">Mở phiên bản tương tác có bài kiểm tra và tiến độ</a></p>
+        <nav class="pager" aria-label="Tất cả mô-đun">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>Mô-đun trước</small>AutoML và AI Không Mã</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>Mô-đun tiếp theo</small>RAG và Đánh giá Ứng dụng LLM</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Phát triển bởi Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

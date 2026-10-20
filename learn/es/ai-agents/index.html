@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentes de IA: Modelos que Actúan · Aprender IA</title>
+    <meta name="description" content="Comprende cómo los LLM planifican pasos, llaman herramientas y completan tareas dentro de límites de seguridad claros.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Agentes de IA: Modelos que Actúan · Aprender IA">
+    <meta property="og:description" content="Comprende cómo los LLM planifican pasos, llaman herramientas y completan tareas dentro de límites de seguridad claros.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="es">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/",
+      "name": "Agentes de IA: Modelos que Actúan",
+      "description": "Comprende cómo los LLM planifican pasos, llaman herramientas y completan tareas dentro de límites de seguridad claros.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/",
+      "inLanguage": "es",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Intermedio",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Aprender IA",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Aprender IA",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agentes de IA: Modelos que Actúan",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/es/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Aprender IA</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Idioma: Español</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es" aria-current="true">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Todos los módulos</a> <span aria-hidden="true">/</span> <span>Módulo 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Módulo 16 / 17</p>
+                <h1>Agentes de IA: Modelos que Actúan</h1>
+                <p class="lede">Comprende cómo los LLM planifican pasos, llaman herramientas y completan tareas dentro de límites de seguridad claros.</p>
+                <p class="meta">
+                    <span>Nivel: Intermedio</span>
+                    <span>Duración: 25 min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Del Chatbot al Agente</h2>
+<p>Un chatbot responde un mensaje y se detiene. Un agente ejecuta un LLM en bucle: lee el objetivo, elige un paso, llama a una herramienta, lee el resultado y decide el siguiente paso hasta terminar la tarea. El patrón ReAct alterna razonamiento y acción. Ejemplo: un agente de soporte consulta el estado de un pedido, lee la política de devoluciones y prepara un reembolso. Usa un agente solo cuando los pasos no se pueden fijar de antemano; un flujo fijo es más barato y fácil de probar como workflow normal.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Llamadas a Herramientas y Esquemas de Funciones</h2>
+<p>Cada herramienta se describe con un nombre, una explicación y un JSON Schema para sus argumentos, por ejemplo get_order(order_id: string). El modelo no ejecuta código por sí mismo: devuelve una llamada estructurada, la aplicación valida los argumentos y la ejecuta, y el resultado vuelve al modelo. El Model Context Protocol (MCP) estandariza cómo las aplicaciones ofrecen herramientas y datos a los modelos. Descripciones claras, argumentos validados y mensajes de error informativos suelen importar más que la elección del modelo.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Memoria, Planificación y Multiagentes</h2>
+<p>La memoria a corto plazo es el historial de la conversación en la ventana de contexto; la memoria a largo plazo suele guardarse en una base de datos o un vector store y se recupera cuando es relevante. En tareas largas, el agente puede dividir el objetivo en un plan por pasos y actualizarlo tras cada resultado. El patrón orquestador-trabajador reparte subtareas entre varios agentes en paralelo, por ejemplo para investigar varias fuentes a la vez. Cada agente extra suma coste de tokens, latencia y puntos de fallo, así que empieza con uno sencillo.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Seguridad y Evaluación de Agentes</h2>
+<p>El texto de páginas web, correos o documentos puede contener inyección de prompts que ordene al agente hacer otra cosa. Da a las herramientas el mínimo privilegio posible, ejecuta código en un sandbox, limita el número de pasos y el presupuesto, y pide aprobación humana antes de acciones difíciles de revertir, como transferir dinero o borrar datos. Guarda una traza de cada paso para auditoría. Evalúa los agentes con tareas reales y mide la tasa de éxito, los pasos, el coste y los errores graves; benchmarks como SWE-bench y τ-bench siguen el mismo enfoque.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=es&amp;lesson=16">Abrir la versión interactiva con cuestionario y progreso</a></p>
+        <nav class="pager" aria-label="Todos los módulos">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>Módulo anterior</small>AutoML e IA Sin Código</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>Módulo siguiente</small>RAG y Evaluación de Aplicaciones LLM</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Desarrollado por Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

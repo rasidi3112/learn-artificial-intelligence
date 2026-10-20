@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIエージェント：行動するモデル · AIを学ぶ</title>
+    <meta name="description" content="LLMが手順を計画し、ツールを呼び出し、明確な安全範囲の中でタスクを完了する仕組みを理解します。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AIエージェント：行動するモデル · AIを学ぶ">
+    <meta property="og:description" content="LLMが手順を計画し、ツールを呼び出し、明確な安全範囲の中でタスクを完了する仕組みを理解します。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/",
+      "name": "AIエージェント：行動するモデル",
+      "description": "LLMが手順を計画し、ツールを呼び出し、明確な安全範囲の中でタスクを完了する仕組みを理解します。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中級",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AIエージェント：行動するモデル",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 16 / 17</p>
+                <h1>AIエージェント：行動するモデル</h1>
+                <p class="lede">LLMが手順を計画し、ツールを呼び出し、明確な安全範囲の中でタスクを完了する仕組みを理解します。</p>
+                <p class="meta">
+                    <span>レベル: 中級</span>
+                    <span>所要時間: 25 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> チャットボットからエージェントへ</h2>
+<p>チャットボットは1つのメッセージに答えて終わります。エージェントはLLMをループの中で動かします。目標を読み、手順を選び、ツールを呼び出し、結果を読んで、タスクが終わるまで次の手順を決めます。ReActパターンは推論と行動を交互に行います。例えばサポート用エージェントは、注文状況を確認し、返品ポリシーを読み、返金を準備します。手順を事前に決められない場合だけエージェントを使いましょう。決まった流れなら通常のワークフローの方が安く、テストも簡単です。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> ツール呼び出しと関数スキーマ</h2>
+<p>各ツールは名前、説明、引数のJSON Schemaで記述します。例えばget_order(order_id: string)です。モデルが自らコードを実行することはありません。構造化された呼び出しを返し、アプリケーションが引数を検証して実行し、その結果をモデルに戻します。Model Context Protocol（MCP）は、アプリケーションがモデルにツールやデータを提供する方法を標準化します。分かりやすいツールの説明、検証済みの引数、役に立つエラーメッセージは、モデルの選択以上にエージェントの成否を左右することがよくあります。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> メモリ、計画、マルチエージェント</h2>
+<p>短期記憶はコンテキストウィンドウ内の会話履歴です。長期記憶は通常データベースやベクトルストアに保存し、必要なときに取り出します。長いタスクでは、エージェントが目標を段階的な計画に分解し、結果が出るたびに更新できます。オーケストレーター・ワーカー型は、サブタスクを並列に動く複数のエージェントに割り振ります。例えば複数の情報源を同時に調べる場合です。エージェントを1つ増やすごとにトークン費用、遅延、故障点が増えるので、まずはシンプルな1つのエージェントから始めましょう。</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> エージェントの安全性と評価</h2>
+<p>Webページ、メール、文書のテキストには、エージェントに別のことをさせようとするプロンプトインジェクションが含まれている場合があります。ツールの権限は最小限にし、コードはサンドボックスで実行し、手順数と予算に上限を設け、送金やデータ削除のように取り消しにくい操作の前には人間の承認を求めましょう。監査のために各手順のトレースを残します。エージェントは実際のタスク集合で評価し、成功率、手順数、コスト、重大なエラーを測ります。SWE-benchやτ-benchなどのベンチマークも同じ考え方です。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=16">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>前のモジュール</small>AutoMLとノーコードAI</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>次のモジュール</small>RAGとLLMアプリケーションの評価</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

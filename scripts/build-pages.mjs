@@ -41,7 +41,9 @@ export const SLUGS = {
     12: 'ai-for-business-and-industry',
     13: 'robotics-and-ai',
     14: 'edge-ai-and-iot',
-    15: 'automl-and-no-code-ai'
+    15: 'automl-and-no-code-ai',
+    16: 'ai-agents',
+    17: 'rag-and-llm-evaluation'
 };
 
 // The lesson whose page points readers to the playground.
@@ -90,11 +92,11 @@ export function loadContent(root = ROOT) {
     const stub = browserStub();
     const context = vm.createContext({ document: stub, window: stub, localStorage: stub, navigator: stub, matchMedia: stub, console });
     // Same order as index.html, so the merges in app.js and i18n-extra.js apply as they do in the browser.
-    const code = ['content-translations.js', 'app.js', 'i18n-extra.js']
+    const code = ['content-translations.js', 'quiz-translations.js', 'app.js', 'i18n-extra.js', 'lessons-agents-rag.js']
         .map(file => fs.readFileSync(path.join(root, file), 'utf8'))
         .join('\n;\n');
     vm.runInContext(
-        code + '\n;globalThis.__content = { LESSONS, translations, lessonTranslations, sectionTranslations, sectionContentTranslations };',
+        code + '\n;globalThis.__content = { LESSONS, QUIZ, translations, lessonTranslations, sectionTranslations, sectionContentTranslations, quizTranslations };',
         context,
         { filename: 'app-bundle.js' }
     );

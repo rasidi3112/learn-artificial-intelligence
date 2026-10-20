@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG dan Evaluasi Aplikasi LLM · Belajar AI</title>
+    <meta name="description" content="Membangun jawaban LLM yang berpijak pada dokumen Anda, lalu mengukur kualitas retrieval dan jawabannya secara sistematis.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG dan Evaluasi Aplikasi LLM · Belajar AI">
+    <meta property="og:description" content="Membangun jawaban LLM yang berpijak pada dokumen Anda, lalu mengukur kualitas retrieval dan jawabannya secara sistematis.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/",
+      "name": "RAG dan Evaluasi Aplikasi LLM",
+      "description": "Membangun jawaban LLM yang berpijak pada dokumen Anda, lalu mengukur kualitas retrieval dan jawabannya secara sistematis.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/",
+      "inLanguage": "id",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Menengah",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Belajar AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Belajar AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG dan Evaluasi Aplikasi LLM",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/id/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Belajar AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Bahasa: Bahasa Indonesia</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Semua modul</a> <span aria-hidden="true">/</span> <span>Modul 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 17 / 17</p>
+                <h1>RAG dan Evaluasi Aplikasi LLM</h1>
+                <p class="lede">Membangun jawaban LLM yang berpijak pada dokumen Anda, lalu mengukur kualitas retrieval dan jawabannya secara sistematis.</p>
+                <p class="meta">
+                    <span>Tingkat: Menengah</span>
+                    <span>Durasi: 25 menit</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Mengapa RAG</h2>
+<p>LLM hanya tahu isi data latihnya, punya batas tanggal pengetahuan, dan bisa berhalusinasi dengan percaya diri. Retrieval-Augmented Generation (RAG) mencari potongan dokumen yang relevan saat pertanyaan masuk, lalu menyisipkannya ke prompt agar model menjawab berdasarkan sumber itu. Hasilnya bisa diperbarui tanpa melatih ulang model, dan setiap jawaban dapat menyertakan sitasi. Fine-tuning lebih cocok untuk mengubah gaya atau format jawaban; RAG lebih cocok untuk pengetahuan yang sering berubah, seperti kebijakan perusahaan.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Chunking, Embedding, dan Vector Search</h2>
+<p>Dokumen dipecah menjadi chunk sekitar 200 sampai 800 token dengan sedikit overlap agar kalimat tidak terpotong maknanya. Setiap chunk diubah oleh model embedding menjadi vektor, lalu disimpan di vector database seperti pgvector, Qdrant, atau FAISS. Pertanyaan juga diubah menjadi vektor, dan sistem mengambil top-k chunk dengan cosine similarity tertinggi. Hybrid search menggabungkan pencarian vektor dengan BM25 untuk istilah persis seperti kode produk, lalu reranker mengurutkan ulang kandidat sebelum dikirim ke model.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Menyusun Prompt dan Sitasi</h2>
+<p>Masukkan chunk terpilih ke prompt beserta ID dan judul sumbernya, lalu instruksikan model untuk menjawab hanya dari konteks itu, menyebut sumber seperti [dok-3], dan berkata &quot;tidak tahu&quot; bila jawabannya tidak ada. Konteks yang terlalu panjang menambah biaya dan bisa membuat informasi di tengah terlewat, jadi kirim chunk yang paling relevan saja. Terapkan filter metadata dan hak akses saat retrieval, bukan setelahnya, agar pengguna tidak pernah menerima isi dokumen yang tidak boleh mereka lihat.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Mengevaluasi Aplikasi LLM</h2>
+<p>Buat golden dataset berisi puluhan sampai ratusan pertanyaan nyata beserta dokumen dan jawaban yang benar. Ukur retrieval dengan recall@k dan MRR: apakah chunk yang tepat ikut terambil? Ukur jawaban dengan faithfulness (semua klaim didukung sumber) dan answer relevance (benar-benar menjawab pertanyaan). LLM-as-a-judge dengan rubrik jelas mempercepat penilaian, tetapi kalibrasi dulu dengan penilaian manusia. Jalankan evaluasi ini di CI setiap kali prompt, model, atau pipeline berubah, dan pantau latensi serta biaya di produksi.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=id&amp;lesson=17">Buka versi interaktif dengan kuis dan progres</a></p>
+        <nav class="pager" aria-label="Semua modul">
+            <a rel="prev" href="../ai-agents/"><small>Modul sebelumnya</small>AI Agents: Model yang Bertindak</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Dikembangkan oleh Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

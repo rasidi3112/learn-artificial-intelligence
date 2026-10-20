@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI एजेंट: काम करने वाले मॉडल · AI सीखें</title>
+    <meta name="description" content="समझें कि LLM कैसे चरणों की योजना बनाते हैं, टूल कॉल करते हैं और साफ़ सुरक्षा सीमाओं में काम पूरा करते हैं।">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/ai-agents/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/ai-agents/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/ai-agents/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/ai-agents/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/ai-agents/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/ai-agents/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/ai-agents/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/ai-agents/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/ai-agents/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/ai-agents/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/ai-agents/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/ai-agents/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/ai-agents/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-agents/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI एजेंट: काम करने वाले मॉडल · AI सीखें">
+    <meta property="og:description" content="समझें कि LLM कैसे चरणों की योजना बनाते हैं, टूल कॉल करते हैं और साफ़ सुरक्षा सीमाओं में काम पूरा करते हैं।">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="hi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/",
+      "name": "AI एजेंट: काम करने वाले मॉडल",
+      "description": "समझें कि LLM कैसे चरणों की योजना बनाते हैं, टूल कॉल करते हैं और साफ़ सुरक्षा सीमाओं में काम पूरा करते हैं।",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/",
+      "inLanguage": "hi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "मध्यवर्ती",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI सीखें",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/"
+      },
+      "position": 16
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI सीखें",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI एजेंट: काम करने वाले मॉडल",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/ai-agents/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/hi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI सीखें</span>
+        </a>
+        <details class="lang-menu">
+            <summary>भाषा: हिन्दी</summary>
+            <ul>
+                <li><a href="../../../learn/id/ai-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/ai-agents/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/ai-agents/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/ai-agents/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/ai-agents/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/ai-agents/" hreflang="hi" lang="hi" aria-current="true">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/ai-agents/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/ai-agents/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/ai-agents/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/ai-agents/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/ai-agents/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/ai-agents/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/ai-agents/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/ai-agents/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/ai-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">सभी मॉड्यूल</a> <span aria-hidden="true">/</span> <span>मॉड्यूल 16</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">मॉड्यूल 16 / 17</p>
+                <h1>AI एजेंट: काम करने वाले मॉडल</h1>
+                <p class="lede">समझें कि LLM कैसे चरणों की योजना बनाते हैं, टूल कॉल करते हैं और साफ़ सुरक्षा सीमाओं में काम पूरा करते हैं।</p>
+                <p class="meta">
+                    <span>स्तर: मध्यवर्ती</span>
+                    <span>अवधि: 25 मिनट</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> चैटबॉट से एजेंट तक</h2>
+<p>चैटबॉट एक संदेश का जवाब देकर रुक जाता है। एजेंट LLM को एक लूप में चलाता है: लक्ष्य पढ़ता है, एक कदम चुनता है, टूल कॉल करता है, नतीजा पढ़ता है और काम पूरा होने तक अगला कदम तय करता है। ReAct पैटर्न तर्क और कार्रवाई को बारी-बारी से चलाता है। उदाहरण: सपोर्ट एजेंट ऑर्डर की स्थिति देखता है, रिटर्न नीति पढ़ता है, फिर रिफ़ंड तैयार करता है। एजेंट तभी इस्तेमाल करें जब कदम पहले से तय न हो सकें; तय प्रवाह को सामान्य वर्कफ़्लो बनाना सस्ता और जाँचने में आसान है।</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> टूल कॉलिंग और फ़ंक्शन स्कीमा</h2>
+<p>हर टूल का नाम, विवरण और उसके आर्गुमेंट के लिए JSON Schema होता है, जैसे get_order(order_id: string)। मॉडल खुद कोड नहीं चलाता; वह एक संरचित कॉल लौटाता है, ऐप्लिकेशन आर्गुमेंट जाँचकर उसे चलाता है और नतीजा मॉडल को वापस भेजता है। Model Context Protocol (MCP) मानकीकृत करता है कि ऐप्लिकेशन मॉडल को टूल और डेटा कैसे दें। साफ़ टूल विवरण, जाँचे गए आर्गुमेंट और उपयोगी एरर संदेश अक्सर मॉडल के चुनाव से ज़्यादा एजेंट की सफलता तय करते हैं।</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> मेमोरी, प्लानिंग और मल्टी-एजेंट</h2>
+<p>शॉर्ट-टर्म मेमोरी कॉन्टेक्स्ट विंडो में बातचीत का इतिहास है; लॉन्ग-टर्म मेमोरी आमतौर पर डेटाबेस या वेक्टर स्टोर में रहती है और ज़रूरत पड़ने पर निकाली जाती है। लंबे कामों में एजेंट लक्ष्य को चरणबद्ध योजना में बाँट सकता है और हर नतीजे के बाद उसे अपडेट कर सकता है। ऑर्केस्ट्रेटर-वर्कर पैटर्न उप-कार्यों को समानांतर चलने वाले कई एजेंटों में बाँटता है, जैसे एक साथ कई स्रोतों पर शोध। हर अतिरिक्त एजेंट टोकन लागत, देरी और विफलता के बिंदु बढ़ाता है, इसलिए एक सरल एजेंट से शुरू करें।</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> एजेंट की सुरक्षा और मूल्यांकन</h2>
+<p>वेब पेज, ईमेल या दस्तावेज़ के टेक्स्ट में प्रॉम्प्ट इंजेक्शन हो सकता है जो एजेंट से कुछ और करवाना चाहे। टूल को न्यूनतम अधिकार दें, कोड को सैंडबॉक्स में चलाएँ, कदमों और बजट की सीमा रखें, और पैसे ट्रांसफ़र करने या डेटा हटाने जैसे मुश्किल से पलटे जाने वाले कामों से पहले इंसान की मंज़ूरी लें। ऑडिट के लिए हर कदम का ट्रेस रखें। एजेंट को असली कार्यों के सेट पर परखें और सफलता दर, कदमों की संख्या, लागत और गंभीर गलतियाँ मापें; SWE-bench और τ-bench जैसे बेंचमार्क भी यही तरीका अपनाते हैं।</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=hi&amp;lesson=16">क्विज़ और प्रगति के साथ इंटरैक्टिव संस्करण खोलें</a></p>
+        <nav class="pager" aria-label="सभी मॉड्यूल">
+            <a rel="prev" href="../automl-and-no-code-ai/"><small>पिछला मॉड्यूल</small>AutoML और नो-कोड AI</a>
+            <a rel="next" href="../rag-and-llm-evaluation/"><small>अगला मॉड्यूल</small>RAG और LLM ऐप्लिकेशन का मूल्यांकन</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>द्वारा विकसित Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

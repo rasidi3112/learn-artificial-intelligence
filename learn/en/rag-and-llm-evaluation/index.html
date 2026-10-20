@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG &amp; LLM Application Evaluation · Learn AI</title>
+    <meta name="description" content="Ground LLM answers in your own documents, then measure retrieval and answer quality systematically.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/rag-and-llm-evaluation/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/rag-and-llm-evaluation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG &amp; LLM Application Evaluation · Learn AI">
+    <meta property="og:description" content="Ground LLM answers in your own documents, then measure retrieval and answer quality systematically.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="en">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/",
+      "name": "RAG & LLM Application Evaluation",
+      "description": "Ground LLM answers in your own documents, then measure retrieval and answer quality systematically.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/",
+      "inLanguage": "en",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Intermediate",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Learn AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/"
+      },
+      "position": 17
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Learn AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RAG & LLM Application Evaluation",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/rag-and-llm-evaluation/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/en/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Learn AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Language: English</summary>
+            <ul>
+                <li><a href="../../../learn/id/rag-and-llm-evaluation/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/rag-and-llm-evaluation/" hreflang="en" lang="en" aria-current="true">English</a></li>
+                <li><a href="../../../learn/zh/rag-and-llm-evaluation/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/rag-and-llm-evaluation/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/rag-and-llm-evaluation/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/rag-and-llm-evaluation/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/rag-and-llm-evaluation/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/rag-and-llm-evaluation/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/rag-and-llm-evaluation/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/rag-and-llm-evaluation/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/rag-and-llm-evaluation/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/rag-and-llm-evaluation/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/rag-and-llm-evaluation/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/rag-and-llm-evaluation/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/rag-and-llm-evaluation/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">All modules</a> <span aria-hidden="true">/</span> <span>Module 17</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Module 17 / 17</p>
+                <h1>RAG &amp; LLM Application Evaluation</h1>
+                <p class="lede">Ground LLM answers in your own documents, then measure retrieval and answer quality systematically.</p>
+                <p class="meta">
+                    <span>Level: Intermediate</span>
+                    <span>Duration: 25 min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Why RAG</h2>
+<p>An LLM only knows its training data, has a knowledge cutoff and can hallucinate with confidence. Retrieval-Augmented Generation (RAG) searches for relevant document passages when a question arrives and inserts them into the prompt, so the model answers from those sources. Knowledge can be updated without retraining, and every answer can carry citations. Fine-tuning suits changing the style or format of answers; RAG suits knowledge that changes often, such as company policies.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Chunking, Embeddings and Vector Search</h2>
+<p>Documents are split into chunks of roughly 200 to 800 tokens with a little overlap so sentences keep their meaning. An embedding model turns each chunk into a vector, stored in a vector database such as pgvector, Qdrant or FAISS. The question is embedded too, and the system retrieves the top-k chunks with the highest cosine similarity. Hybrid search combines vector search with BM25 for exact terms such as product codes, and a reranker reorders the candidates before they reach the model.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Building the Prompt and Citations</h2>
+<p>Put the selected chunks in the prompt with their IDs and source titles, then instruct the model to answer only from that context, cite sources such as [doc-3], and say &quot;I don&#39;t know&quot; when the answer is not there. Very long context costs more and can make the model miss information in the middle, so send only the most relevant chunks. Apply metadata and access-control filters during retrieval, not afterwards, so users never receive content from documents they are not allowed to see.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Evaluating LLM Applications</h2>
+<p>Build a golden dataset of dozens to hundreds of real questions with their source documents and correct answers. Measure retrieval with recall@k and MRR: was the right chunk retrieved at all? Measure answers with faithfulness (every claim is supported by the sources) and answer relevance (it actually answers the question). LLM-as-a-judge with a clear rubric speeds up grading, but calibrate it against human ratings first. Run these evaluations in CI whenever the prompt, model or pipeline changes, and monitor latency and cost in production.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=en&amp;lesson=17">Open the interactive version with quiz and progress</a></p>
+        <nav class="pager" aria-label="All modules">
+            <a rel="prev" href="../ai-agents/"><small>Previous module</small>AI Agents: Models That Act</a>
+            <span></span>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Developed by Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

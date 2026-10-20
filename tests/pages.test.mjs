@@ -93,6 +93,32 @@ test('renderBody turns plain text into paragraphs and lists', () => {
     assert.equal(renderBody('<b>&'), '<p>&lt;b&gt;&amp;</p>');
 });
 
+test('every lesson is fully translated in every language', () => {
+    for (const lesson of content.LESSONS) {
+        for (const lang of LANGS.filter(code => code !== 'id')) {
+            const meta = content.lessonTranslations[lang]?.[lesson.id];
+            assert.ok(meta?.title && meta?.desc, `${lang}/${lesson.id}: title and description`);
+            const titles = content.sectionTranslations[lang]?.[lesson.id] || [];
+            const bodies = content.sectionContentTranslations[lang]?.[lesson.id] || [];
+            assert.equal(bodies.length, lesson.sections.length, `${lang}/${lesson.id}: section bodies`);
+            assert.ok(titles.length >= lesson.sections.length, `${lang}/${lesson.id}: section titles`);
+        }
+    }
+});
+
+test('quiz translations stay index-aligned with the quiz', () => {
+    for (const lang of LANGS.filter(code => code !== 'id')) {
+        const entries = content.quizTranslations[lang];
+        assert.equal(entries.length, content.QUIZ.length, `${lang}: one entry per question`);
+        entries.forEach((entry, i) => {
+            if (Array.isArray(entry)) assert.equal(entry[1].length, content.QUIZ[i].opts.length, `${lang} question ${i + 1}: options`);
+        });
+    }
+    for (const question of content.QUIZ) {
+        assert.ok(question.ans >= 0 && question.ans < question.opts.length, question.q);
+    }
+});
+
 test('one playground page per language, with the SEO essentials', () => {
     for (const relative of playgroundFiles) {
         const html = files[relative];
