@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning y Redes Neuronales · Aprender IA</title>
+    <meta name="description" content="Introducción al aprendizaje profundo y al funcionamiento de las redes neuronales.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Deep Learning y Redes Neuronales · Aprender IA">
+    <meta property="og:description" content="Introducción al aprendizaje profundo y al funcionamiento de las redes neuronales.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="es">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/",
+      "name": "Deep Learning y Redes Neuronales",
+      "description": "Introducción al aprendizaje profundo y al funcionamiento de las redes neuronales.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/",
+      "inLanguage": "es",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Avanzado",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Aprender IA",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+      },
+      "position": 3
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Aprender IA",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Deep Learning y Redes Neuronales",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/es/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Aprender IA</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Idioma: Español</summary>
+            <ul>
+                <li><a href="../../../learn/id/deep-learning-neural-networks/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/deep-learning-neural-networks/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/deep-learning-neural-networks/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/deep-learning-neural-networks/" hreflang="es" lang="es" aria-current="true">Español</a></li>
+                <li><a href="../../../learn/ar/deep-learning-neural-networks/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/deep-learning-neural-networks/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/deep-learning-neural-networks/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/deep-learning-neural-networks/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/deep-learning-neural-networks/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/deep-learning-neural-networks/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/deep-learning-neural-networks/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/deep-learning-neural-networks/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/deep-learning-neural-networks/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/deep-learning-neural-networks/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/deep-learning-neural-networks/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Todos los módulos</a> <span aria-hidden="true">/</span> <span>Módulo 03</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Módulo 03 / 15</p>
+                <h1>Deep Learning y Redes Neuronales</h1>
+                <p class="lede">Introducción al aprendizaje profundo y al funcionamiento de las redes neuronales.</p>
+                <p class="meta">
+                    <span>Nivel: Avanzado</span>
+                    <span>Duración: 25 min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> ¿Qué es Deep Learning?</h2>
+<p>Deep Learning es un subconjunto de Machine Learning que utiliza redes neuronales con muchas capas (redes neuronales profundas) para aprender representaciones jerárquicas de datos. Es muy efectivo para tareas complejas como reconocimiento de imágenes y procesamiento de lenguaje.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Estructura de Redes Neuronales</h2>
+<p>Una Red Neuronal consta de tres componentes principales:</p>
+<ol><li>Capa de Entrada: Recibe los datos</li><li>Capas Ocultas: Procesa datos mediante transformaciones no lineales</li><li>Capa de Salida: Produce las predicciones finales</li></ol>
+<p>Cada neurona está conectada a la siguiente capa mediante pesos.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Funcionamiento</h2>
+<p>Propagación Hacia Adelante:<br>1. La entrada se recibe en la capa de entrada<br>2. Los datos se multiplican por los pesos y se añade sesgo<br>3. El resultado pasa por la función de activación (ReLU, Sigmoid, Tanh)<br>4. El proceso continúa hasta la salida</p>
+<p>Retropropagación:<br>1. Calcular el error (pérdida) en la salida<br>2. Propagar el error a capas anteriores<br>3. Actualizar pesos usando descenso de gradiente<br>4. El proceso se repite hasta la convergencia</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Arquitecturas</h2>
+<p>CNN (Red Neuronal Convolucional):<br>- Para datos en forma de cuadrícula (imágenes)<br>- Aplicaciones: Clasificación de imágenes, detección de objetos</p>
+<p>RNN (Red Neuronal Recurrente):<br>- Para datos secuenciales (texto, series temporales)<br>- Variantes: LSTM, GRU</p>
+<p>Transformer:<br>- Arquitectura moderna para NLP<br>- Ejemplos: BERT, GPT, ChatGPT</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> Frameworks</h2>
+<ol><li>TensorFlow (Google)</li><li>PyTorch (Meta/Facebook)</li><li>Keras</li><li>JAX (Google)</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> Desafíos</h2>
+<ul><li>Requiere grandes cantidades de datos</li><li>Intensivo computacionalmente (requiere GPU/TPU)</li><li>Sobreajuste en conjuntos de datos pequeños</li><li>Baja interpretabilidad</li></ul>
+<p>Soluciones:<br>- Transfer Learning<br>- Aumento de Datos<br>- Regularización (Dropout, L1/L2)<br>- Parada Temprana</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=es&amp;lesson=3">Abrir la versión interactiva con cuestionario y progreso</a></p>
+        <nav class="pager" aria-label="Todos los módulos">
+            <a rel="prev" href="../machine-learning-basics/"><small>Módulo anterior</small>Fundamentos de Machine Learning</a>
+            <a rel="next" href="../natural-language-processing/"><small>Módulo siguiente</small>Procesamiento de Lenguaje Natural</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Desarrollado por Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

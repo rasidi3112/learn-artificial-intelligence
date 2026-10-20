@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tăng cường · Học AI</title>
+    <meta name="description" content="Tìm hiểu cách tác tử AI ra quyết định qua phần thưởng, mô phỏng và đánh giá chính sách.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Học Tăng cường · Học AI">
+    <meta property="og:description" content="Tìm hiểu cách tác tử AI ra quyết định qua phần thưởng, mô phỏng và đánh giá chính sách.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/",
+      "name": "Học Tăng cường",
+      "description": "Tìm hiểu cách tác tử AI ra quyết định qua phần thưởng, mô phỏng và đánh giá chính sách.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/",
+      "inLanguage": "vi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Nâng cao",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Học AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Học AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Học Tăng cường",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/vi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Học AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Ngôn ngữ: Tiếng Việt</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Tất cả mô-đun</a> <span aria-hidden="true">/</span> <span>Học phần 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Học phần 09 / 15</p>
+                <h1>Học Tăng cường</h1>
+                <p class="lede">Tìm hiểu cách tác tử AI ra quyết định qua phần thưởng, mô phỏng và đánh giá chính sách.</p>
+                <p class="meta">
+                    <span>Cấp độ: Nâng cao</span>
+                    <span>Thời gian: 28 phút</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Bài toán Quyết định Tuần tự</h2>
+<p>Học tăng cường mô hình hóa quyết định như một Quy trình Quyết định Markov: tác tử quan sát trạng thái, chọn hành động rồi nhận phần thưởng và trạng thái mới. Policy π(a|s) chọn hành động, còn γ cân bằng phần thưởng tương lai. Trong CartPole của Gymnasium, tác tử nhận +1 khi cột vẫn đứng.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Hàm Giá trị và Q-Learning</h2>
+<p>RL dựa trên giá trị ước tính giá trị dài hạn của trạng thái hoặc cặp trạng thái-hành động. Q-learning cập nhật Q(s,a) theo α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy đôi khi thử hành động ngẫu nhiên; DQN dùng mạng nơ-ron, replay buffer và target network thay cho bảng.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Từ Policy Gradient đến PPO</h2>
+<p>Với hành động liên tục như góc cánh tay robot, policy có thể xuất ra phân phối hành động. REINFORCE học từ phần thưởng episode, actor-critic thêm bộ ước lượng giá trị, còn PPO giới hạn mức thay đổi của policy mỗi lần cập nhật. Stable-Baselines3 có các bản triển khai PPO, DQN và SAC.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Thiết kế Phần thưởng và Đánh giá</h2>
+<p>Phần thưởng thiết kế sai có thể tối ưu chỉ số nhưng bỏ lỡ mục tiêu thật. Với robot kho, hãy phạt va chạm, năng lượng và thời gian chờ thay vì chỉ thưởng tốc độ. So sánh nhiều random seed trong môi trường đánh giá riêng, rồi dùng MuJoCo hoặc Isaac Sim, giới hạn hành động và nút dừng khẩn cấp trước khi chạy phần cứng.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=vi&amp;lesson=9">Mở phiên bản tương tác có bài kiểm tra và tiến độ</a></p>
+        <nav class="pager" aria-label="Tất cả mô-đun">
+            <a rel="prev" href="../ai-career-guide/"><small>Mô-đun trước</small>Hướng Dẫn Nghề Nghiệp AI</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>Mô-đun tiếp theo</small>AI Tạo sinh và Mô hình Ngôn ngữ Lớn</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Phát triển bởi Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

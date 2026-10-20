@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机器学习基础 · 学习 AI</title>
+    <meta name="description" content="理解机器学习的概念，以及监督学习与无监督学习。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="机器学习基础 · 学习 AI">
+    <meta property="og:description" content="理解机器学习的概念，以及监督学习与无监督学习。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="zh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/",
+      "name": "机器学习基础",
+      "description": "理解机器学习的概念，以及监督学习与无监督学习。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/",
+      "inLanguage": "zh",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中级",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "学习 AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "学习 AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "机器学习基础",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/zh/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>学习 AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>语言: 中文</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">全部模块</a> <span aria-hidden="true">/</span> <span>模块 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">模块 02 / 15</p>
+                <h1>机器学习基础</h1>
+                <p class="lede">理解机器学习的概念，以及监督学习与无监督学习。</p>
+                <p class="meta">
+                    <span>等级: 中级</span>
+                    <span>时长: 20 分钟</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 什么是机器学习？</h2>
+<p>机器学习（ML）是AI的一个分支，它使计算机能够在没有为每个任务明确编程的情况下学习和做出决策。ML系统使用算法识别数据中的模式，并根据这些模式进行预测或决策。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 监督学习</h2>
+<p>监督学习是使用标记数据训练模型的方法。模型从输入-输出对中学习，以对新数据进行预测。</p>
+<p>算法示例：<br>- 线性回归：预测连续值（房价）<br>- 逻辑回归：二分类（垃圾邮件/非垃圾邮件）<br>- 决策树：基于规则的决策<br>- 随机森林：决策树的集成<br>- 支持向量机（SVM）：最优间隔分类<br>- 神经网络：受大脑启发的模型</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 无监督学习</h2>
+<p>无监督学习是模型在未标记数据中发现模式的方法。</p>
+<p>算法示例：<br>- K-Means聚类：按相似性分组数据<br>- 层次聚类：多级分组<br>- 主成分分析（PCA）：降维<br>- 关联规则：发现项目间关系<br>- 异常检测：检测异常值</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 强化学习</h2>
+<p>强化学习是智能体通过与环境互动来学习的方法。智能体根据其行为获得奖励或惩罚，并学习最大化奖励。</p>
+<p>应用：<br>- 游戏AI（AlphaGo、OpenAI Five）<br>- 机器人导航<br>- 推荐系统<br>- 自动交易<br>- 自动驾驶车辆控制</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> 机器学习流程</h2>
+<ol><li>数据收集：收集相关数据</li><li>预处理：清理和准备数据</li><li>特征工程：选择和创建重要特征</li><li>模型选择：选择适当的算法</li><li>训练：用数据训练模型</li><li>评估：测试模型性能</li><li>调优：优化超参数</li><li>部署：将模型部署到生产环境</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 评估指标</h2>
+<p>分类：<br>- 准确率：正确预测的百分比<br>- 精确率：正预测的正确性<br>- 召回率：找到所有正例的能力<br>- F1分数：精确率和召回率的调和平均</p>
+<p>回归：<br>- 平均绝对误差（MAE）<br>- 均方误差（MSE）<br>- R平方（R²）</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=zh&amp;lesson=2">打开带测验和进度的互动版本</a></p>
+        <nav class="pager" aria-label="全部模块">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>上一模块</small>什么是人工智能？</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>下一模块</small>深度学习与神经网络</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>开发者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

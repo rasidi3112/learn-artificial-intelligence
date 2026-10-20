@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>強化学習 · AIを学ぶ</title>
+    <meta name="description" content="報酬、シミュレーション、方策評価を通じてAIエージェントが意思決定する方法を学びます。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="強化学習 · AIを学ぶ">
+    <meta property="og:description" content="報酬、シミュレーション、方策評価を通じてAIエージェントが意思決定する方法を学びます。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/",
+      "name": "強化学習",
+      "description": "報酬、シミュレーション、方策評価を通じてAIエージェントが意思決定する方法を学びます。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "上級",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "強化学習",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 09 / 15</p>
+                <h1>強化学習</h1>
+                <p class="lede">報酬、シミュレーション、方策評価を通じてAIエージェントが意思決定する方法を学びます。</p>
+                <p class="meta">
+                    <span>レベル: 上級</span>
+                    <span>所要時間: 28 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 逐次意思決定問題</h2>
+<p>強化学習（RL）は意思決定をマルコフ決定過程として扱います。エージェントは状態を観測して行動を選び、報酬と次の状態を受け取ります。方策 π(a|s) が行動を選び、割引率 γ が将来の報酬を重み付けします。Gymnasium の CartPole では棒が立っている間、毎ステップ +1 です。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 価値関数とQ学習</h2>
+<p>価値ベースの RL は状態や状態・行動ペアの長期的な価値を推定します。Q-learning は α[r + γ max Q(s′,a′) − Q(s,a)] で Q を更新します。ε-greedy は時々ランダムな行動を試し、DQN は表をニューラルネットワークに置き換え、replay buffer と target network を使います。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 方策勾配からPPOへ</h2>
+<p>ロボットアームの角度のような連続行動では、方策が行動分布を出力できます。REINFORCE はエピソード報酬から学習し、actor-critic は価値推定器を加え、PPO は更新ごとの方策変化を制限します。Stable-Baselines3 には PPO、DQN、SAC の実装があります。</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 報酬設計と評価</h2>
+<p>報酬設計を誤ると、数値だけを最適化して本来の目的を失います。倉庫ロボットには速度だけでなく衝突、エネルギー、待ち時間のペナルティを加えます。複数の random seed と別の評価環境を使い、実機の前に MuJoCo や Isaac Sim、行動制限、非常停止を検証します。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=9">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../ai-career-guide/"><small>前のモジュール</small>AI分野のキャリアガイド</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>次のモジュール</small>生成AIと大規模言語モデル</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

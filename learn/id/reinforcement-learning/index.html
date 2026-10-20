@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinforcement Learning · Belajar AI</title>
+    <meta name="description" content="Pelajari cara agen AI mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reinforcement Learning · Belajar AI">
+    <meta property="og:description" content="Pelajari cara agen AI mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/",
+      "name": "Reinforcement Learning",
+      "description": "Pelajari cara agen AI mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/",
+      "inLanguage": "id",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Lanjut",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Belajar AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Belajar AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reinforcement Learning",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/id/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Belajar AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Bahasa: Bahasa Indonesia</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Semua modul</a> <span aria-hidden="true">/</span> <span>Modul 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 09 / 15</p>
+                <h1>Reinforcement Learning</h1>
+                <p class="lede">Pelajari cara agen AI mengambil keputusan melalui reward, simulasi, dan evaluasi kebijakan.</p>
+                <p class="meta">
+                    <span>Tingkat: Lanjut</span>
+                    <span>Durasi: 28 menit</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Masalah Keputusan Berurutan</h2>
+<p>Reinforcement Learning (RL) memodelkan pengambilan keputusan sebagai Markov Decision Process (MDP): agen mengamati state, memilih action, lalu menerima reward dan state berikutnya. Policy π(a|s) menentukan tindakan; discount factor γ menimbang reward masa depan. Dalam CartPole dari Gymnasium, agen mendapat +1 pada setiap langkah saat tiang tetap tegak. Berbeda dari supervised learning, RL tidak diberi jawaban benar untuk setiap state; agen harus mengeksplorasi konsekuensi tindakannya.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Value Function dan Q-Learning</h2>
+<p>Value-based RL memperkirakan nilai jangka panjang dari state atau pasangan state-action. Q-learning memperbarui tabel atau jaringan Q dengan aturan: Q(s,a) ← Q(s,a) + α[r + γ max Q(s′,a′) − Q(s,a)]. Strategi ε-greedy kadang memilih action acak agar agen tidak terjebak pada pilihan yang tampak baik terlalu dini. Deep Q-Network (DQN) mengganti tabel dengan neural network, lalu memakai replay buffer dan target network agar training pada game Atari lebih stabil.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Policy Gradient hingga PPO</h2>
+<p>Untuk action kontinu, misalnya sudut motor lengan robot, policy dapat langsung menghasilkan distribusi action. REINFORCE memperbarui parameter policy dari reward episode, sedangkan actor-critic menambahkan critic untuk memperkirakan value dan mengurangi varians gradient. Proximal Policy Optimization (PPO) membatasi besar perubahan policy pada tiap update; Soft Actor-Critic (SAC) sering dipakai untuk kontrol kontinu karena juga mendorong eksplorasi melalui entropy. Stable-Baselines3 menyediakan implementasi PPO, DQN, dan SAC untuk eksperimen awal.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Merancang Reward dan Evaluasi</h2>
+<p>Reward yang keliru dapat menghasilkan perilaku yang lolos angka metrik tetapi gagal pada tujuan nyata. Robot gudang yang hanya diberi reward kecepatan dapat memilih jalur berbahaya; tambahkan penalti tabrakan, konsumsi energi, dan waktu tunggu. Latih beberapa random seed, pisahkan environment evaluasi, dan catat rata-rata return serta tingkat keberhasilan, bukan hanya episode terbaik. Untuk robot fisik, mulai dari simulasi seperti MuJoCo atau Isaac Sim, lakukan domain randomization, lalu batasi action dan sediakan emergency stop saat pemindahan ke perangkat nyata.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=id&amp;lesson=9">Buka versi interaktif dengan kuis dan progres</a></p>
+        <nav class="pager" aria-label="Semua modul">
+            <a rel="prev" href="../ai-career-guide/"><small>Modul sebelumnya</small>Panduan Karir di Bidang AI</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>Modul berikutnya</small>Generative AI &amp; Large Language Models</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Dikembangkan oleh Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンピュータビジョン · AIを学ぶ</title>
+    <meta name="description" content="画像や動画を認識・処理するためのAI技術。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/computer-vision/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/computer-vision/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/computer-vision/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/computer-vision/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/computer-vision/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/computer-vision/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/computer-vision/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/computer-vision/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/computer-vision/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/computer-vision/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/computer-vision/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/computer-vision/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/computer-vision/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/computer-vision/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/computer-vision/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="コンピュータビジョン · AIを学ぶ">
+    <meta property="og:description" content="画像や動画を認識・処理するためのAI技術。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/",
+      "name": "コンピュータビジョン",
+      "description": "画像や動画を認識・処理するためのAI技術。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "上級",
+      "timeRequired": "PT22M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 5
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "コンピュータビジョン",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/computer-vision/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/computer-vision/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/computer-vision/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/computer-vision/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/computer-vision/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/computer-vision/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/computer-vision/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/computer-vision/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/computer-vision/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/computer-vision/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/computer-vision/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/computer-vision/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/computer-vision/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/computer-vision/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/computer-vision/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/computer-vision/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 05</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 05 / 15</p>
+                <h1>コンピュータビジョン</h1>
+                <p class="lede">画像や動画を認識・処理するためのAI技術。</p>
+                <p class="meta">
+                    <span>レベル: 上級</span>
+                    <span>所要時間: 22 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> コンピュータビジョン入門</h2>
+<p>コンピュータビジョンは、コンピューターが画像やビデオなどの現実世界の視覚情報を解釈し理解することを可能にするAIの分野です。この技術は人間が視覚情報を見て処理する方法を模倣しています。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 画像処理</h2>
+<ol><li>画像取得：カメラ/センサーから画像をキャプチャ</li><li>前処理：リサイズ、正規化、拡張</li><li>特徴抽出：重要な特徴の抽出</li><li>モデル推論：予測のためのモデル実行</li><li>後処理：結果の処理（検出のNMS）</li></ol>
+<p>前処理技術：<br>- グレースケール変換<br>- ヒストグラム均等化<br>- ノイズ除去<br>- エッジ検出（Sobel、Canny）<br>- 画像拡張（反転、回転、切り取り）</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> CVタスク</h2>
+<p>画像分類：<br>- 画像をクラスに分類<br>- 例：猫vs犬、植物の種類</p>
+<p>物体検出：<br>- 画像内の物体を検出し位置を特定<br>- アルゴリズム：YOLO、SSD、Faster R-CNN</p>
+<p>セマンティックセグメンテーション：<br>- 各ピクセルを分類<br>- 例：自動運転車の道路セグメンテーション</p>
+<p>インスタンスセグメンテーション：<br>- セグメンテーション＋物体インスタンスの区別<br>- アルゴリズム：Mask R-CNN</p>
+<p>姿勢推定：<br>- 人体の位置を検出<br>- 例：OpenPose、MediaPipe</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> アーキテクチャ</h2>
+<p>LeNet（1998）：手書き数字認識のパイオニアCNN</p>
+<p>AlexNet（2012）：ImageNetでのブレークスルー、ReLU活性化</p>
+<p>VGGNet（2014）：3x3畳み込みによる深いネットワーク</p>
+<p>GoogLeNet/Inception（2014）：効率的なInceptionモジュール</p>
+<p>ResNet（2015）：非常に深いネットワークのためのスキップ接続</p>
+<p>EfficientNet（2019）：精度と効率のバランスのとれたスケーリング</p>
+<p>Vision Transformer（2020）：画像向けTransformer</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> 実用例</h2>
+<ol><li>自動運転車：Tesla、Waymo</li><li>顔認識：Face ID、セキュリティ</li><li>医用画像：がん検出、X線分析</li><li>拡張現実：ARフィルター、ポケモンGO</li><li>品質管理：工場での製品検査</li><li>農業：植物病害検出、ドローン監視</li><li>小売：Amazon Go（無人店舗）</li><li>スポーツ分析：選手追跡、パフォーマンス分析</li><li>文書処理：OCR、デジタル化</li><li>セキュリティ：監視、異常検出</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 課題</h2>
+<p>OpenCV：<br>- コンピュータビジョン用オープンソースライブラリ<br>- C++、Python、Javaをサポート<br>- 機能：画像処理、ビデオキャプチャ、物体検出</p>
+<p>MediaPipe（Google）：<br>- 顔検出、手の追跡、姿勢推定<br>- デバイス上のリアルタイムに最適化</p>
+<p>Torchvision（PyTorch）：<br>- データセット、変換、事前学習モデル</p>
+<p>TensorFlow Hub：<br>- 事前学習モデルリポジトリ</p>
+<p>Hugging Face：<br>- Vision Transformerとマルチモーダルモデル</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=5">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../natural-language-processing/"><small>前のモジュール</small>自然言語処理（NLP）</a>
+            <a rel="next" href="../prompt-engineering-basics/"><small>次のモジュール</small>プロンプトエンジニアリング基礎</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

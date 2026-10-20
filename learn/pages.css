@@ -1,0 +1,357 @@
+/* ==========================================================================
+   Belajar AI: static lesson pages
+   A small, script-free companion to styles.css. Same paper-and-ink palette,
+   serif for reading, sans for interface, mono for metadata.
+   ========================================================================== */
+
+:root {
+    --paper: #f7f5f0;
+    --paper-sunk: #efece4;
+    --ink: #171614;
+    --ink-2: #3f3c36;
+    --muted: #6a665d;
+    --rule: #dcd7cb;
+    --accent: #a3341c;
+    --accent-ink: #fdf8f5;
+    --focus: #1f5fbf;
+
+    --serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Noto Serif', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', sans-serif;
+    --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 68ch;
+    --gutter: clamp(16px, 4vw, 40px);
+
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --paper: #141311;
+        --paper-sunk: #1b1a17;
+        --ink: #eeeae1;
+        --ink-2: #cdc8bc;
+        --muted: #9b968b;
+        --rule: #34312b;
+        --accent: #e27b5c;
+        --accent-ink: #1a0f0b;
+        --focus: #8db4ff;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Arabic joining breaks when fonts mix inside a word, so keep it on the sans stack */
+[lang="ar"] body,
+[lang="ar"] .kicker,
+[lang="ar"] .meta,
+[lang="ar"] .num {
+    font-family: var(--sans);
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px var(--gutter);
+    border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wordmark-mark {
+    display: inline-grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    border-radius: 2px;
+}
+
+.lang-menu {
+    position: relative;
+    font-size: .875rem;
+}
+
+.lang-menu summary {
+    cursor: pointer;
+    color: var(--ink-2);
+    list-style: none;
+}
+
+.lang-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.lang-menu summary::after {
+    content: ' ▾';
+}
+
+.lang-menu ul {
+    position: absolute;
+    z-index: 2;
+    inset-inline-end: 0;
+    display: grid;
+    min-width: 180px;
+    margin: 8px 0 0;
+    padding: 8px 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    list-style: none;
+}
+
+.lang-menu a {
+    display: block;
+    padding: 4px 16px;
+    text-decoration: none;
+}
+
+.lang-menu a:hover,
+.lang-menu a[aria-current] {
+    color: var(--accent);
+}
+
+/* ---------- Reading column ---------- */
+
+.lesson,
+.hub {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 32px var(--gutter) 64px;
+}
+
+.breadcrumb {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .78rem;
+}
+
+.lesson-head {
+    margin: 32px 0 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--ink);
+}
+
+.kicker {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: .78rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.lede {
+    margin: 16px 0 0;
+    color: var(--ink-2);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .78rem;
+}
+
+section {
+    margin: 0 0 40px;
+}
+
+h2 {
+    margin: 0 0 14px;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.num {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: .8rem;
+    vertical-align: middle;
+}
+
+section p,
+section li {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.72;
+    overflow-wrap: break-word;
+}
+
+section ul,
+section ol {
+    padding-inline-start: 1.3em;
+}
+
+section li + li {
+    margin-top: 6px;
+}
+
+.cta {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.cta:hover {
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+/* ---------- Previous / next ---------- */
+
+.pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+}
+
+.pager a {
+    display: grid;
+    gap: 4px;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.pager a[rel="next"] {
+    text-align: end;
+}
+
+.pager a:hover {
+    color: var(--accent);
+}
+
+.pager small {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* ---------- Hub ---------- */
+
+.module-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+}
+
+.module-list a {
+    display: grid;
+    grid-template-columns: 3ch 1fr;
+    gap: 4px 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+}
+
+.module-list a:hover .item-title {
+    color: var(--accent);
+}
+
+.module-list .num {
+    grid-row: span 3;
+    padding-top: 6px;
+}
+
+.item-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+}
+
+.item-desc {
+    color: var(--ink-2);
+}
+
+.item-meta {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .75rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 32px var(--gutter) 48px;
+    border-top: 1px solid var(--ink);
+    color: var(--muted);
+    font-size: .875rem;
+}
+
+@media (max-width: 560px) {
+    .pager {
+        grid-template-columns: 1fr;
+    }
+
+    .pager a[rel="next"] {
+        text-align: start;
+    }
+}

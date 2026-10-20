@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizaje por Refuerzo · Aprender IA</title>
+    <meta name="description" content="Aprende cómo los agentes de IA toman decisiones mediante recompensas, simulación y evaluación de políticas.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Aprendizaje por Refuerzo · Aprender IA">
+    <meta property="og:description" content="Aprende cómo los agentes de IA toman decisiones mediante recompensas, simulación y evaluación de políticas.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="es">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/",
+      "name": "Aprendizaje por Refuerzo",
+      "description": "Aprende cómo los agentes de IA toman decisiones mediante recompensas, simulación y evaluación de políticas.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/",
+      "inLanguage": "es",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Avanzado",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Aprender IA",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Aprender IA",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Aprendizaje por Refuerzo",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/es/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Aprender IA</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Idioma: Español</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es" aria-current="true">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Todos los módulos</a> <span aria-hidden="true">/</span> <span>Módulo 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Módulo 09 / 15</p>
+                <h1>Aprendizaje por Refuerzo</h1>
+                <p class="lede">Aprende cómo los agentes de IA toman decisiones mediante recompensas, simulación y evaluación de políticas.</p>
+                <p class="meta">
+                    <span>Nivel: Avanzado</span>
+                    <span>Duración: 28 min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Problemas de Decisión Secuencial</h2>
+<p>El aprendizaje por refuerzo modela las decisiones como un proceso de decisión de Markov: el agente observa un estado, elige una acción y recibe una recompensa y un nuevo estado. La política π(a|s) elige acciones y γ pondera las recompensas futuras. En CartPole de Gymnasium, el agente recibe +1 mientras el poste siga en pie.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Funciones de Valor y Q-Learning</h2>
+<p>El RL basado en valores estima el valor a largo plazo de un estado o de un par estado-acción. Q-learning actualiza Q(s,a) con α[r + γ max Q(s′,a′) − Q(s,a)]. ε-greedy explora ocasionalmente acciones aleatorias; DQN usa una red neuronal, replay buffer y target network para estabilizar el entrenamiento.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> De Policy Gradient a PPO</h2>
+<p>Para acciones continuas, como el ángulo de un brazo robótico, la política puede producir una distribución de acciones. REINFORCE aprende de las recompensas del episodio, actor-critic añade un estimador de valor y PPO limita el cambio de política por actualización. Stable-Baselines3 incluye implementaciones de PPO, DQN y SAC.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Diseño de Recompensas y Evaluación</h2>
+<p>Una recompensa mal diseñada puede optimizar la métrica y fallar el objetivo real. En un robot de almacén hay que penalizar colisiones, energía y espera, no solo premiar la velocidad. Compara varias semillas en un entorno de evaluación separado y usa MuJoCo o Isaac Sim, randomización de dominio, límites de acción y parada de emergencia antes del hardware.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=es&amp;lesson=9">Abrir la versión interactiva con cuestionario y progreso</a></p>
+        <nav class="pager" aria-label="Todos los módulos">
+            <a rel="prev" href="../ai-career-guide/"><small>Módulo anterior</small>Guía de Carrera en IA</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>Módulo siguiente</small>IA Generativa y Modelos de Lenguaje Grandes</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Desarrollado por Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

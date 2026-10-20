@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Mendalam &amp; Jaringan Neural · Belajar AI</title>
+    <meta name="description" content="Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pembelajaran Mendalam &amp; Jaringan Neural · Belajar AI">
+    <meta property="og:description" content="Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/",
+      "name": "Pembelajaran Mendalam & Jaringan Neural",
+      "description": "Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/",
+      "inLanguage": "id",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Lanjut",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Belajar AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+      },
+      "position": 3
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Belajar AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pembelajaran Mendalam & Jaringan Neural",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/id/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Belajar AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Bahasa: Bahasa Indonesia</summary>
+            <ul>
+                <li><a href="../../../learn/id/deep-learning-neural-networks/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/deep-learning-neural-networks/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/deep-learning-neural-networks/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/deep-learning-neural-networks/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/deep-learning-neural-networks/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/deep-learning-neural-networks/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/deep-learning-neural-networks/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/deep-learning-neural-networks/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/deep-learning-neural-networks/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/deep-learning-neural-networks/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/deep-learning-neural-networks/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/deep-learning-neural-networks/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/deep-learning-neural-networks/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/deep-learning-neural-networks/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/deep-learning-neural-networks/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Semua modul</a> <span aria-hidden="true">/</span> <span>Modul 03</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 03 / 15</p>
+                <h1>Pembelajaran Mendalam &amp; Jaringan Neural</h1>
+                <p class="lede">Pengenalan pembelajaran mendalam dan cara kerja jaringan saraf.</p>
+                <p class="meta">
+                    <span>Tingkat: Lanjut</span>
+                    <span>Durasi: 25 menit</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Apa itu Deep Learning?</h2>
+<p>Deep Learning adalah subset dari Machine Learning yang menggunakan neural networks dengan banyak layer (deep neural networks) untuk mempelajari representasi data secara hierarkis. Deep Learning sangat efektif untuk tugas-tugas kompleks seperti pengenalan gambar, pemrosesan bahasa, dan sintesis suara.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Struktur Neural Network</h2>
+<p>Neural Network terdiri dari tiga komponen utama:</p>
+<ol><li>Input Layer: Menerima data masukan</li><li>Hidden Layers: Memproses data melalui transformasi nonlinear</li><li>Output Layer: Menghasilkan prediksi akhir</li></ol>
+<p>Setiap neuron dalam layer terhubung ke neuron di layer berikutnya melalui weights (bobot). Setiap koneksi memiliki weight yang menentukan kekuatan hubungan.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Cara Kerja Neural Network</h2>
+<p>Forward Propagation:<br>1. Input diterima di input layer<br>2. Data dikalikan dengan weights dan ditambah bias<br>3. Hasil melewati fungsi aktivasi (ReLU, Sigmoid, Tanh)<br>4. Proses berlanjut ke layer berikutnya hingga output</p>
+<p>Backpropagation:<br>1. Menghitung error (loss) di output<br>2. Menyebarkan error ke layer sebelumnya<br>3. Mengupdate weights menggunakan gradient descent<br>4. Proses diulang hingga konvergen</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Arsitektur Deep Learning</h2>
+<p>CNN (Convolutional Neural Network):<br>- Untuk data berbentuk grid (gambar)<br>- Menggunakan convolutional layers untuk ekstraksi fitur<br>- Aplikasi: Klasifikasi gambar, deteksi objek, segmentasi</p>
+<p>RNN (Recurrent Neural Network):<br>- Untuk data sekuensial (teks, time series)<br>- Memiliki memori untuk informasi sebelumnya<br>- Variasi: LSTM, GRU</p>
+<p>Transformer:<br>- Arsitektur modern untuk NLP<br>- Menggunakan mekanisme attention<br>- Contoh: BERT, GPT, ChatGPT</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> Framework Deep Learning</h2>
+<p>1. TensorFlow (Google):<br>- Ecosystem lengkap<br>- TensorFlow Lite untuk mobile<br>- TensorFlow.js untuk browser</p>
+<p>2. PyTorch (Meta/Facebook):<br>- Dynamic computation graph<br>- Populer di riset<br>- Mudah di-debug</p>
+<p>3. Keras:<br>- High-level API<br>- Bisa berjalan di atas TensorFlow<br>- Cocok untuk pemula</p>
+<p>4. JAX (Google):<br>- Automatic differentiation<br>- Performa tinggi dengan XLA</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> Tantangan Deep Learning</h2>
+<ul><li>Membutuhkan data dalam jumlah besar</li><li>Komputasi intensif (GPU/TPU required)</li><li>Overfitting pada dataset kecil</li><li>Interpretabilitas rendah (black box)</li><li>Hyperparameter tuning kompleks</li></ul>
+<p>Solusi:<br>- Transfer Learning: Menggunakan model pre-trained<br>- Data Augmentation: Memperbanyak data secara artifisial<br>- Regularization: Dropout, L1/L2 regularization<br>- Early Stopping: Menghentikan training sebelum overfit</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=id&amp;lesson=3">Buka versi interaktif dengan kuis dan progres</a></p>
+        <nav class="pager" aria-label="Semua modul">
+            <a rel="prev" href="../machine-learning-basics/"><small>Modul sebelumnya</small>Machine Learning Dasar</a>
+            <a rel="next" href="../natural-language-processing/"><small>Modul berikutnya</small>Natural Language Processing (NLP)</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Dikembangkan oleh Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>
