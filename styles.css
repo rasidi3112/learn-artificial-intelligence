@@ -2246,6 +2246,34 @@ body.dark-mode .note-card.blue {
     font-size: .72rem;
 }
 
+/* Static links to every lesson page, for readers and crawlers without JavaScript */
+.footer-modules {
+    grid-column: 1 / -1;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.footer-modules ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 6px 24px;
+    margin: 0 0 14px;
+    padding-inline-start: 1.4em;
+}
+
+.footer-modules a {
+    color: var(--ink-2);
+    text-decoration: none;
+}
+
+.footer-modules a:hover,
+.footer-modules a:focus-visible {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 /* ---------- Right-to-left ---------- */
 
 [dir="rtl"] .nav-tab::after {

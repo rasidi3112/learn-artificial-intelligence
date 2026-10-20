@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rasidi3112.github.io/learn-artificial-intelligence/sitemap.xml

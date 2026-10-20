@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自然言語処理（NLP） · AIを学ぶ</title>
+    <meta name="description" content="AIが人間の言語をどのように理解し処理するか。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/natural-language-processing/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/natural-language-processing/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/natural-language-processing/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/natural-language-processing/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/natural-language-processing/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/natural-language-processing/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/natural-language-processing/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/natural-language-processing/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/natural-language-processing/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/natural-language-processing/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/natural-language-processing/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/natural-language-processing/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/natural-language-processing/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/natural-language-processing/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/natural-language-processing/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="自然言語処理（NLP） · AIを学ぶ">
+    <meta property="og:description" content="AIが人間の言語をどのように理解し処理するか。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/",
+      "name": "自然言語処理（NLP）",
+      "description": "AIが人間の言語をどのように理解し処理するか。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中級",
+      "timeRequired": "PT18M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 4
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "自然言語処理（NLP）",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/natural-language-processing/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/natural-language-processing/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/natural-language-processing/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/natural-language-processing/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/natural-language-processing/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/natural-language-processing/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/natural-language-processing/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/natural-language-processing/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/natural-language-processing/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/natural-language-processing/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/natural-language-processing/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/natural-language-processing/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/natural-language-processing/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/natural-language-processing/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/natural-language-processing/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/natural-language-processing/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 04</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 04 / 15</p>
+                <h1>自然言語処理（NLP）</h1>
+                <p class="lede">AIが人間の言語をどのように理解し処理するか。</p>
+                <p class="meta">
+                    <span>レベル: 中級</span>
+                    <span>所要時間: 18 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> NLP入門</h2>
+<p>自然言語処理（NLP）は、コンピューターが人間の言語を理解、解釈、生成することを可能にするAIの分野です。NLPは計算言語学と機械学習、ディープラーニングを組み合わせてテキストと音声を処理します。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> テキスト前処理</h2>
+<ol><li>トークン化：テキストを単語/文に分割</li><li>小文字化：小文字に変換</li><li>ストップワード除去：一般的な単語の削除</li><li>ステミング：単語を語幹に変換</li><li>レンマ化：ステミングと同様だがより正確</li><li>品詞タグ付け：単語の種類をラベル付け</li><li>固有表現認識：エンティティの識別（名前、場所）</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">03</span> テキスト表現</h2>
+<p>Bag of Words（BoW）：<br>- 単語頻度に基づく単純な表現<br>- 単語の順序を無視</p>
+<p>TF-IDF：<br>- 単語の重要度に基づく重み付け</p>
+<p>単語埋め込み：<br>- Word2Vec：Skip-gramまたはCBOW<br>- GloVe：グローバルベクトル<br>- FastText：サブワード埋め込み</p>
+<p>文脈的埋め込み：<br>- ELMo<br>- BERT：双方向表現<br>- GPT：生成事前学習Transformer</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 応用例</h2>
+<ol><li>感情分析：肯定的/否定的感情の判定</li><li>機械翻訳：Google翻訳、DeepL</li><li>テキスト要約：文書の要約</li><li>質問応答：質問への回答</li><li>チャットボット：自動カスタマーサービス</li><li>音声認識：Siri、Google Speech</li><li>テキスト生成：ChatGPT、Claude</li><li>固有表現認識：情報抽出</li><li>テキスト分類：文書の分類</li><li>情報抽出：構造化データの抽出</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">05</span> 大規模言語モデル</h2>
+<p>LLMは非常に大きなテキストデータセットで訓練された大規模言語モデルです。</p>
+<p>例：<br>- GPT-4（OpenAI）：テキスト生成、コーディング、分析<br>- Claude（Anthropic）：安全なAIアシスタント<br>- Gemini（Google）：マルチモーダルAI<br>- LLaMA（Meta）：オープンソースLLM<br>- Mistral：効率的なオープンソースモデル</p>
+<p>能力：<br>- Few-shot学習<br>- Chain-of-thought推論<br>- コード生成<br>- 多言語理解</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 課題</h2>
+<ul><li>曖昧性：一つの単語に多くの意味</li><li>文脈：意味は文脈に依存</li><li>皮肉とアイロニー：検出が困難</li><li>非公式言語：スラング、タイプミス、略語</li><li>低リソース言語：十分なデータがない言語</li><li>バイアス：モデルは訓練データからバイアスを継承</li><li>ハルシネーション：LLMは誤った情報を生成する可能性</li></ul>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=4">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../deep-learning-neural-networks/"><small>前のモジュール</small>ディープラーニングとニューラルネットワーク</a>
+            <a rel="next" href="../computer-vision/"><small>次のモジュール</small>コンピュータビジョン</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

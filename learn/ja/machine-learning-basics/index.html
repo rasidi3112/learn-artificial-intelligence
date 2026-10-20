@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機械学習の基礎 · AIを学ぶ</title>
+    <meta name="description" content="機械学習の概念と、教師あり学習・教師なし学習を理解します。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="機械学習の基礎 · AIを学ぶ">
+    <meta property="og:description" content="機械学習の概念と、教師あり学習・教師なし学習を理解します。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/",
+      "name": "機械学習の基礎",
+      "description": "機械学習の概念と、教師あり学習・教師なし学習を理解します。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中級",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "機械学習の基礎",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 02 / 15</p>
+                <h1>機械学習の基礎</h1>
+                <p class="lede">機械学習の概念と、教師あり学習・教師なし学習を理解します。</p>
+                <p class="meta">
+                    <span>レベル: 中級</span>
+                    <span>所要時間: 20 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 機械学習とは？</h2>
+<p>機械学習（ML）は、各タスクに対して明示的にプログラムされることなく、コンピューターが学習し意思決定することを可能にするAIの分野です。MLシステムはアルゴリズムを使用してデータ内のパターンを識別し、それらのパターンに基づいて予測や意思決定を行います。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 教師あり学習</h2>
+<p>教師あり学習は、ラベル付きデータを使用してモデルをトレーニングする方法です。モデルは入出力ペアから学習し、新しいデータに対する予測を行います。</p>
+<p>アルゴリズムの例：<br>- 線形回帰：連続値の予測（住宅価格）<br>- ロジスティック回帰：二値分類（スパム/非スパム）<br>- 決定木：ルールベースの決定<br>- ランダムフォレスト：決定木のアンサンブル<br>- サポートベクターマシン（SVM）：最適マージンでの分類<br>- ニューラルネットワーク：脳にインスパイアされたモデル</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 教師なし学習</h2>
+<p>教師なし学習は、ラベルなしデータからパターンを見つける方法です。</p>
+<p>アルゴリズムの例：<br>- K-Meansクラスタリング：類似性によるデータのグループ化<br>- 階層的クラスタリング：多段階グループ化<br>- 主成分分析（PCA）：次元削減<br>- アソシエーションルール：アイテム間の関係の発見<br>- 異常検知：外れ値や異常データの検出</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 強化学習</h2>
+<p>強化学習は、エージェントが環境との相互作用を通じて学習する方法です。エージェントはアクションに基づいて報酬やペナルティを受け取り、報酬を最大化するように学習します。</p>
+<p>応用例：<br>- ゲームAI（AlphaGo、OpenAI Five）<br>- ロボットナビゲーション<br>- レコメンドシステム<br>- 自動取引<br>- 自動運転車の制御</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> 機械学習のプロセス</h2>
+<ol><li>データ収集：関連データの収集</li><li>前処理：データのクリーニングと準備</li><li>特徴エンジニアリング：重要な特徴の選択と作成</li><li>モデル選択：適切なアルゴリズムの選択</li><li>トレーニング：データでモデルをトレーニング</li><li>評価：モデルの性能テスト</li><li>チューニング：ハイパーパラメータの最適化</li><li>デプロイ：モデルを本番環境に展開</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 評価指標</h2>
+<p>分類：<br>- 精度：正しい予測の割合<br>- 適合率：正の予測の正確さ<br>- 再現率：すべての正例を見つける能力<br>- F1スコア：適合率と再現率の調和平均</p>
+<p>回帰：<br>- 平均絶対誤差（MAE）<br>- 平均二乗誤差（MSE）<br>- 決定係数（R²）</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=2">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>前のモジュール</small>人工知能とは？</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>次のモジュール</small>ディープラーニングとニューラルネットワーク</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

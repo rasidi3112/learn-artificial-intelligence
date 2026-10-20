@@ -821,12 +821,23 @@ function init() {
     }
     updateNotifBadge();
 
+    // Deep links from the static lesson pages: ?lang=en&lesson=3
+    let deepLinkLesson = null;
     try {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('theme') === 'dark') {
             data.darkMode = true;
         } else if (urlParams.get('theme') === 'light') {
             data.darkMode = false;
+        }
+        const langParam = urlParams.get('lang');
+        if (langParam && translations[langParam]) {
+            data.lang = langParam;
+            save();
+        }
+        const lessonParam = Number(urlParams.get('lesson'));
+        if (LESSONS.some(l => l.id === lessonParam)) {
+            deepLinkLesson = lessonParam;
         }
     } catch (_) {}
 
@@ -863,6 +874,8 @@ function init() {
     setupTabs();
     setupEventDelegation();
     initVisualEffects();
+
+    if (deepLinkLesson !== null) viewLesson(deepLinkLesson);
 }
 
 function save() {

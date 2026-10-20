@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成式AI与大型语言模型 · 学习 AI</title>
+    <meta name="description" content="了解生成文本、图像和代码的模型，以及如何以受控数据使用它们。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/generative-ai-large-language-models/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/generative-ai-large-language-models/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="生成式AI与大型语言模型 · 学习 AI">
+    <meta property="og:description" content="了解生成文本、图像和代码的模型，以及如何以受控数据使用它们。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="zh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/",
+      "name": "生成式AI与大型语言模型",
+      "description": "了解生成文本、图像和代码的模型，以及如何以受控数据使用它们。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/",
+      "inLanguage": "zh",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "中级",
+      "timeRequired": "PT26M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "学习 AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+      },
+      "position": 10
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "学习 AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "生成式AI与大型语言模型",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/generative-ai-large-language-models/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/zh/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>学习 AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>语言: 中文</summary>
+            <ul>
+                <li><a href="../../../learn/id/generative-ai-large-language-models/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/generative-ai-large-language-models/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/generative-ai-large-language-models/" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+                <li><a href="../../../learn/es/generative-ai-large-language-models/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/generative-ai-large-language-models/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/generative-ai-large-language-models/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/generative-ai-large-language-models/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/generative-ai-large-language-models/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/generative-ai-large-language-models/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/generative-ai-large-language-models/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/generative-ai-large-language-models/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/generative-ai-large-language-models/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/generative-ai-large-language-models/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/generative-ai-large-language-models/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/generative-ai-large-language-models/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">全部模块</a> <span aria-hidden="true">/</span> <span>模块 10</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">模块 10 / 15</p>
+                <h1>生成式AI与大型语言模型</h1>
+                <p class="lede">了解生成文本、图像和代码的模型，以及如何以受控数据使用它们。</p>
+                <p class="meta">
+                    <span>等级: 中级</span>
+                    <span>时长: 26 分钟</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 生成模型与训练数据</h2>
+<p>判别模型决定垃圾邮件等标签，生成模型则学习数据规律并创造新样本。自回归 LLM 预测下一个 token；扩散模型逐步去除噪声生成图像。GPT、Llama、Mistral 和 Stable Diffusion 展示了这些模型家族。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Transformer的工作方式</h2>
+<p>Byte Pair Encoding 等 tokenizer 把文本切成 token，再转换为 embedding。Self-attention 计算 token 之间的相关性，位置编码保留顺序。预训练通过降低下一个 token 的预测误差学习；temperature 和 top-p 改变多样性，并不保证事实正确。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> RAG、微调与工具调用</h2>
+<p>RAG 会在 LLM 回答前检索相关文档片段。text-embedding-3 或 BGE 生成的 embedding 可以用 FAISS、pgvector 或 Chroma 搜索。Fine-tuning 和 LoRA 可稳定重复格式，经过验证的 JSON schema 能让库存或日历 API 的 function calling 更安全。</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 评估、成本与风险</h2>
+<p>用正常案例、边界案例和没有答案的问题测试系统。记录 groundedness、引用准确率、延迟、每次请求的 token 和人工升级率。把幻觉当作真实故障，防范 prompt injection，限制工具权限，先删除个人数据，并确保日志不含秘密。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=zh&amp;lesson=10">打开带测验和进度的互动版本</a></p>
+        <nav class="pager" aria-label="全部模块">
+            <a rel="prev" href="../reinforcement-learning/"><small>上一模块</small>强化学习</a>
+            <a rel="next" href="../ai-in-healthcare/"><small>下一模块</small>医疗中的AI</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>开发者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

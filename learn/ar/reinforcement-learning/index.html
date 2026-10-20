@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التعلم المعزز · تعلم الذكاء الاصطناعي</title>
+    <meta name="description" content="تعرّف كيف تتخذ وكلاء الذكاء الاصطناعي قرارات عبر المكافآت والمحاكاة وتقييم السياسة.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="التعلم المعزز · تعلم الذكاء الاصطناعي">
+    <meta property="og:description" content="تعرّف كيف تتخذ وكلاء الذكاء الاصطناعي قرارات عبر المكافآت والمحاكاة وتقييم السياسة.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ar">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/",
+      "name": "التعلم المعزز",
+      "description": "تعرّف كيف تتخذ وكلاء الذكاء الاصطناعي قرارات عبر المكافآت والمحاكاة وتقييم السياسة.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/",
+      "inLanguage": "ar",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "متقدم",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "تعلم الذكاء الاصطناعي",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "تعلم الذكاء الاصطناعي",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "التعلم المعزز",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ar/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>تعلم الذكاء الاصطناعي</span>
+        </a>
+        <details class="lang-menu">
+            <summary>اللغة: العربية</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar" aria-current="true">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">كل الوحدات</a> <span aria-hidden="true">/</span> <span>الوحدة 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">الوحدة 09 / 15</p>
+                <h1>التعلم المعزز</h1>
+                <p class="lede">تعرّف كيف تتخذ وكلاء الذكاء الاصطناعي قرارات عبر المكافآت والمحاكاة وتقييم السياسة.</p>
+                <p class="meta">
+                    <span>المستوى: متقدم</span>
+                    <span>المدة: 28 دقيقة</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> مسائل القرار المتسلسل</h2>
+<p>يتعامل التعلم المعزز مع القرارات باعتبارها عملية قرار ماركوف: يراقب الوكيل الحالة، يختار فعلاً، ثم يحصل على مكافأة وحالة جديدة. تحدد السياسة π(a|s) الأفعال، بينما يوازن معامل الخصم γ المكافآت المستقبلية. في CartPole ضمن Gymnasium يحصل الوكيل على +1 ما دام العمود قائماً.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> دوال القيمة وQ-Learning</h2>
+<p>يقدّر التعلم المعزز القائم على القيمة قيمة الحالة أو زوج الحالة والفعل على المدى الطويل. يحدّث Q-learning القيمة بالصيغة α[r + γ max Q(s′,a′) − Q(s,a)]. يجرّب ε-greedy أفعالاً عشوائية أحياناً؛ ويستبدل DQN الجدول بشبكة عصبية مع replay buffer وtarget network.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> من تدرج السياسة إلى PPO</h2>
+<p>في الأفعال المستمرة مثل زاوية ذراع روبوت، تستطيع السياسة إخراج توزيع للأفعال. يتعلم REINFORCE من مكافأة الحلقة، ويضيف actor-critic مقدّر قيمة، بينما يحد PPO مقدار تغير السياسة في كل تحديث. يوفر Stable-Baselines3 تطبيقات PPO وDQN وSAC العملية.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> تصميم المكافأة والتقييم</h2>
+<p>قد تجعل المكافأة السيئة الوكيل يحسن الرقم ويفشل الهدف الحقيقي. أضف للروبوت في المستودع عقوبات الاصطدام والطاقة والانتظار، لا مكافأة السرعة وحدها. استخدم بذوراً عشوائية متعددة وبيئة تقييم منفصلة، ثم اختبر في MuJoCo أو Isaac Sim مع حدود للفعل وزر إيقاف طارئ.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ar&amp;lesson=9">افتح النسخة التفاعلية مع الاختبار وتتبع التقدم</a></p>
+        <nav class="pager" aria-label="كل الوحدات">
+            <a rel="prev" href="../ai-career-guide/"><small>الوحدة السابقة</small>دليل المهنة في الذكاء الاصطناعي</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>الوحدة التالية</small>الذكاء الاصطناعي التوليدي ونماذج اللغة الكبيرة</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>طوره بواسطة Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

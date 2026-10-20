@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỹ Thuật Prompt Cơ Bản · Học AI</title>
+    <meta name="description" content="Nghệ thuật tương tác với AI tạo sinh như ChatGPT để có kết quả tốt nhất.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Kỹ Thuật Prompt Cơ Bản · Học AI">
+    <meta property="og:description" content="Nghệ thuật tương tác với AI tạo sinh như ChatGPT để có kết quả tốt nhất.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="vi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/",
+      "name": "Kỹ Thuật Prompt Cơ Bản",
+      "description": "Nghệ thuật tương tác với AI tạo sinh như ChatGPT để có kết quả tốt nhất.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/",
+      "inLanguage": "vi",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Cơ bản",
+      "timeRequired": "PT15M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Học AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+      },
+      "position": 6
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Học AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kỹ Thuật Prompt Cơ Bản",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/vi/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Học AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Ngôn ngữ: Tiếng Việt</summary>
+            <ul>
+                <li><a href="../../../learn/id/prompt-engineering-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/prompt-engineering-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/prompt-engineering-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/prompt-engineering-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/prompt-engineering-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/prompt-engineering-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/prompt-engineering-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/prompt-engineering-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/prompt-engineering-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/prompt-engineering-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/prompt-engineering-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/prompt-engineering-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/prompt-engineering-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/prompt-engineering-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/prompt-engineering-basics/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Tất cả mô-đun</a> <span aria-hidden="true">/</span> <span>Học phần 06</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Học phần 06 / 15</p>
+                <h1>Kỹ Thuật Prompt Cơ Bản</h1>
+                <p class="lede">Nghệ thuật tương tác với AI tạo sinh như ChatGPT để có kết quả tốt nhất.</p>
+                <p class="meta">
+                    <span>Cấp độ: Cơ bản</span>
+                    <span>Thời gian: 15 phút</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Prompt Engineering là gì?</h2>
+<p>Kỹ thuật Viết Lời Nhắc (Prompt Engineering) là cách thiết kế câu lệnh để nhận được kết quả tốt nhất từ AI tạo sinh.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Nguyên tắc cơ bản</h2>
+<p>Quy tắc: Rõ ràng, cung cấp ngữ cảnh, chỉ định định dạng đầu ra.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Kỹ thuật nâng cao</h2>
+<p>Kỹ thuật: Zero-shot, Few-shot và Tư duy Từng bước (Chain of Thought).</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=vi&amp;lesson=6">Mở phiên bản tương tác có bài kiểm tra và tiến độ</a></p>
+        <nav class="pager" aria-label="Tất cả mô-đun">
+            <a rel="prev" href="../computer-vision/"><small>Mô-đun trước</small>Thị Giác Máy Tính</a>
+            <a rel="next" href="../ai-ethics-and-bias/"><small>Mô-đun tiếp theo</small>Đạo Đức và Thiên Kiến Trong AI</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Phát triển bởi Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>
