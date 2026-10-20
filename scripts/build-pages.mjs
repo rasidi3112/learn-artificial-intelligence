@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { PLAYGROUND_SLUG, PLAYGROUND_STRINGS } from './playground-strings.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const SITE_URL = 'https://rasidi3112.github.io/learn-artificial-intelligence/';
@@ -44,6 +45,9 @@ export const SLUGS = {
     16: 'ai-agents',
     17: 'rag-and-llm-evaluation'
 };
+
+// The lesson whose page points readers to the playground.
+const PLAYGROUND_LESSON_ID = 3;
 
 const LANG_NAMES = {
     id: 'Bahasa Indonesia', en: 'English', zh: '中文', es: 'Español', ar: 'العربية',
@@ -195,7 +199,9 @@ ${items}
         </details>`;
 }
 
-function page({ lang, title, description, canonical, alternates, structuredData, prefix, body }) {
+const STATIC_CSP = "default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'";
+
+function page({ lang, title, description, canonical, alternates, structuredData, prefix, body, csp = STATIC_CSP, head = '' }) {
     const dir = RTL_LANGS.has(lang) ? ' dir="rtl"' : '';
     return `<!DOCTYPE html>
 <html lang="${lang}"${dir}>
@@ -218,14 +224,14 @@ ${alternates}
     <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+        content="${csp}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="${prefix}${PAGES_DIR}/pages.css">
-    <script type="application/ld+json">
+${head}    <script type="application/ld+json">
 ${jsonLD(structuredData)}
     </script>
 </head>
@@ -298,7 +304,7 @@ ${renderBody(section.content)}
             </header>
 ${sections}
         </article>
-        <p><a class="cta" href="${prefix}?lang=${lang}&amp;lesson=${lesson.id}">${escapeHTML(strings.open_app)}</a></p>
+${lesson.id === PLAYGROUND_LESSON_ID ? playgroundCallout(lang, `../${PLAYGROUND_SLUG}/`) + '\n' : ''}        <p><a class="cta" href="${prefix}?lang=${lang}&amp;lesson=${lesson.id}">${escapeHTML(strings.open_app)}</a></p>
         <nav class="pager" aria-label="${escapeHTML(strings.all)}">
             ${neighbour(-1, 'prev', strings.prev)}
             ${neighbour(1, 'next', strings.next)}
@@ -348,6 +354,193 @@ ${footer(content, lang)}`;
     });
 }
 
+function playgroundCallout(lang, href) {
+    const strings = PLAYGROUND_STRINGS[lang];
+    return `        <aside class="callout">
+            <p class="kicker">${escapeHTML(strings.kicker)}</p>
+            <p><a href="${href}">${escapeHTML(strings.cta)}</a></p>
+            <p class="callout-note">${escapeHTML(strings.lede)}</p>
+        </aside>`;
+}
+
+export function playgroundPath(lang) {
+    return `${PAGES_DIR}/${lang}/${PLAYGROUND_SLUG}/`;
+}
+
+const PLAYGROUND_CSP = "default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'";
+
+const FEATURE_CHOICES = [['x', 'x'], ['y', 'y'], ['x2', 'x²'], ['y2', 'y²'], ['xy', 'x·y'], ['sinx', 'sin(x)'], ['siny', 'sin(y)']];
+const LEARNING_RATES = ['0.001', '0.003', '0.01', '0.03', '0.1', '0.3', '1', '3'];
+
+export function renderPlaygroundPage(content, lang) {
+    const s = PLAYGROUND_STRINGS[lang];
+    const strings = PAGE_STRINGS[lang];
+    const prefix = '../../../';
+    const courseName = t(content, lang, 'app_title');
+    const canonical = SITE_URL + playgroundPath(lang);
+    const lesson = localizeLesson(content, content.LESSONS.find(l => l.id === PLAYGROUND_LESSON_ID), lang);
+    const e = escapeHTML;
+
+    const slider = (id, label, value) => `                        <label class="pg-slider" for="${id}">
+                            <span>${label} <output id="${id}Out" for="${id}">${value}</output></span>
+                            <input type="range" id="${id}" min="-6" max="6" step="0.1" value="${value}">
+                        </label>`;
+    const datasets = ['circle', 'xor', 'gauss', 'spiral'].map(name => `                        <label class="pg-choice pg-ds pg-ds-${name}"><input type="radio" name="dataset" value="${name}"${name === 'circle' ? ' checked' : ''}><span>${e(s['ds_' + name])}</span></label>`).join('\n');
+    const features = FEATURE_CHOICES.map(([value, label]) => `                        <label class="pg-choice"><input type="checkbox" name="feature" value="${value}"${value === 'x' || value === 'y' ? ' checked' : ''}><span>${label}</span></label>`).join('\n');
+    const rates = LEARNING_RATES.map(rate => `<option value="${rate}"${rate === '0.03' ? ' selected' : ''}>${rate}</option>`).join('');
+    const tries = s.try_list.map(item => `                <li>${e(item)}</li>`).join('\n');
+
+    const body = `${masthead(content, lang, playgroundPath, prefix, strings)}
+
+    <main class="playground" id="playground" data-play="${e(s.play)}" data-pause="${e(s.pause)}" data-copied="${e(s.copied)}"
+        data-neurons="${e(s.neurons)}" data-features="${e(s.features)}" data-add-neuron="${e(s.add_neuron)}" data-remove-neuron="${e(s.remove_neuron)}">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">${e(strings.all)}</a> <span aria-hidden="true">/</span> <span>${e(s.title)}</span>
+        </nav>
+        <header class="lesson-head">
+            <p class="kicker">${e(s.kicker)}</p>
+            <h1>${e(s.title)}</h1>
+            <p class="lede">${e(s.lede)}</p>
+        </header>
+        <noscript><p class="pg-noscript">${e(s.noscript)}</p></noscript>
+
+        <section class="pg-section" aria-labelledby="pg-neuron">
+            <h2 id="pg-neuron"><span class="num">01</span> ${e(s.neuron_h)}</h2>
+            <p class="pg-text">${e(s.neuron_p)}</p>
+            <div class="pg-neuron">
+                <canvas id="neuronCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="${e(s.neuron_canvas)}"></canvas>
+                <div class="pg-panel">
+                    <p class="pg-formula" id="neuronFormula">ŷ = σ(w₁·x + w₂·y + b)</p>
+${slider('w1', `${e(s.weight)} w₁`, '0.5')}
+${slider('w2', `${e(s.weight)} w₂`, '2.0')}
+${slider('b', `${e(s.bias)} b`, '-0.8')}
+                    <dl class="pg-stats">
+                        <div><dt>${e(s.accuracy)}</dt><dd id="neuronAcc">-</dd></div>
+                        <div><dt>${e(s.loss)}</dt><dd id="neuronLoss">-</dd></div>
+                    </dl>
+                    <button type="button" class="pg-btn" id="neuronFit">${e(s.fit)}</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-section pg-wide" aria-labelledby="pg-network">
+            <h2 id="pg-network"><span class="num">02</span> ${e(s.net_h)}</h2>
+            <p class="pg-text">${e(s.net_p)}</p>
+            <div class="pg-toolbar">
+                <button type="button" class="pg-btn pg-primary" id="netPlay" aria-pressed="false">${e(s.play)}</button>
+                <button type="button" class="pg-btn" id="netStep">${e(s.step)}</button>
+                <button type="button" class="pg-btn" id="netReset">${e(s.reset)}</button>
+                <dl class="pg-stats pg-inline">
+                    <div><dt>${e(s.epoch)}</dt><dd id="epoch">000</dd></div>
+                    <div><dt>${e(s.train_loss)}</dt><dd id="trainLoss">-</dd></div>
+                    <div><dt>${e(s.test_loss)}</dt><dd id="testLoss">-</dd></div>
+                </dl>
+            </div>
+            <div class="pg-lab">
+                <div class="pg-controls">
+                    <fieldset>
+                        <legend>${e(s.data)}</legend>
+${datasets}
+                    </fieldset>
+                    <label class="pg-field" for="noise">
+                        <span>${e(s.noise)} <output id="noiseOut" for="noise">10</output></span>
+                        <input type="range" id="noise" min="0" max="50" step="5" value="10">
+                    </label>
+                    <label class="pg-field" for="learningRate">
+                        <span>${e(s.learning_rate)}</span>
+                        <select id="learningRate">${rates}</select>
+                    </label>
+                    <label class="pg-field" for="activation">
+                        <span>${e(s.activation)}</span>
+                        <select id="activation"><option value="tanh">tanh</option><option value="relu">ReLU</option><option value="sigmoid">sigmoid</option><option value="linear">linear</option></select>
+                    </label>
+                    <fieldset>
+                        <legend>${e(s.features)}</legend>
+${features}
+                    </fieldset>
+                </div>
+                <div class="pg-network">
+                    <div class="pg-layers">
+                        <span>${e(s.hidden)}: <b id="layerCount">2</b></span>
+                        <button type="button" class="pg-mini" id="removeLayer" aria-label="${e(s.remove_layer)}">−</button>
+                        <button type="button" class="pg-mini" id="addLayer" aria-label="${e(s.add_layer)}">+</button>
+                    </div>
+                    <div class="pg-graph" id="netGraph"><svg class="pg-links" aria-hidden="true"></svg></div>
+                </div>
+                <div class="pg-output">
+                    <p class="pg-col-head">${e(s.output)}</p>
+                    <canvas id="outputCanvas" class="pg-canvas" width="320" height="320" role="img" aria-label="${e(s.output_canvas)}"></canvas>
+                    <canvas id="lossCanvas" class="pg-loss" width="320" height="56" aria-hidden="true"></canvas>
+                    <p class="pg-legend"><span class="pg-key pg-key-train"></span>${e(s.train_loss)} <span class="pg-key pg-key-test"></span>${e(s.test_loss)}</p>
+                    <p class="pg-legend"><span class="pg-swatch pg-swatch-0"></span>${e(s.class_label)} 0 <span class="pg-swatch pg-swatch-1"></span>${e(s.class_label)} 1</p>
+                    <label class="pg-choice"><input type="checkbox" id="showTest"><span>${e(s.show_test)}</span></label>
+                    <p><button type="button" class="pg-btn pg-quiet" id="shareLink">${e(s.share)}</button> <span id="shareStatus" class="pg-status" role="status"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="pg-try">
+            <h2 id="pg-try"><span class="num">03</span> ${e(s.try_h)}</h2>
+            <ol>
+${tries}
+            </ol>
+        </section>
+
+        <section aria-labelledby="pg-how">
+            <h2 id="pg-how"><span class="num">04</span> ${e(s.how_h)}</h2>
+            <p>${e(s.how_p)}</p>
+            <p><a href="../${lesson.slug}/">${e(s.read_lesson)}: ${e(lesson.title)}</a></p>
+        </section>
+    </main>
+
+${footer(content, lang)}
+    <script type="module" src="${prefix}playground/playground.mjs"></script>`;
+
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': ['WebApplication', 'LearningResource'],
+                '@id': canonical,
+                name: s.title,
+                description: s.lede,
+                url: canonical,
+                inLanguage: lang,
+                applicationCategory: 'EducationalApplication',
+                operatingSystem: 'Any (web browser)',
+                learningResourceType: 'Interactive simulation',
+                isAccessibleForFree: true,
+                offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+                license: 'https://opensource.org/licenses/MIT',
+                author: { '@type': 'Person', name: AUTHOR },
+                isPartOf: { '@type': 'Course', name: courseName, url: SITE_URL + hubPath(lang) }
+            },
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: courseName, item: SITE_URL + hubPath(lang) },
+                    { '@type': 'ListItem', position: 2, name: s.title, item: canonical }
+                ]
+            }
+        ]
+    };
+
+    return page({
+        lang,
+        title: `${s.seo_title} · ${courseName}`,
+        description: s.lede,
+        canonical,
+        alternates: alternateLinks(playgroundPath),
+        structuredData,
+        prefix,
+        body,
+        csp: PLAYGROUND_CSP,
+        head: `    <link rel="stylesheet" href="${prefix}playground/playground.css">
+    <link rel="modulepreload" href="${prefix}playground/nn.mjs">
+`
+    });
+}
+
 export function renderHubPage(content, lang) {
     const strings = PAGE_STRINGS[lang];
     const prefix = '../../';
@@ -374,6 +567,7 @@ export function renderHubPage(content, lang) {
             <p class="lede">${escapeHTML(description)}</p>
             <p><a class="cta" href="${prefix}?lang=${lang}">${escapeHTML(t(content, lang, 'hero_cta'))}</a></p>
         </header>
+${playgroundCallout(lang, `${PLAYGROUND_SLUG}/`)}
         <h2>${escapeHTML(strings.all)}</h2>
         <ol class="module-list">
 ${items}
@@ -424,6 +618,7 @@ export function renderSitemap(content) {
     const urls = [
         `  <url>\n    <loc>${SITE_URL}</loc>\n  </url>`,
         entry(hubPath),
+        entry(playgroundPath),
         ...content.LESSONS.map(lesson => entry(lang => lessonPath(lang, SLUGS[lesson.id])))
     ];
     return `<?xml version="1.0" encoding="UTF-8"?>
@@ -454,6 +649,7 @@ export function renderIndexLinks(content) {
                 <ol>
 ${links}
                 </ol>
+                <p><a href="${playgroundPath(DEFAULT_LANG)}">${escapeHTML(PLAYGROUND_STRINGS[DEFAULT_LANG].title)}</a></p>
                 <p>${languages}</p>
             </nav>
             <!-- lesson-links:end -->`;
@@ -467,6 +663,7 @@ export function buildAll(root = ROOT) {
     const files = {};
     for (const lang of LANGS) {
         files[hubPath(lang) + 'index.html'] = renderHubPage(content, lang);
+        files[playgroundPath(lang) + 'index.html'] = renderPlaygroundPage(content, lang);
         content.LESSONS.forEach((lesson, index) => {
             files[lessonPath(lang, SLUGS[lesson.id]) + 'index.html'] = renderLessonPage(content, lang, index);
         });
@@ -495,7 +692,7 @@ function write(root = ROOT) {
         fs.mkdirSync(path.dirname(target), { recursive: true });
         fs.writeFileSync(target, text);
     }
-    console.log(`Wrote ${Object.keys(files).length} files (${LANGS.length} languages × ${Object.keys(SLUGS).length} lessons, hubs, sitemap, robots.txt).`);
+    console.log(`Wrote ${Object.keys(files).length} files (${LANGS.length} languages × ${Object.keys(SLUGS).length} lessons, hubs, playground, sitemap, robots.txt).`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

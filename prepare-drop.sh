@@ -14,7 +14,7 @@ rm -rf dist deploy.zip
 # Buat folder dist bersih berisi semua file yang dibutuhkan
 mkdir -p dist
 cp index.html styles.css app.js content-translations.js quiz-translations.js i18n-extra.js lessons-agents-rag.js motion.js netlify.toml LICENSE manifest.json og-image.png sitemap.xml robots.txt dist/
-cp -R learn dist/
+cp -R learn playground dist/
 
 # Buat file zip dari isi folder dist
 (cd dist && zip -q -r ../deploy.zip .)

@@ -258,6 +258,40 @@ section li + li {
     color: var(--accent-ink);
 }
 
+/* ---------- Playground callout ---------- */
+
+.callout {
+    margin: 0 0 40px;
+    padding: 20px 24px;
+    background: var(--paper-sunk);
+    border-inline-start: 3px solid var(--accent);
+}
+
+.callout p {
+    margin: 0;
+}
+
+.callout .kicker {
+    margin-bottom: 6px;
+}
+
+.callout a {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+}
+
+.callout a:hover {
+    color: var(--accent);
+}
+
+.callout .callout-note {
+    margin-top: 6px;
+    color: var(--ink-2);
+    font-size: .9rem;
+}
+
 /* ---------- Previous / next ---------- */
 
 .pager {

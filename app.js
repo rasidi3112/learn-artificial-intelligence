@@ -942,6 +942,11 @@ function applyLanguage() {
         el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
     });
 
+    // The playground is a static page per language, so point the hero link at the right one.
+    document.querySelectorAll('[data-playground-link]').forEach(el => {
+        el.setAttribute('href', `learn/${lang}/neural-network-playground/`);
+    });
+
     const nameEl = document.getElementById('userName');
     if (nameEl) nameEl.textContent = displayName();
 

@@ -34,6 +34,7 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 
 | | |
 |---|---|
+| **Playground neural network** | Latih jaringan saraf sungguhan di browser: geser bobot satu neuron, tambah layer, lihat batas keputusan mempelajari spiral ([coba](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/)) |
 | **17 modul** | 380 menit bacaan, dari "Apa itu AI?" sampai AI agents, RAG, robotika, dan edge AI |
 | **37 soal kuis** | Urutannya diacak setiap kali, dengan umpan balik langsung dan hasil yang bisa diunduh |
 | **15 bahasa** | Antarmuka, materi, dan kuis, termasuk bahasa Arab (kanan-ke-kiri) |
@@ -43,6 +44,8 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 | **Sertifikat** | Sertifikat PDF terbitan mandiri setelah semua modul selesai |
 | **Data tetap di perangkat Anda** | Semua tersimpan di `localStorage`, bisa diekspor dan diimpor sebagai JSON |
 | **Terang dan gelap** | Mengikuti tema sistem, bisa diganti manual |
+
+<p align="center"><img src="docs/screenshots/playground.png" alt="Playground neural network sedang mempelajari spiral dengan tiga hidden layer"></p>
 
 <table>
 <tr>
