@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ディープラーニングとニューラルネットワーク · AIを学ぶ</title>
+    <meta name="description" content="ディープラーニングの入門と、ニューラルネットワークの仕組み。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ディープラーニングとニューラルネットワーク · AIを学ぶ">
+    <meta property="og:description" content="ディープラーニングの入門と、ニューラルネットワークの仕組み。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/",
+      "name": "ディープラーニングとニューラルネットワーク",
+      "description": "ディープラーニングの入門と、ニューラルネットワークの仕組み。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "上級",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 3
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ディープラーニングとニューラルネットワーク",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/deep-learning-neural-networks/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/deep-learning-neural-networks/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/deep-learning-neural-networks/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/deep-learning-neural-networks/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/deep-learning-neural-networks/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/deep-learning-neural-networks/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/deep-learning-neural-networks/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/deep-learning-neural-networks/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/deep-learning-neural-networks/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/deep-learning-neural-networks/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/deep-learning-neural-networks/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/deep-learning-neural-networks/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/deep-learning-neural-networks/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/deep-learning-neural-networks/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/deep-learning-neural-networks/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 03</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 03 / 15</p>
+                <h1>ディープラーニングとニューラルネットワーク</h1>
+                <p class="lede">ディープラーニングの入門と、ニューラルネットワークの仕組み。</p>
+                <p class="meta">
+                    <span>レベル: 上級</span>
+                    <span>所要時間: 25 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> ディープラーニングとは？</h2>
+<p>ディープラーニングは、多くの層を持つニューラルネットワーク（ディープニューラルネットワーク）を使用してデータの階層的表現を学習する機械学習のサブセットです。画像認識、言語処理、音声合成などの複雑なタスクに非常に効果的です。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> ニューラルネットワークの構造</h2>
+<p>ニューラルネットワークは3つの主要コンポーネントで構成されます：</p>
+<ol><li>入力層：入力データを受け取る</li><li>隠れ層：非線形変換でデータを処理</li><li>出力層：最終予測を生成</li></ol>
+<p>各層のニューロンは重みを通じて次の層のニューロンに接続されています。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 動作の仕組み</h2>
+<p>順伝播：<br>1. 入力層で入力を受け取る<br>2. データに重みを掛けてバイアスを加える<br>3. 活性化関数を通過（ReLU、Sigmoid、Tanh）<br>4. 出力まで次の層へ</p>
+<p>逆伝播：<br>1. 出力での誤差（損失）を計算<br>2. 前の層へ誤差を伝播<br>3. 勾配降下法で重みを更新<br>4. 収束するまで繰り返し</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> アーキテクチャ</h2>
+<p>CNN（畳み込みニューラルネットワーク）：<br>- グリッド状データ（画像）向け<br>- 畳み込み層で特徴抽出<br>- 応用：画像分類、物体検出、セグメンテーション</p>
+<p>RNN（回帰型ニューラルネットワーク）：<br>- シーケンシャルデータ（テキスト、時系列）向け<br>- 前の情報のメモリを持つ<br>- 変種：LSTM、GRU</p>
+<p>Transformer：<br>- NLP向け現代アーキテクチャ<br>- アテンション機構を使用<br>- 例：BERT、GPT、ChatGPT</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> フレームワーク</h2>
+<p>1. TensorFlow（Google）：<br>- 完全なエコシステム<br>- モバイル向けTensorFlow Lite<br>- ブラウザ向けTensorFlow.js</p>
+<p>2. PyTorch（Meta/Facebook）：<br>- 動的計算グラフ<br>- 研究で人気<br>- デバッグが容易</p>
+<p>3. Keras：<br>- 高レベルAPI<br>- TensorFlow上で動作<br>- 初心者向け</p>
+<p>4. JAX（Google）：<br>- 自動微分<br>- XLAによる高性能</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 課題</h2>
+<ul><li>大量のデータが必要</li><li>計算集約的（GPU/TPUが必要）</li><li>小さなデータセットでの過学習</li><li>解釈性が低い（ブラックボックス）</li><li>複雑なハイパーパラメータ調整</li></ul>
+<p>解決策：<br>- 転移学習：事前学習済みモデルの使用<br>- データ拡張：人工的にデータを増やす<br>- 正則化：Dropout、L1/L2正則化<br>- 早期停止：過学習前にトレーニングを停止</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=3">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../machine-learning-basics/"><small>前のモジュール</small>機械学習の基礎</a>
+            <a rel="next" href="../natural-language-processing/"><small>次のモジュール</small>自然言語処理（NLP）</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

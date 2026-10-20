@@ -1,0 +1,14 @@
+{
+  "name": "learn-artificial-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A free, open course on artificial intelligence in fifteen languages.",
+  "license": "MIT",
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

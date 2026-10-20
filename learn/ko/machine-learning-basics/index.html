@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>머신러닝 기초 · AI 배우기</title>
+    <meta name="description" content="머신러닝의 개념과 지도 학습, 비지도 학습을 이해합니다.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="머신러닝 기초 · AI 배우기">
+    <meta property="og:description" content="머신러닝의 개념과 지도 학습, 비지도 학습을 이해합니다.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ko">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/",
+      "name": "머신러닝 기초",
+      "description": "머신러닝의 개념과 지도 학습, 비지도 학습을 이해합니다.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/",
+      "inLanguage": "ko",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "중급",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI 배우기",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 배우기",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "머신러닝 기초",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ko/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI 배우기</span>
+        </a>
+        <details class="lang-menu">
+            <summary>언어: 한국어</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">전체 모듈</a> <span aria-hidden="true">/</span> <span>모듈 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">모듈 02 / 15</p>
+                <h1>머신러닝 기초</h1>
+                <p class="lede">머신러닝의 개념과 지도 학습, 비지도 학습을 이해합니다.</p>
+                <p class="meta">
+                    <span>레벨: 중급</span>
+                    <span>소요시간: 20 분</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> ML이란?</h2>
+<p>머신러닝(ML)은 명시적인 프로그래밍 없이 기계가 데이터에서 스스로 학습하는 AI의 한 분야입니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 지도 학습</h2>
+<p>지도 학습: 라벨이 지정된 데이터를 사용하여 훈련. 알고리즘: 선형 회귀, 의사결정 나무, 인공 신경망.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 비지도 학습</h2>
+<p>비지도 학습: 라벨 없는 데이터에서 패턴 찾기. 예: K-Means 군집화.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 강화 학습</h2>
+<p>강화 학습: 환경과 상호 작용하며 보상을 극대화하는 방식 (예: AlphaGo).</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> ML 프로세스</h2>
+<p>과정: 데이터 수집, 데이터 전처리, 모델 선택, 훈련 및 평가.</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 평가 지표</h2>
+<p>분류 평가 지표로는 정확도, 정밀도, 재현율, F1-스코어가 있습니다.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ko&amp;lesson=2">퀴즈와 진행 상황이 있는 인터랙티브 버전 열기</a></p>
+        <nav class="pager" aria-label="전체 모듈">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>이전 모듈</small>인공지능이란?</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>다음 모듈</small>딥러닝과 신경망</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>개발자: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

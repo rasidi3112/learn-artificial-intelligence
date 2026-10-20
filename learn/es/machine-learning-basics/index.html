@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Machine Learning · Aprender IA</title>
+    <meta name="description" content="Comprende los conceptos de Machine Learning y el aprendizaje supervisado y no supervisado.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fundamentos de Machine Learning · Aprender IA">
+    <meta property="og:description" content="Comprende los conceptos de Machine Learning y el aprendizaje supervisado y no supervisado.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="es">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/",
+      "name": "Fundamentos de Machine Learning",
+      "description": "Comprende los conceptos de Machine Learning y el aprendizaje supervisado y no supervisado.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/",
+      "inLanguage": "es",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Intermedio",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Aprender IA",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Aprender IA",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fundamentos de Machine Learning",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/es/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Aprender IA</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Idioma: Español</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es" aria-current="true">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Todos los módulos</a> <span aria-hidden="true">/</span> <span>Módulo 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Módulo 02 / 15</p>
+                <h1>Fundamentos de Machine Learning</h1>
+                <p class="lede">Comprende los conceptos de Machine Learning y el aprendizaje supervisado y no supervisado.</p>
+                <p class="meta">
+                    <span>Nivel: Intermedio</span>
+                    <span>Duración: 20 min</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> ¿Qué es Machine Learning?</h2>
+<p>Machine Learning (ML) es una rama de la IA que permite a las computadoras aprender y tomar decisiones sin estar programadas explícitamente para cada tarea. Los sistemas de ML utilizan algoritmos para identificar patrones en los datos y hacer predicciones basadas en esos patrones.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Aprendizaje Supervisado</h2>
+<p>El Aprendizaje Supervisado es un método donde el modelo se entrena usando datos etiquetados. El modelo aprende de pares entrada-salida para hacer predicciones en datos nuevos.</p>
+<p>Algoritmos de Ejemplo:<br>- Regresión Lineal: Predecir valores continuos (precios de casas)<br>- Regresión Logística: Clasificación binaria (spam/no spam)<br>- Árboles de Decisión: Decisiones basadas en reglas<br>- Random Forest: Conjunto de árboles de decisión<br>- Support Vector Machines (SVM): Clasificación con margen óptimo<br>- Redes Neuronales: Modelos inspirados en el cerebro</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Aprendizaje No Supervisado</h2>
+<p>El Aprendizaje No Supervisado es un método donde el modelo encuentra patrones en datos no etiquetados.</p>
+<p>Algoritmos:<br>- K-Means Clustering: Agrupación de datos por similitud<br>- Clustering Jerárquico: Agrupación multinivel<br>- Análisis de Componentes Principales (PCA): Reducción de dimensionalidad<br>- Reglas de Asociación: Encontrar relaciones entre elementos<br>- Detección de Anomalías: Detectar valores atípicos</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Aprendizaje por Refuerzo</h2>
+<p>El Aprendizaje por Refuerzo es un método donde un agente aprende interactuando con un entorno. Recibe recompensas o castigos basados en sus acciones y aprende a maximizar las recompensas.</p>
+<p>Aplicaciones:<br>- IA de Juegos (AlphaGo, OpenAI Five)<br>- Navegación de robots<br>- Sistemas de recomendación<br>- Trading automatizado<br>- Control de vehículos autónomos</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> Proceso de ML</h2>
+<ol><li>Recopilación de Datos: Reunir datos relevantes</li><li>Preprocesamiento: Limpieza y preparación de datos</li><li>Ingeniería de Características: Creación de características importantes</li><li>Selección de Modelo: Elección del algoritmo</li><li>Entrenamiento: Entrenar el modelo con datos</li><li>Evaluación: Probar el rendimiento</li><li>Ajuste: Optimizar hiperparámetros</li><li>Despliegue: Implementar en producción</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> Métricas</h2>
+<p>Clasificación:<br>- Exactitud: Porcentaje de predicciones correctas<br>- Precisión: Exactitud de predicciones positivas<br>- Recall: Capacidad de encontrar todos los positivos<br>- F1-Score: Media armónica de precisión y recall</p>
+<p>Regresión:<br>- Error Absoluto Medio (MAE)<br>- Error Cuadrático Medio (MSE)<br>- R-cuadrado (R²)</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=es&amp;lesson=2">Abrir la versión interactiva con cuestionario y progreso</a></p>
+        <nav class="pager" aria-label="Todos los módulos">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>Módulo anterior</small>¿Qué es la Inteligencia Artificial?</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>Módulo siguiente</small>Deep Learning y Redes Neuronales</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Desarrollado por Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

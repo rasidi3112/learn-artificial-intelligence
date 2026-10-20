@@ -59,21 +59,21 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 
 | # | Modul | Tingkat | Durasi |
 |---|-------|---------|--------|
-| 01 | Apa itu Kecerdasan Buatan? | Pemula | 15 menit |
-| 02 | Machine Learning Dasar | Menengah | 20 menit |
-| 03 | Pembelajaran Mendalam & Jaringan Neural | Lanjut | 25 menit |
-| 04 | Natural Language Processing (NLP) | Menengah | 18 menit |
-| 05 | Computer Vision | Lanjut | 22 menit |
-| 06 | Prompt Engineering Dasar | Pemula | 15 menit |
-| 07 | Etika dan Bias dalam AI | Menengah | 20 menit |
-| 08 | Panduan Karir di Bidang AI | Pemula | 15 menit |
-| 09 | Reinforcement Learning | Lanjut | 28 menit |
-| 10 | Generative AI & Large Language Models | Menengah | 26 menit |
-| 11 | AI in Healthcare | Menengah | 25 menit |
-| 12 | AI untuk Bisnis & Industri | Menengah | 24 menit |
-| 13 | Robotika & AI | Lanjut | 30 menit |
-| 14 | Edge AI & IoT | Lanjut | 27 menit |
-| 15 | AutoML & No-Code AI | Pemula | 20 menit |
+| 01 | [Apa itu Kecerdasan Buatan?](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/what-is-artificial-intelligence/) | Pemula | 15 menit |
+| 02 | [Machine Learning Dasar](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/) | Menengah | 20 menit |
+| 03 | [Pembelajaran Mendalam & Jaringan Neural](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/) | Lanjut | 25 menit |
+| 04 | [Natural Language Processing (NLP)](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/natural-language-processing/) | Menengah | 18 menit |
+| 05 | [Computer Vision](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/computer-vision/) | Lanjut | 22 menit |
+| 06 | [Prompt Engineering Dasar](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/) | Pemula | 15 menit |
+| 07 | [Etika dan Bias dalam AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-ethics-and-bias/) | Menengah | 20 menit |
+| 08 | [Panduan Karir di Bidang AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-career-guide/) | Pemula | 15 menit |
+| 09 | [Reinforcement Learning](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/) | Lanjut | 28 menit |
+| 10 | [Generative AI & Large Language Models](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/generative-ai-large-language-models/) | Menengah | 26 menit |
+| 11 | [AI in Healthcare](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-in-healthcare/) | Menengah | 25 menit |
+| 12 | [AI untuk Bisnis & Industri](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/ai-for-business-and-industry/) | Menengah | 24 menit |
+| 13 | [Robotika & AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/robotics-and-ai/) | Lanjut | 30 menit |
+| 14 | [Edge AI & IoT](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/edge-ai-and-iot/) | Lanjut | 27 menit |
+| 15 | [AutoML & No-Code AI](https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/automl-and-no-code-ai/) | Pemula | 20 menit |
 
 ## Menjalankan di komputer sendiri
 
@@ -103,6 +103,15 @@ Kontribusi sangat diterima. Yang paling membantu:
 - **Periksa terjemahan** dalam bahasa yang Anda kuasai. Teks materi ada di `content-translations.js`, kuis di `quiz-translations.js`.
 - **Tambah atau perbaiki modul.** Contoh yang akurat dan konkret lebih baik daripada penjelasan panjang.
 - **Perbaiki bug.** Sertakan langkah untuk mereproduksinya di pull request Anda.
+
+Kalau Anda mengubah teks materi, buat ulang halaman statis per modul lalu jalankan pengecekan (Node 20 ke atas, tanpa instalasi apa pun):
+
+```bash
+npm run build:pages
+npm test
+```
+
+CI menjalankan `npm test` di setiap pull request dan gagal kalau folder `learn/` belum diperbarui.
 
 Fork repo ini, buat branch, lalu ajukan pull request dengan catatan singkat tentang apa yang diubah dan alasannya.
 

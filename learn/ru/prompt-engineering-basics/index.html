@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы Промпт-Инженерии · Изучение ИИ</title>
+    <meta name="description" content="Искусство взаимодействия с генеративным ИИ, таким как ChatGPT, для наилучших результатов.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Основы Промпт-Инженерии · Изучение ИИ">
+    <meta property="og:description" content="Искусство взаимодействия с генеративным ИИ, таким как ChatGPT, для наилучших результатов.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ru">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/",
+      "name": "Основы Промпт-Инженерии",
+      "description": "Искусство взаимодействия с генеративным ИИ, таким как ChatGPT, для наилучших результатов.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/",
+      "inLanguage": "ru",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Начальный",
+      "timeRequired": "PT15M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Изучение ИИ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/"
+      },
+      "position": 6
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Изучение ИИ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Основы Промпт-Инженерии",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ru/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Изучение ИИ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Язык: Русский</summary>
+            <ul>
+                <li><a href="../../../learn/id/prompt-engineering-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/prompt-engineering-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/prompt-engineering-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/prompt-engineering-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/prompt-engineering-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/prompt-engineering-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/prompt-engineering-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/prompt-engineering-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/prompt-engineering-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/prompt-engineering-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/prompt-engineering-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/prompt-engineering-basics/" hreflang="ru" lang="ru" aria-current="true">Русский</a></li>
+                <li><a href="../../../learn/tr/prompt-engineering-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/prompt-engineering-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/prompt-engineering-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Все модули</a> <span aria-hidden="true">/</span> <span>Модуль 06</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Модуль 06 / 15</p>
+                <h1>Основы Промпт-Инженерии</h1>
+                <p class="lede">Искусство взаимодействия с генеративным ИИ, таким как ChatGPT, для наилучших результатов.</p>
+                <p class="meta">
+                    <span>Уровень: Начальный</span>
+                    <span>Длительность: 15 мин</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Что такое промпт-инжиниринг?</h2>
+<p>Промпт-инжиниринг — это искусство составления эффективных запросов к генеративному ИИ для получения идеальных ответов.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Базовые принципы</h2>
+<p>Принципы: Будьте точны, задавайте контекст, указывайте формат вывода.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Продвинутые техники</h2>
+<p>Методы: Zero-shot, Few-shot и Chain of Thought (размышление по шагам).</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ru&amp;lesson=6">Открыть интерактивную версию с тестом и прогрессом</a></p>
+        <nav class="pager" aria-label="Все модули">
+            <a rel="prev" href="../computer-vision/"><small>Предыдущий модуль</small>Компьютерное Зрение</a>
+            <a rel="next" href="../ai-ethics-and-bias/"><small>Следующий модуль</small>Этика и Предвзятость в ИИ</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Разработчик: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

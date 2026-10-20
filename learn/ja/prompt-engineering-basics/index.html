@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプトエンジニアリング基礎 · AIを学ぶ</title>
+    <meta name="description" content="ChatGPTなどの生成AIから最良の結果を引き出す対話の技術。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/prompt-engineering-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/prompt-engineering-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="プロンプトエンジニアリング基礎 · AIを学ぶ">
+    <meta property="og:description" content="ChatGPTなどの生成AIから最良の結果を引き出す対話の技術。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ja">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/",
+      "name": "プロンプトエンジニアリング基礎",
+      "description": "ChatGPTなどの生成AIから最良の結果を引き出す対話の技術。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/",
+      "inLanguage": "ja",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "初級",
+      "timeRequired": "PT15M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AIを学ぶ",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+      },
+      "position": 6
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AIを学ぶ",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "プロンプトエンジニアリング基礎",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/prompt-engineering-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ja/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AIを学ぶ</span>
+        </a>
+        <details class="lang-menu">
+            <summary>言語: 日本語</summary>
+            <ul>
+                <li><a href="../../../learn/id/prompt-engineering-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/prompt-engineering-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/prompt-engineering-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/prompt-engineering-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/prompt-engineering-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/prompt-engineering-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/prompt-engineering-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/prompt-engineering-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/prompt-engineering-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/prompt-engineering-basics/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+                <li><a href="../../../learn/ko/prompt-engineering-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/prompt-engineering-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/prompt-engineering-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/prompt-engineering-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/prompt-engineering-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">すべてのモジュール</a> <span aria-hidden="true">/</span> <span>モジュール 06</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">モジュール 06 / 15</p>
+                <h1>プロンプトエンジニアリング基礎</h1>
+                <p class="lede">ChatGPTなどの生成AIから最良の結果を引き出す対話の技術。</p>
+                <p class="meta">
+                    <span>レベル: 初級</span>
+                    <span>所要時間: 15 分</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> プロンプトエンジニアリングとは？</h2>
+<p>プロンプトエンジニアリングとは、生成AIモデル（LLMなど）に与える指示（プロンプト）を設計、最適化、構造化し、関連性が高く正確でユーザーの望む出力を生成するスキルです。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> プロンプトの基本原則</h2>
+<ol><li>明確で具体的に：曖昧さを避ける。</li><li>コンテキストを提供：AIにどの役割を演じるか伝える（例：「マーケティングの専門家として行動してください」）。</li><li>出力形式を指定：特定の形式で応答を求める（表、リスト、箇条書き）。</li><li>範囲を制限：AIがすべきでないことを説明する。</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 応用テクニック</h2>
+<p>ゼロショットプロンプティング：例を一切与えずにAIにタスクを実行させる。</p>
+<p>フューショットプロンプティング：モデルが望むパターンを理解できるよう、1つ以上の出力例を提供する。</p>
+<p>Chain of Thought（CoT）：最終的な回答を出す前に、モデルに段階的に思考を説明させる（「ステップバイステップで考えましょう」）。</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ja&amp;lesson=6">クイズと進捗管理つきのインタラクティブ版を開く</a></p>
+        <nav class="pager" aria-label="すべてのモジュール">
+            <a rel="prev" href="../computer-vision/"><small>前のモジュール</small>コンピュータビジョン</a>
+            <a rel="next" href="../ai-ethics-and-bias/"><small>次のモジュール</small>AIにおける倫理とバイアス</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>開発者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

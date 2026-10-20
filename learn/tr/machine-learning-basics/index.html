@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makine Öğrenimi Temelleri · Yapay Zeka Öğrenin</title>
+    <meta name="description" content="Makine öğrenimi kavramlarını, denetimli ve denetimsiz öğrenmeyi anlayın.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Makine Öğrenimi Temelleri · Yapay Zeka Öğrenin">
+    <meta property="og:description" content="Makine öğrenimi kavramlarını, denetimli ve denetimsiz öğrenmeyi anlayın.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="tr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/",
+      "name": "Makine Öğrenimi Temelleri",
+      "description": "Makine öğrenimi kavramlarını, denetimli ve denetimsiz öğrenmeyi anlayın.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/",
+      "inLanguage": "tr",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Orta",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Yapay Zeka Öğrenin",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Yapay Zeka Öğrenin",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Makine Öğrenimi Temelleri",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/tr/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Yapay Zeka Öğrenin</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Dil: Türkçe</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr" aria-current="true">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Tüm modüller</a> <span aria-hidden="true">/</span> <span>Modül 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modül 02 / 15</p>
+                <h1>Makine Öğrenimi Temelleri</h1>
+                <p class="lede">Makine öğrenimi kavramlarını, denetimli ve denetimsiz öğrenmeyi anlayın.</p>
+                <p class="meta">
+                    <span>Seviye: Orta</span>
+                    <span>Süre: 20 dk</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> ML Nedir?</h2>
+<p>Makine Öğrenimi (ML), bilgisayarların verilerden öğrenmesini ve deneyimle gelişmesini sağlar.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Denetimli</h2>
+<p>Gözetimli Öğrenme (Supervised): Etiketlenmiş verilerle model eğitilir.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Denetimsiz</h2>
+<p>Gözetimsiz Öğrenme (Unsupervised): Etiketsiz verilerdeki desenler bulunur (K-Means).</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Pekiştirmeli</h2>
+<p>Pekiştirmeli Öğrenme (Reinforcement): Ödül ve ceza sistemiyle öğrenir (AlphaGo).</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> Süreç</h2>
+<p>Süreç: Veri toplama, Ön işleme, Eğitim, Değerlendirme, Dağıtım.</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> Metrikler</h2>
+<p>Metrikler: Doğruluk (Accuracy), Kesinlik, Duyarlılık, F1-Score.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=tr&amp;lesson=2">Test ve ilerleme içeren etkileşimli sürümü aç</a></p>
+        <nav class="pager" aria-label="Tüm modüller">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>Önceki modül</small>Yapay Zeka Nedir?</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>Sonraki modül</small>Derin Öğrenme ve Sinir Ağları</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Geliştiren: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Dasar · Belajar AI</title>
+    <meta name="description" content="Memahami konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/machine-learning-basics/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/machine-learning-basics/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/machine-learning-basics/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/machine-learning-basics/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/machine-learning-basics/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/machine-learning-basics/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/machine-learning-basics/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/machine-learning-basics/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/machine-learning-basics/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/machine-learning-basics/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/machine-learning-basics/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/machine-learning-basics/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/machine-learning-basics/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/machine-learning-basics/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Machine Learning Dasar · Belajar AI">
+    <meta property="og:description" content="Memahami konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/",
+      "name": "Machine Learning Dasar",
+      "description": "Memahami konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/",
+      "inLanguage": "id",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "Menengah",
+      "timeRequired": "PT20M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "Belajar AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+      },
+      "position": 2
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Belajar AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Machine Learning Dasar",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/machine-learning-basics/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/id/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>Belajar AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>Bahasa: Bahasa Indonesia</summary>
+            <ul>
+                <li><a href="../../../learn/id/machine-learning-basics/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/machine-learning-basics/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/machine-learning-basics/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/machine-learning-basics/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/machine-learning-basics/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/machine-learning-basics/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/machine-learning-basics/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/machine-learning-basics/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/machine-learning-basics/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/machine-learning-basics/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/machine-learning-basics/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/machine-learning-basics/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/machine-learning-basics/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/machine-learning-basics/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/machine-learning-basics/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">Semua modul</a> <span aria-hidden="true">/</span> <span>Modul 02</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">Modul 02 / 15</p>
+                <h1>Machine Learning Dasar</h1>
+                <p class="lede">Memahami konsep Machine Learning, pembelajaran yang diawasi dan tidak diawasi.</p>
+                <p class="meta">
+                    <span>Tingkat: Menengah</span>
+                    <span>Durasi: 20 menit</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> Apa itu Machine Learning?</h2>
+<p>Machine Learning (ML) adalah cabang AI yang memungkinkan komputer untuk belajar dan membuat keputusan tanpa diprogram secara eksplisit untuk setiap tugas. Sistem ML menggunakan algoritma untuk mengidentifikasi pola dalam data dan membuat prediksi atau keputusan berdasarkan pola tersebut.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> Supervised Learning</h2>
+<p>Supervised Learning adalah metode di mana model dilatih menggunakan data berlabel. Model belajar dari pasangan input-output untuk membuat prediksi pada data baru.</p>
+<p>Contoh Algoritma:<br>- Linear Regression: Prediksi nilai kontinu (harga rumah)<br>- Logistic Regression: Klasifikasi biner (spam/bukan spam)<br>- Decision Trees: Keputusan berbasis aturan<br>- Random Forest: Ensemble dari decision trees<br>- Support Vector Machines (SVM): Klasifikasi dengan margin optimal<br>- Neural Networks: Model terinspirasi otak manusia</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Unsupervised Learning</h2>
+<p>Unsupervised Learning adalah metode di mana model menemukan pola dalam data tanpa label.</p>
+<p>Contoh Algoritma:<br>- K-Means Clustering: Mengelompokkan data berdasarkan kesamaan<br>- Hierarchical Clustering: Pengelompokan bertingkat<br>- Principal Component Analysis (PCA): Reduksi dimensi<br>- Association Rules: Menemukan hubungan antar item (market basket analysis)<br>- Anomaly Detection: Mendeteksi outlier atau data tidak normal</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> Reinforcement Learning</h2>
+<p>Reinforcement Learning adalah metode di mana agen belajar melalui interaksi dengan lingkungan. Agen menerima reward atau punishment berdasarkan aksinya dan belajar untuk memaksimalkan reward.</p>
+<p>Contoh Penerapan:<br>- Game AI (AlphaGo, OpenAI Five)<br>- Robot navigasi<br>- Sistem rekomendasi<br>- Trading otomatis<br>- Kontrol kendaraan otonom</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> Proses Machine Learning</h2>
+<ol><li>Pengumpulan Data: Mengumpulkan data yang relevan</li><li>Preprocessing: Membersihkan dan mempersiapkan data</li><li>Feature Engineering: Memilih dan membuat fitur penting</li><li>Pemilihan Model: Memilih algoritma yang sesuai</li><li>Training: Melatih model dengan data</li><li>Evaluasi: Menguji performa model</li><li>Tuning: Mengoptimalkan hyperparameter</li><li>Deployment: Menerapkan model ke produksi</li></ol>
+            </section>
+            <section>
+                <h2><span class="num">06</span> Metrik Evaluasi</h2>
+<p>Klasifikasi:<br>- Accuracy: Persentase prediksi benar<br>- Precision: Ketepatan prediksi positif<br>- Recall: Kemampuan menemukan semua positif<br>- F1-Score: Harmonic mean precision dan recall</p>
+<p>Regresi:<br>- Mean Absolute Error (MAE)<br>- Mean Squared Error (MSE)<br>- R-squared (R²)</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=id&amp;lesson=2">Buka versi interaktif dengan kuis dan progres</a></p>
+        <nav class="pager" aria-label="Semua modul">
+            <a rel="prev" href="../what-is-artificial-intelligence/"><small>Modul sebelumnya</small>Apa itu Kecerdasan Buatan?</a>
+            <a rel="next" href="../deep-learning-neural-networks/"><small>Modul berikutnya</small>Pembelajaran Mendalam &amp; Jaringan Neural</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Dikembangkan oleh Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

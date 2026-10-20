@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度学习与神经网络 · 学习 AI</title>
+    <meta name="description" content="深度学习入门，以及神经网络的工作原理。">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/deep-learning-neural-networks/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/deep-learning-neural-networks/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="深度学习与神经网络 · 学习 AI">
+    <meta property="og:description" content="深度学习入门，以及神经网络的工作原理。">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="zh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/",
+      "name": "深度学习与神经网络",
+      "description": "深度学习入门，以及神经网络的工作原理。",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/",
+      "inLanguage": "zh",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "高级",
+      "timeRequired": "PT25M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "学习 AI",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+      },
+      "position": 3
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "学习 AI",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "深度学习与神经网络",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/deep-learning-neural-networks/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/zh/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>学习 AI</span>
+        </a>
+        <details class="lang-menu">
+            <summary>语言: 中文</summary>
+            <ul>
+                <li><a href="../../../learn/id/deep-learning-neural-networks/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/deep-learning-neural-networks/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/deep-learning-neural-networks/" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+                <li><a href="../../../learn/es/deep-learning-neural-networks/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/deep-learning-neural-networks/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/deep-learning-neural-networks/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/deep-learning-neural-networks/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/deep-learning-neural-networks/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/deep-learning-neural-networks/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/deep-learning-neural-networks/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/deep-learning-neural-networks/" hreflang="ko" lang="ko">한국어</a></li>
+                <li><a href="../../../learn/ru/deep-learning-neural-networks/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/deep-learning-neural-networks/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/deep-learning-neural-networks/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/deep-learning-neural-networks/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">全部模块</a> <span aria-hidden="true">/</span> <span>模块 03</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">模块 03 / 15</p>
+                <h1>深度学习与神经网络</h1>
+                <p class="lede">深度学习入门，以及神经网络的工作原理。</p>
+                <p class="meta">
+                    <span>等级: 高级</span>
+                    <span>时长: 25 分钟</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 什么是深度学习？</h2>
+<p>深度学习是机器学习的一个子集，使用具有多层的神经网络（深度神经网络）来学习数据的层次表示。深度学习对于图像识别、语言处理和语音合成等复杂任务非常有效。</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 神经网络结构</h2>
+<p>神经网络由三个主要组件组成：</p>
+<ol><li>输入层：接收输入数据</li><li>隐藏层：通过非线性变换处理数据</li><li>输出层：产生最终预测</li></ol>
+<p>每层中的神经元通过权重连接到下一层的神经元。每个连接都有一个权重，决定了关系的强度。</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> 神经网络工作原理</h2>
+<p>前向传播：<br>1. 在输入层接收输入<br>2. 数据乘以权重并加上偏置<br>3. 结果通过激活函数（ReLU、Sigmoid、Tanh）<br>4. 过程继续到下一层直到输出</p>
+<p>反向传播：<br>1. 计算输出处的误差（损失）<br>2. 将误差传播到前一层<br>3. 使用梯度下降更新权重<br>4. 过程重复直到收敛</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 深度学习架构</h2>
+<p>CNN（卷积神经网络）：<br>- 用于网格状数据（图像）<br>- 使用卷积层进行特征提取<br>- 应用：图像分类、目标检测、分割</p>
+<p>RNN（循环神经网络）：<br>- 用于序列数据（文本、时间序列）<br>- 具有先前信息的记忆<br>- 变体：LSTM、GRU</p>
+<p>Transformer：<br>- NLP的现代架构<br>- 使用注意力机制<br>- 示例：BERT、GPT、ChatGPT</p>
+            </section>
+            <section>
+                <h2><span class="num">05</span> 深度学习框架</h2>
+<p>1. TensorFlow（Google）：<br>- 完整的生态系统<br>- 移动端TensorFlow Lite<br>- 浏览器端TensorFlow.js</p>
+<p>2. PyTorch（Meta/Facebook）：<br>- 动态计算图<br>- 研究中流行<br>- 易于调试</p>
+<p>3. Keras：<br>- 高级API<br>- 在TensorFlow上运行<br>- 适合初学者</p>
+<p>4. JAX（Google）：<br>- 自动微分<br>- XLA高性能</p>
+            </section>
+            <section>
+                <h2><span class="num">06</span> 深度学习挑战</h2>
+<ul><li>需要大量数据</li><li>计算密集（需要GPU/TPU）</li><li>小数据集过拟合</li><li>可解释性低（黑盒）</li><li>超参数调优复杂</li></ul>
+<p>解决方案：<br>- 迁移学习：使用预训练模型<br>- 数据增强：人工扩展数据<br>- 正则化：Dropout、L1/L2正则化<br>- 早停：在过拟合前停止训练</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=zh&amp;lesson=3">打开带测验和进度的互动版本</a></p>
+        <nav class="pager" aria-label="全部模块">
+            <a rel="prev" href="../machine-learning-basics/"><small>上一模块</small>机器学习基础</a>
+            <a rel="next" href="../natural-language-processing/"><small>下一模块</small>自然语言处理（NLP）</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>开发者： Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>

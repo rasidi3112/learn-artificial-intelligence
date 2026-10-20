@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강화 학습 · AI 배우기</title>
+    <meta name="description" content="보상, 시뮬레이션, 정책 평가를 통해 AI 에이전트가 의사결정하는 방법을 배웁니다.">
+    <meta name="author" content="Ahmad Rasidi">
+    <link rel="canonical" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="id" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <link rel="alternate" hreflang="en" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/reinforcement-learning/">
+    <link rel="alternate" hreflang="zh" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/zh/reinforcement-learning/">
+    <link rel="alternate" hreflang="es" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/es/reinforcement-learning/">
+    <link rel="alternate" hreflang="ar" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ar/reinforcement-learning/">
+    <link rel="alternate" hreflang="hi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/hi/reinforcement-learning/">
+    <link rel="alternate" hreflang="pt" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/pt/reinforcement-learning/">
+    <link rel="alternate" hreflang="fr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/fr/reinforcement-learning/">
+    <link rel="alternate" hreflang="de" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/de/reinforcement-learning/">
+    <link rel="alternate" hreflang="ja" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ja/reinforcement-learning/">
+    <link rel="alternate" hreflang="ko" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <link rel="alternate" hreflang="ru" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ru/reinforcement-learning/">
+    <link rel="alternate" hreflang="tr" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/tr/reinforcement-learning/">
+    <link rel="alternate" hreflang="it" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/it/reinforcement-learning/">
+    <link rel="alternate" hreflang="vi" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/vi/reinforcement-learning/">
+    <link rel="alternate" hreflang="x-default" href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/reinforcement-learning/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="강화 학습 · AI 배우기">
+    <meta property="og:description" content="보상, 시뮬레이션, 정책 평가를 통해 AI 에이전트가 의사결정하는 방법을 배웁니다.">
+    <meta property="og:url" content="https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/">
+    <meta property="og:image" content="https://rasidi3112.github.io/learn-artificial-intelligence/og-image.png">
+    <meta property="og:locale" content="ko">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../learn/pages.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/",
+      "name": "강화 학습",
+      "description": "보상, 시뮬레이션, 정책 평가를 통해 AI 에이전트가 의사결정하는 방법을 배웁니다.",
+      "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/",
+      "inLanguage": "ko",
+      "learningResourceType": "Lesson",
+      "educationalLevel": "고급",
+      "timeRequired": "PT28M",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmad Rasidi"
+      },
+      "isPartOf": {
+        "@type": "Course",
+        "name": "AI 배우기",
+        "url": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+      },
+      "position": 9
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 배우기",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "강화 학습",
+          "item": "https://rasidi3112.github.io/learn-artificial-intelligence/learn/ko/reinforcement-learning/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body>
+    <header class="masthead">
+        <a class="wordmark" href="../../../learn/ko/">
+            <span class="wordmark-mark" aria-hidden="true">a</span>
+            <span>AI 배우기</span>
+        </a>
+        <details class="lang-menu">
+            <summary>언어: 한국어</summary>
+            <ul>
+                <li><a href="../../../learn/id/reinforcement-learning/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+                <li><a href="../../../learn/en/reinforcement-learning/" hreflang="en" lang="en">English</a></li>
+                <li><a href="../../../learn/zh/reinforcement-learning/" hreflang="zh" lang="zh">中文</a></li>
+                <li><a href="../../../learn/es/reinforcement-learning/" hreflang="es" lang="es">Español</a></li>
+                <li><a href="../../../learn/ar/reinforcement-learning/" hreflang="ar" lang="ar">العربية</a></li>
+                <li><a href="../../../learn/hi/reinforcement-learning/" hreflang="hi" lang="hi">हिन्दी</a></li>
+                <li><a href="../../../learn/pt/reinforcement-learning/" hreflang="pt" lang="pt">Português</a></li>
+                <li><a href="../../../learn/fr/reinforcement-learning/" hreflang="fr" lang="fr">Français</a></li>
+                <li><a href="../../../learn/de/reinforcement-learning/" hreflang="de" lang="de">Deutsch</a></li>
+                <li><a href="../../../learn/ja/reinforcement-learning/" hreflang="ja" lang="ja">日本語</a></li>
+                <li><a href="../../../learn/ko/reinforcement-learning/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li>
+                <li><a href="../../../learn/ru/reinforcement-learning/" hreflang="ru" lang="ru">Русский</a></li>
+                <li><a href="../../../learn/tr/reinforcement-learning/" hreflang="tr" lang="tr">Türkçe</a></li>
+                <li><a href="../../../learn/it/reinforcement-learning/" hreflang="it" lang="it">Italiano</a></li>
+                <li><a href="../../../learn/vi/reinforcement-learning/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+            </ul>
+        </details>
+    </header>
+
+    <main class="lesson">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../">전체 모듈</a> <span aria-hidden="true">/</span> <span>모듈 09</span>
+        </nav>
+        <article>
+            <header class="lesson-head">
+                <p class="kicker">모듈 09 / 15</p>
+                <h1>강화 학습</h1>
+                <p class="lede">보상, 시뮬레이션, 정책 평가를 통해 AI 에이전트가 의사결정하는 방법을 배웁니다.</p>
+                <p class="meta">
+                    <span>레벨: 고급</span>
+                    <span>소요시간: 28 분</span>
+                </p>
+            </header>
+            <section>
+                <h2><span class="num">01</span> 순차적 의사결정 문제</h2>
+<p>강화학습은 의사결정을 마르코프 결정 과정으로 모델링합니다. 에이전트가 상태를 관찰하고 행동을 선택하면 보상과 다음 상태를 받습니다. 정책 π(a|s)가 행동을 고르고 할인율 γ가 미래 보상의 비중을 정합니다. Gymnasium CartPole에서는 막대가 서 있는 동안 매 단계 +1을 받습니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">02</span> 가치 함수와 Q-Learning</h2>
+<p>가치 기반 RL은 상태 또는 상태-행동 쌍의 장기 가치를 추정합니다. Q-learning은 α[r + γ max Q(s′,a′) − Q(s,a)]로 Q를 업데이트합니다. ε-greedy는 가끔 무작위 행동을 시도하고, DQN은 표 대신 신경망과 replay buffer, target network를 사용합니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">03</span> Policy Gradient에서 PPO까지</h2>
+<p>로봇 팔의 각도처럼 연속적인 행동에서는 정책이 행동 분포를 출력할 수 있습니다. REINFORCE는 에피소드 보상으로 학습하고, actor-critic은 가치 추정기를 추가하며, PPO는 업데이트마다 정책 변화량을 제한합니다. Stable-Baselines3에는 PPO, DQN, SAC 구현이 있습니다.</p>
+            </section>
+            <section>
+                <h2><span class="num">04</span> 보상 설계와 평가</h2>
+<p>보상을 잘못 설계하면 실제 목적을 놓친 채 지표만 최적화할 수 있습니다. 창고 로봇에는 속도뿐 아니라 충돌, 에너지, 대기 시간 패널티를 넣어야 합니다. 여러 random seed와 별도 평가 환경을 사용하고, 실제 장비 전에 MuJoCo나 Isaac Sim, action 제한, 비상 정지를 시험합니다.</p>
+            </section>
+        </article>
+        <p><a class="cta" href="../../../?lang=ko&amp;lesson=9">퀴즈와 진행 상황이 있는 인터랙티브 버전 열기</a></p>
+        <nav class="pager" aria-label="전체 모듈">
+            <a rel="prev" href="../ai-career-guide/"><small>이전 모듈</small>AI 분야 커리어 가이드</a>
+            <a rel="next" href="../generative-ai-large-language-models/"><small>다음 모듈</small>생성형 AI와 대규모 언어 모델</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>개발자: Ahmad Rasidi. <a href="https://github.com/rasidi3112/learn-artificial-intelligence">GitHub</a> · MIT</p>
+    </footer>
+</body>
+
+</html>
