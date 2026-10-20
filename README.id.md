@@ -45,7 +45,7 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 | **Data tetap di perangkat Anda** | Semua tersimpan di `localStorage`, bisa diekspor dan diimpor sebagai JSON |
 | **Terang dan gelap** | Mengikuti tema sistem, bisa diganti manual |
 
-<p align="center"><img src="docs/screenshots/playground.png" alt="Playground neural network sedang mempelajari spiral dengan tiga hidden layer"></p>
+<p align="center"><a href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/"><img src="docs/screenshots/playground-demo.gif" alt="Playground neural network melatih jaringan tiga layer pada data spiral: peta neuron, bobot, dan batas keputusan berubah secara langsung" width="900"></a></p>
 
 <table>
 <tr>
