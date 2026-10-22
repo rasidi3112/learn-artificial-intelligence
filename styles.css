@@ -1273,6 +1273,34 @@ main {
     margin-top: 32px;
 }
 
+/* Shareable result card: drawn on a canvas at 1200x630, shown here as a scaled preview */
+.share-card {
+    max-width: 600px;
+    margin: 36px 0 0;
+}
+
+.share-card-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+}
+
+.share-card-caption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+html:is(:lang(ar), :lang(hi), :lang(zh), :lang(ja), :lang(ko)) .share-card-caption {
+    letter-spacing: 0;
+}
+
 /* ---------- Notes ---------- */
 
 .notes-grid {
