@@ -918,6 +918,7 @@ function toggleTheme() {
             NeuralNet.drawStatic();
         }
     }
+    refreshShareCard();
 }
 
 function applyLanguage() {
@@ -953,6 +954,7 @@ function applyLanguage() {
     document.title = t('app_title') + ' · ' + t('app_desc');
     document.documentElement.lang = lang;
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    refreshShareCard();
 }
 
 function changeLanguage() {
@@ -1253,9 +1255,9 @@ function showQuizResult() {
     const pct = (quiz.score / QUIZ.length) * 100;
     const scoreDisplay = document.getElementById('scoreDisplay');
     if (scoreDisplay) scoreDisplay.textContent = quiz.score + '/' + QUIZ.length;
-    let msg = pct === 100 ? t('quiz_result_perfect') : pct >= 80 ? t('quiz_result_great') : pct >= 60 ? t('quiz_result_good') : t('quiz_result_retry');
     const msgEl = document.getElementById('resultMessage');
-    if (msgEl) msgEl.textContent = msg;
+    if (msgEl) msgEl.textContent = quizResultMessage(pct);
+    refreshShareCard();
     data.points += pct === 100 ? 500 : pct >= 80 ? 400 : pct >= 60 ? 300 : 100;
     data.scores.push({ date: new Date().toLocaleDateString(locale()), score: pct });
     data.level = Math.floor(data.points / 500) + 1;
@@ -1268,6 +1270,10 @@ function showQuizResult() {
     if (pct >= 80 && typeof Confetti !== 'undefined' && Confetti.fire) {
         Confetti.fire(3000);
     }
+}
+
+function quizResultMessage(pct) {
+    return pct === 100 ? t('quiz_result_perfect') : pct >= 80 ? t('quiz_result_great') : pct >= 60 ? t('quiz_result_good') : t('quiz_result_retry');
 }
 
 function resetQuiz() {
@@ -1285,6 +1291,210 @@ function downloadResult() {
     a.href = URL.createObjectURL(blob);
     a.download = 'hasil-kuis.txt';
     a.click();
+}
+
+// ---------- Shareable result card ----------
+// A 1200x630 card drawn on #shareCardCanvas from the live CSS tokens, so it follows the theme and language.
+
+const SHARE_W = 1200, SHARE_H = 630, SHARE_M = 72;
+let _shareFonts = Promise.resolve();
+
+function shareCardContent() {
+    const pct = Math.round((quiz.score / QUIZ.length) * 100);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const url = (canonical && canonical.href) || location.origin + location.pathname;
+    return {
+        name: displayName(),
+        score: String(quiz.score),
+        total: '/' + QUIZ.length,
+        pct,
+        course: t('app_title'),
+        kicker: t('share_kicker').toLocaleUpperCase(locale()),
+        correct: tf('share_correct', { n: pct }),
+        message: quizResultMessage(pct),
+        date: new Date().toLocaleDateString(locale(), { year: 'numeric', month: 'long', day: 'numeric' }),
+        url,
+        site: url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    };
+}
+
+function shareCardStyle() {
+    const css = getComputedStyle(document.body);
+    const v = name => css.getPropertyValue(name).trim();
+    return {
+        paper: v('--paper'), ink: v('--ink'), ink2: v('--ink-2'), muted: v('--muted'), rule: v('--rule'), accent: v('--accent'),
+        serif: v('--serif') || 'Georgia, serif', mono: v('--mono') || 'monospace'
+    };
+}
+
+// Fetch the font faces the card needs, so drawing on click can stay synchronous inside the user gesture
+function preloadShareFonts() {
+    if (!document.fonts || !document.fonts.load) return null;
+    const c = shareCardContent(), s = shareCardStyle();
+    _shareFonts = Promise.all([
+        document.fonts.load(`300 200px ${s.serif}`, c.score + c.total),
+        document.fonts.load(`400 56px ${s.serif}`, c.name),
+        document.fonts.load(`600 36px ${s.serif}`, c.course),
+        document.fonts.load(`italic 400 34px ${s.serif}`, c.message),
+        document.fonts.load(`400 22px ${s.mono}`, c.kicker + c.date + c.correct + c.site)
+    ]).catch(() => {});
+    return _shareFonts;
+}
+
+// Largest font size, down to min, at which text fits maxWidth; trims with an ellipsis below that
+function fitText(ctx, text, maxWidth, font, size, min) {
+    for (; size > min; size -= 2) {
+        ctx.font = font(size);
+        if (ctx.measureText(text).width <= maxWidth) return text;
+    }
+    ctx.font = font(min);
+    let chars = Array.from(text);
+    while (chars.length > 1 && ctx.measureText(chars.join('') + '…').width > maxWidth) chars.pop();
+    return chars.length === Array.from(text).length ? text : chars.join('') + '…';
+}
+
+// Greedy line breaking on spaces, or per character for scripts written without them
+function wrapLines(ctx, text, maxWidth, maxLines) {
+    const tokens = /\s/.test(text) ? text.split(/(\s+)/) : Array.from(text);
+    const lines = [];
+    let line = '';
+    for (const token of tokens) {
+        const next = line + token;
+        if (line && ctx.measureText(next).width > maxWidth) {
+            lines.push(line.trim());
+            line = token.trimStart();
+        } else {
+            line = next;
+        }
+    }
+    if (line.trim()) lines.push(line.trim());
+    return lines.slice(0, maxLines);
+}
+
+function drawShareCard(canvas) {
+    const ctx = canvas.getContext('2d');
+    const c = shareCardContent(), s = shareCardStyle();
+    const rtl = document.documentElement.dir === 'rtl';
+    const spaced = !/^(ar|hi|zh|ja|ko)$/.test(locale()) && 'letterSpacing' in ctx;
+    const W = SHARE_W, H = SHARE_H, M = SHARE_M, inner = W - 2 * M;
+    // x for a distance measured from the reading-start edge
+    const sx = d => rtl ? W - d : d;
+    const text = (str, d, y, font, color, align = 'start') => {
+        ctx.font = font;
+        ctx.fillStyle = color;
+        ctx.direction = rtl ? 'rtl' : 'ltr';
+        ctx.textAlign = align;
+        ctx.fillText(str, sx(d), y);
+    };
+    const mono = `400 22px ${s.mono}`;
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = s.paper;
+    ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = 'alphabetic';
+
+    // Masthead: kicker and date, over a full ink rule
+    if (spaced) ctx.letterSpacing = '3px';
+    text(c.kicker, M, 96, mono, s.accent);
+    if (spaced) ctx.letterSpacing = '0px';
+    text(c.date, W - M, 96, mono, s.muted, 'end');
+    ctx.fillStyle = s.ink;
+    ctx.fillRect(M, 122, inner, 2);
+
+    // Learner's name
+    const nameFont = size => `400 ${size}px ${s.serif}`;
+    const name = fitText(ctx, c.name, inner, nameFont, 60, 32);
+    text(name, M, 212, ctx.font, s.ink);
+
+    // Score, always left to right so "31/37" never mirrors
+    const scoreFont = size => `300 ${size}px ${s.serif}`;
+    let size = 230;
+    ctx.font = scoreFont(size);
+    while (size > 120 && ctx.measureText(c.score + c.total).width > inner * 0.56) ctx.font = scoreFont(size -= 10);
+    const wScore = ctx.measureText(c.score).width, wTotal = ctx.measureText(c.total).width;
+    ctx.direction = 'ltr';
+    ctx.textAlign = 'left';
+    const left = rtl ? W - M - wScore - wTotal : M;
+    ctx.fillStyle = s.ink;
+    ctx.fillText(c.score, left, 430);
+    ctx.fillStyle = s.muted;
+    ctx.fillText(c.total, left + wScore, 430);
+
+    // Beside the score: percentage and the result message
+    const col = M + wScore + wTotal + 48, colWidth = W - M - col;
+    text(c.correct, col, 300, mono, s.muted);
+    const msgFont = `italic 400 34px ${s.serif}`;
+    ctx.font = msgFont;
+    wrapLines(ctx, c.message, colWidth, 3).forEach((line, i) => text(line, col, 350 + i * 44, msgFont, s.ink2));
+
+    // Score bar: rule-coloured track, accent fill from the reading-start edge
+    const fill = Math.round(inner * c.pct / 100);
+    ctx.fillStyle = s.rule;
+    ctx.fillRect(M, 480, inner, 6);
+    ctx.fillStyle = s.accent;
+    ctx.fillRect(rtl ? W - M - fill : M, 480, fill, 6);
+
+    // Footer: course name and site address
+    ctx.font = mono;
+    const siteWidth = ctx.measureText(c.site).width;
+    const course = fitText(ctx, c.course, inner - siteWidth - 40, size => `600 ${size}px ${s.serif}`, 36, 24);
+    text(course, M, 568, ctx.font, s.ink);
+    text(c.site, W - M, 566, mono, s.muted, 'end');
+
+    canvas.setAttribute('aria-label', tf('share_alt', { name: c.name, score: c.score + c.total, course: c.course }));
+    return c;
+}
+
+// Redraw the preview when the result is on screen (after a theme or language change)
+function refreshShareCard() {
+    const r = document.getElementById('quizResult');
+    const canvas = document.getElementById('shareCardCanvas');
+    if (!r || !canvas || r.style.display === 'none') return;
+    const msgEl = document.getElementById('resultMessage');
+    if (msgEl) msgEl.textContent = quizResultMessage((quiz.score / QUIZ.length) * 100);
+    drawShareCard(canvas);
+    const fonts = preloadShareFonts();
+    if (fonts) fonts.then(() => drawShareCard(canvas));
+}
+
+function canvasToBlob(canvas) {
+    const bin = atob(canvas.toDataURL('image/png').split(',')[1]);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new Blob([bytes], { type: 'image/png' });
+}
+
+async function shareResult() {
+    const canvas = document.getElementById('shareCardCanvas');
+    if (!canvas) return;
+    // Normally settled long before the click, so awaiting it keeps the user activation for navigator.share
+    await Promise.race([_shareFonts, new Promise(res => setTimeout(res, 1500))]);
+    const c = drawShareCard(canvas);
+    const blob = canvasToBlob(canvas);
+    const filename = `learn-ai-quiz-${quiz.score}-of-${QUIZ.length}.png`;
+    const file = typeof File === 'function' ? new File([blob], filename, { type: 'image/png' }) : null;
+
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+            await navigator.share({
+                files: [file],
+                title: c.course,
+                text: tf('share_text', { score: c.score + c.total, course: c.course }) + ' ' + c.url
+            });
+            return;
+        } catch (err) {
+            if (err && err.name === 'AbortError') return;
+        }
+    }
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    notify('success', t('share_saved'));
 }
 
 let _lastFocused = null;
@@ -2069,6 +2279,9 @@ function setupControls() {
 
     const downloadResultBtn = document.getElementById('downloadResultBtn');
     if (downloadResultBtn) downloadResultBtn.addEventListener('click', downloadResult);
+
+    const shareResultBtn = document.getElementById('shareResultBtn');
+    if (shareResultBtn) shareResultBtn.addEventListener('click', shareResult);
 
     const resetQuizBtn = document.getElementById('resetQuizBtn');
     if (resetQuizBtn) resetQuizBtn.addEventListener('click', resetQuiz);

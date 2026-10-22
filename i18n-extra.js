@@ -258,7 +258,27 @@ const sectionTitleFix = {
     vi: { 6: ['Prompt Engineering là gì?', 'Nguyên tắc cơ bản', 'Kỹ thuật nâng cao'], 7: ['Vì sao đạo đức AI quan trọng?', 'Thiên kiến trong AI', 'Quyền riêng tư và bảo mật'], 8: ['Cơ hội nghề nghiệp AI', 'Kỹ năng thiết yếu', 'Bắt đầu từ đâu'] }
 };
 
+// Shareable result card after the quiz: button, card text, share sheet text and notices
+const shareKeys = {
+    id: { quiz_share: 'Bagikan Hasil', share_kicker: 'Hasil kuis', share_correct: '{n}% benar', share_text: 'Saya meraih skor {score} di kuis {course}.', share_alt: '{name} meraih skor {score} di kuis {course}.', share_saved: 'Kartu hasil disimpan sebagai PNG.', share_caption: 'Pratinjau kartu hasil Anda' },
+    en: { quiz_share: 'Share Result', share_kicker: 'Quiz result', share_correct: '{n}% correct', share_text: 'I scored {score} on the {course} quiz.', share_alt: '{name} scored {score} on the {course} quiz.', share_saved: 'Result card saved as PNG.', share_caption: 'Preview of your result card' },
+    zh: { quiz_share: '分享结果', share_kicker: '测验结果', share_correct: '正确率 {n}%', share_text: '我在“{course}”测验中得了 {score} 分。', share_alt: '{name}在“{course}”测验中得了 {score} 分。', share_saved: '结果卡片已保存为 PNG。', share_caption: '结果卡片预览' },
+    es: { quiz_share: 'Compartir resultado', share_kicker: 'Resultado del cuestionario', share_correct: '{n}% de aciertos', share_text: 'Obtuve {score} en el cuestionario «{course}».', share_alt: '{name} obtuvo {score} en el cuestionario «{course}».', share_saved: 'Tarjeta de resultado guardada como PNG.', share_caption: 'Vista previa de tu tarjeta de resultado' },
+    ar: { quiz_share: 'مشاركة النتيجة', share_kicker: 'نتيجة الاختبار', share_correct: '{n}% إجابات صحيحة', share_text: 'حصلت على {score} في اختبار «{course}».', share_alt: 'حصل {name} على {score} في اختبار «{course}».', share_saved: 'تم حفظ بطاقة النتيجة بصيغة PNG.', share_caption: 'معاينة بطاقة نتيجتك' },
+    hi: { quiz_share: 'परिणाम साझा करें', share_kicker: 'क्विज़ परिणाम', share_correct: '{n}% सही', share_text: 'मैंने {course} क्विज़ में {score} अंक पाए।', share_alt: '{name} ने {course} क्विज़ में {score} अंक पाए।', share_saved: 'परिणाम कार्ड PNG के रूप में सहेजा गया।', share_caption: 'आपके परिणाम कार्ड का पूर्वावलोकन' },
+    pt: { quiz_share: 'Compartilhar resultado', share_kicker: 'Resultado do quiz', share_correct: '{n}% de acertos', share_text: 'Fiz {score} no quiz "{course}".', share_alt: '{name} fez {score} no quiz "{course}".', share_saved: 'Cartão de resultado salvo como PNG.', share_caption: 'Prévia do seu cartão de resultado' },
+    fr: { quiz_share: 'Partager le résultat', share_kicker: 'Résultat du quiz', share_correct: '{n} % de bonnes réponses', share_text: "J'ai obtenu {score} au quiz « {course} ».", share_alt: '{name} a obtenu {score} au quiz « {course} ».', share_saved: 'Carte de résultat enregistrée en PNG.', share_caption: 'Aperçu de votre carte de résultat' },
+    de: { quiz_share: 'Ergebnis teilen', share_kicker: 'Quiz-Ergebnis', share_correct: '{n} % richtig', share_text: 'Ich habe {score} im Quiz „{course}“ erreicht.', share_alt: '{name} hat {score} im Quiz „{course}“ erreicht.', share_saved: 'Ergebniskarte als PNG gespeichert.', share_caption: 'Vorschau Ihrer Ergebniskarte' },
+    ja: { quiz_share: '結果をシェア', share_kicker: 'クイズ結果', share_correct: '正答率 {n}%', share_text: '「{course}」のクイズで {score} を獲得しました。', share_alt: '{name}さんが「{course}」のクイズで {score} を獲得しました。', share_saved: '結果カードをPNGで保存しました。', share_caption: '結果カードのプレビュー' },
+    ko: { quiz_share: '결과 공유', share_kicker: '퀴즈 결과', share_correct: '정답률 {n}%', share_text: '{course} 퀴즈에서 {score}점을 받았어요.', share_alt: '{name} 님이 {course} 퀴즈에서 {score}점을 받았습니다.', share_saved: '결과 카드를 PNG로 저장했습니다.', share_caption: '결과 카드 미리보기' },
+    ru: { quiz_share: 'Поделиться результатом', share_kicker: 'Результат теста', share_correct: '{n}% верных ответов', share_text: 'Мой результат в тесте «{course}»: {score}.', share_alt: 'Результат {name} в тесте «{course}»: {score}.', share_saved: 'Карточка результата сохранена в PNG.', share_caption: 'Предпросмотр карточки результата' },
+    tr: { quiz_share: 'Sonucu Paylaş', share_kicker: 'Sınav sonucu', share_correct: '%{n} doğru', share_text: '"{course}" sınavında {score} puan aldım.', share_alt: '{name}, "{course}" sınavında {score} puan aldı.', share_saved: 'Sonuç kartı PNG olarak kaydedildi.', share_caption: 'Sonuç kartınızın önizlemesi' },
+    it: { quiz_share: 'Condividi risultato', share_kicker: 'Risultato del quiz', share_correct: '{n}% di risposte esatte', share_text: 'Ho ottenuto {score} al quiz "{course}".', share_alt: '{name} ha ottenuto {score} al quiz "{course}".', share_saved: 'Scheda del risultato salvata come PNG.', share_caption: 'Anteprima della tua scheda del risultato' },
+    vi: { quiz_share: 'Chia sẻ kết quả', share_kicker: 'Kết quả bài kiểm tra', share_correct: 'Đúng {n}%', share_text: 'Tôi đạt {score} trong bài kiểm tra "{course}".', share_alt: '{name} đạt {score} trong bài kiểm tra "{course}".', share_saved: 'Đã lưu thẻ kết quả dưới dạng PNG.', share_caption: 'Xem trước thẻ kết quả của bạn' }
+};
+
 Object.entries(uiKeys).forEach(([lang, keys]) => { if (translations[lang]) Object.assign(translations[lang], keys); });
+Object.entries(shareKeys).forEach(([lang, keys]) => { if (translations[lang]) Object.assign(translations[lang], keys); });
 Object.entries(lessonDescFix).forEach(([lang, descs]) => {
     Object.entries(descs).forEach(([id, desc]) => {
         if (lessonTranslations[lang] && lessonTranslations[lang][id]) lessonTranslations[lang][id].desc = desc;
