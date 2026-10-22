@@ -44,6 +44,7 @@ Ditulis untuk pelajar, mahasiswa, orang yang sedang pindah karier, guru, dan sia
 | **Sertifikat** | Sertifikat PDF terbitan mandiri setelah semua modul selesai |
 | **Data tetap di perangkat Anda** | Semua tersimpan di `localStorage`, bisa diekspor dan diimpor sebagai JSON |
 | **Terang dan gelap** | Mengikuti tema sistem, bisa diganti manual |
+| **Bisa offline** | Setelah sekali dibuka, aplikasi, kuis, playground, dan semua halaman materi dalam bahasa Anda tetap bisa dibuka tanpa internet |
 
 <p align="center"><a href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/id/neural-network-playground/"><img src="docs/screenshots/playground-demo.gif" alt="Playground neural network melatih jaringan tiga layer pada data spiral: peta neuron, bobot, dan batas keputusan berubah secara langsung" width="900"></a></p>
 
@@ -99,7 +100,7 @@ Untuk deploy, unggah foldernya apa adanya ke GitHub Pages atau Netlify. `netlify
 - **Tanpa akun:** siswa cukup membuka link. Tidak ada yang perlu diatur dan tidak ada data yang bisa bocor.
 - **Kelas multibahasa:** setiap siswa bisa memilih bahasanya sendiri di halaman yang sama.
 - **Bukti tugas:** siswa bisa mengunduh hasil kuis atau mengekspor progres sebagai file JSON.
-- **Bisa di jaringan lokal:** karena berupa folder statis, website ini bisa jalan di intranet sekolah. Font dan ekspor PDF tetap butuh internet.
+- **Bisa di jaringan lokal dan offline:** karena berupa folder statis, website ini bisa jalan di intranet sekolah. Setelah sekali dibuka dengan internet, materi dan fontnya tetap bisa dipakai offline. Ekspor PDF bisa offline setelah pernah dipakai saat online.
 
 ## Kontribusi
 
@@ -109,14 +110,14 @@ Kontribusi sangat diterima. Yang paling membantu:
 - **Tambah atau perbaiki modul.** Contoh yang akurat dan konkret lebih baik daripada penjelasan panjang.
 - **Perbaiki bug.** Sertakan langkah untuk mereproduksinya di pull request Anda.
 
-Kalau Anda mengubah teks materi, buat ulang halaman statis per modul lalu jalankan pengecekan (Node 20 ke atas, tanpa instalasi apa pun):
+Kalau Anda mengubah teks materi atau file yang dimuat aplikasi (script, style, playground), buat ulang halaman statis per modul dan versi cache service worker, lalu jalankan pengecekan (Node 20 ke atas, tanpa instalasi apa pun):
 
 ```bash
 npm run build:pages
 npm test
 ```
 
-CI menjalankan `npm test` di setiap pull request dan gagal kalau folder `learn/` belum diperbarui.
+CI menjalankan `npm test` di setiap pull request dan gagal kalau folder `learn/` atau `sw.js` belum diperbarui.
 
 Fork repo ini, buat branch, lalu ajukan pull request dengan catatan singkat tentang apa yang diubah dan alasannya.
 

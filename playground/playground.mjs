@@ -578,3 +578,16 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () 
     redrawNeuron();
     redrawNetwork();
 });
+
+// Offline support: sw.js sits at the site root, one folder up from this file.
+// It also saves the other pages in this page's language, and the fonts this
+// page links, since they load before the worker is in control.
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register(new URL('../sw.js', import.meta.url)).catch(() => {});
+    if (!(navigator.connection && navigator.connection.saveData)) {
+        const fontStylesheets = [...document.querySelectorAll('link[rel="stylesheet"][href^="https://fonts.googleapis.com/"]')].map(link => link.href);
+        navigator.serviceWorker.ready.then(registration => {
+            if (registration.active) registration.active.postMessage({ type: 'save-for-offline', lang: document.documentElement.lang, fontStylesheets });
+        });
+    }
+}
