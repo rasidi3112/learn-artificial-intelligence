@@ -45,6 +45,7 @@ It is written for students, career switchers, teachers and anyone who wants to s
 | **Certificate** | A self-issued PDF certificate once every module is complete |
 | **Your data, your device** | Everything is stored in `localStorage`, with JSON export and import |
 | **Light and dark** | Follows your system theme, with a manual toggle |
+| **Works offline** | After one visit, the app, the quiz, the playground and every lesson page in your language open without a connection |
 
 <p align="center"><a href="https://rasidi3112.github.io/learn-artificial-intelligence/learn/en/neural-network-playground/"><img src="docs/screenshots/playground-demo.gif" alt="The neural network playground training a three-layer network on a spiral: neuron maps, weights and the decision boundary update live" width="900"></a></p>
 
@@ -110,7 +111,7 @@ To deploy, publish the folder as-is to GitHub Pages or Netlify. `netlify.toml` i
 - **No accounts:** students open a link and start. Nothing to provision and nothing to leak.
 - **Mixed-language classes:** each student can pick their own language on the same page.
 - **Homework evidence:** students can download their quiz result or export their progress as a JSON file.
-- **Offline-friendly hosting:** it is a static folder, so it runs on a school intranet or a laptop with no internet connection. Fonts and PDF export need a connection.
+- **Offline-friendly:** it is a static folder, so it runs on a school intranet or a laptop. After one visit with a connection, the course and its fonts keep working offline. PDF export works offline once it has been used online.
 
 ## How it's built
 
@@ -123,6 +124,7 @@ To deploy, publish the folder as-is to GitHub Pages or Netlify. `netlify.toml` i
 | **Security** | Strict Content Security Policy, with all user input escaped before rendering |
 | **Accessibility** | Keyboard-navigable tabs and quiz, focus-trapped dialogs, live regions, reduced-motion support |
 | **PDF** | html2pdf.js, loaded from cdnjs only when you download a certificate |
+| **Offline** | `sw.js` serves the app shell cache-first from a cache named after a hash of its files, so each deploy replaces it. Pages under `learn/` are network-first with a cached fallback, and Google Fonts and html2pdf are cached on first use |
 
 ```
 ├── index.html               Page structure
@@ -132,9 +134,10 @@ To deploy, publish the folder as-is to GitHub Pages or Netlify. `netlify.toml` i
 ├── quiz-translations.js     Quiz questions in 14 languages
 ├── i18n-extra.js            Interface strings and translation fixes
 ├── lessons-agents-rag.js    Modules 16 and 17 with all translations and quiz questions
+├── sw.js                    Service worker for offline use
 ├── learn/                   Generated static page per module and language
-├── scripts/build-pages.mjs  Generator for learn/, sitemap.xml and robots.txt
-├── tests/                   node:test checks for the generated pages
+├── scripts/build-pages.mjs  Generator for learn/, sitemap.xml, robots.txt and the cache list in sw.js
+├── tests/                   node:test checks for the generated pages and the service worker
 └── docs/screenshots/        Images used in this README
 ```
 
@@ -146,21 +149,21 @@ Contributions are welcome. These help the most:
 - **Add or improve a module.** Accurate, concrete examples beat long ones.
 - **Fix a bug.** Include the steps to reproduce it in your pull request.
 
-If you change lesson text, regenerate the static pages and run the checks (Node 20 or newer, nothing to install):
+If you change lesson text or any file the app loads (scripts, styles, the playground), regenerate the static pages and the service worker's cache version, then run the checks (Node 20 or newer, nothing to install):
 
 ```bash
 npm run build:pages
 npm test
 ```
 
-CI runs `npm test` on every pull request and fails if `learn/` is out of date.
+CI runs `npm test` on every pull request and fails if `learn/` or `sw.js` is out of date.
 
 Fork the repo, create a branch, and open a pull request with a short note on what you changed and why.
 
 ## Roadmap
 
 - [x] Daily learning-streak tracking
-- [ ] Offline mode with a service worker
+- [x] Offline mode with a service worker
 - [ ] Shareable result card after the quiz
 - [ ] More modules: AI security, data engineering for ML, evaluation of LLM apps
 - [ ] Optional sync across devices

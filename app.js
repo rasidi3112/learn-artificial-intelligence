@@ -970,6 +970,7 @@ function changeLanguage() {
         renderLeaderboard();
         updateDashboard();
         showCertificate();
+        cacheLessonPages();
         notify('success', langName);
     }
 }
@@ -2660,6 +2661,25 @@ function initVisualEffects() {
     setupScrollReveal();
 }
 
+// --- 5. Offline support ---
+// sw.js keeps the app shell and saves the lesson pages in the reader's
+// language, so the links to them keep working without a connection.
+function registerServiceWorker() {
+    if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+    cacheLessonPages();
+}
+
+function cacheLessonPages() {
+    if (!('serviceWorker' in navigator) || (navigator.connection && navigator.connection.saveData)) return;
+    // On the first visit the fonts load before the worker is in control, so pass their stylesheets along.
+    const fontStylesheets = [...document.querySelectorAll('link[rel="stylesheet"][href^="https://fonts.googleapis.com/"]')].map(link => link.href);
+    navigator.serviceWorker.ready.then(registration => {
+        if (registration.active) registration.active.postMessage({ type: 'save-for-offline', lang: data.lang || 'id', fontStylesheets });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     init();
 });
+window.addEventListener('load', registerServiceWorker);
